@@ -1,0 +1,77 @@
+<div class="Grid Grid--wrap Grid--gapped">
+  <div class="Grid-el Grid-el--grow u-p-3 u-mb-5 u-bordered">
+    <h2 class="u-mb-1">
+      <%= t("bookings.new.existing_customer") %>
+    </h2>
+
+    <%= form_with(url: new_booking_path, method: :get, html: { autocomplete: :off }) do %>
+      <%= hidden_field_tag :step, :select_product_variant_step %>
+
+      <div class="Form-element">
+        <div class="Input">
+          <%= label_tag :customer_id, t("bookings.new.select_customer"), class: "Input-label" %>
+
+          <%= render(
+            "partials/autocomplete",
+            suggestions_url: api_customers_path,
+            suggestion_title_field: :full_name,
+            suggestion_description_template: %Q(
+              <span class="u-block">
+                %{localized_birthdate} · %{bookings_count}
+              </span>
+
+              <span class="u-block">
+                %{full_address}
+              </span>
+            )
+          ) do %>
+            <%= text_field_tag :customer_id, nil, class: "Input-element", required: true %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <%= submit_tag t("bookings.new.next_step"), name: nil, class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="Grid-el Grid-el--grow u-p-3 u-mb-5 u-bordered">
+    <h2 class="u-mb-1">
+      <%= t("bookings.new.new_customer") %>
+    </h2>
+
+    <%= form_for Customer.new, url: customers_path do |f| %>
+      <%= hidden_field_tag :redirect_to, new_booking_path(step: :select_product_variant_step) %>
+
+      <div class="Form-element">
+        <div class="Input">
+          <%= f.label :first_name, class: "Input-label" %>
+          <%= f.text_field :first_name, class: "Input-element", required: true %>
+        </div>
+      </div>
+
+      <div class="Form-element">
+        <div class="Input">
+          <%= f.label :last_name, class: "Input-label" %>
+          <%= f.text_field :last_name, class: "Input-element", required: true %>
+        </div>
+      </div>
+
+      <div class="Form-element">
+        <div class="Input">
+          <%= f.label :email, class: "Input-label" %>
+          <%= f.email_field :email, class: "Input-element", required: true %>
+        </div>
+      </div>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <%= f.submit t("bookings.new.next_step"), class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

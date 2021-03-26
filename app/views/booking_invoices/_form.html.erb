@@ -1,0 +1,150 @@
+<%= form_with model: [@booking_invoice.booking, @booking_invoice] do |f| %>
+  <div class="Form-element">
+    <div class="Input u-mb-3">
+      <%= f.label :description, class: "Input-label" %>
+      <%= f.text_area :description, class: "Input-element" %>
+    </div>
+  </div>
+
+  <div class="u-mb-3">
+    <% if @booking_invoice_form.booking_resource_skus.any? %>
+    <div class="Section">
+      <div class="Table-wrapper">
+        <table class="Table">
+          <thead>
+            <%= render "booking_invoices/booking_resource_skus/header" %>
+          </thead>
+
+          <tbody>
+            <%= render partial: "booking_invoices/booking_resource_skus/row", collection: BookingResourceSkuDecorator.decorate_collection(@booking_invoice_form.created_booking_resource_skus), as: :item, locals: { price_info: @booking_invoice_form.created_booking_resource_skus_price_info, item_action: :added } %>
+            <%= render partial: "booking_invoices/booking_resource_skus/row", collection: BookingResourceSkuDecorator.decorate_collection(@booking_invoice_form.updated_booking_resource_skus), as: :item, locals: { price_info: @booking_invoice_form.updated_booking_resource_skus_price_info, item_action: :modified } %>
+            <%= render partial: "booking_invoices/booking_resource_skus/row", collection: BookingResourceSkuDecorator.decorate_collection(@booking_invoice_form.canceled_booking_resource_skus), as: :item, locals: { price_info: @booking_invoice_form.canceled_booking_resource_skus_price_info, item_action: :canceled } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% end %>
+
+    <% if @booking_invoice_form.booking_resource_sku_groups.any? %>
+    <div class="Section">
+      <div class="Table-wrapper">
+        <h3>
+          <%= t("booking_invoices.new.booking_resource_sku_groups") %>
+        </h3>
+
+        <table class="Table">
+          <thead>
+            <%= render "booking_invoices/booking_resource_sku_groups/header" %>
+          </thead>
+
+          <tbody>
+            <%= render partial: "booking_invoices/booking_resource_sku_groups/row", collection: BookingResourceSkuGroupDecorator.decorate_collection(@booking_invoice_form.created_booking_resource_sku_groups), as: :item, locals: { price_info: @booking_invoice_form.created_booking_resource_sku_groups_price_info, item_action: :added } %>
+            <%= render partial: "booking_invoices/booking_resource_sku_groups/row", collection: BookingResourceSkuGroupDecorator.decorate_collection(@booking_invoice_form.updated_booking_resource_sku_groups), as: :item, locals: { price_info: @booking_invoice_form.updated_booking_resource_sku_groups_price_info, item_action: :modified } %>
+            <%= render partial: "booking_invoices/booking_resource_sku_groups/row", collection: BookingResourceSkuGroupDecorator.decorate_collection(@booking_invoice_form.canceled_booking_resource_sku_groups), as: :item, locals: { price_info: @booking_invoice_form.canceled_booking_resource_sku_groups_price_info, item_action: :canceled } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% end %>
+
+    <% if @booking_invoice_form.booking_credits.any? %>
+    <div class="Section">
+      <div class="Table-wrapper">
+        <h3>
+          <%= t("booking_invoices.new.booking_credits") %>
+        </h3>
+
+        <table class="Table">
+          <thead>
+            <%= render "booking_invoices/booking_credits/header" %>
+          </thead>
+
+          <tbody>
+            <%= render partial: "booking_invoices/booking_credits/row", collection: BookingCreditDecorator.decorate_collection(@booking_invoice_form.created_booking_credits), as: :item, locals: { price_info: @booking_invoice_form.created_booking_credits_price_info, item_action: :added } %>
+            <%= render partial: "booking_invoices/booking_credits/row", collection: BookingCreditDecorator.decorate_collection(@booking_invoice_form.updated_booking_credits), as: :item, locals: { price_info: @booking_invoice_form.updated_booking_credits_price_info, item_action: :modified } %>
+            <%= render partial: "booking_invoices/booking_credits/row", collection: BookingCreditDecorator.decorate_collection(@booking_invoice_form.removed_booking_credits), as: :item, locals: { price_info: @booking_invoice_form.removed_booking_credits_price_info, item_action: :canceled } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="Section js-paymentSection">
+    <h3><%= Payment.model_name.human(count: booking_invoice.partially_payable? ? 2 : 1) %></h3>
+
+    <% if booking_invoice.partially_payable? %>
+      <div class="js-partialPaymentForm">
+        <div class="u-mt-1 u-mb-1">
+          <%= link_to(
+            "#addPayment",
+            class: "Button Button--small Button--positive js-addPaymentButton",
+            title: "addPayment"
+          ) do %>
+            <%= t("booking_invoices.new.with_first_and_final_payment") %>
+          <% end %>
+        </div>
+
+        <div class="u-mt-1 u-mt-1">
+          <div class="Input">
+            <%= link_to(
+              "#removePayment",
+              class: "Button Button--small Button--secondary js-removePaymentButton",
+              title: "removePayment"
+            ) do %>
+              <%= t("booking_invoices.new.with_single_payment") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%= f.fields_for :payments, booking_invoice.initialize_partial_payment do |payment_form| %>
+        <div class="Form-elementGroup">
+          <div class="Input">
+            <%= payment_form.label :due_on, class: "Input-label Input-label--required" %>
+            <%= payment_form.date_field :due_on, required: true, class: "Input-element" %>
+          </div>
+          <div class="Input">
+            <%= payment_form.label :price, class: "Input-label Input-label--required" %>
+            <%= payment_form.text_field :price, required: true, class: "Input-element js-partialPrice", data: { locale: locale, partial_price: payment_form.object.price.fractional, total_price: booking_invoice.total_price.fractional } %>
+            <div class="Input-element--append">
+              <div class="Button Button--append Button--secondary">
+                <%= render "partials/icon", name: "refresh", title: t("refresh") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="js-finalPaymentForm">
+      <%= f.fields_for :payments, booking_invoice.initialize_final_payment do |payment_form| %>
+        <div class="Form-elementGroup">
+          <div class="Input">
+            <%= payment_form.label :due_on, class: "Input-label Input-label--required" %>
+            <%= payment_form.date_field :due_on, required: true, class: "Input-element" %>
+          </div>
+          <div class="Input">
+            <%= payment_form.label :price, class: "Input-label Input-label--required" %>
+            <%= payment_form.text_field :price, required: true, class: "Input-element js-finalPrice", data: { final_price: payment_form.object.price.fractional } %>
+            <div class="Input-element--append">
+              <div class="Button Button--append Button--secondary">
+                <%= render "partials/icon", name: "refresh", title: t("refresh") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="Form-buttons">
+      <div class="Form-button">
+        <%= link_to t("abort"), booking_path(booking_invoice.booking), class: "Button Button--secondary" %>
+      </div>
+
+      <div class="Form-button">
+        <%= f.submit t("bookings.show.buttons.create_invoice"), class: "Button" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<% if @booking.assignee.present? %>
+  <%= render partial: 'bookings/show/assigned' %>
+<% else %>
+  <%= render partial: 'bookings/show/not_assigned' %>
+<% end %>
+

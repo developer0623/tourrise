@@ -1,0 +1,22 @@
+{
+   "id":1,
+   "name":"Resource Sku Group name",
+   "vat": "10.0",
+   "price_cents":10,
+   "cost_center":{
+      "id":1,
+      "name":"Cost Center Name",
+      "value":"10",
+      "created_at":"2020-11-26 13:32:55 +0100",
+      "updated_at":"2020-11-26 13:32:55 +0100"
+   },
+   "financial_account":{
+      "id":1,
+      "name":"Trip domestic",
+      "created_at":"2020-11-26 13:32:55 +0100",
+      "updated_at":"2020-11-26 13:32:55 +0100",
+      "before_service_year":"4444",
+      "during_service_year":"3333"
+   },
+   "booking_resource_sku_ids": [1]
+}

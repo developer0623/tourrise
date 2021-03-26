@@ -1,0 +1,29 @@
+.BookingFormTrainingPackage-item {
+  margin-top: var(--List-spacing-y);
+}
+
+.BookingFormTrainingPackage-details {
+  display: flex;
+}
+
+.BookingFormTrainingPackage-image {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.BookingFormTrainingPackage-featuredImage {
+  margin: 1rem;
+}
+
+.BookingFormTrainingPackage-options {
+  margin-top: var(--List-spacing-y);
+}
+
+.BookingFormTrainingPackage-summary {
+  margin: var(--List-spacing-y) 0;
+}

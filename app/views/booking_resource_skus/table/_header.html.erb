@@ -1,0 +1,18 @@
+<tr>
+  <%= render "partials/table/th_featured_image" %>
+
+  <%= render "partials/table/th_sortable",
+    label: Resource.human_attribute_name("name"),
+    sort_by: "name"
+  %>
+
+  <th>
+    <%= BookingResourceSku.human_attribute_name("pricings") %>
+  </th>
+
+  <th>
+    <%= t("bookings.show.total_price") %>
+  </th>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

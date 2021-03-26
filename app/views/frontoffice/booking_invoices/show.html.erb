@@ -1,0 +1,76 @@
+<h1 class="BookingDocument-title">
+ <%= t("booking_form.booking_invoice.headline", name: booking_invoice.product_name) %>
+</h1>
+
+<div class="Card">
+  <div class="BookingDocument-customerContainer">
+    <div class="BookingDocument-customerContainerItem BookingDocument-assigneeAddress">
+      <%= FrontofficeSettingDecorator.full_address %>
+    </div>
+    <div class="BookingDocument-customerContainerItem">
+      <%= booking_invoice.customer_name %>
+      <div class="u-floatRight">
+        <%= booking_invoice.assignee_email %>
+      </div>
+    </div>
+    <div class="BookingDocument-customerContainerItem">
+      <%= booking_invoice.customer_address_line1 %>
+    </div>
+    <div class="BookingDocument-customerContainerItem">
+      <%= booking_invoice.customer_city %>
+    </div>
+  </div>
+
+  <div class="BookingDocument-infoContainer">
+    <div class="u-textAlignRight">
+      <%= l(booking_invoice.created_at.to_date, format: :long) %>
+    </div>
+    <div class="u-textAlignRight">
+      <%= t("booking_form.booking_invoice.id", id: booking_invoice.number) %>
+    </div>
+    <div class="u-textAlignRight">
+      <%= t("booking_form.documents.customer_id", customer_id: booking_invoice.booking.customer.general_customer_id) %>
+    </div>
+  </div>
+</div>
+
+<%= card do %>
+  <% if booking_invoice.type == AdvanceBookingInvoice.model_name.name %>
+    <%= render "frontoffice/booking_documents/advance_booking_invoice", booking_invoice: booking_invoice %>
+  <% else %>
+    <div class="u-marginBottomLarge">
+      <%= booking_invoice.description %>
+    </div>
+    <%= render "frontoffice/booking_documents/booking_resource_sku_section", booking_document: booking_invoice %>
+  <% end %>
+<% end %>
+
+<% if booking_invoice.booking_credits_snapshot.any? %>
+  <%= card do %>
+    <header class="u-marginBottomBase">
+      <h3>
+        <%= BookingCredit.model_name.human(count: booking_invoice.booking_credits_snapshot.count) %>
+      </h3>
+    </header>
+    <% booking_invoice.booking_credits_snapshot.each do |credit| %>
+      <header class="u-marginBottomBase">
+        <%= t("booking_credits.name_with_date", name: credit["name"], date: l(credit["created_at"].to_date)) %>
+        <div class="u-floatRight">
+          <%= "- #{humanized_money_with_symbol(credit["price_cents"] / 100)}" %>
+        </div>
+      </header>
+    <% end %>
+      <div class="BookingDocument-totalSum">
+      <%= t("booking_form.#{booking_invoice.underscore_class_name}.remaining_sum") %>
+      <%= humanized_money_with_symbol(booking_invoice.payments.object.sum(&:price)) %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= card do %>
+  <%= render "frontoffice/booking_documents/payment_section", booking_document: booking_invoice %>
+<% end %>
+
+<button class="Button Button--primary u-floatRight u-marginBottomBase u-displayNone" type="submit">
+  <%= t("booking_form.documents.submit") %>
+</button>

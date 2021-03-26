@@ -1,0 +1,17 @@
+.CardSection {
+  padding: var(--spacingBase);
+  margin: calc(var(--spacingBase) * -1);
+
+  &.CardSection--separatorAfter,
+  &.CardSection--separatorBoth,
+  &.CardSection--separatorDefault:not(:last-of-type) {
+    border-bottom: 1px solid var(--Card-borderColor);
+    margin-bottom: var(--spacingBase);
+  }
+
+  &.CardSection--separatorBefore,
+  &.CardSection--separatorBoth {
+    border-top: 1px solid var(--Card-borderColor);
+    margin-top: var(--spacingBase);
+  }
+}

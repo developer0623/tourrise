@@ -1,0 +1,20 @@
+<div class="BookingResourceSku-ResourceTypeSelection">
+  <h2 class="u-mb-1">
+    <%= t("booking_resource_skus.new.select_resource_type_step_title") %>
+  </h2>
+
+  <div class="Grid Grid--gapped Grid--wrap Grid--centered">
+  <% ResourceType.all.decorate.each do |resource_type| %>
+    <div class="Grid-el ResourceType">
+      <%= button_to new_booking_booking_resource_sku_path(step: :select_booking_resource_sku_step, resource_type_id: resource_type.id), method: :get, class: "ResourceType-link" do %>
+        <div class="ResourceType-icon u-p-3">
+          <%= render "partials/icon", name: "fa-#{resource_type.icon_name}" %>
+        </div>
+        <div>
+          <%= resource_type.label %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</div>

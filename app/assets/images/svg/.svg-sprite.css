@@ -1,0 +1,10 @@
+/* stylelint-disable */
+{{#shapes}}
+{{#selector.dimensions}}{{expression}}{{^last}},
+{{/last}}{{/selector.dimensions}} {
+  height: 1em;
+  width: calc({{width.outer}} / {{height.outer}} * 1em);
+}
+
+{{/shapes}}
+/* stylelint-enable */

@@ -1,0 +1,15 @@
+<div class="ListItem">
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= CostCenter.human_attribute_name(:name) %>:</span>
+    <%= item.name %>
+  </div>
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= CostCenter.human_attribute_name(:value) %>:</span>
+    <%= item.value %>
+  </div>
+  <div class="ListItem-buttons">
+    <div class="ListItem-button">
+      <a href="<%= edit_settings_cost_center_path(item) %>"><%= t("edit") %></a>
+    </div>
+  </div>
+</div>

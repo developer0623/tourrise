@@ -1,0 +1,3 @@
+var currentHtmlContent = document.querySelector(".js-ResourceSkuPricingsCalendar");
+
+currentHtmlContent.innerHTML = "<%= escape_javascript render(partial: "resource_sku_pricings/calendar/month_calendar", locals: { pricings: @resource_sku_pricings }) %>";

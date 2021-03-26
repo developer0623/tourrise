@@ -1,0 +1,9 @@
+<% alt = local_assigns.fetch(:alt, "") %>
+
+<td>
+  <% if image %>
+    <%= image_tag image, class: "Image ListItem-image", alt: alt %>
+  <% else %>
+    <span class="Image ListItem-image ListItem-image--noImage" title="<%= t("image_unavailable") %>"></span>
+  <% end %>
+</td>

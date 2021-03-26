@@ -1,0 +1,38 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: Booking.human_attribute_name(:created_at),
+    sort_by: "created_at"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Booking.human_attribute_name(:customer),
+    sort_by: "customer_name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Booking.human_attribute_name(:pax),
+    sort_by: "participants_count"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Booking.human_attribute_name(:product),
+    sort_by: "product_name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Booking.human_attribute_name(:aasm_state),
+    sort_by: "status"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Booking.human_attribute_name(:secondary_state),
+    sort_by: "secondary_state"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Booking.human_attribute_name(:due_on),
+    sort_by: "due_on"
+  %>
+
+  <%= render "partials/table/th_actions"%>
+</tr>

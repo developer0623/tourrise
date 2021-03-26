@@ -1,0 +1,15 @@
+.BookingFormAccommodationPreview {
+  margin-top: 1rem;
+}
+
+.BookingFormAccommodationPreview a {
+  text-decoration: none;
+}
+
+.BookingFormAccommodationPreview-main {
+  display: flex;
+}
+
+.BookingFormAccommodationPreview-cta {
+  margin-left: auto;
+}

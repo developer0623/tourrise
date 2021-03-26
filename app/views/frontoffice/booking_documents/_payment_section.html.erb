@@ -1,0 +1,10 @@
+<% booking_document = local_assigns.fetch(:booking_document) %>
+
+<% booking_document.payments.each.with_index(1) do |payment, index| %>
+  <header class="u-marginBottomBase">
+    <%= payment.show_due_on(index) %>
+    <div class="BookingDocument-partialSum">
+      <%= payment.price_with_symbol %>
+    </div>
+  </header>
+<% end %>

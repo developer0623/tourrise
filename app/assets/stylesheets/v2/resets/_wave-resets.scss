@@ -1,0 +1,40 @@
+html {
+  color: var(--gray900);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+}
+
+legend {
+  display: block;
+}
+
+// Override a reset from sanitize.css/forms.css that messes up Flatpickr's
+// month dropdown
+select.flatpickr-monthDropdown-months {
+  background-image: none !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}

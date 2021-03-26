@@ -1,0 +1,18 @@
+<% breadcrumb :easybill %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("easybill.settings.index.title") %>
+
+  <div class="Settings">
+    <div class="SettingsLink">
+      <%= link_to easybill.employees_path, class: 'Button' do %>
+        <% t('easybill.settings.index.employees_link') %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to easybill.product_configurations_path, class: 'Button' do %>
+        <% t('easybill.settings.index.product_configurations_link') %>
+      <% end %>
+    </div>
+  </div>
+</div>

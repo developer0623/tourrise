@@ -1,0 +1,34 @@
+.ResourceSkuPreview {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ResourceSkuPreview-image {
+  order: 1;
+  margin-right: var(--spacingBase);
+}
+
+.ResourceSkuPreview-action {
+  order: 2;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-end;
+
+  @include from($tablet) {
+    flex: 0 0 auto;
+    order: 3;
+  }
+}
+
+.ResourceSkuPreview-details {
+  order: 3;
+  flex: 1 0 100%;
+  margin-top: var(--spacingBase);
+
+  @include from($tablet) {
+    order: 2;
+    flex: 1;
+    margin-right: var(--spacingBase);
+    margin-top: 0;
+  }
+}

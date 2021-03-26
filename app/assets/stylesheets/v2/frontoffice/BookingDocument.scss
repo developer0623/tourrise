@@ -1,0 +1,64 @@
+.BookingDocument-title {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.BookingDocument-totalSum {
+  font-weight: bold;
+  text-align: right;
+  margin-top: 2.5rem;
+}
+
+.BookingDocument-partialSum {
+  font-weight: bold;
+  text-align: right;
+  float: right;
+}
+
+.BookingDocument-customerContainer {
+  align-self: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.BookingDocument-customerContainerItem {
+  align-items: center;
+  width: 100%;
+  color: black;
+}
+
+.BookingDocument-assigneeAddress {
+  size: small;
+  color: grey;
+  font-size: small;
+}
+
+.BookingDocument-infoContainer {
+  float: right;
+  width: 100%;
+}
+
+.BookingDocument-badge {
+  position: fixed;
+  transform: rotate(45deg);
+  color: white;
+  z-index: 999;
+  right: -81px;
+  width: 25rem;
+  height: 2.5rem;
+  text-align: center;
+  top: 100px;
+  line-height: 40px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.BookingDocument-badge.accepted {
+  background-color: green;
+}
+
+.BookingDocument-badge.rejected {
+  background-color: red;
+}

@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= item.id %>
+  </td>
+  <td>
+    <%= item.product.name %>
+  </td>
+
+  <td class="u-textRight">
+    <ul>
+      <li class="u-inlineBlock">
+        <%= link_to t("edit"), edit_product_configuration_path(item) %>
+      </li>
+    </ul>
+  </td>
+</tr>

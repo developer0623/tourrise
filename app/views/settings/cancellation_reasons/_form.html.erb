@@ -1,0 +1,18 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :name, class: "Input-label Input-label--required" %>
+      <%= f.text_field :name, required: true, class: "Input-element", placeholder: true %>
+    </div>
+  </div>
+</div>
+
+<div class="Form-buttons">
+  <div class="Form-button">
+    <%= link_to t("abort"), settings_cancellation_reasons_path, class: "Button Button--secondary" %>
+  </div>
+
+  <div class="Form-button">
+    <%= f.submit t("save"), class: "Button" %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="Form-elementGroup ResourceSkuForm">
+  <div class="ResourceSkuForm-Image">
+    <span class="Image ListItem-image ListItem-image--noImage" title="<%= t("image_unavailable") %>"></span>
+  </div>
+  <div class="Input">
+    <%= f.label :name, class: "Input-label Input-label--required" %>
+    <%= f.text_field :name, class: "Input-element", required: true %>
+    <%= f.error_tag :name, nil, class: "Input-help" %>
+  </div>
+  <div class="Input">
+    <%= f.label :handle, class: "Input-label Input-label--required" %>
+    <%= f.text_field :handle, class: "Input-element", required: true %>
+    <%= f.error_tag :handle, nil, class: "Input-help" %>
+  </div>
+  <% if f.object.new_record? %>
+    <div class="Input Input--withoutLabel">
+      <button class="Button Button--negative js-ResourceForm-removeResourceSkuButton" title="<%= I18n.t('.remove_resource_sku') %>">
+        <span class="Button-icon">
+          <%= render "partials/icon", name: "remove" %>
+        </span>
+      </button>
+    </div>
+  <% end %>
+</div>

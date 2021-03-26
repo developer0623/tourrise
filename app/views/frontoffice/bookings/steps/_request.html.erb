@@ -1,0 +1,60 @@
+<h2>
+  <%= t("booking_form.request_step.title") %>
+</h2>
+
+<%= simple_format booking_form.product_description %>
+
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/date",
+    attribute: :starts_on,
+    min: Date.tomorrow,
+    f: f,
+    required: true,
+    value: booking_form.starts_on
+  %>
+
+  <%= render "components/field/date",
+    attribute: :ends_on,
+    min: Date.tomorrow + 1.day,
+    f: f,
+    required: true,
+    value: booking_form.ends_on
+  %>
+<% end %>
+
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/number",
+    attribute: :adults,
+    min: 1,
+    f: f,
+    required: true,
+    value: booking_form.adults.to_i
+  %>
+
+  <%= render "components/field/number",
+    attribute: :kids,
+    f: f,
+    required: true,
+    value: booking_form.kids.to_i
+  %>
+
+  <%= render "components/field/number",
+    attribute: :babies,
+    f: f,
+    required: true,
+    value: booking_form.babies.to_i
+  %>
+<% end %>
+
+<% if booking_form.show_wishyouwhat_field? %>
+  <%= render(FieldGroup.new) do %>
+    <%= render "components/field/textarea",
+      attribute: :wishyouwhat,
+      f: f,
+      value: booking_form.wishyouwhat,
+      rows: 4
+    %>
+  <% end %>
+<% end %>
+
+<%= render "frontoffice/bookings/footer", f: f %>

@@ -1,0 +1,25 @@
+.BookingWizardNav-list {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.BookingWizardNav-item {
+  display: inline-block;
+  color: var(--gray500);
+}
+
+.BookingWizardNav-item.is-current {
+  font-weight: bold;
+  color: var(--gray800);
+}
+
+.BookingWizardNav-item.is-complete {
+  color: var(--gray800);
+}
+
+.BookingWizardNav-link {
+  display: inline-block;
+  color: inherit;
+}

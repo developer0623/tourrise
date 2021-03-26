@@ -1,0 +1,19 @@
+<div class="ListItem">
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= FinancialAccount.human_attribute_name(:name) %>:</span>
+    <%= item.name %>
+  </div>
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= FinancialAccount.human_attribute_name(:before_service_year) %>:</span>
+    <%= item.before_service_year %>
+  </div>
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= FinancialAccount.human_attribute_name(:during_service_year) %>:</span>
+    <%= item.during_service_year %>
+  </div>
+  <div class="ListItem-buttons">
+    <div class="ListItem-button">
+      <a href="<%= edit_settings_financial_account_path(item) %>"><%= t("edit") %></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  <% if ENV["DATABASE_USERNAME"] %>
+  username: "<%= ENV['DATABASE_USERNAME'] %>"
+  <% end %>
+  <% if ENV["DATABASE_PASSWORD"] %>
+  password: "<%= ENV['DATABASE_PASSWORD'] %>"
+  <% end %>
+  <% if ENV["DATABASE_HOST"] %>
+  host: "<%= ENV['DATABASE_HOST'] %>"
+  <% end %>
+  <% if ENV["DATABASE_PORT"] %>
+  port: "<%= ENV['DATABASE_PORT'] %>"
+  <% end %>
+
+development:
+  <<: *default
+  database: backoffice_development
+
+test:
+  <<: *default
+  database: backoffice_test
+
+<% database_url = ENV['DATABASE_URL'] || ENV['JAWSDB_MARIA_URL']&.sub('mysql://', 'mysql2://') %>
+<% if database_url.present? %>
+production:
+  url: "<%= "#{database_url}" %>"
+<% else %>
+production:
+  database: false
+<% end %>

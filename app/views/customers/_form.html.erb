@@ -1,0 +1,107 @@
+<% if params[:booking_id] %>
+  <%= hidden_field_tag :booking_id, params[:booking_id] %>
+<% end %>
+
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :company_name, class: "Input-label" %>
+    <%= f.text_field :company_name, class: "Input-element" %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input Input--select">
+    <%= f.label :title, class: "Input-label" %>
+    <%= f.select :title, ["Prof.", "Dr.", "Prof. Dr."], { include_blank: true }, { class: "Input-element" } %>
+  </div>
+  <div class="Input Input--select">
+    <%= f.label :gender, class: "Input-label" %>
+    <%= f.select :gender,
+      [[t('genders.male'), :male], [t('genders.female'), :female], [t('genders.diverse'), :diverse]],
+      { include_blank: true },
+      { class: "Input-element" } %>
+  </div>
+  <div class="Input Input--select">
+    <%= f.label :locale, class: "Input-label" %>
+    <%= f.select :locale,
+      options_for_select(PUBLIC_LOCALES.map { |locale| [t(locale), locale] }, f.object.locale),
+      { include_blank: true },
+      { class: "Input-element" } %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :first_name, class: "Input-label Input-label--required" %>
+    <%= f.text_field :first_name, required: true, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :last_name, class: "Input-label Input-label--required" %>
+    <%= f.text_field :last_name, required: true, class: "Input-element" %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :birthdate, class: "Input-label" %>
+    <%= f.date_field :birthdate, class: "Input-element", max: Time.now + 1.day %>
+  </div>
+  <div class="Input">
+    <%= f.label :email, class: "Input-label Input-label--required" %>
+    <%= f.email_field :email, required: true, class: "Input-element" %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :primary_phone, class: "Input-label" %>
+    <%= f.text_field :primary_phone, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :secondary_phone, class: "Input-label" %>
+    <%= f.text_field :secondary_phone, class: "Input-element" %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :address_line_1, class: "Input-label" %>
+    <%= f.text_field :address_line_1, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :address_line_2, class: "Input-label" %>
+    <%= f.text_field :address_line_2, class: "Input-element" %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :zip, class: "Input-label" %>
+    <%= f.text_field :zip, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :city, class: "Input-label" %>
+    <%= f.text_field :city, class: "Input-element" %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input Input--select">
+    <%= f.label :country, class: "Input-label" %>
+    <%= f.country_select :country, { priority_countries: ["DE", "CH", "AT", "FR", "GB"] }, { class: "Input-element" } %>
+  </div>
+</div>
+<%= f.fields_for :custom_attribute_values do |custom_attribute_value| %>
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= custom_attribute_value.hidden_field :id %>
+      <%= custom_attribute_value.hidden_field :custom_attribute_id %>
+      <%= custom_attribute_value.label custom_attribute_value.object.name %>
+      <%= custom_attribute_value.send input_tag_by_field_type(custom_attribute_value.object.field_type),
+                                      :value,
+                                      value: custom_attribute_value.object.form_value,
+                                      class: "Input-element" %>
+    </div>
+  </div>
+<% end %>
+<div class="Form-buttons Input">
+  <div class="Form-button">
+    <%= link_to t('abort'), request.referer, class: 'Button Button--secondary' %>
+  </div>
+  <div class="Form-button">
+    <%= f.submit class: 'Button Button--primary' %>
+  </div>
+</div>

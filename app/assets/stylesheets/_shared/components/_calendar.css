@@ -1,0 +1,59 @@
+:root {
+  --Calendar-cell-width: 150px;
+  --Calendar-cell-height: 150px;
+}
+
+.Calendar {
+  margin-top: calc(-1 * var(--Grid-gap));
+}
+
+.CalendarDay {
+  height: var(--Calendar-cell-height);
+  width: var(--Calendar-cell-width);
+  border: 1px solid;
+  margin-top: var(--Grid-gap);
+  display: flex;
+  flex-direction: column;
+}
+
+.CalendarDay--condensed {
+  width: calc((var(--Calendar-cell-width) / 2) - var(--Grid-gap));
+}
+
+.CalendarHeader {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.CalendarFooter {
+  font-weight: lighter;
+  font-size: small;
+  margin-top: auto;
+  margin-bottom: 1rem;
+  align-self: center;
+}
+
+.CalendarEvent {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  border: 0 solid var(--divider-color);
+  border-bottom-width: 0.1rem;
+  padding: 0.5rem;
+}
+
+.CalendarEvent--blocked {
+  background-color: var(--color-negative-light);
+}
+
+.CalendarEvent--booked {
+  background-color: var(--color-positive-light);
+}
+
+.simple-calendar .prev-month div {
+  opacity: 0.5;
+}
+
+.simple-calendar .next-month div {
+  opacity: 0.5;
+}

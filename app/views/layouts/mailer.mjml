@@ -1,0 +1,17 @@
+<mjml>
+  <mj-body>
+    <!-- Company Header -->
+    <mj-section background-color="#f0f0f0">
+      <mj-column>
+        <mj-text  font-style="italic"
+                  font-size="20px"
+                  color="#626262">
+          <%= GlobalConfiguration.company_name %>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- 2 columns section -->
+    <mj-section background-color="white"><%= yield %></mj-section>
+  </mj-body>
+</mjml>

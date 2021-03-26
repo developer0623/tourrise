@@ -1,0 +1,13 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: Inventory.human_attribute_name(:name),
+    sort_by: "name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Inventory.human_attribute_name(:inventory_type),
+    sort_by: "inventory_type"
+  %>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

@@ -1,0 +1,56 @@
+.BookingPreview {
+  --date-width: 18%;
+  --status-width: 18em;
+  --gap: 2rem;
+}
+
+.BookingPreview-item {
+  padding-bottom: var(--List-element-spacing-y);
+  padding-top: var(--List-element-spacing-y);
+}
+
+.BookingPreview-item:not(:last-child) {
+  box-sizing: content-box;
+  padding-right: var(--gap);
+}
+
+.BookingPreview-item--date {
+  flex-basis: var(--date-width);
+}
+
+.BookingPreview-item--name {
+  --modifier: calc(50rem - 100%);
+
+  display: flex;
+  flex-basis: calc(
+    100% - var(--date-width) - var(--status-width) - calc(2 * var(--gap)) -
+      var(--gap)
+  );
+  flex-grow: 1;
+  flex-wrap: wrap;
+  min-width: 16.25em;
+}
+
+.BookingPreview-name,
+.BookingPreview-product {
+  flex-basis: calc(var(--modifier) * 999);
+}
+
+.BookingPreview-name {
+  flex-grow: 1;
+}
+
+.BookingPreview-product {
+  flex-grow: 2;
+}
+
+.BookingPreview-item--status {
+  display: flex;
+  flex-basis: var(--status-width);
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.BookingPreview-status {
+  color: var(--font-color-light);
+}

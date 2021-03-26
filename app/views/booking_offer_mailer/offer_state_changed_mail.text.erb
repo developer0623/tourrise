@@ -1,0 +1,10 @@
+<% offer_state =  if @booking_offer.accepted_at.present?
+                    "accepted"
+                  elsif @booking_offer.rejected_at.present?
+                    "rejected"
+                  end
+%>
+Hello <%= @booking_offer.booking.assignee.name %>!
+Offer no. <%= @booking_offer.id %> of booking <%= @booking_offer.booking.id %> was <%= "#{offer_state}" %> by <%= "#{@booking_offer.booking.customer.first_name} #{@booking_offer.booking.customer.last_name}" %>.
+Please check the booking (<%= booking_url(@booking_offer.booking, locale: I18n.locale) %>) state.
+Have a great day!

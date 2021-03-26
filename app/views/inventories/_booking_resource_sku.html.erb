@@ -1,0 +1,41 @@
+<li class="List-item">
+  <div class="ListItem">
+    <div class="ListItem-item">
+      <div>
+        <div class="u-bold">
+          <%= link_to booking_path(item.booking) do %>
+            <%= Booking.model_name.human %>: <%= item.booking_id %>
+          <% end %>
+        </div>
+
+        <div class="u-small">
+          <%= link_to customer_path(item.booking.customer) do %>
+            <%= item.booking.customer.first_name %> <%= item.booking.customer.last_name %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="ListItem-item">
+      <%= render partial: 'bookings/show/booking_resource_skus/summary', locals: { item: item } %>
+    </div>
+
+    <div class="ListItem-item">
+      <%= item.resource_sku_snapshot['handle'] %>
+    </div>
+
+    <div class="ListItem-item ListItem-item--right">
+      <% if item.availability_blocked? %>
+        <span class="Label Label--info Label--small">
+          <%= t("booking_resource_skus.states.blocked_by", name: item.availability_blocked_by) %>
+        </span>
+      <% end %>
+
+      <% if item.availability_booked? %>
+        <span class="Label Label--info Label--small">
+          <%= t("booking_resource_skus.states.booked_by", name: item.availability_booked_by) %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,15 @@
+de:
+  easybill:
+    mappers:
+      booking_resource_sku_mapper:
+        nights:
+          one: 'eine Nacht'
+          other: '%{count} Nächte'
+        people:
+          one: 'eine Person'
+          other: '%{count} Personen à'
+  date:
+    formats:
+      short: "%d. %b"
+
+

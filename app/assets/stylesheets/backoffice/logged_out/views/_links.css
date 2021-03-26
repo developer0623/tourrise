@@ -1,0 +1,26 @@
+.Links {
+  text-align: center;
+  font-size: 0.875em;
+}
+
+.Links-item:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.Links-link {
+  color: rgba(255, 255, 255, 0.75);
+  transition: var(--transition-in);
+}
+
+.Links-link:active {
+  color: #fff;
+  transition: var(--transition-out);
+}
+
+@media (hover: hover) {
+  .Links-link:hover,
+  .Links-link:focus {
+    color: #fff;
+    transition: var(--transition-out);
+  }
+}

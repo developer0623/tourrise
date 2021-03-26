@@ -1,0 +1,41 @@
+%counter {
+  color: inherit;
+  display: inline-block;
+  font-weight: normal;
+}
+
+:root {
+  counter-reset: adults kids babies;
+}
+
+.ParticipantCounter {
+  &.ParticipantCounter--adult {
+    counter-increment: adults;
+
+    &::before {
+      @extend %counter;
+
+      content: counter(adults) ". ";
+    }
+  }
+
+  &.ParticipantCounter--kid {
+    counter-increment: kids;
+
+    &::before {
+      @extend %counter;
+
+      content: counter(kids) ". ";
+    }
+  }
+
+  &.ParticipantCounter--baby {
+    counter-increment: babies;
+
+    &::before {
+      @extend %counter;
+
+      content: counter(babies) ". ";
+    }
+  }
+}

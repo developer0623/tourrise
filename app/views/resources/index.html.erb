@@ -1,0 +1,24 @@
+<% breadcrumb :resources %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("resources.index.title", count: @resources.total_count) do %>
+    <a class="Button" href="<%= new_resource_path %>"><%= t("create") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [{
+        name: "resource_type",
+        options: ResourceType.all.map { |resource_type| [resource_type[:id], resource_type[:label]] }
+      }], search: true %>
+
+      <%= render "partials/table",
+        list: @resources,
+        header: "resources/table/header",
+        row: "resources/table/row"
+      %>
+
+      <%= paginate @resources %>
+    </div>
+  </div>
+</div>

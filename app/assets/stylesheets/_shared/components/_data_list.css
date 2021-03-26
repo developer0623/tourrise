@@ -1,0 +1,14 @@
+:root {
+  --DataList-multipleCols-width: calc(
+    32rem - calc(2 * var(--Page-main-spacing))
+  );
+}
+
+.DataList--multipleCols {
+  display: grid;
+  grid-column-gap: 2rem;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--DataList-multipleCols-width), 1fr)
+  );
+}

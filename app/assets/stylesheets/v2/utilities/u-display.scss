@@ -1,0 +1,21 @@
+.u-displayBlock {
+  display: block;
+}
+
+.u-displayNone {
+  display: none;
+}
+
+.u-displayInlineBlock {
+  display: inline-block;
+}
+
+.u-displayFlex {
+  display: flex;
+}
+
+.u-md-displayFlex {
+  @include from($tablet) {
+    display: flex;
+  }
+}

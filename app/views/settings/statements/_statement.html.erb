@@ -1,0 +1,14 @@
+<div class="ListItem">
+  <div class="ListItem-item">
+    <%= item.number %>
+  </div>
+  <div class="ListItem-item">
+    <%= item.booking.title %>
+  </div>
+  <div class="ListItem-item">
+    <%= item.booking.start_date %> - <%= item.booking.end_date %>
+  </div>
+  <div class="ListItem-item ListItem-item--right">
+    <%= humanized_money_with_symbol(item.total_price) %>
+  </div>
+</div>

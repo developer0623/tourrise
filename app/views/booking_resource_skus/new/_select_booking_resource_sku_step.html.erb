@@ -1,0 +1,52 @@
+<% if ResourceType.find_by_id(params[:resource_type_id])&.with_date_range? %>
+  <% @starts_on = params.dig(:booking, :starts_on)&.to_date || params[:starts_on]&.to_date || @booking.starts_on %>
+  <% @ends_on = params.dig(:booking, :ends_on)&.to_date || params[:ends_on]&.to_date || @booking.ends_on %>
+<% end %>
+
+<% @participant_ids = params.dig(:booking, :participant_ids)&.permit!&.to_h&.map { |k,v| v == "1" ? k.to_i : nil }&.compact || @booking.participants.pluck(:id) %>
+
+<div class="Content-main">
+  <div class="Section">
+    <%= render "partials/filter",
+      remember_params: %i[resource_type_id step],
+      options: [{
+        name: "product_id",
+        options: [[@booking.product.id, booking.product_name]]
+      }],
+      search: true
+    %>
+
+    <%= form_with url: new_booking_booking_resource_sku_path, method: :get, class: "Form" do %>
+      <%= hidden_field_tag :resource_type_id, params[:resource_type_id] %>
+      <%= hidden_field_tag :product_id, params[:product_id] %>
+      <%= hidden_field_tag :q, params[:q] %>
+      <%= hidden_field_tag :step, @current_step %>
+
+      <% if @starts_on && @ends_on %>
+        <div class="Form-elementGroup">
+          <%= date_field :booking, :starts_on, value: @starts_on, class: "Input-element" %>
+          <%= date_field :booking, :ends_on, value: @ends_on, class: "Input-element" %>
+        </div>
+      <% end %>
+
+      <% booking.participants.each do |participant| %>
+        <div class="Form-element">
+          <%= check_box(:booking, "participant_ids[#{participant.id}]", checked: @participant_ids.include?(participant.id)) %>
+          <%= label :booking, "participant_ids[#{participant.id}]", participant.name %>
+        </div>
+      <% end %>
+
+      <div class="Filter-item">
+        <button class="Button Button--small Button--secondary" type="submit"><%= t("search.submit") %></button>
+      </div>
+    <% end %>
+
+    <%= render "partials/table",
+      list: @resource_skus,
+      header: "booking_resource_skus/table/header",
+      row: "booking_resource_skus/table/row"
+    %>
+
+    <%= paginate @resource_skus %>
+  </div>
+</div>

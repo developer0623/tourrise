@@ -1,0 +1,78 @@
+<% breadcrumb :product_sku_edit, @product_sku %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: @product_sku.name %>
+
+  <div class="Content-main">
+    <%= form_with model: [@product, @product_sku], html: { autocomplete: :off } do |f| %>
+      <div class="Section">
+        <%= render "partials/booking_section" do %>
+          <div class="Form-elementGroup">
+            <div class="Input">
+              <%= f.label :name, class: "Input-label Input-label--required" %>
+              <%= f.text_field :name, class: "Input-element", required: true %>
+            </div>
+            <div class="Input">
+              <%= f.label :handle, class: "Input-label Input-label--required" %>
+              <%= f.text_field :handle, class: "Input-element", required: true %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="Form-elementGroup">
+          <div class="Input Input--select">
+            <%= f.label :financial_account, class: "Input-label" %>
+            <%= f.select :financial_account_id,
+                FinancialAccount.all.map { |account| [account.display_name, account.id] },
+                { include_blank: true },
+                { class: "Input-element Input-element--text" }
+            %>
+          </div>
+          <div class="Input Input--select">
+            <%= f.label :cost_center, class: "Input-label" %>
+            <%= f.select :cost_center_id,
+                CostCenter.all.map { |cost_center| [cost_center.display_name, cost_center.id] },
+                { include_blank: true },
+                { class: "Input-element Input-element--text" }
+            %>
+          </div>
+        </div>
+      </div>
+
+      <div class="Section">
+        <%= render "partials/booking_section", title:  t(".booking_configuration") do %>
+          <%= f.fields_for :product_sku_booking_configuration do |a| %>
+            <div class="Form-elementGroup">
+              <div class="Input">
+                <%= a.label :default_destination_airport_code, class: "Input-label" %>
+                <%= a.text_field :default_destination_airport_code, list: 'airports', class: 'Input-element' %>
+              </div>
+              <div class="Input">
+                <%= a.label :wishyouwhat_on_first_step, class: "Input-label" %>
+                <%= a.check_box :wishyouwhat_on_first_step, checked: a.object.wishyouwhat_on_first_step?, class: 'Input-element' %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="Section">
+        <div class="Form-buttons">
+          <div class="Form-button">
+            <%= link_to t("abort"), request.referer, class: "Button Button--secondary" %>
+          </div>
+
+          <div class="Form-button">
+            <%= f.submit t("helpers.submit.update", model: ProductSku.model_name.human), class: "Button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<datalist id='airports'>
+  <% Airport.all.each do |airport| %>
+    <option value="<%= airport.iata %>"><%= airport.name %></option>
+  <% end %>
+</datalist>

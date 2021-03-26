@@ -1,0 +1,35 @@
+.FlashMessage {
+  border: 0.1rem solid;
+  border-radius: var(--border-radius);
+  max-width: 120rem;
+  padding: 1em calc(2em + 2rem);
+  position: relative;
+  text-align: center;
+}
+
+.FlashMessage--success {
+  background: var(--color-positive-light);
+  color: var(--color-positive);
+}
+
+.FlashMessage--error {
+  background: var(--color-negative-light);
+  color: var(--color-negative);
+}
+
+.FlashMessage + .FlashMessage {
+  margin-top: 2rem;
+}
+
+.FlashMessage-text {
+  font-style: italic;
+}
+
+.FlashMessage-close {
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

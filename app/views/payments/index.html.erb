@@ -1,0 +1,22 @@
+<% breadcrumb :accounting_records %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: I18n.t("settings.accounting_records.title") %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", search: false, csv: true, options: [{
+        name: "invoice_date",
+        type: "select",
+        multiselect: true,
+        options: @options
+      }] %>
+
+      <%= render "partials/table",
+        list: @payments,
+        header: "payments/table/header",
+        row: "payments/table/row"
+      %>
+    </div>
+  </div>
+</div>

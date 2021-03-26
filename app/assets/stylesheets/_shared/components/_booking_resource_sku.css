@@ -1,0 +1,101 @@
+:root {
+  --BookingResourceSku-attr-basis: 12.5vw;
+  --BookingResourceSku-attr-min-width: 10em;
+  --BookingResourceSku-action-size: 3rem;
+  --BookingResourceSku-action-space: 2rem;
+  --BookingResourceSku-action-gap: 1rem;
+}
+
+.BookingResourceSku--notAvailable::before {
+  position: absolute;
+  left: 0.5rem;
+  color: var(--color-negative);
+  background-color: var(--color-negative-light);
+  padding: 1em 0.25em;
+  margin-top: -0.5rem;
+  content: "!!";
+}
+
+.BookingResourceSkus {
+  margin-top: 1rem;
+}
+
+.BookingResourceSku--internal {
+  color: var(--font-color-light);
+}
+
+.BookingResourceSku-name {
+  --List-element-spacing-y: 1rem;
+}
+
+.BookingResourceSku-participants {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.BookingResourceSku-priceContainer {
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
+.BookingResourceSku-priceContainerItem {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.BookingResourceSku-actions {
+  display: flex;
+  margin-left: auto;
+  padding-left: var(--BookingResourceSku-action-space);
+}
+
+.BookingResourceSku-action:not(:first-child) {
+  margin-left: var(--BookingResourceSku-action-gap);
+}
+
+.BookingResourceSku-edit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.BookingResourceSku-price {
+  text-align: right;
+  width: 6em;
+}
+
+.BookingResourceSku-totalPrice {
+  font-weight: bold;
+  text-align: right;
+  width: 6.5em;
+}
+
+.BookingResourceSku-add {
+  margin-left: auto;
+  padding-left: 2rem;
+}
+
+.BookingResourceSku-details {
+  margin: 1rem 0 0 1.8rem;
+}
+
+.BookingResourceSku-detailsTitle {
+  color: var(--font-color-light);
+}
+
+.BookingResourceSku-detail {
+  display: flex;
+  padding: 0 2rem 0 0;
+}
+
+.BookingResourceSku-detailName {
+  font-weight: 500;
+  padding: 0 0.5rem 0 0;
+}
+
+.BookingResourceSku-detailName::after {
+  content: ":";
+  display: inline;
+}

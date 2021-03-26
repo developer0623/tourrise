@@ -1,0 +1,22 @@
+<div class="ListItem ResourceTypePreview">
+  <div class="ResourceTypePreview-main">
+    <div class="ListItem-nameContainer">
+      <span class="ListItem-subName Attr"><%= item.label %></span>
+    </div>
+    <div>
+      <span class="ListItem-subName Attr"><%= item.handle %></span>
+    </div>
+
+    <div class="ResourceTypePreview-details">
+      <ul class="ListItem-buttons">
+        <li class="ListItem-button">
+          <a class="ListItem-button" href="<%= resource_type_path(item) %>"><%= t("show") %></a>
+        </li>
+        <li class="ListItem-button">
+          <a class="ListItem-button" href="<%# edit_resource_type_path(item) %>"><%= t("edit") %></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+<article class="u-displayFlex u-marginBottomSmall">
+  <%= thumbnail room.featured_image, alt: room.label %>
+
+  <div class="u-flex1 u-marginLeftBase">
+    <h6>
+      <%= room.label %>
+    </h6>
+
+    <% if edit_link.present? %>
+      <%= link_to t("edit"), edit_link, class: "Button Button--small" %>
+    <% end %>
+  </div>
+</article>

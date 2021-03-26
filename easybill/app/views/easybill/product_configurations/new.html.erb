@@ -1,0 +1,20 @@
+<% breadcrumb :new_product_configuration, @product_configuration %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render 'partials/content_heading', title: t('easybill.product_configurations.new.title') %>
+
+    <%= form_for @product_configuration, html: { autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <a class="Button Button--secondary" href="<%= easybill.product_configurations_path %>"><%= t('abort') %></a>
+        </div>
+        <div class="Form-button">
+          <%= f.submit t('create'), class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<% breadcrumb :me %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render 'partials/content_heading', title: "#{@me.first_name} #{@me.last_name}" do %>
+      <a class="Button" href="<%= edit_settings_me_path %>">
+        <%= t("edit") %>
+      </a>
+    <% end %>
+
+    <div class="Section">
+      <%= render "partials/booking_section" do %>
+        <%= render "partials/list", list: @me.attributes, partial: "settings/mes/attributes" %>
+      <% end %>
+    </div>
+  </div>
+</div>

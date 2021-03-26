@@ -1,0 +1,153 @@
+{
+   "id":1,
+   "quantity":2,
+   "internal":false,
+   "booking_id":1,
+   "resource_sku_id":"resource_sku_id",
+   "price_cents":10,
+   "allow_partial_payment":true,
+   "resource_snapshot":{
+      "id":"resource_id",
+      "created_at":"2020-11-26T13:48:37.000+01:00",
+      "updated_at":"2020-11-26T13:48:37.000+01:00",
+      "resource_type_id":1,
+      "featured_image_id":null,
+      "handle":null,
+      "name":"Resource name",
+      "description":"Quod fugiat sed. Ea enim aperiam. Facilis qui excepturi.",
+      "teaser_text":null
+   },
+   "resource_sku_snapshot":{
+      "id":"resource_sku_id",
+      "resource_id":"resource_id",
+      "handle":"a-resource-sku",
+      "created_at":"2020-11-26T13:40:20.000+01:00",
+      "updated_at":"2020-11-26T13:40:20.000+01:00",
+      "vat":"19.0",
+      "available":true,
+      "teaser_text":null,
+      "occupation_configuration_id":null,
+      "allow_partial_payment":true,
+      "name":"What a cool resource sku",
+      "description":null
+   },
+   "cost_center":{
+      "id":1,
+      "name":"Cost Center Name",
+      "value":"10",
+      "created_at":"2020-11-26 13:32:55 +0100",
+      "updated_at":"2020-11-26 13:32:55 +0100"
+   },
+   "financial_account":{
+      "id":1,
+      "name":"Trip domestic",
+      "created_at":"2020-11-26 13:32:55 +0100",
+      "updated_at":"2020-11-26 13:32:55 +0100",
+      "before_service_year":"4444",
+      "during_service_year":"3333"
+   },
+   "starts_on":"2020-11-26 13:32:55 +0100",
+   "ends_on":"2020-11-26 13:32:55 +0100",
+   "booking_attribute_values":[
+      {
+         "id":1,
+         "booking_attribute_id":1,
+         "booking_resource_sku_id":3,
+         "name":"sint",
+         "attribute_type":"number",
+         "value":"2020-11-26 13:32:55 +0100",
+         "created_at":"2020-11-26 13:32:55 +0100",
+         "updated_at":"2020-11-26 13:32:55 +0100",
+         "handle":"starts_on"
+      },
+      {
+         "id":2,
+         "booking_attribute_id":2,
+         "booking_resource_sku_id":3,
+         "name":"impedit",
+         "attribute_type":"number",
+         "value":2020,
+         "created_at":"2020-11-26 13:32:55 +0100",
+         "updated_at":"2020-11-26 13:32:55 +0100",
+         "handle":"voluptate_omnis"
+      }
+   ],
+   "participants":[
+      {
+         "id":10,
+         "title":null,
+         "first_name":"John",
+         "last_name":"Doe",
+         "gender":null,
+         "birthdate":"Mon, 27 Nov 1995",
+         "country":null,
+         "state":null,
+         "zip":null,
+         "address_line_1":null,
+         "address_line_2":null,
+         "city":null,
+         "email":"rudolphmurray@kunde.info",
+         "primary_phone":"123740",
+         "secondary_phone":"239448",
+         "created_at":"2020-11-26 13:32:55 +0100",
+         "updated_at":"2020-11-26 13:32:55 +0100",
+         "newsletter":false,
+         "company_name":null,
+         "locale":"de",
+         "participant_type":"adult",
+         "placeholder":false,
+         "general_customer_id":null
+      },
+      {
+         "id":9,
+         "title":null,
+         "first_name":"John",
+         "last_name":"Doe",
+         "gender":null,
+         "birthdate":"Mon, 27 Nov 1995",
+         "country":null,
+         "state":null,
+         "zip":null,
+         "address_line_1":null,
+         "address_line_2":null,
+         "city":null,
+         "email":"chante@jerde.name",
+         "primary_phone":"123740",
+         "secondary_phone":"239448",
+         "created_at":"2020-11-26 13:32:55 +0100",
+         "updated_at":"2020-11-26 13:32:55 +0100",
+         "newsletter":false,
+         "company_name":null,
+         "locale":"de",
+         "participant_type":"adult",
+         "placeholder":false,
+         "general_customer_id":null
+      }
+   ],
+   "flights":[
+      {
+         "id":4,
+         "airline_code":"UA",
+         "flight_number":"911",
+         "aircraft_name":null,
+         "arrival_at":"2020-11-26 13:32:55 +0100",
+         "arrival_airport":"KOA",
+         "departure_at":"2020-11-26 13:32:55 +0100",
+         "departure_airport":"FRA",
+         "created_at":"2020-11-26 13:32:55 +0100",
+         "updated_at":"2020-11-26 13:32:55 +0100"
+      },
+      {
+         "id":5,
+         "airline_code":"UA",
+         "flight_number":"911",
+         "aircraft_name":null,
+         "arrival_at":"2020-11-26 13:32:55 +0100",
+         "arrival_airport":"KOA",
+         "departure_at":"2020-11-26 13:32:55 +0100",
+         "departure_airport":"FRA",
+         "created_at":"2020-11-26 13:32:55 +0100",
+         "updated_at":"2020-11-26 13:32:55 +0100"
+      }
+   ]
+}

@@ -1,0 +1,9 @@
+<div class="Section">
+  <%= render "partials/booking_section", title: ResourceSku.human_attribute_name(:flights) do %>
+    <% if resource_sku.flights.any? %>
+      <% resource_sku.flights.each do |flight| %>
+        <div><%= flight.display_flight %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

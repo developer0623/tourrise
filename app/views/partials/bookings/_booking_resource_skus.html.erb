@@ -1,0 +1,70 @@
+<%- headline_type = local_assigns.fetch(:headline_type, 2) -%>
+<% if current_user.id != FrontofficeUser.id %>
+    <% link = {
+      label: t("bookings.show.add_resource"),
+      url: new_booking_booking_resource_sku_path(booking, step: :select_resource_type_step)
+    } %>
+<% end %>
+<%= render(
+  "partials/booking_section",
+  title: t("bookings.show.resources.title"),
+  headline_type: headline_type,
+  link: link
+) do %>
+  <% unless current_user.id == FrontofficeUser.id %>
+    <div class="ButtonGroup">
+      <%= button_to(
+        new_booking_booking_resource_sku_group_path(booking),
+        method: "get",
+        class: "Button Button--neutral Button--small",
+        disabled: booking.booked? || !booking.groupable_positions_available?
+      ) do %>
+        <span class="Button-label">
+          <%= t('bookings.show.create_booking_resource_sku_group') %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="BookingResourceSkus" class="BookingResourceSkus">
+    <% unless current_user.id == FrontofficeUser.id %>
+      <% if booking.booking_resource_sku_groups.any? %>
+        <% booking.booking_resource_sku_groups.each do |group| %>
+          <%= render "partials/booking_section",
+            title: group.name,
+            headline_type: headline_type.to_i.next,
+            id: "BookingResourceSkuGroup-#{group.id}",
+            class_name: group.canceled? ? "Crossed" : "",
+            link: {
+              label: t("edit"),
+              method: :get,
+              url: edit_booking_booking_resource_sku_group_path(booking, group)
+            } do %>
+              <% if group.invoiced? %>
+                <div class="u-small">
+                  <%= t('booking_positions.invoiced') %>
+                  <% group.invoices.each do |invoice| %>
+                    <%= link_to invoice.number, booking_invoice_path(invoice) %>
+                  <% end %>
+                </div>
+              <% end %>
+              <%= render "partials/list", list: group.booking_resource_skus, partial: "bookings/show/booking_resource_skus/in_group", small: true %>
+              <%= render partial: 'booking_resource_sku_group', locals: { booking: booking, group: group } %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <!-- TODO: naming issue. It feels like booking_resource_sku_groups again. -->
+    <% if booking.resource_groups.any? %>
+      <% booking.resource_groups.each do |group| %>
+        <% next if group[0].blank? %>
+        <%= render "partials/booking_section", title: group[0]['name'], headline_type: headline_type.to_i + 1 do %>
+          <%= render "partials/list", list: group[1], partial: "bookings/show/booking_resource_sku" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p class="Empty"><%= t("not_entered") %></p>
+    <% end %>
+  </div>
+<% end %>

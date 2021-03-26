@@ -1,0 +1,18 @@
+<div class="Section">
+  <%= render "partials/booking_section" do %>
+    <% if OccupationConfiguration.any? %>
+      <div class="Form-element">
+        <div class="Input Input--select">
+          <% selected = params.dig(:resource_sku, :occupation_configuration_id) || resource_sku.occupation_configuration_id %>
+          <%= f.label :occupation_configuration, class: "Input-label" %>
+          <%= f.select :occupation_configuration_id,
+            options_for_select(OccupationConfiguration.all.map { |configuration| [configuration.name, configuration.id] }.insert(0, ''), selected),
+            {},
+            class: "Input-element"
+          %>
+        </div>
+    <% else %>
+      <p class="Empty"><%= t('resource_skus.') %></p>
+    <% end %>
+  <% end %>
+</div>

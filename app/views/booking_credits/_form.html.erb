@@ -1,0 +1,33 @@
+<div class="Section">
+  <%= form_with model: [@booking_credit.booking, @booking_credit], html: { autocomplete: :off } do |f| %>
+    <div class="Form-elementGroup">
+      <div class="Input u-mb-3">
+        <%= f.label :name, class: "Input-label Input-label--required" %>
+        <%= f.text_field :name, required: true, class: "Input-element" %>
+      </div>
+      <div class="Input u-mb-3">
+        <%= f.label :price, class: "Input-label Input-label--required" %>
+        <%= f.text_field :price, required: true, class: "Input-element" %>
+      </div>
+    </div>
+    <div class="Form-elementGroup">
+      <div class="Input Input--select u-mb-3">
+        <%= f.label :financial_account, class: "Input-label" %>
+        <%= f.select :financial_account_id, options_for_select(financial_account_options, f.object.financial_account&.id), {}, class: "Input-element" %>
+      </div>
+      <div class="Input Input--select u-mb-3">
+        <%= f.label :cost_center, class: "Input-label" %>
+        <%= f.select :cost_center_id, options_for_select(cost_center_options, f.object.cost_center&.id), {}, class: "Input-element" %>
+      </div>
+    </div>
+    <div class="Form-buttons">
+    <div class="Form-button">
+      <%= link_to t("abort"), booking_path(@booking_credit.booking), class: "Button Button--secondary" %>
+    </div>
+
+    <div class="Form-button">
+      <%= f.submit t("save"), class: "Button" %>
+    </div>
+  </div>
+  <% end %>
+</div>

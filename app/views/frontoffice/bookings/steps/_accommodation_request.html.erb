@@ -1,0 +1,81 @@
+<h2>
+  <%= t(".title") %>
+</h2>
+
+<p>
+  <%= t(".intro") %>
+</p>
+
+<div class="js-BookingFormAccommodationAssignment">
+  <%= render "components/field/select",
+    attribute: :rooms_count,
+    extra_class: "js-BookingFormAccommodationAssignment-select",
+    f: f,
+    label_text: t(".rooms_count"),
+    options: options_for_select(
+      [[t(".no_rooms_needed"), 0], *(1..booking_form.booking.adults).to_a], booking_form.booking.rooms_count
+    ),
+    required: true
+  %>
+
+  <div class="js-BookingFormAccommodationAssignment-accommodations">
+    <h3>
+      <%= t(".room_assignment") %>
+    </h3>
+
+    <%= content_tag(
+      :ol,
+      class: "u-paddingNone u-marginNone u-listInside js-BookingFormAccommodationAssignment-container",
+      data: {
+        adults_count: booking_form.booking.adults.to_i,
+        kids_count: booking_form.booking.kids.to_i,
+        babies_count: booking_form.booking.babies.to_i
+      }
+    ) do %>
+      <%= f.fields_for :booking_room_assignments do |room_assignment_fields| %>
+        <li class="js-BookingFormAccommodationAssignment-item">
+          <%= content_tag :h4, t("rooms.one"), class: "u-displayInlineBlock u-marginBottomSmall" %>
+          <%= render "frontoffice/bookings/room_assignment", f: room_assignment_fields %>
+        </li>
+
+        <%= room_assignment_fields.hidden_field :_destroy %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="js-BookingFormAccommodationAssignmentWarning">
+    <%= t(".incomplete_assignment_warning") %>
+
+    <ol>
+      <li>
+        <%= t(".unassigned_adults") %>
+        <span class="Adults"></span>
+      </li>
+
+      <li>
+        <%= t(".unassigned_kids") %>
+        <span class="Kids"></span>
+      </li>
+
+      <li>
+        <%= t(".unassigned_babies") %>
+        <span class="Babies"></span>
+      </li>
+    </ol>
+  </div>
+
+  <template class="js-BookingFormAccommodationAssignment-template">
+    <%= f.fields_for :booking_room_assignments, BookingRoomAssignment.new, child_index: 0 do |room_assignment_fields| %>
+      <li class="js-BookingFormAccommodationAssignment-item">
+        <%= content_tag :h4, t("rooms.one"), class: "u-displayInlineBlock u-marginBottomSmall" %>
+        <%= render "frontoffice/bookings/room_assignment", f: room_assignment_fields %>
+      </li>
+    <% end %>
+  </template>
+</div>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  required_notice: false,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

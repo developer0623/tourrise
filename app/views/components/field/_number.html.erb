@@ -1,0 +1,25 @@
+<%
+  attribute = local_assigns.fetch(:attribute, false)
+  f = local_assigns.fetch(:f, false)
+  min = local_assigns.fetch(:min, 0)
+  required = local_assigns.fetch(:required, false)
+  value = local_assigns.fetch(:value, f.object.public_send(attribute))
+
+  extra_classes = []
+  extra_classes.push("Field--required") if required
+  extra_classes.push("is-invalid") if f.object.errors[attribute].any?
+  extra_classes = extra_classes.join(" ")
+%>
+
+<%= content_tag(:div, class: "Field Field--number #{extra_classes}" ) do %>
+  <%= f.label attribute, class: "Field-label" %>
+
+  <%= f.number_field attribute,
+    class: "Field-input",
+    min: min,
+    required: required,
+    value: value
+  %>
+
+  <%= f.error_tag attribute, nil, class: "Field-hint" %>
+<% end %>

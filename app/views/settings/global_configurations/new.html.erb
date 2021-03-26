@@ -1,0 +1,11 @@
+<% breadcrumb :global_configurations_new, @global_configuration %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: "#{t("settings.global_configurations.new.title")}" %>
+
+  <div class="Content-main">
+    <%= form_for [:settings, @global_configuration], method: "POST", html: { class: "Form", autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>

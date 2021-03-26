@@ -1,0 +1,20 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: Product.human_attribute_name(:name),
+    sort_by: "name"
+  %>
+
+  <th>
+    <%= Season.model_name.human(count: 2) %>
+  </th>
+
+  <th>
+    <%= Product.human_attribute_name(:current_season) %>
+  </th>
+
+  <th>
+    <%= Season.human_attribute_name(:published_at) %>
+  </th>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

@@ -1,0 +1,69 @@
+<% breadcrumb :booking_resource_sku_group_new, @booking %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render "partials/content_heading", title: t("booking_resource_sku_groups.new.title") %>
+
+    <%= form_for [@booking, @booking_resource_sku_group], html: { autocomplete: :off, data: { turbo: false } } do |f| %>
+      <div class="Form-elementGroup">
+        <div class="Input">
+          <%= f.label :name, class: "Input-label Input-label--required" %>
+          <%= f.text_field :name, required: true, class: "Input-element" %>
+        </div>
+
+        <div class="Input">
+          <%= f.label :price, class: "Input-label Input-label--required" %>
+          <%= f.text_field :price, required: true, class: "Input-element js-groupPrice" %>
+        </div>
+      </div>
+
+      <div class="Form-elementGroup">
+        <div class="Input Input--select">
+          <%= f.label :cost_center, class: "Input-label" %>
+          <%= f.select :cost_center_id, options_for_select(cost_center_options, f.object.cost_center&.id), {}, class: "Input-element js-costCenter" %>
+        </div>
+        <div class="Input Input--select">
+          <%= f.label :financial_account, class: "Input-label" %>
+          <%= f.select :financial_account_id, options_for_select(financial_account_options, f.object.financial_account&.id), {}, class: "Input-element js-financialAccount" %>
+        </div>
+      </div>
+
+      <div class="Form-element">
+        <div class="Input">
+          <%= label_tag :allow_partial_payment, t('booking_resource_sku_groups.new.enable_partial_payment'), class: "Input-label" %>
+          <%= f.radio_button :allow_partial_payment, true %>
+
+          <%= label_tag :allow_partial_payment, t('booking_resource_sku_groups.new.disable_partial_payment'), class: "Input-label" %>
+          <%= f.radio_button :allow_partial_payment, false %>
+        </div>
+      </div>
+
+      <fieldset class="Form-element">
+        <legend class="Input-label">
+          <%= t("booking_resource_sku_groups.new.booking_resource_skus") %>
+        </legend>
+
+        <div class="Form-elementGroup--checkboxes js-BookingResourceSkusSection">
+          <%= f.collection_check_boxes(:booking_resource_sku_ids, booking_resource_sku_group.available_booking_resource_skus.decorate, :id, :name, {}, {
+            size: @booking.participants.count,
+            class: "Input-element Input-element--checkbox Input-element--groupMember js-groupMember",
+            multiple: true
+          }) do |booking_resource_sku| %>
+            <%= booking_resource_sku.check_box data: { 'price-cents': booking_resource_sku.object.total_price.cents, cost_center_id: booking_resource_sku.object.cost_center_id, financial_account_id: booking_resource_sku.object.financial_account_id } %>
+            <%= booking_resource_sku.label %>
+          <% end %>
+        </div>
+      </fieldset>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <%= link_to t("abort"), booking_path(f.object.booking), class: "Button Button--secondary" %>
+        </div>
+
+        <div class="Form-button">
+          <%= f.submit t("create"), class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

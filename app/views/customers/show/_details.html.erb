@@ -1,0 +1,26 @@
+<dl class="List DataList DataList--multipleCols">
+  <% customer.attributes.each do |attribute| %>
+    <% unless %w(deleted_at).include?(attribute[0]) %>
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= Customer.human_attribute_name(attribute[0]) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= attribute[1].present? ? attribute[1] : "&ndash;".html_safe %>
+        </dd>
+      </div>
+    <% end %>
+  <% end %>
+  <% customer.custom_attribute_values.each do |attribute| %>
+    <div class="List-item DataList-item">
+      <dt class="DataList-attr Attr DataList-attr--large">
+        <%= attribute.name %>
+      </dt>
+
+      <dd class="DataList-val">
+        <%= attribute.pretty_value %>
+      </dd>
+    </div>
+  <% end %>
+</dl>

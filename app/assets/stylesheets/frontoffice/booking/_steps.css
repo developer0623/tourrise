@@ -1,0 +1,88 @@
+.BookingFormSteps-current {
+  margin-top: var(--spacing);
+}
+
+.BookingFormSteps-list {
+  counter-reset: steps;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.BookingFormSteps-step {
+  align-items: center;
+  color: var(--font-color-light);
+  counter-increment: steps;
+  display: flex;
+  margin-top: var(--spacing);
+}
+
+.BookingFormSteps-step[aria-current] {
+  color: var(--font-color);
+  font-weight: bold;
+}
+
+.BookingFormSteps-step:not(:last-child) {
+  margin-right: var(--spacing);
+}
+
+.BookingFormSteps-step::before {
+  align-items: center;
+  border: 0.1rem solid var(--theme-color-primary);
+  border-radius: 50%;
+  color: var(--theme-color-primary);
+  content: counter(steps);
+  display: flex;
+  font-weight: bold;
+  height: 1.5em;
+  justify-content: center;
+  width: 1.5em;
+}
+
+.BookingFormSteps-step[aria-current]::before {
+  background-color: var(--theme-color-secondary);
+  border-color: var(--theme-color-secondary);
+  color: var(--theme-color-secondary-font);
+}
+
+.BookingFormSteps-step:not(:last-child)::after {
+  background: currentColor;
+  content: "";
+  display: block;
+  height: 0.1rem;
+  margin: 0 0 0 var(--spacing);
+  width: 1rem;
+}
+
+.BookingFormSteps-link {
+  color: var(--font-color);
+}
+
+@media (max-width: 58em) {
+  .BookingFormSteps {
+    --spacing: 1rem;
+  }
+}
+
+@media (min-width: 30.03125em) {
+  .BookingFormSteps-step::before {
+    margin: 0 1rem 0 0;
+  }
+}
+
+@media (min-width: 58.03125em) {
+  .BookingFormSteps {
+    --spacing: 2rem;
+  }
+}
+
+@media (max-width: 40em) {
+  .BookingFormSteps-list {
+    display: none;
+  }
+}
+
+@media (min-width: 40.03125em) {
+  .BookingFormSteps-current {
+    display: none;
+  }
+}

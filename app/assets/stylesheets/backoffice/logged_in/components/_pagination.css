@@ -1,0 +1,52 @@
+.Pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem 0 0;
+}
+
+.Pagination-section {
+  align-items: center;
+  display: flex;
+}
+
+.Pagination-item {
+  background: rgba(0, 0, 0, 0.05);
+  border: 0.1rem solid rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  display: block;
+  margin: 0 0.5rem;
+  min-width: 2.2em;
+  padding: 0.5rem 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.Pagination-item.is-current {
+  background: var(--theme-color-primary);
+  color: var(--theme-color-primary-font);
+}
+
+.Pagination-item.is-disabled {
+  background: none;
+  opacity: 0.5;
+}
+
+.Pagination-item--link:hover,
+.Pagination-item--link:focus {
+  border-color: rgba(0, 0, 0, 0.75);
+}
+
+.Pagination-gap {
+  padding: 0 1rem;
+}
+
+@media (max-width: 32em) {
+  .Pagination-section {
+    margin: 0 auto;
+  }
+
+  .Pagination-section:first-child,
+  .Pagination-section:last-child {
+    display: none;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="ListItem">
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= CancellationReason.human_attribute_name("name") %>:</span>
+    <%= item.name %>
+  </div>
+  <div class="ListItem-buttons ListItem-item--right">
+    <div class="ListItem-button">
+      <a href="<%= edit_settings_cancellation_reason_path(item) %>"><%= t("edit") %></a>
+    </div>
+    <div class="ListItem-button">
+      <%= button_to t('delete'), settings_cancellation_reason_path(item), method: :delete, autocomplete: :off, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+</div>

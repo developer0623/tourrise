@@ -1,0 +1,25 @@
+<% breadcrumb :statements %>
+<% selected_month = l((params[:month_and_year].present? ? params[:month_and_year] : Time.zone.now).to_date, format: "%B %Y") %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: "Statements" do %>
+    <a class="Button" href="<%= settings_statements_path(format: :csv) %>"><%= t("export_csv") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", search: false, csv: true, options: [{
+        name: "month_and_year",
+        type: "select",
+        options: @options
+      }] %>
+
+      <h3 class="u-mt-3 u-mb-3">
+        Invoices <%= selected_month %>: <%= humanized_money_with_symbol @booking_invoices.sum(&:total_price) %>
+      </h3>
+
+      <%= render "partials/list", list: @booking_invoices, partial: "settings/statements/statement" %>
+    </div>
+  </div>
+</div>
+

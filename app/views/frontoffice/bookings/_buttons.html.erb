@@ -1,0 +1,43 @@
+<%
+  previous_step_handle = local_assigns.fetch(:previous_step_handle, false)
+  next_step_handle = local_assigns.fetch(:next_step_handle, false)
+  next_button_variant = local_assigns.fetch(:next_button_variant, :primary)
+  f = local_assigns.fetch(:f, false)
+
+  next_button_class = "Button Button--#{next_button_variant}"
+%>
+
+<div class="ButtonGroup">
+  <% if previous_step_handle %>
+    <% previous_step_path = edit_frontoffice_booking_path(
+        params[:scrambled_id] || params[:booking_scrambled_id],
+        step: previous_step_handle
+      ) 
+    %>
+
+    <% previous_step_path = frontoffice_booking_accommodations_path(booking_form.booking.scrambled_id, room: 1) if previous_step_handle == "accommodation_request" %>
+
+    <%= link_to(
+      t("bookings.new.prev_step"),
+      previous_step_path,
+      class: "Button"
+    ) %>
+  <% end %>
+
+  <% if f %>
+    <%= f.submit(
+      (next_label ? next_label : t("bookings.new.next_step")),
+      class: next_button_class
+    ) %>
+  <% elsif next_step_handle %>
+    <%= link_to(
+      edit_frontoffice_booking_path(
+        params[:scrambled_id] || params[:booking_scrambled_id],
+        step: next_step_handle
+      ),
+      class: next_button_class
+    ) do %>
+      <%= next_label ? next_label : t("bookings.new.next_step") %>
+    <% end %>
+  <% end %>
+</div>

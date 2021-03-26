@@ -1,0 +1,23 @@
+<%
+  attribute = local_assigns.fetch(:attribute, false)
+  autocomplete = local_assigns.fetch(:autocomplete, nil)
+  f = local_assigns.fetch(:f, false)
+  required = local_assigns.fetch(:required, false)
+
+  extra_classes = []
+  extra_classes.push("Field--required") if required
+  extra_classes.push("is-invalid") if f.object.errors[attribute].any?
+  extra_classes = extra_classes.join(" ")
+%>
+
+<%= content_tag(:div, class: "Field Field--email #{extra_classes}" ) do %>
+  <%= f.label attribute, class: "Field-label" %>
+
+  <%= f.email_field attribute,
+    autocomplete: autocomplete,
+    class: "Field-input",
+    required: required
+  %>
+
+  <%= f.error_tag attribute, nil, class: "Field-hint" %>
+<% end %>

@@ -1,0 +1,31 @@
+<% breadcrumb :booking_offer, booking_offer %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render "booking_documents/show", document: booking_offer %>
+
+    <dl class="List DataList DataList--multipleCols">
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= BookingDocument.human_attribute_name(:accepted) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= booking_offer.accepted_information %>
+        </dd>
+      </div>
+
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= BookingDocument.human_attribute_name(:rejected) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= booking_offer.rejected_information %>
+        </dd>
+      </div>
+    </dl>
+
+    <%= render "booking_documents/actions", document: booking_offer %>
+  </div>
+</div>

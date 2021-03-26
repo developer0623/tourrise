@@ -1,0 +1,41 @@
+<div class="sm:mx-auto sm:w-full sm:max-w-md">
+  <img class="mx-auto h-24 w-auto" src="<%= image_path("tourriseLogo.png") %>" alt="Workflow">
+  <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+    <%= GlobalConfiguration.company_name %>
+  </h2>
+  <p class="mt-2 text-center text-sm text-gray-600 max-w">
+    Sign in to your account
+  </p>
+</div>
+
+<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+  <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" } do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <%= render(Form::EmailFieldComponent.new(f, :email, options: { autofocus: true, required: true })) %>
+      <%= render(Form::PasswordFieldComponent.new(f, :password, options: { autofocus: 'current-password', required: true })) %>
+
+      <div class="flex items-center justify-between">
+        <% if devise_mapping.rememberable? -%>
+          <div class="flex items-center">
+            <%= f.check_box :remember_me, class: "h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" %>
+            <%= f.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
+          </div>
+        <% end %>
+
+        <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <div class="text-sm">
+            <%= link_to t("user.links.forgot_your_password"), new_password_path(resource_name), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+          </div>
+        <% end -%>
+      </div>
+
+      <div>
+        <%= render ButtonComponent.new do %>
+          <%= t("user.login.submit") %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

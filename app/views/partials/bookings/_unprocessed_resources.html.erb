@@ -1,0 +1,38 @@
+<% headline_type = local_assigns.fetch(:headline_type, 2) %>
+
+<%= render "partials/booking_section",
+  title: t("bookings.show.unprocessed_resources.title"),
+  headline_type: headline_type,
+  link: local_assigns.fetch(:link, nil) do %>
+
+  <div class="BookingResourcesSkus">
+    <% if booking.booking_rentalbike_requests.any? %>
+      <% if current_user.id == FrontofficeUser.id %>
+        <% frontoffice_edit_link = { url: edit_frontoffice_booking_path(params[:scrambled_id], step: :rentalbike_request), label: 'Bearbeiten' } %>
+      <% end %>
+
+      <%= render "partials/booking_section",
+        title: t('.rentalbike'),
+        headline_type: headline_type.to_i + 1,
+        link: frontoffice_edit_link do %>
+        <%= render "partials/list", list: booking.booking_rentalbike_requests, partial: "bookings/show/rentalbike_request" %>
+      <% end %>
+    <% end %>
+    <% if booking.booking_rentalcar_requests.any? %>
+       <%= render "partials/booking_section",
+          title: t('.rentalcar'),
+          headline_type: headline_type.to_i + 1,
+          link: (current_user.id == FrontofficeUser.id) ? { url: edit_frontoffice_booking_path(params[:scrambled_id], step: :rentalcar_request), label: 'Bearbeiten' } : false do %>
+         <%= render "partials/list", list: booking.booking_rentalcar_requests, partial: "bookings/show/rentalcar_request" %>
+      <% end %>
+    <% end %>
+    <% if booking.booking_flight_requests.any? %>
+       <%= render "partials/booking_section",
+          title: t('.flight'),
+          headline_type: headline_type.to_i + 1,
+          link: (current_user.id == FrontofficeUser.id) ? { url: edit_frontoffice_booking_path(params[:scrambled_id], step: :flight_request), label: 'Bearbeiten' } : false do %>
+         <%= render "partials/list", list: booking.booking_flight_requests, partial: "bookings/show/flight_request" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

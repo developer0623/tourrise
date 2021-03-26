@@ -1,0 +1,24 @@
+<% breadcrumb :product_participants, @product %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('.title') %>
+
+  <%= content_tag :h3, @product.name %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", search: false, csv: true, options: [{
+        name: "product_sku_id",
+        options: @product.product_skus.pluck(:id, :name)
+      }] %>
+
+      <%= render "partials/table",
+        list: @booking_participants,
+        header: "product_participants/table/header",
+        row: "product_participants/table/row"
+      %>
+
+      <%= paginate @booking_participants %>
+    </div>
+  </div>
+</div>

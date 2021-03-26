@@ -1,0 +1,41 @@
+<div class="ListItem">
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually">
+      <%= t("settings.occupation_configurations.attributes.name") %>:
+    </span>
+
+    <%= item.name %>
+  </div>
+
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually">
+      <%= t("settings.occupation_configurations.attributes.adults") %>:
+    </span>
+
+    Erwachsene: <%= (item.max_adults == item.min_adults) ? item.max_adults : "#{item.min_adults} bis #{item.max_adults}" %>
+  </div>
+
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually">
+      <%= t("settings.occupation_configurations.attributes.kids") %>:
+    </span>
+
+    Kinder: <%= (item.max_kids == item.min_kids) ? item.max_kids : "#{item.min_kids} bis #{item.max_kids}" %>
+  </div>
+
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually">
+      <%= t("settings.occupation_configurations.attributes.babies") %>:
+    </span>
+
+    Babies: <%= (item.max_babies == item.min_babies) ? item.max_babies : "#{item.min_babies} bis #{item.max_babies}" %>
+  </div>
+
+  <div class="ListItem-buttons">
+    <div class="ListItem-button">
+      <a href="#">
+        <%= t("edit") %>
+      </a>
+    </div>
+  </div>
+</div>

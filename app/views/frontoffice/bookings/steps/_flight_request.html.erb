@@ -1,0 +1,59 @@
+<h2>
+  <%= t("booking_form.flight_request_step.title") %>
+</h2>
+
+<p>
+  <%= t("booking_form.flight_request_step.intro") %>
+</p>
+
+<div class="js-BookingFormFlightRequest">
+  <% max_count = booking_form.booking.people_count %>
+
+  <%= render "components/field/select",
+    attribute: :flights_count,
+    extra_class: "js-BookingFormFlightRequest-select",
+    f: f,
+    label_text: t(".flights_count"),
+    options: options_for_select(
+      [[t("booking_form.flight_request_step.no_flights_needed"), 0], *(1..max_count).to_a], booking_form.booking.flights_count
+    ),
+    required: true
+  %>
+
+  <div class="js-BookingFormFlightRequest-flights">
+    <ol class="js-BookingFormFlightRequest-container u-paddingNone u-marginNone u-listInside">
+      <%= f.fields_for :booking_flight_requests do |flight_request_fields| %>
+        <li class="js-BookingFormFlightRequest-item">
+          <%= content_tag :h4, t("flight"), class: "u-displayInlineBlock u-marginBottomSmall" %>
+          <%= render "frontoffice/bookings/flight_request", f: flight_request_fields %>
+        </li>
+
+        <%= flight_request_fields.hidden_field :_destroy %>
+      <% end %>
+    </ol>
+
+    <template class="js-BookingFormFlightRequest-template">
+      <%= f.fields_for(
+        :booking_flight_requests,
+        booking_form.booking_flight_requests.new,
+        child_index: 0
+      ) do |flight_request_fields| %>
+        <li class="js-BookingFormFlightRequest-item">
+          <%= content_tag :h4, t("flight"), class: "u-displayInlineBlock u-marginBottomSmall" %>
+          <%= render "frontoffice/bookings/flight_request", f: flight_request_fields %>
+        </li>
+      <% end %>
+    </template>
+  </div>
+
+  <datalist id="airports">
+    <% Airport.all.each do |airport| %>
+      <%= content_tag :option, airport.name, value: airport.iata %>
+    <% end %>
+  </datalist>
+</div>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

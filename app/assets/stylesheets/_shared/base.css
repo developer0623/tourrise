@@ -1,0 +1,28 @@
+:root {
+  --transition-in: all 0.15s ease-in;
+  --transition-out: all 0.15s ease-out;
+  --divider-color: #ddd;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: 1.5;
+  min-height: 100%;
+  color: var(--font-color);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}

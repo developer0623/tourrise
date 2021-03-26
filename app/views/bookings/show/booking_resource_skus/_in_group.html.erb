@@ -1,0 +1,27 @@
+<div class="BookingResourceSku">
+  <div class="ListItem">
+    <div class="ListItem-item ListItem-name BookingResourceSku-name">
+      <%= item.name %>
+    </div>
+    <div class="ListItem-item">
+      <% render partial: 'bookings/show/booking_resource_skus/participants', locals: { item: item } %>
+    </div>
+    <div class="ListItem-item BookingResourceSku-priceContainer">
+      <div class="BookingResourceSku-quantity BookingResourceSku-priceContainerItem">
+        <span class="u-hiddenVisually"><%= BookingResourceSku.human_attribute_name(:quantity) %>:</span>
+        <%= item.display_quantity %>
+      </div>
+      <% if item.editable_by_user? or item.removeable_by_user? %>
+        <div class="BookingResourceSku-price BookingResourceSku-priceContainerItem">
+          <span class="u-hiddenVisually"><%= t("bookings.show.total_price") %>:</span>
+          <%= humanized_money_with_symbol(item.price) %>
+        </div>
+        <div class="BookingResourceSku-totalPrice BookingResourceSku-priceContainerItem">
+          <span class="u-hiddenVisually"><%= t("bookings.show.total_price") %>:</span>
+          <%= humanized_money_with_symbol(item.total_price) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

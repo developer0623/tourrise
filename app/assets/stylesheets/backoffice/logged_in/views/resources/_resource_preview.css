@@ -1,0 +1,48 @@
+.ResourcePreview {
+  flex-wrap: nowrap;
+}
+
+.ResourcePreview-main {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ResourcePreview-nameContainer,
+.ResourcePreview-details {
+  min-width: calc(
+    32rem - calc(var(--Page-main-spacing) * 2) - var(--ListItem-image-size) -
+      var(--ListItem-image-gap)
+  );
+}
+
+.ResourcePreview-name {
+  display: block;
+}
+
+.ResourcePreview-details {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+
+.ResourcePreview-data {
+  display: flex;
+  min-width: calc(
+    32rem - calc(var(--Page-main-spacing) * 2) - var(--ListItem-image-size) -
+      var(--ListItem-image-gap)
+  );
+}
+
+.ResourcePreview-data dt {
+  color: var(--font-color-light);
+  margin: 0 1rem 0 0;
+}
+
+.ResourcePreview-data dt::after {
+  content: ":";
+}

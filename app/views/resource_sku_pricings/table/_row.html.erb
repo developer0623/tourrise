@@ -1,0 +1,40 @@
+<tr>
+  <td>
+    <span class="Attr">
+      <%= item.id %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.display_price %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.display_calculation_type %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.display_participant_type %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.display_date_range %>
+    </span>
+  </td>
+
+  <td>
+    <li class="u-inlineBlock">
+      <%= link_to t("edit"), edit_resource_sku_pricing_path(item) %>
+    </li>
+    <li class="u-inlineBlock">
+      <%= link_to t("remove"), resource_sku_pricing_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+  </td>
+</tr>

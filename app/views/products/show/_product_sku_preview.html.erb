@@ -1,0 +1,23 @@
+<div class="ListItem">
+  <div class="ListItem-name Attr"><%= item.name %></div>
+  <div class="ListItem-name Attr"><%= item.accounting_information %></div>
+  <div class="ListItem-item Attr"><%= item.handle %></div>
+
+  <ul class="ListItem-buttons">
+    <li class="ListItem-button">
+      <%= link_to t(".product_sku_edit_link"), item.edit_link %>
+    </li>
+
+    <li class="ListItem-button">
+      <%= link_to t("remove"), item.delete_link, method: :delete, data: { confirm: t("product_skus.destroy.confirm_dialogue")} %>
+    </li>
+
+    <li class="ListItem-button">
+      <%= link_to t(".test"), item.frontoffice_link, target: :_blank %>
+    </li>
+
+    <li class="ListItem-button">
+      <%= item.display_bookings_count %>
+    </li>
+  </ul>
+</div>

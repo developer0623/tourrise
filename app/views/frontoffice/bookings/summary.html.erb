@@ -1,0 +1,130 @@
+<%= form_for(
+  booking_form.booking,
+  url: submit_frontoffice_booking_path(params[:scrambled_id]),
+  html: { autocomplete: :off, data: { turbo: false } },
+  method: :post
+) do |f| %>
+  <div class="BookingWizard">
+    <%= render "layouts/message" %>
+
+    <h1 class="BookingWizard-title">
+      <%= t("booking_form.headline", name: booking_form.product_name) %>
+    </h1>
+
+    <div class="BookingWizard-nav">
+      <%= render "frontoffice/bookings/steps", steps: booking_form.steps, booking_form: booking_form %>
+    </div>
+
+    <h2>
+      <%= t("booking_form.summary_step.title") %>
+    </h2>
+
+    <p>
+      <%= t("booking_form.summary_step.intro") %>
+    </p>
+
+    <%= card title: t("bookings.show.request.title") do %>
+      <%= magic_datalist(booking_form.booking, %i[
+        starts_on ends_on adults kids babies
+      ]) %>
+    <% end %>
+
+    <% if booking_form.booking_with_transport? %>
+      <%= card title: t("bookings.show.unprocessed_resources.title") do %>
+        <%= render "frontoffice/bookings/summary/transportation", booking: booking_form.booking %>
+      <% end %>
+    <% end %>
+
+    <% if booking_form.booking.wishyouwhat.present? %>
+      <%= card title: t("booking_form.summary_step.wishyouwhat_section_title") do %>
+        <%= render "partials/embed" do %>
+          <%= booking_form.booking.wishyouwhat %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if booking_form.booking.booking_resource_skus.any? %>
+      <%= card do %>
+        <%= render "frontoffice/bookings/summary/resources", booking: booking_form.booking %>
+      <% end %>
+    <% end %>
+
+    <%= card title: t("bookings.show.customer.title") do %>
+      <%= magic_datalist(
+        booking_form.customer,
+        %i[company_name name email phone locale address],
+        skip_blank: true
+      ) %>
+    <% end %>
+
+    <%= card title: t("bookings.show.participants.title") do %>
+      <%= render "frontoffice/bookings/summary/participants", booking: booking_form.booking %>
+    <% end %>
+
+    <% if booking_form.show_wishyouwhat_field? %>
+      <%= render(FieldGroup.new(columns: 1)) do %>
+        <%= render "components/field/textarea",
+          attribute: :wishyouwhat,
+          f: f,
+          value: booking_form.booking.wishyouwhat&.to_plain_text,
+          rows: 4
+        %>
+      <% end %>
+    <% end %>
+
+    <div>
+      <p>
+        <%= simple_format t("booking_form.summary_step.outro") %>
+      </p>
+
+      <% if booking_form.product.terms_of_service.present? %>
+        <p>
+          <%= t("booking_form.summary_step.please_accept_tos_and_pp") %>
+        </p>
+
+        <%= link_to(
+          t("bookings.show.terms_of_service.link"),
+          rails_blob_path(booking_form.product.terms_of_service, disposition: "attachment"),
+          class: "u-marginBottomBase u-displayBlock"
+        ) %>
+      <% end %>
+
+      <%= render "components/field/checkbox",
+        attribute: :terms_of_service_accepted,
+        f: f,
+        label_text: t(".accept_terms_of_service"),
+        checked: f.object.terms_of_service_accepted,
+        required: true
+      %>
+
+      <%= render "components/field/checkbox",
+        attribute: :privacy_policy_accepted,
+        f: f,
+        label_text: t(".accept_privacy_policy"),
+        checked: f.object.privacy_policy_accepted,
+        required: true
+      %>
+
+      <%= f.fields_for :customer, booking_form.customer do |o| %>
+        <%= render "components/field/checkbox",
+          attribute: :newsletter,
+          f: o,
+          checked: o.object.newsletter,
+          label_text: t(".subscribe_to_newsletter")
+        %>
+      <% end %>
+
+      <div class="ButtonGroup u-marginTopBase">
+        <%= link_to t("back"),
+          edit_frontoffice_booking_path(
+            params[:scrambled_id],
+            step: booking_form.current_step.previous_step.handle
+          ),
+          class: "Button"
+        %>
+
+        <%= f.submit t("booking_form.summary_step.submit"), class: "Button Button--primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

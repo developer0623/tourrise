@@ -1,0 +1,25 @@
+<%
+  # Create array of all possible filtering options
+  available_filters = options.map { |option| option[:name] }
+  available_filters << "q" if search
+
+  # Create array of all filters that are currently applied
+  applied_filters = available_filters.select { |applied_filter| request.query_parameters.include?(applied_filter) }
+
+  # Create array with all query parameters that are not coming from the filter
+  # so that we can maintain those parameters when the filter is cleared
+  other_params = request.query_parameters.reject { |query_parameter| available_filters.include?(query_parameter) }
+%>
+
+<% if applied_filters.present? %>
+  <%= link_to({ params: other_params }, {
+    data: { disable: true },
+    class: "Button Button--small Button--secondary"
+  }) do %>
+    <span class="u-mr-2px">
+      <%= render "partials/icon", name: "fa-times" %>
+    </span>
+
+    <%= t("filter.clear") %>
+  <% end %>
+<% end %>

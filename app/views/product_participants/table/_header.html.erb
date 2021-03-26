@@ -1,0 +1,27 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: Participant.human_attribute_name(:id),
+    sort_by: "id"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Participant.human_attribute_name(:contact_name),
+    sort_by: "customer_name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Participant.model_name.human,
+    sort_by: "participant_name"
+  %>
+
+  <%= content_tag :th, Participant.human_attribute_name(:birthdate) %>
+
+  <%= content_tag :th, Participant.human_attribute_name(:email) %>
+
+  <%= render "partials/table/th_sortable",
+    label: ProductSku.model_name.human,
+    sort_by: "product_sku_name"
+  %>
+
+  <%= content_tag :th, t("date_range") %>
+</tr>

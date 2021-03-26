@@ -1,0 +1,55 @@
+<%
+  remember_params = local_assigns.fetch(:remember_params, [])
+  search = local_assigns.fetch(:search, false)
+%>
+
+<%= form_tag "", method: :get, class: "Filter", data: { autocomplete: :off, turbo: false } do %>
+  <% remember_params.each do |param| %>
+    <%= hidden_field_tag param, params[param] %>
+  <% end %>
+
+  <div class="Filter-wrapper">
+    <% if options.present? %>
+      <span class="u-hiddenVisually">
+        <%= t("filter.title") %>
+      </span>
+
+      <%= render partial: "partials/filter/option", collection: options, as: :option %>
+    <% end %>
+
+    <% if search %>
+      <div class="Filter-item Filter-item--large Input Input--small">
+        <%= label_tag "filter-search", t("filter.search_for"), class: "Filter-label" %>
+        <%= search_field_tag :q, params[:q], id: 'filter-search', class: "Input-element" %>
+      </div>
+    <% end %>
+
+    <div class="Filter-actions">
+      <div class="u-mr-5px">
+        <%= button_tag data: { disable: true }, name: nil, class: "Button Button--small Button--neutral" do %>
+          <span class="u-mr-2px">
+            <%= render "partials/icon", name: "fa-search" %>
+          </span>
+
+          <%= t("filter.submit") %>
+        <% end %>
+      </div>
+
+      <div class="">
+        <%= render "partials/filter/clear", options: options, search: search %>
+      </div>
+    </div>
+  </div>
+
+  <% if local_assigns.fetch(:csv, false) %>
+    <div class="Filter-item Filter-item--large Input Input--small">
+      <%= link_to 'csv', url_for(params.permit!.merge(format: :csv)), class: 'Button' %>
+    </div>
+  <% end %>
+
+  <% if local_assigns.fetch(:xlsx, false) %>
+    <div class="Filter-item Filter-item--large Input Input--small">
+      <%= link_to 'xlsx', url_for(params.permit!.merge(format: :xlsx)), class: 'Button' %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,38 @@
+<% if params[:resource_id].present? %>
+  <% filtered_resource = Resource.find_by(id: params[:resource_id]) %>
+<% end %>
+
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: t('reports.product_skus.table.header.product_name'),
+    sort_by: 'product_name'
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: t('reports.product_skus.table.header.product_sku_name'),
+    sort_by: 'product_sku_name'
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: t('reports.product_skus.table.header.season_names'),
+    sort_by: 'season_name'
+  %>
+
+  <% Booking.aasm.states.map(&:name).each do |state| %>
+    <%= render "partials/table/th_sortable",
+      label: t("bookings.states.#{state}"),
+      sort_by: state
+    %>
+  <% end %>
+
+  <%= render "partials/table/th_sortable",
+    label: t('reports.product_skus.table.header.participants_count'),
+    sort_by: 'season_name'
+  %>
+
+  <% if filtered_resource %>
+  <th>
+    <%= filtered_resource.name %>
+  </th>
+  <% end %>
+</tr>

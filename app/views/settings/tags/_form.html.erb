@@ -1,0 +1,44 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :name, class: "Input-label Input-label--required" %>
+      <%= f.text_field :name, required: true, class: "Input-element", placeholder: true %>
+    </div>
+
+    <div class="Input">
+      <%= f.label :handle, class: "Input-label Input-label--required" %>
+      <%= f.text_field :handle, required: true, class: "Input-element", placeholder: true %>
+      <%= f.error_tag :handle, nil, class: "Input-help" %>
+    </div>
+  </div>
+
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label :tag_group_id, class: "Input-label" %>
+
+      <%= render(
+        "partials/autocomplete",
+        create_field: "tag[tag_group_name]",
+        value: f.object.tag_group_id,
+        display_value: f.object.tag_group&.name,
+        suggestions_url: api_tag_groups_path,
+        suggestion_title_field: :name
+      ) do %>
+        <%= f.text_field :tag_group_id,
+          value: f.object.tag_group_id,
+          class: "Input-element"
+        %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="Form-buttons">
+  <div class="Form-button">
+    <%= link_to t("abort"), settings_tags_path, class: "Button Button--secondary" %>
+  </div>
+
+  <div class="Form-button">
+    <%= f.submit t("save"), class: "Button" %>
+  </div>
+</div>

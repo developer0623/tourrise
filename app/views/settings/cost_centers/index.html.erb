@@ -1,0 +1,21 @@
+<% breadcrumb :cost_centers %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('cost_centers.index.title') do %>
+    <%= link_to new_settings_cost_center_path, class: 'Button' do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("cost_centers.index.add_cost_center_link") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+      <%= render "partials/list", list: @cost_centers, partial: "settings/cost_centers/cost_center_preview" %>
+    </div>
+  </div>
+</div>

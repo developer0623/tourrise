@@ -1,0 +1,27 @@
+<tr>
+  <td>
+    <%= item_iteration.index + 1 %>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.name %>
+    </span>
+  </td>
+
+  <td>
+    <%= item.display_published_at %>
+  </td>
+
+  <td class="u-textRight">
+    <ul>
+      <li class="u-inlineBlock">
+        <%= link_to t("edit", name: Season.model_name.human), edit_season_path(item) %> ·
+      </li>
+
+      <li class="u-inlineBlock">
+        <%= link_to t("remove"), season_path(item), method: :delete, data: { confirm: t('seasons.destroy.confirm_dialogue') } %>
+      </li>
+    </ul>
+  </td>
+</tr>

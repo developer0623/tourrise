@@ -1,0 +1,41 @@
+<% if booking_form.booking_flight_requests.any? %>
+  <%= card_section do %>
+    <header class="u-displayFlex u-justifyContentSpaceBetween u-marginBottomBase">
+      <h3 class="u-marginNone">
+        <%= t(".flights", count: booking_form.booking_flight_requests.size) %>
+      </h3>
+
+      <%= link_to t("edit"), edit_frontoffice_booking_path(params[:scrambled_id], step: :flight_request), class: "Button Button--secondary Button--small" %>
+    </header>
+
+    <%= magic_table booking.booking_flight_requests, %i[outward_flight return_flight] %>
+  <% end %>
+<% end %>
+
+<% if booking_form.booking_rentalbike_requests.any? %>
+  <%= card_section do %>
+    <header class="u-displayFlex u-justifyContentSpaceBetween u-marginBottomBase">
+      <h3 class="u-marginNone">
+        <%= t(".rentalbikes", count: booking_form.booking_rentalbike_requests.size) %>
+      </h3>
+
+      <%= link_to t("edit"), edit_frontoffice_booking_path(params[:scrambled_id], step: :rentalbike_request), class: "Button Button--secondary Button--small" %>
+    </header>
+
+    <%= magic_table booking.booking_rentalbike_requests, %i[starts_on ends_on height] %>
+  <% end %>
+<% end %>
+
+<% if booking_form.booking_rentalcar_requests.any? %>
+  <%= card_section do %>
+    <header class="u-displayFlex u-justifyContentSpaceBetween u-marginBottomBase">
+      <h3 class="u-marginNone">
+        <%= t(".rentalcars", count: booking_form.booking_rentalcar_requests.size) %>
+      </h3>
+
+      <%= link_to t("edit"), edit_frontoffice_booking_path(params[:scrambled_id], step: :rentalcar_request), class: "Button Button--secondary Button--small" %>
+    </header>
+
+    <%= magic_table booking.booking_rentalcar_requests, %i[starts_on ends_on rentalcar_class] %>
+  <% end %>
+<% end %>

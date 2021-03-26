@@ -1,0 +1,23 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: Customer.human_attribute_name("name"),
+    sort_by: "name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Customer.human_attribute_name("birthdate"),
+    sort_by: "birthdate"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: plural_model_name(Booking),
+    sort_by: "bookings_count"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: t("customers.index.bookings_income"),
+    sort_by: "total_earnings"
+  %>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

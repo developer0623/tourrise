@@ -1,0 +1,156 @@
+<% breadcrumb :booking, @booking %>
+
+<div class="Content js-BookingDetails">
+  <%= render "partials/content_heading", title: @booking.title %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/booking_section" do %>
+        <% list = [{
+            attr: Booking.human_attribute_name("created_at"),
+            val: @booking.entry
+          }, {
+            attr: Booking.human_attribute_name("scrambled_id"),
+            val: @booking.scrambled_id
+          }, {
+            attr: Booking.human_attribute_name("aasm_state"),
+            val: t("bookings.states.#{@booking.aasm_state}")
+          }, {
+            attr: Booking.human_attribute_name("secondary_state"),
+            val: render("bookings/show/secondary_state", booking: @booking)
+          }, {
+            attr: Booking.human_attribute_name("assignee"),
+            val: render("bookings/show/assignee")
+          }, {
+            attr: Booking.human_attribute_name("due_on"),
+            val: render("bookings/show/due_on", booking: @booking)
+          }, {
+            attr: Booking.human_attribute_name("season"),
+            val: @booking.season&.name
+          }, {
+            attr: Booking.human_attribute_name("total_invoiced_amount"),
+            val: @booking.total_invoiced_amount
+          }] %>
+
+        <% list << { attr: Booking.human_attribute_name("duplicate_of"), val: link_to(@booking.duplicate_of.scrambled_id, booking_path(@booking.duplicate_of)) } if @booking.duplicate_of.present? %>
+        <%= render "bookings/show/data_list",
+          multiple_cols: true,
+          list: list
+        %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/bookings/request", booking: @booking %>
+    </div>
+
+    <% if @booking.wishyouwhat.present? %>
+      <div class="Section">
+        <%= render "partials/booking_section", title: "Anfrageinformationen aus Freitext" do %>
+          <%= render "partials/embed" do %>
+            <%= @booking.wishyouwhat %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @booking.booking_flight_requests.any? || @booking.booking_rentalbike_requests.any? || @booking.booking_rentalcar_requests.any? %>
+      <div class="Section">
+        <%= render "partials/bookings/unprocessed_resources", booking: @booking %>
+      </div>
+    <% end %>
+
+    <div id="ResourcesSection" class="Section">
+      <%= render "partials/bookings/booking_resource_skus", booking: @booking %>
+      <div class="u-textRight">
+        <%= t(".total_price") %>
+
+        <strong>
+          <%= @booking.total_price %>
+        </strong>
+      </div>
+
+      <div class="u-mt-3" id="BookingCreditsSection">
+        <% if @booking.booking_credits.any? %>
+          <%= render "bookings/show/booking_credits", booking: @booking %>
+        <% else %>
+          <div class="u-mb-3">
+            <p class="Empty">
+              <%= t("booking_credits.empty") %>
+              <%= link_to(t("add"), new_booking_booking_credit_path(@booking)) %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/bookings/contact",
+        booking: @booking,
+        link: {
+          label: t("edit"),
+          url: edit_customer_path(@booking.customer, booking_id: @booking.id)
+        }
+      %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/bookings/participants",
+        booking: @booking,
+        link: {
+          label: t("edit"),
+          url: edit_booking_path(@booking, anchor: "participants")
+        }
+      %>
+    </div>
+
+    <% if @booking.editable_by_user? %>
+      <div class="Section">
+        <div>
+          <% if @booking.terms_of_service_accepted? %>
+            <%= t("bookings.show.terms_of_service_accepted") %>
+          <% else %>
+            <div class="Empty">
+              <%= t("bookings.show.terms_of_service_not_accepted") %>
+            </div>
+          <% end %>
+        </div>
+
+        <div>
+          <% if @booking.privacy_policy_accepted? %>
+            <%= t("bookings.show.privacy_policy_accepted") %>
+          <% else %>
+            <div class="Empty">
+              <%= t("bookings.show.privacy_policy_not_accepted") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="Section">
+      <%= render "partials/booking_section",
+        title: t("bookings.show.booking_events"),
+        headline_type: local_assigns.fetch(:headline_type, 2) do %>
+
+        <%= link_to t("show"), booking_booking_events_path(@booking) %>
+      <% end %>
+    </div>
+
+    <% if @booking.documents.any? %>
+      <div class="Section">
+        <%= render "partials/booking_section",
+                   title: t("bookings.show.booking_documents"),
+                   headline_type: local_assigns.fetch(:headline_type, 2) do %>
+          <%= render partial: "bookings/show/documents", locals: { documents: @booking.documents } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if @booking.editable_by_user? %>
+  <% content_for :actions do %>
+    <%= render "bookings/show/actions", booking: @booking %>
+  <% end %>
+<% end %>

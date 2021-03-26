@@ -1,0 +1,17 @@
+.ProductNotFound {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.ProductNotFound-Headline {
+  margin: 0.8em 3rem;
+  font: 4em Roboto, sans-serif;
+}
+
+.ProductNotFound-Content {
+  margin: 0.2em 3rem;
+  font: 2em Roboto, sans-serif;
+}

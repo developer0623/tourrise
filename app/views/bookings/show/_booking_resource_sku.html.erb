@@ -1,0 +1,80 @@
+<% locals = local_assigns.fetch(:locals, {}) %>
+
+<div class="BookingResourceSku<%= item.internal? ? ' BookingResourceSku--internal' : '' %>">
+  <div class="ListItem<%= item.canceled? ? ' Crossed' : '' %>" id="BookingResourceSku-<%= item.handle %>">
+    <div class="ListItem-item ListItem-name BookingResourceSku-name">
+      <%= render partial: 'bookings/show/booking_resource_skus/summary', locals: { item: item } %>
+    </div>
+
+    <div class="ListItem-item BookingResourceSku-participants">
+      <%= render partial: 'bookings/show/booking_resource_skus/participants', locals: { item: item } %>
+    </div>
+
+    <div class="ListItem-item BookingResourceSku-priceContainer">
+      <div class="BookingResourceSku-quantity BookingResourceSku-priceContainerItem">
+        <span class="u-hiddenVisually"><%= BookingResourceSku.human_attribute_name(:quantity) %>:</span>
+        <%= item.display_quantity %>
+      </div>
+
+      <% if item.editable_by_user? or item.removeable_by_user? %>
+        <div class="BookingResourceSku-price BookingResourceSku-priceContainerItem">
+          <span class="u-hiddenVisually"><%= t("bookings.show.total_price") %>:</span>
+          <%= humanized_money_with_symbol(item.price) %>
+        </div>
+
+        <div class="BookingResourceSku-totalPrice BookingResourceSku-priceContainerItem">
+          <span class="u-hiddenVisually"><%= t("bookings.show.total_price") %>:</span>
+          <%= humanized_money_with_symbol(item.total_price) %>
+        </div>
+
+        <% unless locals.fetch(:hide_actions, false) %>
+          <%= render partial: 'bookings/show/booking_resource_skus/actions', locals: { item: item } %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div>
+      <% if item.canceled? %>
+        <span class="u-small">
+          <%= item.cancellation.message %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+
+  <% if item.editable_by_user? && item.invoiced? %>
+    <div class="u-small">
+      <%= t("booking_positions.invoiced") %>
+      <% item.invoices.each do |invoice| %>
+        <span>
+          <%= link_to invoice.number, booking_invoice_path(invoice) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if item.additional_details? %>
+    <%= render partial: 'bookings/show/booking_resource_skus/details', locals: { item: item } %>
+  <% end %>
+
+  <% unless item.bookable? %>
+    <div class="u-small Empty">
+      <%= t("bookings.check_booking_resource_skus_availability.not_available", name: item.name) %>
+    </div>
+  <% end %>
+
+  <% if item.editable_by_user? && item.missing_details? %>
+    <%= link_to edit_booking_booking_resource_sku_path(item.booking, item), class: "Empty" do %>
+      <b><%= t('bookings.show.missing_details') %>:</b>
+      <%= item.missing_booking_attribute_values.map(&:name).join(', ') %>
+    <% end %>
+  <% end %>
+
+  <% if item.editable_by_user? && item.show_error_messages? %>
+    <%= link_to edit_booking_booking_resource_sku_path(item.booking, item), class: "u-colorNegative" do %>
+      <% item.validation_error_messages.each do |error_message| %>
+        <div><%= error_message %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

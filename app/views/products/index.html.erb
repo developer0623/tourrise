@@ -1,0 +1,28 @@
+<% breadcrumb :products %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('products.index.title', count: @products.total_count) do %>
+    <%= link_to new_product_path, class: 'Button' do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("products.index.add_product_link") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+
+      <%= render "partials/table",
+        list: @products,
+        header: "products/table/header",
+        row: "products/table/row"
+      %>
+
+      <%= paginate @products %>
+    </div>
+  </div>
+</div>

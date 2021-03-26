@@ -1,0 +1,22 @@
+<tr class="u-noWrap">
+  <% [
+        Booking.model_name.human,
+        I18n.t("settings.accounting_records.table_headers.customer"),
+        I18n.t("settings.accounting_records.table_headers.customer_id"),
+        I18n.t("settings.accounting_records.table_headers.product"),
+        I18n.t("settings.accounting_records.table_headers.product_sku"),
+        I18n.t("settings.accounting_records.table_headers.amount"),
+        I18n.t("settings.accounting_records.table_headers.booking_starts_on"),
+        I18n.t("settings.accounting_records.table_headers.financial_account"),
+        I18n.t("settings.accounting_records.table_headers.cost_center"),
+        I18n.t("settings.accounting_records.table_headers.payment_due_on"),
+        I18n.t("settings.accounting_records.table_headers.invoice_number")
+  ].each do |header_attribute| %>
+    <%= content_tag :th, header_attribute %>
+  <% end %>
+
+  <%= render "partials/table/th_sortable",
+    label: I18n.t("settings.accounting_records.table_headers.invoice_date"),
+    sort_by: "invoice_date"
+  %>
+</tr>

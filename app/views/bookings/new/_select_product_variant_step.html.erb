@@ -1,0 +1,29 @@
+<section class="Section">
+  <%= render "customers/card", customer: @customer %>
+</section>
+
+<section class="Section">
+  <%= form_with(url: new_booking_path, method: :get, html: { autocomplete: :off }) do %>
+    <%= hidden_field_tag :step, :request_data_step %>
+    <%= hidden_field_tag :customer_id, params[:customer_id] %>
+
+    <div class="Form-element">
+      <div class="Input Input--select">
+        <%= label_tag :product_sku_id, t("bookings.new.select_product_variant"), class: "Input-label" %>
+        <%= select_tag :product_sku_id, options_from_collection_for_select(@product_skus, "id", "full_name"), class: "Input-element" %>
+      </div>
+    </div>
+
+    <div class="Form-buttons">
+      <div class="Form-button">
+        <a class="Button Button--secondary" href="<%= new_booking_path %>">
+          <%= t("bookings.new.prev_step") %>
+        </a>
+      </div>
+
+      <div class="Form-button">
+        <%= submit_tag t("bookings.new.next_step"), name: nil, class: "Button" %>
+      </div>
+    </div>
+  <% end %>
+</section>

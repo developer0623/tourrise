@@ -1,0 +1,31 @@
+<% breadcrumb :reports_product_skus %>
+
+<div class="Content-main">
+  <div class="Section">
+    <%= render "partials/booking_section", title: t('reports.product_skus.index.title', count: @product_skus.count) do %>
+      <%= render "partials/filter", options: [
+        {
+          name: "season",
+          options: [['current_season', 'Aktuelle Saison']] + Season.all.order(:name).pluck(:name).uniq.map { |season_name| [season_name, season_name] }
+        },
+        {
+          name: "resource_id",
+          options: Resource.all.pluck(:id, :name)
+        }
+      ] %>
+
+      <% if @product_skus.any? %>
+
+        <%= render "partials/table",
+          list: @product_skus,
+          header: "reports/product_skus/table/header",
+          row: "reports/product_skus/table/row"
+        %>
+      <% else %>
+        <div class="Empty">
+          <%= t("reports.product_skus.index.no_product_skus_available") %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

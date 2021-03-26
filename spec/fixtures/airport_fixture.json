@@ -1,0 +1,24 @@
+[
+    {
+        "iata": "FOB",
+        "lon": "-123.79444",
+        "iso": "US",
+        "status": 1,
+        "name": "Fort Bragg Airport",
+        "continent": "NA",
+        "type": "airport",
+        "lat": "39.474445",
+        "size": "small"
+    },
+    {
+        "iata": "ABP",
+        "lon": "141.1",
+        "iso": "PG",
+        "status": 1,
+        "name": "Atkamba Airport",
+        "continent": "OC",
+        "type": "airport",
+        "lat": "-6.066667",
+        "size": "small"
+    }
+]

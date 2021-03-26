@@ -1,0 +1,29 @@
+<%
+  attribute = local_assigns.fetch(:attribute, false)
+  inputmode = local_assigns.fetch(:inputmode, nil)
+  list = local_assigns.fetch(:list, nil)
+  f = local_assigns.fetch(:f, false)
+  required = local_assigns.fetch(:required, false)
+  disabled = local_assigns.fetch(:disabled, nil)
+  value = local_assigns.fetch(:value, f.object.public_send(attribute))
+
+  extra_classes = []
+  extra_classes.push("Field--required") if required
+  extra_classes.push("is-invalid") if f.object.errors[attribute].any?
+  extra_classes = extra_classes.join(" ")
+%>
+
+<%= content_tag(:div, class: "Field Field--text #{extra_classes}" ) do %>
+  <%= f.label attribute, class: "Field-label" %>
+
+  <%= f.text_field attribute,
+    class: "Field-input",
+    disabled: disabled,
+    inputmode: inputmode,
+    list: list,
+    required: required,
+    value: value
+  %>
+
+  <%= f.error_tag attribute, nil, class: "Field-hint" %>
+<% end %>

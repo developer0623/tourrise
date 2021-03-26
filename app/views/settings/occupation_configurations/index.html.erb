@@ -1,0 +1,22 @@
+<% breadcrumb :occupation_configurations %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: t(".title") do %>
+    <%= link_to '#', class: 'Button' do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("settings.occupation_configurations.index.add_occupation_configuration_link") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+      <%= render "partials/list", list: @occupation_configurations, partial: "settings/occupation_configurations/occupation_configuration_preview" %>
+    </div>
+  </div>
+</div>

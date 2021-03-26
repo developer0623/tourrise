@@ -1,0 +1,9 @@
+.Message {
+  background: var(--color-negative-light);
+  border: 0.1rem solid;
+  border-radius: var(--border-radius);
+  color: var(--color-negative);
+  font-style: italic;
+  padding: 1em 2em;
+  text-align: center;
+}

@@ -1,0 +1,21 @@
+<% breadcrumb :inventories %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("inventories.index.title", count: @inventories.total_count) do %>
+    <a class="Button" href="<%= new_inventory_path %>"><%= t("create") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+
+      <%= render "partials/table",
+        list: @inventories,
+        header: "inventories/table/header",
+        row: "inventories/table/row"
+      %>
+
+      <%= paginate @inventories %>
+    </div>
+  </div>
+</div>

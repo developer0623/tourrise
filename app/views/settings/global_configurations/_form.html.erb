@@ -1,0 +1,39 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :company_name, t("settings.global_configurations.company_name"), class: "Input-label Input-label--required" %>
+      <%= f.text_field :company_name, required: true, class: "Input-element Input-element--text", placeholder: "Firmenname" %>
+    </div>
+    <div class="Input">
+      <%= f.label :contact_phone, t("settings.global_configurations.contact_phone"), class: "Input-label" %>
+      <%= f.text_field :contact_phone, class: "Input-element Input-element--text", placeholder: "PHONE" %>
+    </div>
+    <div class="Input">
+      <%= f.label :contact_email, t("settings.global_configurations.contact_email"), class: "Input-label" %>
+      <%= f.text_field :contact_email, class: "Input-element Input-element--text", placeholder: "EMAIL" %>
+    </div>
+  </div>
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :partial_payment_percentage, t("settings.global_configurations.partial_payment_percentage"), class: "Input-label Input-label--required" %>
+      <%= f.text_field :partial_payment_percentage, required: true, class: "Input-element Input-element--text", placeholder: "20.0" %>
+    </div>
+    <div class="Input">
+      <%= f.label :term_of_first_payment, t("settings.global_configurations.term_of_first_payment"), class: "Input-label Input-label--required" %>
+      <%= f.text_field :term_of_first_payment, required: true, class: "Input-element Input-element--text", placeholder: "10" %>
+    </div>
+    <div class="Input">
+      <%= f.label :term_of_final_payment, t("settings.global_configurations.term_of_final_payment"), class: "Input-label Input-label--required" %>
+      <%= f.text_field :term_of_final_payment, required: true, class: "Input-element Input-element--text", placeholder: "30" %>
+    </div>
+  </div>
+</div>
+
+<div class="Form-buttons">
+  <div class="Form-button">
+    <a class="Button Button--secondary" href="<%= settings_path %>"><%= t('abort') %></a>
+  </div>
+  <div class="Form-button">
+    <button type="submit" class="Button"><%= t("save") %></button>
+  </div>
+</div>

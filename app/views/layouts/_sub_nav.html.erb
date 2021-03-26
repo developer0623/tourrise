@@ -1,0 +1,29 @@
+<!-- SubNav -->
+<nav class="SubNav">
+  <ul class="SubNav-list">
+    <% links = [
+      { path: main_app.root_path,        label: t("navigation.home")        },
+      { path: main_app.bookings_path,    label: t("navigation.bookings")    },
+      { path: main_app.products_path,    label: t("navigation.products")    },
+      { path: main_app.inventories_path, label: t("navigation.inventories") },
+      { path: main_app.resources_path,   label: t("navigation.resources")   },
+      { path: main_app.customers_path,   label: t("navigation.customers")   },
+      { path: main_app.reports_path,     label: t("navigation.reports")     },
+      { path: main_app.settings_path,    label: t("navigation.settings")    }
+    ] %>
+
+    <% links.each do |link| %>
+      <li class="SubNav-item">
+        <%= render "layouts/sub_nav/link", path: link[:path], label: link[:label] %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="SubNav-list SubNav-list--bottom">
+    <li class="SubNav-item">
+      <%= button_to main_app.destroy_user_session_path, method: :delete, class: "SubNav-link" do %>
+        <%= t('navigation.logout') %>
+      <% end %>
+    </li>
+  </ul>
+</nav>

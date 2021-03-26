@@ -1,0 +1,90 @@
+<% breadcrumb :resource_sku, resource_sku %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: resource_sku.name do %>
+    <a class="Button" href="<%= edit_resource_sku_path(id: resource_sku.id) %>"><%= t("edit") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "bookings/show/data_list",
+        multiple_cols: true,
+        list: [{
+          attr: ResourceSku.human_attribute_name(:handle),
+          val: resource_sku.handle
+        }, {
+          attr: ResourceSku.human_attribute_name(:resource_name),
+          val: resource_sku.resource.name
+        }, {
+          attr: ResourceSku.human_attribute_name(:name),
+          val: resource_sku.name
+        }, {
+          attr: ResourceSku.human_attribute_name(:available),
+          val: t(resource_sku.available)
+        }, {
+          attr: ResourceSku.human_attribute_name(:allow_partial_payment),
+          val: t(resource_sku.allow_partial_payment)
+        }, {
+          attr: ResourceSku.human_attribute_name(:tags),
+          val: resource_sku.display_tag_names
+        }]
+      %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: ResourceSku.human_attribute_name(:description) do %>
+        <%= render "partials/embed" do %>
+          <%= @resource_sku.description.present? ? simple_format(@resource_sku.description) : "&ndash;".html_safe %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: ResourceSku.human_attribute_name(:teaser_image) do %>
+        <% if resource_sku.images.any? %>
+          <%= render "partials/gallery", images: resource_sku.images, multiple: false %>
+        <% else %>
+          <p class="Empty"><%= t("image_unavailable") %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: Inventory.model_name.human do %>
+        <% if resource_sku.inventories.any? %>
+          <% resource_sku.inventories.each do |inventory| %>
+            <%= inventory.name %>
+          <% end %>
+        <% else %>
+          <p class="Empty"><%= t('resource_skus.form.inventories.empty') %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section",
+        title: ResourceSkuPricing.model_name.human(count: resource_sku.resource_sku_pricings.count),
+        link: {
+          label: t("resource_skus.form.bulk_edit_resource_sku_pricings"),
+          url: bulk_edit_resource_sku_resource_sku_pricings_path(resource_sku)
+      } do %>
+        <%= render "bookings/show/data_list",
+          list: resource_sku.financial_information
+        %>
+      <% end %>
+    </div>
+
+    <% resource_type_handle = resource_sku.resource_type.handle.to_sym %>
+
+    <% case resource_type_handle %>
+    <% when :flight %>
+      <%= render partial: "resource_skus/show/flight" %>
+    <% when :accommodation %>
+      <%= render partial: "resource_skus/show/accommodation" %>
+    <% end %>
+
+    <div class="Section">
+      <%= button_to t('.remove'), resource_sku_path(resource_sku), method: :delete, class: "Button Button--negative", data: { confirm: t('.remove_confirmation') } %>
+    </div>
+  </div>
+</div>

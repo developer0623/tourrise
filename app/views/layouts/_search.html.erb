@@ -1,0 +1,19 @@
+<%= form_with model: Customer, url: main_app.customers_path, method: :get, class: "Search" do |f| %>
+  <%= render(
+    "partials/autocomplete",
+    navigate_on_click: true,
+    suggestions_url: main_app.api_customers_path,
+    suggestion_title_field: :full_name,
+    suggestion_description_template: "%{localized_birthdate} · %{bookings_count}"
+  ) do %>
+    <%= text_field_tag :q,
+      nil,
+      id: "search-input",
+      class: "Search-input",
+      placeholder: t("search.label"),
+      aria_label: t("search.label")
+    %>
+  <% end %>
+
+  <%= f.submit t("search.submit"), class: "u-hiddenVisually" %>
+<% end %>

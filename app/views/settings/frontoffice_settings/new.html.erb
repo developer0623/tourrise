@@ -1,0 +1,19 @@
+<% breadcrumb :frontoffice_settings_new, @frontoffice_setting %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: "#{t("settings.frontoffice_settings.new.title")}" %>
+
+  <div class="Content-main">
+    <%= form_for [:settings, @frontoffice_setting], method: "POST", html: { class: "Form", autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <a class="Button Button--secondary" href="<%= settings_path %>"><%= t('abort') %></a>
+        </div>
+        <div class="Form-button">
+          <button type="submit" class="Button"><%= t("save") %></button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.BookingFormButtons {
+  align-items: center;
+  display: flex;
+}
+
+.BookingFormButtons-button:not(:first-child) {
+  margin-left: 2rem;
+}

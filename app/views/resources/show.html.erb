@@ -1,0 +1,93 @@
+<% breadcrumb :resource, @resource %>
+<div class="Content js-ResourceDetails">
+  <%= render "partials/content_heading", title: @resource.name do %>
+    <a class="Button" href="<%= edit_resource_path(@resource) %>">
+      <%= t("edit") %>
+    </a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/booking_section", title: Resource.human_attribute_name(:tags) do %>
+        <% if @resource.tags.any? %>
+          <%= @resource.tags.map(&:name).join(', ') %>
+        <% else %>
+          <div class="Empty">
+            <%= t('tags.associations.empty') %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: t("resources.show.summary") do %>
+        <% if @resource.teaser_text.present? %>
+          <%= render "partials/embed" do %>
+            <%= simple_format @resource.teaser_text %>
+          <% end %>
+        <% else %>
+          <p class="Empty">
+            <%= t("resources.show.teaser_text_missing") %>
+          </p>
+        <% end %>
+      <% end %>
+
+      <%= render "partials/booking_section", title: t("resources.show.description") do %>
+        <% if @resource.description.present? %>
+          <%= render "partials/embed" do %>
+            <%= simple_format @resource.description %>
+          <% end %>
+        <% else %>
+          <p class="Empty">
+            <%= t("resources.show.description_missing") %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: t("images") do %>
+        <% if @resource.images.any? %>
+          <%= render "partials/gallery", images: @resource.images, featured_image_id: @resource.featured_image_id %>
+        <% else %>
+          <p class="Empty"><%= t("image_unavailable") %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: plural_model_name(ResourceSku), id: "skusSection" do %>
+        <%= render "partials/table",
+          list: @resource_skus,
+          header: "resource_skus/table/header",
+          anchor: "skusSection",
+          row: "resource_skus/table/row"
+        %>
+
+        <%= paginate @resource_skus %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: plural_model_name(Product) do %>
+        <% if @resource.products.any? %>
+          <%= render "partials/list", list: @resource.products, partial: "resources/product_preview" %>
+        <% else %>
+          <p class="Empty">
+            <%= t("resources.show.no_linked_products") %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="Content-actions">
+    <button
+      class="Button Button--negative js-ResourceDetails-destroyResourceButton"
+      method="DELETE"
+      href="<%= resource_path(@resource) %>"
+    >
+      <%= t("delete") %>
+    </button>
+  </div>
+</div>

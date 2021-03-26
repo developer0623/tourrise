@@ -1,0 +1,217 @@
+/* stylelint-disable */
+.Icon--add {
+  height: 1em;
+  width: calc(10 / 10 * 1em);
+}
+
+.Icon--calculator {
+  height: 1em;
+  width: calc(58 / 58 * 1em);
+}
+
+.Icon--cancel {
+  height: 1em;
+  width: calc(24 / 24 * 1em);
+}
+
+.Icon--check {
+  height: 1em;
+  width: calc(10 / 10 * 1em);
+}
+
+.Icon--close {
+  height: 1em;
+  width: calc(10 / 10 * 1em);
+}
+
+.Icon--de {
+  height: 1em;
+  width: calc(5 / 3 * 1em);
+}
+
+.Icon--duplicate {
+  height: 1em;
+  width: calc(512 / 512 * 1em);
+}
+
+.Icon--edit {
+  height: 1em;
+  width: calc(576 / 512 * 1em);
+}
+
+.Icon--en {
+  height: 1em;
+  width: calc(1300 / 650 * 1em);
+}
+
+.Icon--en-gb {
+  height: 1em;
+  width: calc(60 / 30 * 1em);
+}
+
+.Icon--en-us {
+  height: 1em;
+  width: calc(2000 / 1052.63 * 1em);
+}
+
+.Icon--fa-angle-left {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-angle-right {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-biking {
+  height: 1em;
+  width: calc(640 / 512 * 1em);
+}
+
+.Icon--fa-box {
+  height: 1em;
+  width: calc(512 / 512 * 1em);
+}
+
+.Icon--fa-car {
+  height: 1em;
+  width: calc(512 / 512 * 1em);
+}
+
+.Icon--fa-check {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-discount {
+  height: 1em;
+  width: calc(448 / 512 * 1em);
+}
+
+.Icon--fa-edit {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-hotel {
+  height: 1em;
+  width: calc(576 / 512 * 1em);
+}
+
+.Icon--fa-insurance {
+  height: 1em;
+  width: calc(640 / 512 * 1em);
+}
+
+.Icon--fa-lock {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-pencil {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-plane {
+  height: 1em;
+  width: calc(576 / 512 * 1em);
+}
+
+.Icon--fa-plus {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-search {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-sort {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-sort-asc {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-sort-desc {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-times {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fa-transfer {
+  height: 1em;
+  width: calc(512 / 512 * 1em);
+}
+
+.Icon--fa-volleyball {
+  height: 1em;
+  width: calc(512 / 512 * 1em);
+}
+
+.Icon--fa-warning {
+  height: 1em;
+  width: calc(1792 / 1792 * 1em);
+}
+
+.Icon--fr {
+  height: 1em;
+  width: calc(3 / 2 * 1em);
+}
+
+.Icon--hidden {
+  height: 1em;
+  width: calc(512 / 512 * 1em);
+}
+
+.Icon--lock {
+  height: 1em;
+  width: calc(512 / 512 * 1em);
+}
+
+.Icon--open_menu {
+  height: 1em;
+  width: calc(60 / 60 * 1em);
+}
+
+.Icon--refresh {
+  height: 1em;
+  width: calc(438.529 / 438.528 * 1em);
+}
+
+.Icon--remove {
+  height: 1em;
+  width: calc(438.5 / 438.5 * 1em);
+}
+
+.Icon--search {
+  height: 1em;
+  width: calc(57 / 57 * 1em);
+}
+
+.Icon--star {
+  height: 1em;
+  width: calc(19.48 / 19.48 * 1em);
+}
+
+.Icon--unlock {
+  height: 1em;
+  width: calc(448 / 512 * 1em);
+}
+
+.Icon--visible {
+  height: 1em;
+  width: calc(511.99 / 511.99 * 1em);
+}
+
+/* stylelint-enable */

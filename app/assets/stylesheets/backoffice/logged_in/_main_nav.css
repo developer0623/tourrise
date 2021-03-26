@@ -1,0 +1,153 @@
+.MainNav {
+  height: 100%;
+  background: var(--theme-color-secondary);
+  color: var(--theme-color-secondary-font);
+}
+
+.MainNav-shortcut {
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.MainNav-shortcut .Button {
+  padding: 0.5rem 0.75rem;
+}
+
+.MainNav-languages {
+  display: flex;
+  align-items: center;
+}
+
+.MainNav-name {
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0 0 0 2rem;
+}
+
+.MainNav-icon {
+  display: flex;
+  height: 100%;
+}
+
+.MainNav-button[aria-expanded="true"] .MainNav-icon--open {
+  display: none;
+}
+
+.MainNav-button:not([aria-expanded="true"]) .MainNav-icon--close {
+  display: none;
+}
+
+.deButton {
+  color: black;
+  height: 20px;
+  width: 40px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.enButton {
+  color: black;
+  height: 16px;
+  width: 40px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.frButton {
+  color: black;
+  height: 22px;
+  width: 60px;
+  display: inline-block;
+}
+
+@media (hover: hover) {
+  .MainNav-name:hover,
+  .MainNav-name:focus {
+    text-decoration: underline;
+  }
+
+  .MainNav-button:hover,
+  .MainNav-button:focus {
+    background: rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media (max-width: 56em) {
+  .MainNav {
+    --Icon-close-size: 0.4em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .MainNav-buttons {
+    display: flex;
+  }
+
+  .MainNav-subnavButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    font-size: var(--MainNav-size);
+  }
+
+  .MainNav-icon {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 56.03125em) {
+  .MainNav {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .MainNav-shortcut {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .MainNav-shortcut .Button {
+    padding: 0 0.25rem;
+    width: 100%;
+  }
+
+  .MainNav-shortcut .Button .Icon {
+    margin: 0 auto;
+  }
+
+  .MainNav-languages {
+    display: block;
+  }
+
+  .deButton {
+    margin-bottom: 0.75rem;
+  }
+
+  .enButton {
+    margin-bottom: 1.25rem;
+  }
+
+  .MainNav-name {
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 100%;
+    left: 0;
+    transform-origin: top left;
+    white-space: nowrap;
+    line-height: var(--MainNav-size);
+  }
+
+  .MainNav-subnavButton {
+    display: none;
+  }
+
+  .MainNav-icon {
+    padding: 0.75rem;
+  }
+}

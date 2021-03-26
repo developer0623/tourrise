@@ -1,0 +1,25 @@
+.BookingSuccess {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(asset_path("thank-you.jpg"));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.BookingSuccess-Content {
+  display: flex;
+  flex-direction: column;
+  max-height: 20rem;
+  background-color: rgba(white, 0.7);
+  padding: 2rem;
+}
+
+.BookingSuccess-Description {
+  color: black;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

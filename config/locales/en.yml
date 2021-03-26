@@ -1,0 +1,2596 @@
+---
+"en":
+  "activemodel":
+    "attributes":
+      "booking_resource_sku_validator":
+        "assigned_adults_count": >-
+          Number of adults
+        "assigned_babies_count": >-
+          Number of babies
+        "assigned_kids_count": >-
+          Number of kids
+        "assigned_participants_count": >-
+          Number of participants
+      "frontoffice/booking_inquiry_form":
+        "adults": >-
+          Adults
+        "babies": >-
+          Babies
+        "email": >-
+          Email
+        "ends_on": >-
+          End date
+        "first_name": >-
+          First name
+        "kids": >-
+          Kids
+        "last_name": >-
+          Last name
+        "starts_on": >-
+          Start date
+        "wishyouwhat": >-
+          Booking request information
+      "frontoffice/booking_request_form":
+        "adults": >-
+          Adults
+        "babies": >-
+          Babies
+        "ends_on": >-
+          End date
+        "kids": >-
+          Kids
+        "starts_on": >-
+          Start date
+        "wishyouwhat": >-
+          Booking request information
+  "activerecord":
+    "attributes":
+      "availability":
+        "_destroy": >-
+          Remove
+        "ends_on": >-
+          End date
+        "quantity": >-
+          Quantity
+        "starts_on": >-
+          Start date
+      "booking_credit":
+        "cost_center": >-
+          Cost Center
+        "financial_account": >-
+          Financial Account
+        "name": >-
+          Name
+        "price": >-
+          Amount
+      "booking_document":
+        "accepted": >-
+          Accepted
+        "created_at": >-
+          Created at
+        "creator": >-
+          Employee
+        "embedded_customer_link": >-
+          Customer link
+        "frontoffice_link": >-
+          Frontoffice link
+        "frontoffice_url": >-
+          Frontoffice Url
+        "number": >-
+          Number
+        "processing": >-
+          Processing document...
+        "publish": >-
+          Publishing
+        "rejected": >-
+          Rejected
+        "type": >-
+          Type
+        "unpublish": >-
+          Publishing
+      "booking_flight_request":
+        "_destroy": >-
+          Flight will be booked separately
+        "departure_airport": >-
+          Departure Airport
+        "destination_airport": >-
+          Destination Airport
+        "ends_on": >-
+          End date
+        "outward_flight": >-
+          Outward flight
+        "return_flight": >-
+          Return flight
+        "starts_on": >-
+          Start date
+      "booking_invoice":
+        "advance_booking_invoice": >-
+          Create advance invoice
+        "created_at": >-
+          Invoice date
+        "creator": >-
+          Assignee
+        "description": >-
+          Description
+        "number": >-
+          Invoice number
+        "payment": >-
+          Payment
+        "price": >-
+          Amount
+        "published": >-
+          published with ID
+        "title": >-
+          Title
+        "total_price": >-
+          Total
+      "booking_offer":
+        "created_at": >-
+          Offer date
+        "creator": >-
+          Assignee
+        "number": >-
+          Offer number
+        "published": >-
+          published with ID
+        "title": >-
+          Title
+        "total_price": >-
+          Total
+      "booking_rentalbike_request":
+        "ends_on": >-
+          End date
+        "height": >-
+          Height in cm
+        "starts_on": >-
+          Start date
+      "booking_rentalcar_request":
+        "ends_on": >-
+          End date
+        "rentalcar_class": >-
+          Rentalcar class
+        "starts_on": >-
+          Start date
+      "booking_resource_sku_group":
+        "cost_center": >-
+          Cost Center
+        "date_range": >-
+          Period of time
+        "deleted_at": >-
+          deleted at
+        "financial_account": >-
+          Financial Account
+        "price": >-
+          Price
+        "quantity": >-
+          quantity
+      "booking_resource_sku":
+        "allow_partial_payment": >-
+          partial payment possible
+        "cost_center": >-
+          Cost Center
+        "date_range": >-
+          Period of time
+        "ends_on": >-
+          End date
+        "financial_account": >-
+          Financial Accounts
+        "price": >-
+          Price
+        "quantity": >-
+          Quantity
+        "remarks": >-
+          Remarks
+        "starts_on": >-
+          Start date
+      "booking_room_assignment":
+        "adults": >-
+          Adults
+        "babies": >-
+          Babies
+        "kids": >-
+          Kids
+      "booking":
+        "aasm_state": >-
+          State
+        "address_line_1": >-
+          Address Line 1
+        "address_line_2": >-
+          Address Line 2
+        "adults": >-
+          Adults
+        "assignee": >-
+          Assignee
+        "babies": >-
+          Babies
+        "birthdate": >-
+          Birthdate
+        "city": >-
+          City
+        "country": >-
+          Country
+        "created_at": >-
+          Created at
+        "customer": >-
+          Customer
+        "customer_id": >-
+          Customer id
+        "due_on": >-
+          Due date
+        "duplicate_of": >-
+          Booking reference
+        "email": >-
+          Email
+        "ends_on": >-
+          End date
+        "first_name": >-
+          First name
+        "flights_count": >-
+          Flights count
+        "gender": >-
+          Gender
+        "kids": >-
+          Kids
+        "last_name": >-
+          Last name
+        "phone": >-
+          Phone
+        "privacy_policy_accepted": >-
+          I have read and agree to terms and conditions.
+        "product": >-
+          Product
+        "product_id": >-
+          Product
+        "product_sku": >-
+          Product variant
+        "product_sku_id": >-
+          Product variant
+        "rentalbikes_count": >-
+          Number of rentalbikes
+        "rooms_count": >-
+          Rooms count
+        "scrambled_id": >-
+          Booking code
+        "season": >-
+          Season
+        "secondary_state": >-
+          secondary state
+        "starts_on": >-
+          Start date
+        "state": >-
+          State
+        "tag_ids": >-
+          Tags
+        "terms_of_service_accepted": >-
+          Terms of service accepted
+        "title": >-
+          Title
+        "total_invoiced_amount": >-
+          Total price
+        "wishyouwhat": >-
+          Request text
+        "zip": >-
+          Zip code
+      "cost_center":
+        "name": >-
+          Name
+        "value": >-
+          Costcenter
+      "custom_attribute":
+        "field_types":
+          "checkbox": >-
+            Select
+          "date": >-
+            Date
+          "email": >-
+            Email
+          "number": >-
+            Number
+          "text": >-
+            Text
+      "customer":
+        "address": >-
+          Address
+        "address_line_1": >-
+          Address Line 1
+        "address_line_2": >-
+          Address Line 2
+        "birthdate": >-
+          Birthdate
+        "city": >-
+          City
+        "company_name": >-
+          Company/Team/Group
+        "country": >-
+          Country
+        "created_at": >-
+          Created at
+        "email": >-
+          Email
+        "email_link": >-
+          Email
+        "first_name": >-
+          First name
+        "full_address": >-
+          Address
+        "gender": >-
+          Gender
+        "id": >-
+          ID
+        "language": >-
+          Language
+        "last_name": >-
+          Last name
+        "locale": >-
+          Language
+        "localized_birthdate": >-
+          Birthdate
+        "name": >-
+          Name
+        "newsletter": >-
+          Newsletter
+        "participant_type": >-
+          Participant type
+        "phone": >-
+          Phone
+        "primary_phone": >-
+          Primary phone
+        "secondary_phone": >-
+          Secondary phone
+        "state": >-
+          State
+        "title": >-
+          Title
+        "updated_at": >-
+          Updated_at
+        "zip": >-
+          Zip
+      "financial_account":
+        "before_service_year": >-
+          Account in the year before the service was provided.
+        "during_service_year": >-
+          Account in the year the service was provided.
+        "name": >-
+          Name
+      "flight":
+        "_destroy": >-
+          Remove
+        "airline_code": >-
+          Airline
+        "arrival_airport": >-
+          Arrival airport
+        "arrival_at": >-
+          Arrival
+        "departure_airport": >-
+          Departure airport
+        "departure_at": >-
+          Departure
+        "flight_number": >-
+          Flight number
+      "inventory":
+        "_destroy": >-
+          Remove
+        "description": >-
+          Description
+        "inventory_type": >-
+          Type
+        "name": >-
+          Name
+      "payment":
+        "due_on": >-
+          Due date
+        "price": >-
+          Amount
+      "product_sku_booking_configuration":
+        "default_destination_airport_code": >-
+          Default destination airport
+        "ends_on": >-
+          Departure date
+        "starts_on": >-
+          Arrival date
+        "wishyouwhat_on_first_step": >-
+          Query booking request information in first step?
+      "product_sku":
+        "cost_center": >-
+          Cost Center
+        "financial_account": >-
+          Financial Account
+        "handle": >-
+          Alias
+      "product":
+        "cost_center_id": >-
+          Cost Center
+        "current_season": >-
+          Current season
+        "description": >-
+          Description
+        "financial_account_id": >-
+          Financial Account
+        "handle": >-
+          Alias
+        "name": >-
+          Name
+        "product_sku_handle": >-
+          Alias
+        "publish": >-
+          Published
+        "published_at": >-
+          Published
+      "resource_sku_pricing":
+        "calculation_type": >-
+          Calculation type
+        "date_range": >-
+          in date range
+        "ends_on": >-
+          End date
+        "participant_type": >-
+          Participant type
+        "price": >-
+          Price
+        "starts_on": >-
+          Start date
+      "resource_sku":
+        "_destroy": >-
+          Remove
+        "allow_partial_payment": >-
+          partial payment possible
+        "available": >-
+          Available
+        "description": >-
+          Description
+        "flights": >-
+          Flights
+        "handle": >-
+          Alias
+        "images": >-
+          Select teaser image
+        "inventory": >-
+          Inventory
+        "name": >-
+          Name
+        "occupation_configuration": >-
+          Occupation configuration
+        "teaser_image": >-
+          Teaser image
+        "vat": >-
+          VAT
+      "resource":
+        "description": >-
+          Description
+        "images": >-
+          Select images
+        "name": >-
+          Name
+        "resource_skus_count": >-
+          Items count
+        "resource_type_id": >-
+          Resource type
+        "teaser_text": >-
+          Teaser text (max 500 Characters)
+      "resource/resource_skus":
+        "available": >-
+          Available
+      "season":
+        "name": >-
+          Name
+        "published_at": >-
+          Published at
+      "tag":
+        "handle": >-
+          Handle
+        "name": >-
+          Name
+        "new_tag_group": >-
+          No group found? Add a new group name here.
+        "tag_group_id": >-
+          Group
+    "errors":
+      "ends_on_lt_than_starts_on": >-
+        must not be before the start date
+      "invalid_date_format": >-
+        has an invalid format
+      "models":
+        "booking_credit":
+          "attributes":
+            "base":
+              "invoiced_once": >-
+                The item is referenced by a document and can not be edited.
+        "booking_flight_request":
+          "attributes":
+            "departure_airport":
+              "invalid_iata_code": >-
+                invalid
+            "destination_airport":
+              "invalid_iata_code": >-
+                invalid
+            "ends_on":
+              "must_be_after_starts_on": >-
+                must be after start date
+            "starts_on":
+              "must_be_in_future": >-
+                must be in future
+        "booking_resource_sku":
+          "attributes":
+            "ends_on":
+              "missing": >-
+                missing
+            "starts_on":
+              "missing": >-
+                missing
+        "frontoffice_step":
+          "attributes":
+            "required":
+              "mundatory_field": >-
+                mandatory
+        "product":
+          "attributes":
+            "frontoffice_steps":
+              "mandatory_steps": >-
+                mandatory step missing
+        "tag":
+          "attributes":
+            "handle":
+              "format": >-
+                A handle tag may only contain the letters a to z and the special characters
+                +, - and _ .
+    "models":
+      "active_admin/comment":
+        "one": >-
+          Comment
+        "other": >-
+          Comments
+      "advance_booking_invoice":
+        "one": >-
+          Advance invoice
+        "other": >-
+          Advance invoices
+      "booking":
+        "one": >-
+          Booking
+        "other": >-
+          Bookings
+      "booking_credit":
+        "one": >-
+          Credit/Deposit
+        "other": >-
+          Credits/Deposits
+      "booking_customer":
+        "one": >-
+          Booking customer
+        "other": >-
+          Booking customers
+      "booking_invoice":
+        "one": >-
+          Invoice
+        "other": >-
+          Invoices
+      "booking_offer":
+        "one": >-
+          Offer
+        "other": >-
+          Offers
+      "booking_rentalbike_request":
+        "one": >-
+          Rentalbike
+        "other": >-
+          Rentalbikes
+      "booking_rentalcar_request":
+        "one": >-
+          Rentalcar
+        "other": >-
+          Rentalcars
+      "booking_resource_sku":
+        "one": >-
+          Booked item
+        "other": >-
+          Booked items
+      "booking_resource_sku_group":
+        "one": >-
+          Grouped items
+        "other": >-
+          Grouped items
+      "comment":
+        "one": >-
+          Comment
+        "other": >-
+          Comments
+      "customer":
+        "one": >-
+          Customer
+        "other": >-
+          Customers
+      "flight":
+        "one": >-
+          Flight
+        "other": >-
+          Flights
+      "inventory":
+        "one": >-
+          Inventory
+        "other": >-
+          Inventories
+      "participant":
+        "one": >-
+          Participant
+        "other": >-
+          Participants
+      "payment":
+        "one": >-
+          Payment
+        "other": >-
+          Payments
+      "product":
+        "one": >-
+          Product
+        "other": >-
+          Products
+      "product_sku":
+        "one": >-
+          Product variant
+        "other": >-
+          Product variants
+      "resource_sku":
+        "one": >-
+          Item
+        "other": >-
+          Items
+      "resource_sku_pricing":
+        "one": >-
+          Pricing rule
+        "other": >-
+          Pricing rules
+      "season":
+        "one": >-
+          Season
+        "other": >-
+          Seasons
+      "tag":
+        "one": >-
+          Tag
+        "other": >-
+          Tags
+  "add": >-
+    Add
+  "advance_booking_invoices":
+    "description": >-
+      Advance booking invoice of booking %{booking_title}
+  "attributes":
+    "adults": >-
+      Adults
+    "babies": >-
+      Babies
+    "kids": >-
+      Kids
+  "availabilities":
+    "availability_types":
+      "date_range": >-
+        Period of time
+      "quantity": >-
+        Quantity
+      "quantity_in_date_range": >-
+        Quantity in period of time
+  "back": >-
+    Back
+  "booking_attributes":
+    "departure": >-
+      Departure
+    "destination": >-
+      Destination
+    "dropoff_location": >-
+      Dropoff location
+    "end_time": >-
+      End time
+    "ends_at": >-
+      Ends at
+    "ends_on": >-
+      End date
+    "height": >-
+      Height
+    "pickup_location": >-
+      Pickup location
+    "reference": >-
+      Reference
+    "rentalcar_type": >-
+      Rentalcar type
+    "reservation_number": >-
+      reservation_number
+    "start_time": >-
+      Start time
+    "starts_at": >-
+      Starts at
+    "starts_on": >-
+      Start date
+  "booking_credits":
+    "advance_booking_invoice":
+      "title": >-
+        Advance payment
+    "create":
+      "success": >-
+        Credit successfully created.
+    "destroy":
+      "success": >-
+        Credit successfully deleted.
+    "edit":
+      "headline": >-
+        Edit credit of %{name}
+    "empty": >-
+      No credit or deposit.
+    "invoiced": >-
+      invoiced:
+    "name_with_date": >-
+      %{name} of %{date}
+    "new":
+      "headline": >-
+        Create credit for %{name}
+    "update":
+      "success": >-
+        Credit successfully updated.
+  "booking_documents":
+    "customer_link_label": >-
+      Customer view
+    "frontoffice_link_label": >-
+      Preview
+    "frontoffice_publish_link_label": >-
+      Publish
+    "frontoffice_unpublish_link_label": >-
+      Unpublish
+    "removed_prefix": >-
+      Removed:
+  "booking_events":
+    "description":
+      "record_created": >-
+        Record created
+      "record_deleted": >-
+        Record deleted
+      "record_updated": >-
+        changed %{attribute} from "%{from}" to "%{to}"
+    "event_type":
+      "create": >-
+        create
+      "destroy": >-
+        remove
+      "update": >-
+        update
+    "index":
+      "title":
+        "one": >-
+          Booking event
+        "other": >-
+          %{count} Booking events
+    "table":
+      "thead":
+        "created_at": >-
+          Created at
+        "event_type": >-
+          Event
+        "item_type": >-
+          Entity
+        "whodunnit": >-
+          Employee
+  "booking_form":
+    "advance_booking_invoice":
+      "headline": >-
+        Advance invoice %{name}
+      "sum": >-
+        Sum
+    "booking_invoice":
+      "due_on": >-
+        due on
+      "headline": >-
+        %{name} Invoice
+      "id": >-
+        Invoice number: %{id}
+      "payment": >-
+        Payment
+      "remaining_sum": >-
+        Remaining amount
+      "sum": >-
+        Sum
+    "booking_offer":
+      "accept": >-
+        accept
+      "accepted_badge": >-
+        offer accepted
+      "headline": >-
+        %{name} Offer
+      "id": >-
+        Offer number: %{id}
+      "offer_accepted_error": >-
+        Error while accepting the offer.
+      "offer_rejected_error": >-
+        Error while rejecting the offer.
+      "reject": >-
+        reject
+      "rejected_badge": >-
+        offer rejected
+      "remaining_sum": >-
+        Remaining amount
+      "sum": >-
+        Sum
+    "contact_step":
+      "intro": >-
+        Please enter your contact information. We will use these information for offers
+        and invoices.
+      "title": >-
+        Your contact data
+    "documents":
+      "customer_id": >-
+        Customer number: %{customer_id}
+      "name": >-
+        Name
+      "price": >-
+        Price
+      "quantity": >-
+        Quantity
+      "sku": >-
+        Sku
+      "submit": >-
+        Accept
+      "total_price": >-
+        Total
+      "your_resource_sku_groups": >-
+        Your packages
+    "errors":
+      "final_state": >-
+        booking in final state.
+      "invalid_country_code": >-
+        Invalid country code.
+    "flight_request_step":
+      "flights_count": >-
+        Number of flights
+      "intro": >-
+        Please enter your flight options.
+      "no_flights_needed": >-
+        All flights will be booked seperately
+      "title": >-
+        Your flight options
+    "headline": >-
+      Booking for %{name}
+    "participants_step":
+      "empty": >-
+        You did not select any participants. Please go back to 'request step' and
+        tell us how many people are travelling.
+      "fill_later": >-
+        Provide participant details later
+      "intro": >-
+        Please enter the name, email address, and birthdate for each guest.
+      "title": >-
+        Guests
+    "rentalbike_request_step":
+      "intro": >-
+        Please enter your rentalbike options.
+      "no_bikes_needed": >-
+        No bikes needed
+      "rentalbikes_count": >-
+        Number of rentalbikes
+      "title": >-
+        Your rentalbike options
+    "rentalcar_request_step":
+      "intro": >-
+        Please select one of the options
+      "no_cars_needed": >-
+        No cars needed
+      "rentalcars_count": >-
+        Number of rentalcars
+      "title": >-
+        You rentalcar options
+    "request_step":
+      "intro": >-
+        Please fill out the form below. Based on these information we can offer you
+        more options in the following steps.
+      "title": >-
+        Your request data
+    "steps_progress": >-
+      Step %{step} of %{total}
+    "steps":
+      "accommodation_request": >-
+        Accommodation
+      "contact": >-
+        Contact
+      "flight_request": >-
+        Flight
+      "insurance_request": >-
+        Insurance
+      "invoice": >-
+        Invoice
+      "island_hopping_request": >-
+        Island Hopping
+      "offer": >-
+        Offer
+      "participants": >-
+        Guests
+      "rentalbike_request": >-
+        Rentalbike
+      "rentalcar_request": >-
+        Rentalcar
+      "request": >-
+        Request
+      "summary": >-
+        Summary
+      "training_package_request": >-
+        Service Package
+    "summary_step":
+      "intro": >-
+        Please validate your request. You can go back to every step and change your
+        options.
+      "outro": >-
+        <strong>Attention:</strong> submitting this form does not result in a final
+        booking. We will make you an offer that you can accept if you like it.
+      "participant_placeholder":
+        "one": >-
+          The contact information for one guest will be provided later.
+        "other": >-
+          The contact information for %{count} guests will be provided later.
+      "please_accept_tos_and_pp": >-
+        Please accept our terms of services and our privacy policy.
+      "submit": >-
+        Submit
+      "title": >-
+        Summary
+      "wishyouwhat_section_title": >-
+        Request information
+    "training_package_step":
+      "details": >-
+        Details
+      "intro": >-
+        Please select your service package
+      "title": >-
+        Your service package
+  "booking_invoices":
+    "created": >-
+      Invoice successfully created. It will be available in a few seconds.
+    "created_error": >-
+      Invoice could not be created.
+    "new":
+      "booking_calculated_price": >-
+        Current sum of positions
+      "booking_resource_sku_groups": >-
+        grouped items
+      "booking_resource_skus": >-
+        booked items
+      "booking_starts_on": >-
+        Start date of booking
+      "full_payment_booking_resource_skus": >-
+        fully due items
+      "headline": >-
+        New invoice %{name}
+      "headline_advance": >-
+        %{name} Advance invoice
+      "invalid_price_error": >-
+        Invalid invoiced amount. Invoice could not be created.
+      "partial_payment_booking_resource_skus": >-
+        partially due items
+      "canceled_booking_resource_skus": >-
+        Removed items
+      "todays_date": >-
+        Today's date
+      "with_first_and_final_payment": >-
+        payable in two partial payments
+      "with_single_payment": >-
+        payable in one full payment
+    "show":
+      "payments":
+        "one": >-
+          Payment due date
+        "other": >-
+          Payment due dates
+  "booking_mailer":
+    "created":
+      "subject": >-
+        [%{handle}] New booking by %{name}
+  "booking_offers":
+    "created": >-
+      Offer successfully created. It will be available in a few seconds.
+    "created_error": >-
+      Cannot create offer.
+  "booking_resource_sku_groups":
+    "calculate":
+      "error": >-
+        Error calculating group's price.
+      "success": >-
+        Price of group successfully updated.
+    "create":
+      "cannot_hide_booking_resource_skus": >-
+        Items cannot automatically be hidden***
+      "fail_booking_booked": >-
+        Booking committed. Items cannot be grouped any more.***
+      "must_add_booking_resource_skus": >-
+        Please add items to group.
+      "success": >-
+        Items successfully grouped***
+    "destroy":
+      "cannot_show_booking_resource_skus": >-
+        Items cannot automatically be shown***
+      "success": >-
+        Item group successfully removed
+    "edit":
+      "disable_partial_payment": >-
+        payable in one full payment
+      "enable_partial_payment": >-
+        payable in two partial payments
+    "new":
+      "booking_resource_skus": >-
+        Items***
+      "disable_partial_payment": >-
+        payable in one full payment
+      "enable_partial_payment": >-
+        payable in two partial payments
+      "title": >-
+        Group items***
+    "update":
+      "success": >-
+        Position group successfully updated.
+  "booking_resource_skus":
+    "assign_booking_resource_sku_attributes":
+      "booking_resource_sku_missing": >-
+        The item could not be found.
+    "block":
+      "success": >-
+        Item successfully blocked
+    "create":
+      "success": >-
+        Item successfully booked
+    "destroy":
+      "success": >-
+        Item successfully destroyed
+    "duplicate":
+      "success": >-
+        Item successfully duplicated
+    "edit":
+      "flight":
+        "pnr_parser_hint": >-
+          Unterstützte Formate: Bistro, Amadeus, manual; Manual format example Format:
+          UA930 HAM FUE 01061998 1130 1200+1
+        "pnr_parser_label": >-
+          Paste PNR here
+      "participants": >-
+        Assign guests
+      "submit": >-
+        Update
+      "title": >-
+        Edit %{name}
+      "transfer":
+        "search_label": >-
+          Enter flight number here
+        "select": >-
+          Select
+        "select_reference_type_id": >-
+          Search for the flight here with e.g  AIRLINE_CODE FLIGHT_NUMBER
+    "errors":
+      "not_available": >-
+        This item is not available (anymore)
+    "new":
+      "select_booking_resource_sku_step_title": >-
+        Please select a resource type
+      "select_resource_type": >-
+        Select type
+      "select_resource_type_step_title": >-
+        Select type
+      "title": >-
+        Add item to booking
+    "show":
+      "title": >-
+        %{name}
+    "states":
+      "blocked_by": >-
+        Blocked by %{name}
+      "booked_by": >-
+        Booked by %{name}
+    "table":
+      "row":
+        "date_range": >-
+          %{starts_on} until %{ends_on}
+    "unblock":
+      "success": >-
+        Item successfully unblocked
+    "update":
+      "success": >-
+        Item successfully updated
+  "bookings":
+    "assign_to_me": >-
+      Assign to me
+    "check_booking_resource_skus_availability":
+      "not_available": >-
+        Item %{name} is not available (anymore).
+      "resource_sku_missing": >-
+        Item %{name} does not exist (anymore).
+    "create":
+      "success": >-
+        Booking successfully created.
+    "duplicate":
+      "success": >-
+        Booking successfully duplicated.
+    "edit":
+      "search_participant_placeholder": >-
+        Search participant
+      "title": >-
+        Edit request data
+    "form":
+      "add_participant_link": >-
+        Add participant
+      "participants":
+        "title": >-
+          Participants
+      "submit": >-
+        Submit
+    "index":
+      "create_booking_link": >-
+        Add booking
+      "link_to_booking": >-
+        View booking
+      "title":
+        "one": >-
+          One booking
+        "other": >-
+          %{count} bookings
+    "new":
+      "existing_customer": >-
+        Existing customer
+      "new_customer": >-
+        New customer
+      "next_step": >-
+        Next
+      "prev_step": >-
+        Back
+      "select_customer": >-
+        Select customer
+      "select_product_variant": >-
+        Select product
+      "submit": >-
+        Subit booking request
+      "title": >-
+        Create booking
+    "nights": >-
+      nights
+    "not_assigned": >-
+      Not assigned
+    "secondary_state":
+      "error": >-
+        Error setting secondary state.
+      "invoice_missing": >-
+        invoice missing
+      "invoice_sent": >-
+        invoice sent
+      "offer_missing": >-
+        offer missing
+      "offer_rejected": >-
+        offer rejected
+      "offer_sent": >-
+        offer sent
+    "show":
+      "accommodation_request":
+        "title": >-
+          Accommodation
+      "add_resource": >-
+        Add item
+      "booking_documents": >-
+        Offers/Invoices
+      "booking_events": >-
+        Timeline
+      "booking_resource_skus":
+        "actions":
+          "block": >-
+            Block
+      "buttons":
+        "cancel_booking": >-
+          Cancel booking
+        "close_booking": >-
+          Close booking
+        "commit_booking": >-
+          Commit booking
+        "create_invoice": >-
+          Create invoice
+        "create_offer": >-
+          Create offer
+        "duplicate": >-
+          Duplicate booking
+        "invoice_created": >-
+          Invoice created
+        "offer_created": >-
+          Offer created
+        "reopen": >-
+          Reopen booking
+        "reopen_confirmation": >-
+          If you change a committed booking you can get into trouble with your bookkeepers.
+          Proceed if you accept and know the risks.
+      "click_to_edit_due_on": >-
+        Set due date
+      "click_to_edit_secondary_state": >-
+        Edit secondary state manually
+      "create_booking_resource_sku_group": >-
+        Group items***
+      "customer":
+        "address":
+          "empty": >-
+            Not entered.
+        "email":
+          "empty": >-
+            Not entered.
+        "phone":
+          "empty": >-
+            Not entered.
+        "title": >-
+          Contact
+      "edit_due_on": >-
+        Edit due date
+      "edit_secondary_state": >-
+        Edit secondary state
+      "flight_request":
+        "title": >-
+          Flightrequest
+      "missing_details": >-
+        Details missing
+      "newsletter": >-
+        Newsletter
+      "participants":
+        "empty": >-
+          Not entered.
+        "title": >-
+          Guests
+      "privacy_policy_accepted": >-
+        Privacy Policy accepted
+      "privacy_policy_not_accepted": >-
+        Privacy Policy not accepted
+      "remaining_amount": >-
+        Remaining amount
+      "rentalbike_request":
+        "title": >-
+          Rentalbikerequest
+      "rentalcar_request":
+        "title": >-
+          Rentalcarrequest
+      "request":
+        "ends_on":
+          "empty": >-
+            Not entered.
+        "starts_on":
+          "empty": >-
+            Not entered.
+        "title": >-
+          Request data
+      "resources":
+        "empty": >-
+          Not entered.
+        "title": >-
+          Available items
+      "show_details": >-
+        Show more
+      "terms_of_service_accepted": >-
+        ToS accepted
+      "terms_of_service_not_accepted": >-
+        ToS not accepted
+      "terms_of_service":
+        "link": >-
+          download ToS and Privacy Policy
+        "title": >-
+          ToS and Privacy Policy
+      "timeline":
+        "messages":
+          "booking_created": >-
+            Booking created by %{name}.
+          "booking_updated": >-
+            Booking updated by %{name}.
+          "invoice_created": >-
+            Invoice created
+          "offer_created": >-
+            Offer created
+        "title": >-
+          History
+      "total_price": >-
+        Total price
+      "unprocessed_resources":
+        "empty": >-
+          Nothing to do here.
+        "title": >-
+          Requested items
+    "states":
+      "blocked": >-
+        Blocked
+      "booked": >-
+        Booked
+      "canceled": >-
+        Canceled
+      "closed": >-
+        Closed
+      "draft": >-
+        Draft
+      "in_progress": >-
+        In progress
+      "requested": >-
+        New
+    "status_changes":
+      "assigned": >-
+        Booking assigned.
+      "canceled": >-
+        Booking canceled successfully
+      "closed": >-
+        Booking closed.
+      "committed": >-
+        Booking committed successfully
+      "reopened": >-
+        Booking reopened.
+      "unassigned": >-
+        Booking unassigned.
+      "updated": >-
+        Booking updated.
+    "unassign": >-
+      Release
+  "breadcrumbs":
+    "reports":
+      "product_skus": >-
+        Product variant
+  "calculate": >-
+    Recalculate
+  "calculator": >-
+    Calculator
+  "calendar":
+    "select_date": >-
+      select date
+  "cancel": >-
+    Cancel
+  "close": >-
+    Close
+  "components":
+    "details":
+      "summary": >-
+        Additional Information
+  "consecutive_days_ranges":
+    "form":
+      "add": >-
+        add
+    "new":
+      "title": >-
+        Number of consecutive days
+  "cost_centers":
+    "edit":
+      "title": >-
+        Edit cost center %{name}
+    "index":
+      "add_cost_center_link": >-
+        Add a new cost center
+      "title": >-
+        Cost Centers
+    "new":
+      "title": >-
+        Add new cost center
+  "create": >-
+    Create
+  "customers":
+    "create":
+      "general_id_error": >-
+        The general customer id could not be assigned.
+      "success": >-
+        Customer successfully created.
+    "edit":
+      "submit": >-
+        Update
+      "title": >-
+        Edit customer
+    "index":
+      "add_customer_link": >-
+        Add customer
+      "bookings_count": >-
+        Bookings (%{count})
+      "bookings_income": >-
+        Revenue
+      "title":
+        "one": >-
+          One customer
+        "other": >-
+          %{count} customers
+    "new":
+      "submit": >-
+        submit
+      "title": >-
+        Add new customer
+    "show":
+      "booking": >-
+        Booking
+      "empty_bookings": >-
+        No bookings for this customer yet.
+  "date_range": >-
+    Date range
+  "de": >-
+    German
+  "delete": >-
+    Delete
+  "duplicate": >-
+    Duplicate
+  "edit": >-
+    Edit
+  "empty": >-
+    not entered
+  "en": >-
+    English
+  "export_csv": >-
+    CSV Export
+  "false": >-
+    No
+  "featured_image": >-
+    Featured image
+  "filter":
+    "assignee_id": >-
+      Employee
+    "clear": >-
+      Clear
+    "event": >-
+      Event type
+    "invoice_date": >-
+      Invoice date in
+    "item_type": >-
+      Entity
+    "product_id": >-
+      Product
+    "product_sku_id": >-
+      Product variant
+    "request": >-
+      Bookingoptions
+    "resource_id": >-
+      Resource
+    "resource_ids": >-
+      Resources
+    "resource_type": >-
+      Resourcetype
+    "resource_type_id": >-
+      Resource Type
+    "search_for": >-
+      Search
+    "season": >-
+      Season
+    "season_id": >-
+      Season
+    "secondary_state": >-
+      secondary state
+    "status": >-
+      Status
+    "submit": >-
+      Filter
+    "title": >-
+      Filter by
+  "financial_accounts":
+    "edit":
+      "title": >-
+        Edit financial accountl %{name}
+    "index":
+      "add_financial_account_link": >-
+        Add financial account
+      "title": >-
+        Financial accounts
+    "new":
+      "title": >-
+        Add a finanical account
+  "flight": >-
+    Flight
+  "forms":
+    "select":
+      "all": >-
+        All
+      "empty": >-
+        Please choose
+  "fr": >-
+    French
+  "frontoffice":
+    "accommodations":
+      "index":
+        "available_accommodations": >-
+          Available accommodations
+        "empty": >-
+          We are currently unable to offer rooms for this type of accommodation.
+        "jump_to_rooms": >-
+          See rooms
+        "proceed_without_rooms": >-
+          Skip
+        "room_assignments":
+          "add_rooms": >-
+            Add rooms
+          "adults": >-
+            Adults: %{count}
+          "babies": >-
+            Babies: %{count}
+          "change_rooms": >-
+            Change room assignments
+          "kids": >-
+            Kids: %{count}
+          "preview": >-
+            Room %{room_number}
+          "proceed_step_by_step": >-
+            Please select your rooms step by step
+        "select": >-
+          Select
+        "title": >-
+          Your accommodation
+      "show":
+        "preview":
+          "empty": >-
+            The rooms are on request. We would be happy to check the availability
+            for you.
+    "bookings":
+      "steps":
+        "accommodation_request":
+          "incomplete_assignment_warning": >-
+            Attention: The current occupancy does not match the requested data from
+            step 1.
+          "intro": >-
+            Please select the number of rooms first and assign the adults/kids/babies
+            to these rooms.
+          "no_rooms_needed": >-
+            No accommodation needed
+          "room_assignment": >-
+            Occupancy
+          "rooms_count": >-
+            Number of rooms / appartments
+          "title": >-
+            Your accommodation
+          "unassigned_adults": >-
+            Adults to be assigned:
+          "unassigned_babies": >-
+            Babies to be assigned:
+          "unassigned_kids": >-
+            Kids to be assigned:
+        "flight_request":
+          "flights_count": >-
+            Number of flights
+        "insurance_request":
+          "details": >-
+            Additional Information
+          "empty": >-
+            We cannot offer you any insurance package at the moment.
+          "intro": >-
+            Please select one of the options
+          "title": >-
+            Insurance
+        "island_hopping_request":
+          "empty": >-
+            We cannot offer you any island hopping options at the moment.
+          "intro": >-
+            Please select one of the options
+          "title": >-
+            Island Hopping
+      "success":
+        "description": >-
+          We will get back to you via email within the next two business days.
+        "title": >-
+          Thanks for your booking request.
+      "summary":
+        "accept_privacy_policy": >-
+          I have read the privacy policy and agree to it.
+        "accept_terms_of_service": >-
+          I have read the terms and conditions and agree to them.
+        "subscribe_to_newsletter": >-
+          Subscribe to newsletter
+        "transportation":
+          "flights":
+            "one": >-
+              1x Flight
+            "other": >-
+              %{count}x Flights
+          "rentalbikes":
+            "one": >-
+              1x Rentalbike
+            "other": >-
+              %{count}x Rentalbikes
+          "rentalcars":
+            "one": >-
+              1x Rentalcar
+            "other": >-
+              %{count}x Rentalcars
+    "errors":
+      "bad_request": >-
+        Something went wrong.
+      "not_found":
+        "content_line_1": >-
+          We cannot find this trip in our product catalogue.
+        "content_line_2": >-
+          Pleas contact our customer service.
+        "headline": >-
+          Sorry.
+      "too_many_rooms": >-
+        You booked more rooms then requested.
+    "inquiries":
+      "new":
+        "description": >-
+          Please enter details for your desired trip and we will get back to your
+          with a non-binding offer.
+        "submit": >-
+          Get offer
+      "success":
+        "confirmation": >-
+          We will get back to you via email within the next two business days.
+        "title": >-
+          Thanks for your booking request.
+    "participants":
+      "participant_types":
+        "adult": >-
+          Adult
+        "adults": >-
+          Adult
+        "all": >-
+          All
+        "babies": >-
+          Baby
+        "baby": >-
+          Baby
+        "kid": >-
+          Kid
+        "kids": >-
+          Kid
+    "products":
+      "info_link_name": >-
+        Info
+      "product_sku":
+        "book": >-
+          Book
+        "get_offer": >-
+          Request offer
+      "show":
+        "bookable_trips": >-
+          Bookable trips
+  "genders":
+    "diverse": >-
+      Diverse
+    "female": >-
+      Female
+    "male": >-
+      Male
+  "helpers":
+    "placeholder":
+      "tag":
+        "handle": >-
+          soc
+        "name": >-
+          Single Occupation
+  "hidden": >-
+    Internal item
+  "home":
+    "index":
+      "hello": >-
+        Hello %{name}!
+      "unassigned_customers":
+        "one": >-
+          One customer needs help with their booking
+        "other": >-
+          %{count} customers need help with their booking
+  "image_loading": >-
+    Image loading...
+  "image_unavailable": >-
+    No image available
+  "images": >-
+    Images
+  "interactor_errors":
+    "empty": >-
+      Please provide %{attribute}
+    "incorrect": >-
+      Please provide correct %{attribute}!
+  "inventories":
+    "create":
+      "error": >-
+        Inventory could not be saved.
+      "success": >-
+        Inventory created successfully.
+    "edit":
+      "title": >-
+        Edit inventory
+    "form":
+      "add_availability_link": >-
+        Add availability
+      "add_availability_title": >-
+        Add availability
+      "availabilities_title": >-
+        Availabilities
+      "remove_availability_title": >-
+        Remove availability
+    "index":
+      "title": >-
+        Inventories
+    "inventory_types":
+      "quantity": >-
+        Quantity
+      "quantity_in_date_range": >-
+        Quantity in period
+    "new":
+      "title": >-
+        Add inventory
+    "show":
+      "availabilities_empty_message": >-
+        No availabilities configured.
+      "availabilities_title": >-
+        Availabilities
+      "booking_resource_skus_empty_message": >-
+        No items assigned.
+      "description_missing": >-
+        No description added yet.
+      "resource_skus_title": >-
+        Assigned items
+      "title": >-
+        Inventory
+    "update":
+      "error": >-
+        Inventory update failed.
+      "success": >-
+        Inventory successfully updated.
+  "mailers":
+    "booking_offer":
+      "accepted": >-
+        Offer %{id} was accepted.
+      "rejected": >-
+        Offer %{id} was rejected.
+  "navigation":
+    "advance_booking_invoices": >-
+      Advance invoices
+    "booking": >-
+      %{id}
+    "booking_events": >-
+      Change history
+    "booking_invoices": >-
+      Invoices
+    "booking_offers": >-
+      Offers
+    "booking_resource_sku_groups": >-
+      Grouped items
+    "booking_resource_skus": >-
+      Booked items
+    "bookings": >-
+      Bookings
+    "close_menu": >-
+      Close menu
+    "cost_centers": >-
+      Cost Centers
+    "custom_attributes": >-
+      Custom Attributes
+    "customers": >-
+      Customers
+    "easybill": >-
+      Easybill
+    "edit": >-
+      Form
+    "edit_booking_credit": >-
+      Edit credit %{id}
+    "edit_booking_participant": >-
+      update participant
+    "edit_booking_resource_sku": >-
+      update position %{handle}
+    "employees": >-
+      Employees
+    "financial_accounts": >-
+      Financial Accounts
+    "home": >-
+      Home
+    "inventories": >-
+      Inventory
+    "logout": >-
+      Logout
+    "new_advance_booking_invoice": >-
+      Create advance invoice
+    "new_booking_credit": >-
+      Create credit
+    "new_booking_invoice": >-
+      Create invoice
+    "new_booking_resource_sku": >-
+      Add item
+    "new_booking_resource_sku_group": >-
+      Group items***
+    "occupation_configurations": >-
+      Occupation Configurations
+    "open_menu": >-
+      Open menu
+    "participants": >-
+      Participants
+    "pricings": >-
+      Pricings
+    "product_booking_resource_skus": >-
+      Items
+    "product_configurations": >-
+      Product Configurations
+    "products": >-
+      Products
+    "reports": >-
+      Analytics
+    "resource_types": >-
+      Resource Types
+    "resources": >-
+      Resources
+    "settings": >-
+      Settings
+    "tags": >-
+      Tags
+  "not_entered": >-
+    Not entered
+  "of": >-
+    of
+  "own": >-
+    Own
+  "pagination":
+    "next": >-
+      Next
+    "prev": >-
+      Previous
+  "partials":
+    "autocomplete":
+      "validation_message": >-
+        Please select an option
+    "booking_section":
+      "flight": >-
+        Flight
+      "rentalbike": >-
+        Rentalbike
+      "rentalcar": >-
+        Rentalcar
+    "bookings":
+      "booking_resource_skus":
+        "destroy": >-
+          Release
+    "table":
+      "actions": >-
+        Actions
+  "participant_types":
+    "adult": >-
+      Adult
+    "all_groups": >-
+      All categories
+    "baby": >-
+      Baby
+    "kid": >-
+      Kid
+  "participants":
+    "edit":
+      "submit": >-
+        Update
+      "title": >-
+        Edit participant
+    "participant_form":
+      "has_assigned_booking_resource_skus": >-
+        Participant cannot be deleted. Please remove dependency in booking first.
+    "placeholder_name": >-
+      Not entered
+  "product_booking_resource_skus":
+    "create":
+      "success": >-
+        Item %{name} successfully added
+    "index":
+      "title": >-
+        Booked items
+  "product_participants":
+    "index":
+      "title": >-
+        Guests
+  "product_skus":
+    "destroy_product_sku":
+      "errors":
+        "has_active_bookings": >-
+          %{name} hast active bookings and can not be deleted.
+    "destroy":
+      "confirm_dialogue": >-
+        Are you sure to delete this product variant?
+      "success": >-
+        Product variant was deleted.
+    "edit":
+      "booking_configuration": >-
+        Default Frontoffice values
+    "update":
+      "error": >-
+        Error saving product variant.
+      "success": >-
+        Product variant successfully updated.
+  "products":
+    "edit":
+      "title": >-
+        Edit product
+    "form":
+      "add_product_sku": >-
+        Add product variant
+      "frontoffice_steps_section": >-
+        Frontoffice Steps
+      "product_skus_section": >-
+        Product variants
+      "resources_section": >-
+        Associated Resources
+      "with_multiple_product_skus": >-
+        The product has multiple variants.
+    "index":
+      "add_product_link": >-
+        Add product
+      "title":
+        "one": >-
+          One product
+        "other": >-
+          %{count} products
+    "new":
+      "title": >-
+        Add product
+    "show":
+      "add_season_link": >-
+        Add Season
+      "current_season":
+        "published": >-
+          Publishing date: %{date}
+      "description": >-
+        Beschreibung
+      "no_current_season": >-
+        No season published yet.
+      "no_seasons_added": >-
+        No season created yet.
+      "not_yet_published": >-
+        Not published yet
+      "product_sku_preview":
+        "bookings_link": >-
+          Bookings (%{count})
+        "product_sku_edit_link": >-
+          Edit
+        "test": >-
+          Preview
+      "published_at": >-
+        Product successfully published to the frontoffice: %{datetime}
+      "season_preview":
+        "publish": >-
+          Publish
+      "tags": >-
+        Tags
+      "visibility": >-
+        Visibility
+  "refresh": >-
+    Refresh
+  "remove": >-
+    Remove
+  "rentalbike": >-
+    Rentalbike
+  "rentalcar_categories":
+    "category_codes":
+      "C": >-
+        Compact
+      "D": >-
+        Compact Elite
+      "E": >-
+        Economy
+      "F": >-
+        Fullsize
+      "G": >-
+        Fullsize Elite
+      "H": >-
+        Economy Elite
+      "I": >-
+        Intermediate
+      "J": >-
+        Intermediate Elite
+      "L": >-
+        Luxury
+      "M": >-
+        Mini
+      "N": >-
+        Mini Elite
+      "O": >-
+        Oversize
+      "P": >-
+        Premium
+      "R": >-
+        Standard Elite
+      "S": >-
+        Standard
+      "U": >-
+        Premium Elite
+      "W": >-
+        Luxury Elite
+      "X": >-
+        Special
+    "fuel_codes":
+      "A": >-
+        Hydrogen mit AC
+      "B": >-
+        Hydrogen ohne AC
+      "C": >-
+        Elektrisch ohne AC
+      "D": >-
+        Diesel mit AC
+      "E": >-
+        Elektrisch mit AC
+      "F": >-
+        Multi Fuel/Power ohne AC
+      "H": >-
+        Hybrid mit AC
+      "I": >-
+        Hybrid ohen AC
+      "L": >-
+        LPG/Compressed Gas mit AC
+      "M": >-
+        Multi Fuel/Power mit AC
+      "N": >-
+        Unspecified Fuel ohen AC
+      "Q": >-
+        Diesel ohen AC
+      "R": >-
+        Unspecified Fuel mit AC
+      "S": >-
+        LPG/Compressed Gas ohne AC
+      "U": >-
+        Ethanol mit AC
+      "V": >-
+        Petrol mit AC
+      "X": >-
+        Ethanol ohne AC
+      "Z": >-
+        Petrol ohne AC
+    "trans_codes":
+      "A": >-
+        Auto unspecified
+      "B": >-
+        Auto 4WD
+      "C": >-
+        Manual AWD
+      "D": >-
+        Auto AWD
+      "M": >-
+        Manual unspecified
+      "N": >-
+        Manual 4WD
+    "type_codes":
+      "B": >-
+        Zwei bis Dreitürer
+      "C": >-
+        Zwei bis Viertürer
+      "D": >-
+        Vier bis Fünftürer
+      "E": >-
+        Coupe
+      "F": >-
+        SUV
+      "G": >-
+        Crossover
+      "H": >-
+        Wohnmobil
+      "J": >-
+        Open Air All Terrain
+      "K": >-
+        Transporter
+      "L": >-
+        Limousine
+      "M": >-
+        Monospace
+      "N": >-
+        Roadster
+      "P": >-
+        Pick up Regular Cab
+      "Q": >-
+        Pick up Extended Cab
+      "R": >-
+        Recreational Vehicle
+      "S": >-
+        Sportwagen
+      "T": >-
+        Cabriolet
+      "V": >-
+        Passenger Van
+      "W": >-
+        Kombi
+      "X": >-
+        Special
+      "Y": >-
+        2 Wheel Vehicle
+      "Z": >-
+        Special Offer Car
+  "rentalcar_types":
+  - >-
+    Economy
+  - >-
+    Mid-Size
+  - >-
+    Minivan
+  - >-
+    Cabrio
+  - >-
+    SUV
+  - >-
+    Jeep
+  "reports":
+    "index":
+      "product_skus_link": >-
+        Product analytics
+      "title": >-
+        Analytics
+    "product_skus":
+      "index":
+        "no_product_skus_available": >-
+          No product skus available.
+        "title": >-
+          Analytics of %{count} product sub-variants
+      "table":
+        "header":
+          "participants_count": >-
+            Participants
+          "product_name": >-
+            Product
+          "product_sku_name": >-
+            Product variant
+          "season_names": >-
+            Season
+  "required_fields": >-
+    Fields with * are required
+  "resource_sku_pricings":
+    "bulk_edit":
+      "add_resource_sku_pricing_link": >-
+        Add pricing rule
+      "title": >-
+        Pricing
+    "calculation_types":
+      "consecutive_days": >-
+        number of consecutive days
+      "fixed": >-
+        Fixed price
+      "per_person": >-
+        per Person
+      "per_person_and_night": >-
+        per person and night
+      "quantity": >-
+        per night
+    "destroy":
+      "success": >-
+        Pricing rule successfully removed.
+    "edit":
+      "title": >-
+        Edit pricing
+    "index":
+      "add_pricing_link": >-
+        Add pricing
+      "title": >-
+        Pricings
+    "new":
+      "title": >-
+        Add pricing
+    "show":
+      "affected_resource_skus": >-
+        Affected items
+      "calculation_type": >-
+        Calculation type
+      "match_all": >-
+        All tags have to match
+      "participant_type": >-
+        Participant Type
+      "price": >-
+        Price
+      "tags": >-
+        Tags
+      "title": >-
+        Pricing details
+    "table":
+      "row":
+        "confirm_delete_message": >-
+          Are you sure you want to remove this pricing?
+  "resource_sku":
+    "financials": >-
+      Financial information
+    "image": >-
+      Preview image
+    "pricing": >-
+      Pricing
+  "resource_skus":
+    "edit":
+      "disable_partial_payment": >-
+        full payment approval
+      "enable_partial_payment": >-
+        partial payment approval
+      "flight":
+        "add": >-
+          Add flight
+      "resource_sku_pricings_section":
+        "add": >-
+          Add rpciing
+    "form":
+      "bulk_edit_resource_sku_pricings": >-
+        Edit pricing rules
+      "inventories":
+        "empty": >-
+          No inventories added yet.
+      "occupation_configurations":
+        "empty": >-
+          No occupancy configuration added yet.
+    "show":
+      "remove": >-
+        Remove item
+      "remove_confirmation": >-
+        Are you sure to delete this item?
+  "resource_types":
+    "accommodation": >-
+      Accommodation
+    "basic": >-
+      Other
+    "date_range_with_daily_time_range": >-
+      Date range with daily time range
+    "discount": >-
+      Discount
+    "flight": >-
+      Flight
+    "index":
+      "title": >-
+        %{count} Resource Types
+    "insurance": >-
+      Insurance
+    "island_hopping": >-
+      Island Hopping
+    "rentalbike": >-
+      Rentalbike
+    "rentalcar": >-
+      Rentalcar
+    "training_package": >-
+      Service Package
+    "transfer": >-
+      Transfer
+  "resources":
+    "create":
+      "success": >-
+        Ressource successfully created.
+    "edit":
+      "skus_title": >-
+        Items
+    "form":
+      "add_resource_sku_link": >-
+        Add item
+      "add_resource_sku_title": >-
+        Add item
+      "images_title": >-
+        Images
+    "index":
+      "title":
+        "one": >-
+          One Ressource
+        "other": >-
+          %{count} Ressources
+    "new":
+      "title": >-
+        Add Resource
+    "show":
+      "description": >-
+        Description
+      "description_missing": >-
+        No description added.
+      "no_linked_products": >-
+        No product assignments.
+      "summary": >-
+        Teaser text
+      "teaser_text_missing": >-
+        No teaser text added.
+    "update":
+      "success": >-
+        Resource successfully updated.
+  "return": >-
+    return
+  "rooms":
+    "one": >-
+      Room
+    "other": >-
+      Rooms
+  "save": >-
+    Save
+  "search":
+    "close": >-
+      Close search
+    "label": >-
+      Search for…
+    "open": >-
+      Open search
+    "submit": >-
+      Search
+  "seasons":
+    "breadcrumbs":
+      "add": >-
+        Add season
+      "edit": >-
+        Edit season
+    "destroy":
+      "confirm_dialogue": >-
+        Are you sure to delete this season?
+    "edit":
+      "title": >-
+        Edit season %{name}
+    "new":
+      "title": >-
+        Add new season
+    "unpublished": >-
+      unpublish
+  "settings":
+    "accounting_records":
+      "table_headers":
+        "amount": >-
+          Amount
+        "booking_starts_on": >-
+          Arrival date
+        "cost_center": >-
+          Cost center
+        "credit": >-
+          Credit
+        "customer": >-
+          Customer
+        "customer_id": >-
+          Customer id
+        "financial_account": >-
+          Financial account
+        "invoice": >-
+          Invoice
+        "invoice_date": >-
+          Invoice date
+        "invoice_number": >-
+          Invoice
+        "payment_due_on": >-
+          Payment due on
+        "product": >-
+          Product
+        "product_sku": >-
+          Product variant
+      "title": >-
+        Accounting records export
+      "title_short": >-
+        Accounting
+    "custom_attributes":
+      "create":
+        "success": >-
+          Custom attribute successfully created.
+      "destroy":
+        "success": >-
+          Custom attribute successfully removed.
+      "edit":
+        "title": >-
+          Edit custom attribute %{name}
+      "index":
+        "add_custom_attribute_link": >-
+          Add
+        "destroy_custom_attribute_confirmation": >-
+          Are you sure you want to delete the custom attribute? This field will be
+          removed from all customers.
+        "title": >-
+          Custom attributes
+      "new":
+        "title": >-
+          New custom attribute
+      "update":
+        "success": >-
+          Custom attribute successfully updated.
+    "frontoffice_settings":
+      "address_line_1": >-
+        Address Line 1
+      "address_line_2": >-
+        Address Line 2
+      "city": >-
+        City
+      "company_name": >-
+        Company
+      "country": >-
+        Country
+      "create":
+        "error": >-
+          Settings could not be saved.
+        "new": >-
+          No existing settings. Please create Frontoffice settings.
+        "success": >-
+          Settings successfully saved.
+      "edit":
+        "title": >-
+          Edit Frontoffice settings
+      "email": >-
+        Email
+      "external_privacy_policy_url": >-
+        Privacy policy url
+      "external_terms_of_service_url": >-
+        Terms of service url
+      "new":
+        "title": >-
+          Create Frontoffice settings
+      "phone": >-
+        Phone
+      "state": >-
+        State
+      "title": >-
+        Frontoffice Settings
+      "update":
+        "error": >-
+          Setting could not be changed.
+        "success": >-
+          Updated successfully.
+      "vat_id": >-
+        VAT number
+      "zip_code": >-
+        Zip code
+    "global_configurations":
+      "company_name": >-
+        Company
+      "contact_email": >-
+        Email
+      "contact_phone": >-
+        Phone
+      "create":
+        "error": >-
+          Company settings could not be created.
+        "success": >-
+          Company settings successfully created.
+      "edit":
+        "title": >-
+          Edit company settings
+      "new":
+        "title": >-
+          Create company settings
+      "partial_payment_percentage": >-
+        Percentage for partial payment
+      "term_of_final_payment": >-
+        Term of final payment (days)
+      "term_of_first_payment": >-
+        Term of first payment (days)
+      "title": >-
+        Company settings
+      "update":
+        "error": >-
+          Company settings could not be updated.
+        "success": >-
+          Company settings successfully updated.
+    "index":
+      "cost_centers_link_name": >-
+        Edit cost centers
+      "custom_attributes_link_name": >-
+        Edit custom attributes
+      "easybill_link_name": >-
+        Edit easybill settings
+      "financial_accounts_link_name": >-
+        Edit Financial accounts
+      "me_link_name": >-
+        Change profile
+      "occupation_configurations_link_name": >-
+        Edit occupation configurations
+      "tags_link_name": >-
+        Manage tags
+      "title": >-
+        Settings
+      "users_link_name": >-
+        Edit users
+    "me":
+      "edit":
+        "title": >-
+          Edit my profile
+      "show":
+        "title": >-
+          My profile
+    "occupation_configurations":
+      "attributes":
+        "adults": >-
+          Adults
+        "babies": >-
+          Babies
+        "kids": >-
+          Kids
+        "name": >-
+          Name
+      "index":
+        "add_occupation_configuration_link": >-
+          Add occupation configuration
+        "title": >-
+          Occupation configuration
+    "tags":
+      "create":
+        "success": >-
+          Tag successfully created
+      "edit":
+        "title": >-
+          Edit %{name}
+      "form":
+        "title": >-
+          Add tag
+      "index":
+        "add_tag_link_name": >-
+          Add tag
+        "title": >-
+          Tags
+      "new":
+        "title": >-
+          Add new tag
+      "update":
+        "success": >-
+          Tag successfully updated.
+    "users":
+      "edit":
+        "title": >-
+          Edit user
+      "index":
+        "title": >-
+          User management
+      "invite":
+        "title": >-
+          Invite user
+      "show":
+        "title": >-
+          User
+  "show": >-
+    Show
+  "show_more": >-
+    Show more
+  "skip_to_content": >-
+    Skip to main content
+  "start_price": >-
+    starts at %{price}
+  "tags":
+    "associations":
+      "empty": >-
+        Not tagged yet.
+  "true": >-
+    Yes
+  "update": >-
+    Update
+  "user":
+    "change_password":
+      "submit": >-
+        Change password
+      "title": >-
+        Change password
+    "email":
+      "title": >-
+        Email
+    "first_name":
+      "title": >-
+        First name
+    "last_name":
+      "title": >-
+        Last name
+    "links":
+      "forgot_your_password": >-
+        Forgot password?
+      "resend_confirmation_instructions": >-
+        Send password reset instructions
+      "resend_unlock_instructions": >-
+        Reset password and send reset password instructions.
+      "sign_in": >-
+        Login
+      "sign_in_with_omniauth_provider": >-
+        Login with %{provider}
+      "sign_up": >-
+        Register
+    "login":
+      "remember_me": >-
+        Remember me
+      "submit": >-
+        Login
+      "title": >-
+        Login
+    "password_confirmation":
+      "title": >-
+        Confirm password
+    "password":
+      "title": >-
+        password
+    "resend_confirmation_instructions":
+      "submit": >-
+        OK
+      "title": >-
+        Send password reset instructions
+    "reset_password":
+      "submit": >-
+        Reset password
+      "title": >-
+        Forgot password?
+    "sign_up":
+      "submit": >-
+        Register
+      "title": >-
+        Register
+    "subdomain":
+      "title": >-
+        Subdomain
+    "unlock":
+      "submit": >-
+        OK
+      "title": >-
+        Reset password instructions
+    "username":
+      "title": >-
+        Username
+  "users":
+    "create":
+      "success": >-
+        User successfully created
+    "edit":
+      "title": >-
+        Edit user
+    "index":
+      "title": >-
+        User management
+    "invitations":
+      "new":
+        "accept_invitation": >-
+          Accept invitation
+    "new":
+      "title": >-
+        Add user
+  "visible": >-
+    Line item visible by customer

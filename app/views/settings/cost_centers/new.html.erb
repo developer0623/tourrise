@@ -1,0 +1,11 @@
+<% breadcrumb :new_cost_center, @cost_center %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('cost_centers.new.title') %>
+
+  <div class="Content-main">
+    <%= form_for [:settings, @cost_center], method: "POST", html: { class: "Form", autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>

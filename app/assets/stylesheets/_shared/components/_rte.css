@@ -1,0 +1,7 @@
+.Rte p {
+  max-width: 75ch;
+}
+
+.Rte p + p {
+  margin-top: 1.5em;
+}

@@ -1,0 +1,21 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: t('booking_events.table.thead.item_type'),
+    sort_by: "item_type"
+  %>
+  <td>#</td>
+  <%= render "partials/table/th_sortable",
+    label: t('booking_events.table.thead.event_type'),
+    sort_by: "event"
+  %>
+  <td/>
+
+  <%= render "partials/table/th_sortable",
+    label: t('booking_events.table.thead.whodunnit'),
+    sort_by: "whodunnit"
+  %>
+  <%= render "partials/table/th_sortable",
+    label: t('booking_events.table.thead.created_at'),
+    sort_by: "created_at"
+  %>
+</tr>

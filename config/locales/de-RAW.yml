@@ -1,0 +1,1564 @@
+de-RAW:
+  confirmations:
+    are_you_sure: Bist Du sicher?
+  versions:
+    event: Ereignis
+  document_references:
+    added: Neu
+    modified: Änderung
+    canceled: Storno
+  calendar:
+    select_date: Datum auswählen
+  breadcrumbs:
+    reports:
+      product_skus: Reiseübersicht
+  mailers:
+    booking_offer:
+      accepted: Das Angebot %{id} wurde angenommen.
+      rejected: Das Angebot %{id} wurde abgelehnt.
+  booking_documents:
+    removed_prefix: 'Entfernt: '
+    frontoffice_link_label: Vorschau
+    customer_link_label: Kundenansicht
+    frontoffice_publish_link_label: Veröffentlichen
+    frontoffice_unpublish_link_label: Veröffentlichung widerrufen
+  participant_types:
+    all_groups: Alle Personengruppen
+    adult: Erwachsener
+    kid: Kind
+    baby: Baby
+  consecutive_days_ranges:
+    new:
+      title: Anzahl zusammenhängender Tage
+    form:
+      add: Hinzufügen
+  resource_sku_pricings:
+    calculation_types:
+      fixed: "Festpreis"
+      per_person_and_night: pro Person und Nacht
+      per_person: pro Person
+      consecutive_days: Anzahl zusammenhängender Tage
+      quantity: pro Nacht
+    table:
+      row:
+        confirm_delete_message: "Soll die Preisregel wirklich entfernt werden?"
+    bulk_edit:
+      title: Preisberechnungen
+      add_resource_sku_pricing_link: Preisregel hinzufügen
+    index:
+      title: Preisberechnungen
+      add_pricing_link: Preisregel hinzufügen
+    show:
+      title: Details Preisberechnung
+      tags: Tags
+      match_all: Alle Tags müssen übereinstimmen
+      participant_type: Personengruppe
+      price: Preis
+      calculation_type: Berechnungsgrundlage
+      affected_resource_skus: Betroffene Ressourcenvarianten
+    destroy:
+      success: Die Preisregel wurde entfernt.
+    edit:
+      title: Preisberechnung bearbeiten
+    new:
+      title: Preisberechnung anlegen
+  de: Deutsch
+  en: Englisch
+  fr: Französisch
+  booking_events:
+    table:
+      thead:
+        item_type: Entität
+        event_type: Event
+        created_at: Zeitpunkt
+        whodunnit: Benutzer
+    description:
+      record_created: Datensatz erstellt
+      record_deleted: Datensatz gelöscht
+      record_updated: '%{attribute} von "%{from}" auf "%{to}" geändert'
+    event_type:
+      create: erstellen
+      update: aktualisieren
+      destroy: entfernen
+    index:
+      title:
+        one: Buchungsevent
+        other: '%{count} Buchungsevents'
+  booking_mailer:
+    created:
+      subject: '[%{handle}] Neue Buchung von %{name}'
+  frontoffice:
+    products:
+      info_link_name: Info
+      product_sku:
+        book: Buchen
+        get_offer: Angebot einholen
+      show:
+        bookable_trips: Buchbare Reisen
+    accommodations:
+      index:
+        title: Deine Unterkunft
+        available_accommodations: Verfügbare Unterkünfte
+        empty: Wir können zur Zeit kein Zimmer zu dierser Unterkunft anbieten.
+        jump_to_rooms: Zu den Zimmern
+        proceed_without_rooms: Überspringen
+        room_assignments:
+          proceed_step_by_step: Bitte wähle nun schrittweise deine Zimmer aus.
+          preview: "%{room_number}. Zimmer"
+          adults: "Erwachsene: %{count}"
+          kids: "Kinder: %{count}"
+          babies: "Babies: %{count}"
+          add_rooms: Zimmer hinzufügen
+          change_rooms: Zimmerbelegung ändern
+        select: Wählen
+      show:
+        preview:
+          empty: Die Zimmer sind auf Anfrage. Sehr gerne prüfen wir die Verfügbarkeit für dich.
+    bookings:
+      steps:
+        accommodation_request:
+          title: Deine Unterkunft
+          intro: Bitte wähle zunächst aus, wie viele Zimmer du benötigst und wie die Zimmer belegt werden sollen.
+          rooms_count: Anzahl Zimmer / Appartments
+          no_rooms_needed: Keine Übernachtungsmöglichkeit benötigt
+          room_assignment: Zimmerbelegung
+          incomplete_assignment_warning: "Achtung: Die aktuelle Belegung entspricht nicht den Anfragedaten aus Schritt 1!"
+          unassigned_adults: "Erwachsene zuteilen:"
+          unassigned_kids: "Kinder zuteilen:"
+          unassigned_babies: "Babies zuteilen:"
+        flight_request:
+          flights_count: Anzahl Flüge
+        island_hopping_request:
+          title: Dein Inselhüpfen
+          # TODO:
+          # This looks like a hardcoded value that should be coming from the
+          # database instead
+          intro: >-
+            Die hawaiianischen Inseln liegen nur wenige Flugminuten voneinander
+            entfernt. Wenn man schon um die halbe Welt geflogen ist, warum dann
+            nicht auch noch Maui, Oahu oder Kauai besuchen? Jede dieser Inseln
+            hat wie Big Island ihren ganz besonderen Charme. Auch wenn es nur 2
+            Tage pro Insel sind - es lohnt sich - je länger desto besser!
+          empty: Zur Zeit können wir dir kein Inselhüpfen anbieten.
+        insurance_request:
+          title: Versicherungsschutz
+          intro: Bitte wähle aus den unterschiedlichen Versicherungsoptionen
+          details: Weitere Informationen
+          empty: Zur Zeit können wir dir kein Versicherungspaket anbieten.
+      success:
+        title: Vielen Dank für Deine Buchungsanfrage
+        description: Wir werden uns innerhalb der nächsten zwei Werktage bei Dir melden.
+      summary:
+        transportation:
+          rentalcars:
+            one: "1x Mietwagen"
+            other: "%{count}x Mietwagen"
+          rentalbikes:
+            one: "1x Mietrad"
+            other: "%{count}x Mieträder"
+          flights:
+            one: "1x Flug"
+            other: "%{count}x Flüge"
+        accept_terms_of_service: Ich habe die AGBs und Nutzungsbedingungen gelesen und akzeptiere sie
+        accept_privacy_policy: Ich habe die Datenschutzbestimmungen gelesen und akzeptiere sie
+        subscribe_to_newsletter: Ich möchte mich für den Newsletter anmelden
+    inquiries:
+      new:
+        description: >-
+          Bitte trage deine Wunschdaten sowie deine Kontaktinformationen im
+          Formular ein. Wir kommen dann in Kürze mit einem unverbindlichen
+          Angebot auf dich zu.
+        submit: Jetzt Angebot einholen
+      success:
+        title: Vielen Dank für Deine Buchungsanfrage
+        confirmation: Wir werden uns innerhalb der nächsten zwei Werktage bei Dir melden.
+    participants:
+      participant_types:
+        adults: Erwachsener
+        kids: Kind
+        babies: Baby
+        all: Alle
+        adult: Erwachsener
+        kid: Kind
+        baby: Baby
+    errors:
+      bad_request: Hier ist leider ein Fehler aufgetaucht.
+      too_many_rooms: Es wurden mehr Zimmer gebucht als benötigt
+      not_found:
+        headline: Uuuuups!
+        content_line_1: Wir können diese Reise nicht in unserem Angebot finden.
+        content_line_2: Kontaktiere bitte unsere Service MitarbeiterInnen.
+  home:
+    index:
+      hello: Hallo %{name}!
+      unassigned_customers:
+        one: "Eine Buchung wird aktuell nicht bearbeitet."
+        other: "%{count} Buchungen werden aktuell nicht bearbeitet."
+  tags:
+    associations:
+      empty: Es wurden noch keine Tags zugewiesen.
+  rentalcar_types:
+    - Economy
+    - Mittelklasse
+    - Minivan
+    - Cabrio
+    - SUV
+    - Jeep
+  rentalcar_categories:
+    # rentalcar_categories key (and its content) is never used.
+    # QUESTION: Should we get rid of this or make use of it?
+    category_codes:
+      M: Mini
+      N: Mini Elite
+      E: Economy (Kleinwagen)
+      H: Economy Elite
+      C: Compact (Kompaktklasse)
+      D: Compact Elite
+      I: Intermediate (Mittelklasse)
+      J: Intermediate Elite
+      S: Standard (Mittelklasse)
+      R: Standard Elite
+      F: Fullsize (Mittelklasse)
+      G: Fullsize Elite
+      P: Premium (Obere Mittelklasse)
+      U: Premium Elite
+      L: Luxury (Obere Mittelklasse)
+      W: Luxury Elite
+      O: Oversize
+      X: Special (Oberklasse)
+    type_codes:
+      B: Zwei bis Dreitürer
+      C: Zwei bis Viertürer
+      D: Vier bis Fünftürer
+      W: Kombi
+      V: Passenger Van
+      L: Limousine
+      S: Sportwagen
+      T: Cabriolet
+      F: SUV
+      J: Open Air All Terrain
+      X: Special
+      P: Pick up Regular Cab
+      Q: Pick up Extended Cab
+      Z: Special Offer Car
+      E: Coupe
+      M: Monospace
+      R: Recreational Vehicle
+      H: Wohnmobil
+      Y: 2 Wheel Vehicle
+      N: Roadster
+      G: Crossover
+      K: Transporter
+    trans_codes:
+      M: Manual unspecified
+      N: Manual 4WD
+      C: Manual AWD
+      A: Auto unspecified
+      B: Auto 4WD
+      D: Auto AWD
+    fuel_codes:
+      R: Unspecified Fuel mit AC
+      N: Unspecified Fuel ohen AC
+      D: Diesel mit AC
+      Q: Diesel ohen AC
+      H: Hybrid mit AC
+      I: Hybrid ohen AC
+      E: Elektrisch mit AC
+      C: Elektrisch ohne AC
+      L: LPG/Compressed Gas mit AC
+      S: LPG/Compressed Gas ohne AC
+      A: Hydrogen mit AC
+      B: Hydrogen ohne AC
+      M: Multi Fuel/Power mit AC
+      F: Multi Fuel/Power ohne AC
+      V: Petrol mit AC
+      Z: Petrol ohne AC
+      U: Ethanol mit AC
+      X: Ethanol ohne AC
+  product_participants:
+    index:
+      title: ReiseteilnemerInnen
+  product_booking_resource_skus:
+    create:
+      success: Ressourcenvariante %{name} erfolgreich eingebucht
+    index:
+      title: Gebuchte Ressourcen SKUs
+  financial_accounts:
+    index:
+      title: FiBu Konten
+      add_financial_account_link: FiBu Konto anlegen
+    edit:
+      title: FiBu Konto %{name} bearbeiten
+    new:
+      title: Neues FiBu Konto anlegen
+  cost_centers:
+    index:
+      title: Kostenstellen
+      add_cost_center_link: Neue Kostenstelle anlegen
+    edit:
+      title: Kostenstellt %{name} bearbeiten
+    new:
+      title: Neue Kostenstelle anlegen
+  booking_form:
+    headline: "%{name} Buchungsanfrage"
+    request_step:
+      title: Deine Anfragedaten
+      intro: Bitte nennen Sie uns zuerst ihre allgemeinen Reisedaten. Anhand dieser können wir Ihnen im nächsten Schritt nur die Buchungsoptionen anzeigen, die für Sie in Frage kommen.
+    flight_request_step:
+      title: Deine Flugdaten
+      intro: Bitte trage deine Flugdaten ein. Du kannst deine Flüge selbstverständlich selber buchen. Wähle die passende Option aus.
+      flights_count: Anzahl Flüge
+      no_flights_needed: Es werden alle Flüge selbst gebucht
+    rentalbike_request_step:
+      title: Deine Mieträder
+      intro: Bitte wähle aus den Optionen
+      no_bikes_needed: Keine Mieträder benötigt
+      rentalbikes_count: Anzahl Mieträder
+    rentalcar_request_step:
+      title: Dein Mietwagen
+      intro: Bitte wähle aus den Optionen
+      no_cars_needed: Kein Mietwagen benötigt
+      rentalcars_count: Anzahl Mietwagen
+    contact_step:
+      title: Deine Kontaktdaten
+      intro: Bitte trage deine Kontaktdaten ein. Diese Daten werden zur Angebots- und Rechnungsstellung verwendet.
+    participants_step:
+      title: Reiseteilnehmer
+      intro: Bitte nenne uns die Namen und Geburtsdaten aller Reiseteilnehmer. Wenn diese noch nicht feststehen können diese zu einem späteren Zeitpunkt mitgeteilt werden.
+      empty: Bitte nenne uns zuerst im Schritt “<b>Anfragedaten</b>”, wie viele Erwachsene und Kinder an deiner Reise teilnehmen.
+      fill_later: TeilnehmerInnen später eintragen
+    training_package_step:
+      title: Dein Servicepaket
+      intro: Wähle aus unseren Servicepaketen.
+      details: Weitere Informationen
+    summary_step:
+      title: Zusammenfassung
+      wishyouwhat_section_title: Anfrageinformationen
+      intro: Bitte überprüfe deine Angaben. Du kannst auch zu den einzelnen Schritten zurückgehen und diese bearbeiten.
+      outro: >-
+        <strong>Bitte beachten:</strong> Wenn Du deine Buchungsanfrage abschickst,
+        bedeutet dies noch keine finale Buchung. Wir werden die Anfrage zuerst
+        überprüfen und Dir dann ein individuelles Angebot zukommen lassen.
+      participant_placeholder:
+        one: Es werden Informationen zu einem Reisegast nachgereicht.
+        other: Reisegastinformationen zu %{count} Gästen werden nachgereicht.
+      please_accept_tos_and_pp: Bitte stimme noch unseren AGBs und Datenschutzbestimmungen zu.
+      submit: Absenden
+    booking_offer:
+      accept: Annehmen
+      accepted_badge: Angebot angenommen
+      rejected_badge: Angebot abgelehnt
+      headline: "Angebot %{name}"
+      remaining_sum: verbleibender Angebotsbetrag
+      sum: Angebotsbetrag
+      id: "Angebotsnummer: %{id}"
+      offer_accepted_error: Das Angebot konnte nicht angenommen werden.
+      offer_rejected_error: Das Angebot konnte nicht abgelehnt werden.
+      reject: Ablehnen
+    booking_invoice:
+      headline: "Rechnung %{name}"
+      remaining_sum: verbleibender Rechnungsbetrag
+      sum: Rechnungsbetrag
+      id: "Rechnungsnummer: %{id}"
+      payment: Zahlung
+      due_on: fällig am
+    advance_booking_invoice:
+      headline: "Rechnung %{name}"
+      sum: Rechnungsbetrag
+    documents:
+      total_price: Betrag
+      price: Einzelpreis
+      quantity: Menge
+      name: Bezeichnung
+      sku: Artikel-Nr.
+      customer_id: "Kundennummer: %{customer_id}"
+      submit: Annehmen
+      your_resource_sku_groups: Deine Pakete
+    errors:
+      invalid_country_code: Land ist unbekannt
+      final_state: booking in final state.
+    steps:
+      request: Anfragedaten
+      island_hopping_request: Inselhüpfen
+      accommodation_request: Unterkunft
+      flight_request: Flug
+      rentalbike_request: Mietrad
+      rentalcar_request: Mietwagen
+      training_package_request: Servicepaket
+      insurance_request: Versicherung
+      contact: Kontaktdaten
+      participants: Teilnehmer
+      summary: Zusammenfassung
+      offer: Angebot
+      invoice: Rechnung
+    steps_progress: "Schritt %{step} von %{total}"
+  booking_attributes:
+    starts_at: Von
+    ends_at: Bis
+    pickup_location: Startort
+    dropoff_location: Zielort
+    rentalcar_type: Fahrzeugklasse
+    reservation_number: Reservierungsnummer
+    height: Körpergröße
+    starts_on: Startdatum
+    ends_on: Enddatum
+    start_time: Startzeit
+    end_time: Endzeit
+    departure: Abholort
+    destination: Zielort
+    reference: Referenz
+  resource_types:
+    index:
+      title: '%{count} Ressourcentypen'
+    accommodation: Unterkunft
+    insurance: Versicherung
+    basic: Sonstiges
+    training_package: Trainingspaket
+    island_hopping: Inselhüpfen
+    date_range_with_daily_time_range: Datum mit täglichem Zeitraum
+    rentalcar: Mietauto
+    rentalbike: Mietrad
+    discount: Rabatt
+    transfer: Transfer
+    flight: Flug
+  required_fields: Felder mit * sind erforderlich.
+  skip_to_content: Direkt zum Inhalt gehen
+  not_entered: Nicht angegeben.
+  empty: Keine
+  return: zurück
+  users:
+    new:
+      title: Nutzer anlegen
+    create:
+      success: Nutzer erfolgreich angelegt
+    index:
+      title: Nutzerverwaltung
+    edit:
+      title: Profil aktualisieren
+    invitations:
+      confirmed: Bestätigt
+      open: Ausstehend
+      new:
+        accept_invitation: Einladung annehmen
+  search:
+    close: Suche öffnen
+    label: Suchen nach…
+    open: Suche schließen
+    submit: Suchen
+  navigation:
+    inventories: Inventar
+    products: Produkte
+    bookings: Buchungen
+    pricings: Preisberechnungen
+    booking_invoices: Rechnungen
+    advance_booking_invoices: Abschlagsrechungen
+    booking_offers: Angebote
+    booking_resource_skus: Gebuchte Ressourcenvarianten
+    booking_resource_sku_groups: Gruppierte Ressourcenvarianten
+    booking: "%{id}"
+    edit: Formular
+    reports: Analytik
+    new_booking_invoice: Rechnung erstellen
+    new_advance_booking_invoice: Abschlagsrechnung erstellen
+    new_booking_credit: Rabatt/Gutschrift erstellen
+    new_booking_resource_sku: Ressource hinzufügen
+    new_booking_resource_sku_group: Positionen gruppieren
+    edit_booking_resource_sku: Bearbeite Ressource %{handle}
+    edit_booking_participant: Bearbeite ReiseteilnehmerIn
+    edit_booking_credit: Rabatt/Gutschrift %{id} bearbeiten
+    close_menu: Menü schließen
+    home: Startseite
+    open_menu: Menü öffnen
+    settings: Einstellungen
+    customers: Kunden
+    participants: Teilnehmer
+    resources: Ressourcen
+    resource_types: Ressourcentypen
+    logout: Ausloggen
+    booking_events: Änderungshistorie
+    cost_centers: Cost Centers
+    financial_accounts: Financial Accounts
+    occupation_configurations: Occupation Configurations
+    tags: Tags
+    custom_attributes: Custom Attributes
+    easybill: Easybill
+    employees: Employees
+    product_configurations: Product Configurations
+    product_booking_resource_skus: Product Booking Resource Skus
+  settings:
+    users:
+      index:
+        title: Nutzerverwaltung
+      invite:
+        title: Nutzer einladen
+      edit:
+        title: Nutzer bearbeiten
+      show:
+        title: Nutzer
+    cancellation_reasons:
+      index:
+        title: Stornogründe
+        add_cancellation_reason_link_name: Stornogrund hinzufügen
+      new:
+        title: Stornogrund hinzufügen
+      create:
+        success: Stornogrund erfolgreich angelegt
+      edit:
+        title: '%{name} bearbeiten'
+      update:
+        success: '%{name} erfolgreich aktualisiert'
+      destroy:
+        success: '%{name} erfolgreich entfernt'
+      form:
+        handle_info: Maximal zwei Zeichen (z.B. F1, AB oder 12)
+    me:
+      edit:
+        title: Mein Profil bearbeiten
+      show:
+        title: Mein Profil
+    index:
+      title: Einstellungen
+      me_link_name: Profil bearbeiten
+      cancellation_reasons_link_name: Stornogründe verwalten
+      users_link_name: Nutzerverwaltung
+      cost_centers_link_name: Kostenstellen verwalten
+      financial_accounts_link_name: FiBu Konten verwalten
+      occupation_configurations_link_name: Belegungstypen verwalten
+      tags_link_name: Tags verwalten
+      easybill_link_name: Easybill Einstellungen verwalten
+      custom_attributes_link_name: Zusatzfelder verwalten
+    tags:
+      index:
+        title: Tags
+        add_tag_link_name: Tag hinzufügen
+      create:
+        success: Tag erfolgreich hinzugefügt.
+      update:
+        success: Tag erfolgreich aktualisiert.
+      form:
+        title: Tag anlegen
+      new:
+        title: Neues Tag anlegen
+      edit:
+        title: Tag %{name} bearbeiten
+    occupation_configurations:
+      attributes:
+        name: Name
+        adults: Erwachsene
+        kids: Kinder
+        babies: Babies
+      index:
+        title: Belegungsmanagement
+        add_occupation_configuration_link: Hinzufügen
+    custom_attributes:
+      index:
+        title: Zusatzfelder
+        destroy_custom_attribute_confirmation: Zusatzfeld wirklich löschen? Dieses Feld wird von allen Kundendaten entfernt!
+        add_custom_attribute_link: Hinzufügen
+      create:
+        success: Zusatzfeld erfolgreich erstellt.
+      update:
+        success: Zusatzfeld erfolgreich aktualisiert.
+      destroy:
+        success: Zusatzfeld erfolgreich entfernt.
+      new:
+        title: Neues Zusatzfeld
+      edit:
+        title: Zusatzfeld %{name} bearbeiten
+    frontoffice_settings:
+      address_line_1: Straße und Hausnummer
+      address_line_2: Weitere Adresszeile
+      city: Stadt
+      company_name: Firma/Unternehmen
+      country: Land
+      email: E-Mail
+      external_privacy_policy_url: URL/Link Datenschutzbestimmungen
+      external_terms_of_service_url: URL/Link AGBs
+      phone: Telefonnummer
+      state: Bundesland
+      title: Frontoffice Einstellungen
+      vat_id: Umsatzsteuer ID
+      zip_code: PLZ
+      create:
+        new: Noch keine Frontoffice Einstellungen vorhanden, diese müssen erst angelegt werden.
+        success: Einstellungen erfolgreich angelegt.
+        error: Einstellungen konnten nicht angelegt werden.
+      edit:
+        title: Frontoffice Einstellungen verwalten
+      new:
+        title: Frontoffice Einstellungen anlegen
+      update:
+        success: Einstellungen erfolgreich geändert.
+        error: Einstellungen konnten nicht geändert werden.
+    global_configurations:
+      title: Firmeneinstellungen
+      company_name: Firmenname
+      contact_phone: Telefonnummer
+      contact_email: E-Mail
+      partial_payment_percentage: Prozentsatz bei Anzahlung
+      term_of_final_payment: Restzahlungsfrist (in Tagen)
+      term_of_first_payment: Anzahlungsfrist (in Tagen)
+      create:
+        success: Firmeneinstellungen erfolgreich angelegt
+        error: Firmeneinstellungen konnten nicht angelegt werden.
+      edit:
+        title: Firmeneinstellungen bearbeiten
+      new:
+        title: Firmeneinstellungen anlegen
+      update:
+        success: Firmeneinstellungen erfolgreich bearbeitet
+        error: Firmeneinstellungen konnten nicht bearbeitet werden.
+    accounting_records:
+      title: Buchhaltungsdaten Export
+      title_short: Buchhaltung
+      table_headers:
+        customer: Kunde
+        customer_id: Kundennummer
+        product: Produkt
+        product_sku: Produktvariante
+        amount: Betrag
+        invoice: Rechnung
+        credit: Gutschrift
+        booking_starts_on: Anreisedatum
+        financial_account: FiBu
+        cost_center: Kostenstelle
+        invoice_number: Rechnung
+        invoice_date: Rechnungsdatum
+        payment_due_on: Zahlungsziel
+  reports:
+    index:
+      title: Analytik
+      product_skus_link: Reiseanalysen
+    product_skus:
+      table:
+        header:
+          product_name: Reise
+          product_sku_name: Reisevariante
+          season_names: Saisons
+          participants_count: Reisegäste
+      index:
+        title: Reiseübersicht von %{count} Subreisen
+        no_product_skus_available: Keine Reisen.
+  participants:
+    placeholder_name:
+      Angaben unvollständig
+    edit:
+      title: ReiseteilnehmerIn bearbeiten
+      submit: Aktualisieren
+    participant_form:
+      has_assigned_booking_resource_skus: TeilnehmerIn kann nicht gelöscht werden. Bitte zunächst alle Referenzierungen innerhalb der Buchung aufheben.
+  booking_resource_skus:
+    assign_booking_resource_sku_attributes:
+      booking_resource_sku_missing: Die eingebuchte Ressourcenvariante konnte nicht gefunden werden.
+    states:
+      blocked_by: "Geblockt durch %{name}"
+      booked_by: "Gebucht durch %{name}"
+    errors:
+      not_available: Diese Ressource ist leider nicht (mehr) verfügbar.
+    table:
+      row:
+        date_range: "%{starts_on} bis %{ends_on}"
+    show:
+      title: '%{name}'
+    new:
+      title: Buchungsressource hinzufügen
+      select_resource_type_step_title: Ressourcentyp wählen
+      select_booking_resource_sku_step_title: Ressourcentyp wählen
+      select_resource_type: Wählen
+    create:
+      success: Die Ressourcenvariante wurde erfolgreich gebucht
+    edit:
+      title: '%{name} bearbeiten'
+      submit: Aktualisieren
+      participants: Mitreisende zuordnen
+      transfer:
+        select: Auswählen
+        select_reference_type_id: Hier nach Flug suchen
+        search_label: Flugnummer hier eingeben
+      flight:
+        pnr_parser_label: Hier PNR Eintrag einfügen
+        pnr_parser_hint: >-
+          Unterstützte Formate: Bistro, Amadeus, Manuell; Beispiel manuelles
+          Format: UA930 HAM FUE 01061998 1130 1200+1
+    update:
+      success: Eingebuchte Ressourcenvariante wurde erfolgreich aktualisiert
+    duplicate:
+      success: Eingebuchte Ressourcenvariante wurde erfolgreich dupliziert
+    block:
+      success: Die Ressourcenvariante wurde erfolgreich geblockt
+    unblock:
+      success: Die Ressourcenvariante wurde erfolgreich freigegeben
+    destroy:
+      success: Eingebuchte Ressourcenvariante wurde erfolgreich gelöscht
+    cancel:
+      success: Die gebuchte Ressourcenvariante wurde erfolgreich storniert
+  resource_skus:
+    show:
+      remove: Ressourcenvariante löschen
+      remove_confirmation: Bist du sicher, dass du diese Ressourcenvariante löschen möchtest?
+    form:
+      inventories:
+        empty: Es wurden noch keine Bestandslisten angelegt.
+      occupation_configurations:
+        empty: Es wurde noch keine Belegungskonfiguration konfiguriert.
+      bulk_edit_resource_sku_pricings: Preisregeln bearbeiten
+    edit:
+      flight:
+        add: Flug hinzufügen
+      resource_sku_pricings_section:
+        add: Preisregel hinzufügen
+      enable_partial_payment: Anzahlbare Leistung
+      disable_partial_payment: Vollständig abrechenbare Leistung
+  product_skus:
+    destroy:
+      success: Die Produktvariante wurde erfolgreich entfernt.
+      confirm_dialogue: Bist du sicher, dass du diese Produktvariante entfernen möchtest?
+    destroy_product_sku:
+      errors:
+        has_active_bookings: "%{name} hat aktive Buchungen. Kann nicht entfernt werden."
+    edit:
+      booking_configuration: Buchung Standardeinstellungen
+    update:
+      success: Die Produktvariante wurde erfolgreich aktualisiert.
+      error: Die Produktvariante konnte nicht aktualisiert werden. Bitte überprüfe die Fehlermeldunge.
+  seasons:
+    new:
+      title: Neue Saison anlegen
+    edit:
+      title: Saison %{name} bearbeiten
+    destroy:
+      confirm_dialogue: Bist du sicher, dass du diese Saison entfernen möchtest?
+    unpublished: Nicht veröffentlicht
+    breadcrumbs:
+      add: Saison hinzufügen
+      edit: Saison bearbeiten
+  products:
+    index:
+      title:
+        one: 1 Produkt
+        other: "%{count} Produkte"
+      add_product_link: Produkt hinzufügen
+    new:
+      title: Produkt anlegen
+    edit:
+      title: Produkt bearbeiten
+    form:
+      with_multiple_product_skus: Das Produkt soll in mehreren Varianten angeboten werden.
+      product_skus_section: Produktvarianten
+      add_product_sku: Hinzufügen
+      resources_section: Ressourcen
+      frontoffice_steps_section: Frontoffice Steps
+    show:
+      visibility: Sichtbarkeit
+      description: Beschreibung
+      tags: Tags
+      published_at: 'Das Produkt wurde im Frontoffice veröffentlicht: %{datetime}'
+      not_yet_published: Das Produkt wurde noch nicht für das Frontoffice veröffentlicht.
+      no_seasons_added: Es wurden noch keine Saisons angelegt.
+      no_current_season: Es wurde noch keine Saison veröffentlicht
+      add_season_link: Saison anlegen
+      current_season:
+        published: 'Veröffentlichungsdatum: %{date}'
+      season_preview:
+        publish: Veröffentlichen
+      product_sku_preview:
+        test: Zur Anfragemaske
+        product_sku_edit_link: Bearbeiten
+        bookings_link: Buchungen (%{count})
+  bookings:
+    check_booking_resource_skus_availability:
+      resource_sku_missing: Die Ressourcenvariante %{name} existiert nicht (mehr).
+      not_available: Die Ressourcenvariante %{name} kann nicht (mehr) gebucht werden.
+    duplicate:
+      success: "Buchung erfolgreich dupliziert."
+    form:
+      submit: Absenden
+      participants:
+        title: Teilnehmer
+      add_participant_link: Teilnehmer hinzufügen
+    edit:
+      title: "Anfragedaten bearbeiten"
+      search_participant_placeholder: "ReiseteilnehmerIn suchen"
+    new:
+      prev_step: Zurück
+      next_step: Weiter
+      submit: Buchungsanfrage abschicken
+    assign_to_me: Mir zuweisen
+    unassign: Freigeben
+    not_assigned: Nicht zugewiesen
+    nights: Übernachtungen
+    index:
+      title:
+        one: 1 Buchung
+        other: "%{count} Buchungen"
+      link_to_booking: Zur Buchung
+      create_booking_link: Buchung hinzufügen
+    show:
+      booking_resource_skus:
+        actions:
+          block: Blocken
+      terms_of_service_accepted: AGBs akzeptiert
+      terms_of_service_not_accepted: AGBs nicht akzeptiert
+      privacy_policy_accepted: Datenschutzbestimmungen gelesen und akzeptiert
+      privacy_policy_not_accepted: Datenschutzbestimmungen nicht akzeptiert
+      add_resource: Ressource hinzufügen
+      create_booking_resource_sku_group: Positionen gruppieren
+      show_details: Weitere Informationen
+      missing_details: Daten fehlen
+      newsletter: Newsletter
+      booking_events: Verlauf
+      booking_documents: Angebote/Rechnungen
+      terms_of_service:
+        title: AGBs und Datenschutzbestimmungen
+        link: AGBs und Datenschutzbestimmungen herunterladen
+      accommodation_request:
+        title: Unterkunftdaten
+      flight_request:
+        title: Flugdaten
+      rentalbike_request:
+        title: Mietrad
+      rentalcar_request:
+        title: Mietauto
+      request:
+        title: Anfragedaten
+        starts_on:
+          empty: Nicht angegeben.
+        ends_on:
+          empty: Nicht angegeben.
+      customer:
+        title: Kontaktdaten
+        address:
+          empty: Nicht angegeben.
+        email:
+          empty: Nicht angegeben.
+        phone:
+          empty: Nicht angegeben.
+      total_price: Gesamtpreis
+      remaining_amount: verbleibender Betrag
+      resources:
+        title: Reisebausteine
+        empty: Nicht angegeben.
+      unprocessed_resources:
+        title: Angefragte Reisebausteine
+        empty: Hier gibt es nichts (mehr) zu tun.
+      participants:
+        title: Teilnehmer
+        empty: Nicht angegeben.
+      buttons:
+        create_offer: Angebot erstellen
+        offer_created: Angebot erstellt
+        create_invoice: Rechnung erstellen
+        invoice_created: Rechnung erstellt
+        commit_booking: Buchung festschreiben
+        cancel_booking: Buchung stornieren
+        close_booking: Buchung schließen
+        reopen: Buchung zurücksetzen
+        reopen_confirmation: Das abändern einer festgeschriebenen Buchung kann zu Problemen in der Buchhaltung führen. Wenn Sie sich der Risiken bewusst sind können Sie fortfahren.
+        duplicate: Buchung duplizieren
+      edit_due_on: Datum festlegen
+      edit_secondary_state: Sekundärstatus anpassen
+      click_to_edit_due_on: Fälligkeit setzen
+      click_to_edit_secondary_state: Sekundärstatus manuell anpassen
+      timeline:
+        title: Verlauf
+        messages:
+          booking_created: "Buchung ist von %{name} erstellt worden."
+          booking_updated: "Buchung wurde von %{name} bearbeitet."
+          offer_created: "Angebot erstellt"
+          invoice_created: "Rechnung erstellt"
+    new:
+      title: Buchung anlegen
+      existing_customer: Bestehender Kunde
+      new_customer: Neuer Kunde
+      select_customer: Kunden auswählen
+      select_product_variant: Produkt auswählen
+      prev_step: Zurück
+      next_step: Weiter
+      submit: Buchungsanfrage abschicken
+    create:
+      success: Buchung erfolgreich angelegt
+    secondary_state:
+      invoice_missing: Rechnung ausstehend
+      invoice_sent: Rechnung versendet
+      offer_missing: Angebot ausstehend
+      offer_sent: Angebot versendet
+      offer_rejected: Angebot abgelehnt
+      error: Der sekundäre Status konnte nicht gesetzt werden.
+    status_changes:
+      closed: Die Anfrage wurde geschlossen.
+      reopened: Die Anfrage wurde zurückgesetzt.
+      updated: Die Anfrage wurde aktualisiert.
+      committed: Die Anfrage wurde festgeschrieben.
+      canceled: Die Anfrage wurde storniert.
+      assigned: Die Anfrage wurde Dir zugewiesen.
+      unassigned: Die Zuweisung der Anfrage wurde aufgehoben.
+    states:
+      requested: Neu
+      in_progress: In Bearbeitung
+      booked: Gebucht
+      blocked: Geblockt
+      canceled: Storniert
+      closed: Geschlossen
+      draft: Entwurf
+  booking_positions:
+    invoiced: "verrechnet:"
+  booking_credits:
+    empty: "Keine Anzahlung oder Gutschrift vorhanden."
+    name_with_date: "%{name} vom %{date}"
+    advance_booking_invoice:
+      title: Anzahlung
+    new:
+      headline: "Rabatt/Gutschrift für %{name} erstellen"
+    edit:
+      headline: "Rabatt/Gutschrift für %{name} bearbeiten"
+    create:
+      success: Rabatt/Gutschrift erfolgreich erstellt.
+    update:
+      success: Rabatt/Gutschrift erfolgreich bearbeitet.
+    destroy:
+      already_invoiced_error: Rabatt/Gutschrift wurde bereits eingelöst.
+      success: Rabatt/Gutschrift erfolgreich gelöscht.
+  advance_booking_invoices:
+    description: "Abschlagsrechnung zur Buchung %{booking_title}"
+  booking_offers:
+    created: 'Das Angebot wurde erfolgreich erstellt und kann in Kürze abgerufen werden'
+    created_error: Das Angebot konnte nicht erstellt werden.
+  booking_invoices:
+    created: 'Die Rechnung wurde erfolgreich erstellt und kann in Kürze abgerufen werden'
+    created_error: Die Rechnung konnte nicht erstellt werden.
+    show:
+      payments:
+        one: Zahlungsziel
+        other: Zahlungsziele
+    new:
+      headline: "Neue Rechnung %{name}"
+      headline_advance: "Abschlagsrechnung %{name}"
+      booking_resource_skus: Rechnungsposten
+      booking_credits: Anzahlungen/Gutschriften
+      booking_resource_sku_groups: gruppierte Rechnungsposten
+      canceled_booking_resource_skus: Entfernte Rechnungsposten
+      invalid_price_error: Der Rechnungsbetrag ist ungültig. Die Rechnung konnte nicht erstellt werden.
+      full_payment_booking_resource_skus: voll zahlungspflichtige Rechnungsposten
+      partial_payment_booking_resource_skus: anzahlbare Rechnungsposten
+      todays_date: heutiges Datum
+      booking_starts_on: geplantes Anreisedatum
+      booking_calculated_price: aktueller Preis zugewiesener Bausteine
+      with_first_and_final_payment: Mit An- und Restzahlung abrechnen
+      with_single_payment: In einer Zahlung abrechnen
+  booking_resource_sku_groups:
+    new:
+      title: Rechnungsposten gruppieren
+      booking_resource_skus: Rechnungsposten
+      enable_partial_payment: anzahlbare Leistung
+      disable_partial_payment: vollständig abrechenbare Leistung
+    create:
+      success: Rechnungsposten erfolgreich gruppiert
+      fail_booking_booked: Buchung bereits festgeschrieben. Die Rechnungsposten können nicht mehr gruppiert werden.
+      cannot_hide_booking_resource_skus: Die eingebuchten Rechnungsposten können nicht automatisch ausgeblendet werden.
+      must_add_booking_resource_skus: Bitte Posten zu Gruppe hinzufügen.
+    edit:
+      enable_partial_payment: anzahlbare Leistung
+      disable_partial_payment: vollständig abrechenbare Leistung
+    update:
+      success: Die Gruppe wurde erfolgreich aktualisiert
+    destroy:
+      success: Die Gruppe wurde erfolgreich gelöscht
+      cannot_show_booking_resource_skus: Die eingebuchten Rechnungsposten können nicht automatisch eingeblendet werden.
+    calculate:
+      success: Der Gruppenpreis wurde neu berechnet.
+      error: Der Gruppenpreis konnte nicht berechnet werden.
+  customers:
+    create:
+      general_id_error: Die allgemeine Kundennummer konnte nicht zugeordnet werden.
+      success: Kunde erfolgreich angelegt
+    index:
+      title:
+        one: 1 Kunde
+        other: "%{count} Kunden"
+      add_customer_link: Kunde anlegen
+      bookings_count: Buchungen (%{count})
+      bookings_income: Umsatz
+    show:
+      booking: Buchung
+      empty_bookings: Bisher hat der Kunden keine Buchungen getätigt
+    edit:
+      title: Kundendaten aktualisieren
+      submit: Aktualisieren
+    new:
+      title: Neuen Kunden anlegen
+      submit: Speichern
+  cancellations:
+    created: Die Position wurde erfolgreich storniert
+  remove: Entfernen
+  edit: Bearbeiten
+  show: Anzeigen
+  add: Hinzufügen
+  duplicate: Duplizieren
+  visible: Extern sichtbar
+  hidden: Interner Posten
+  calculate: Neu berechnen
+  calculator: Taschenrechner
+  refresh: Aktualisieren
+  save: Speichern
+  update: Aktualisieren
+  create: Anlegen
+  abort: Abbrechen
+  cancel: Stornieren
+  close: Schließen
+  delete: Löschen
+  date_range: Zeitraum
+  ok: Ok
+  forms:
+    select:
+      all: Alle
+      empty: Bitte wählen
+  genders:
+    female: "Weiblich"
+    male: "Männlich"
+    diverse: "Divers"
+  activemodel:
+    attributes:
+      booking_resource_sku_validator:
+        assigned_participants_count: Anzahl Mitreisende
+        assigned_adults_count: Anzahl Erwachsene
+        assigned_kids_count: Anzahl Kinder
+        assigned_babies_count: Anzahl Babies
+      frontoffice/booking_request_form:
+        ends_on: Abreise
+        starts_on: Anreise
+        adults: Erwachsene
+        kids: Kinder
+        babies: Babies
+        wishyouwhat: Anfrageinformationen
+      frontoffice/booking_inquiry_form:
+        ends_on: Abreise
+        starts_on: Anreise
+        adults: Erwachsene
+        kids: Kinder
+        babies: Babies
+        first_name: Vorname
+        last_name: Nachname
+        email: E-Mail
+        wishyouwhat: Anfrageinformationen
+  user:
+    username:
+      title: "Benutzername"
+    first_name:
+      title: "Vorname"
+    last_name:
+      title: "Nachname"
+    email:
+      title: "E-Mail"
+    subdomain:
+      title: "Subdomain"
+    password:
+      title: "Passwort"
+    password_confirmation:
+      title: "Passwort Bestätigen"
+    sign_up:
+      title: "Registrieren"
+      submit: "Registrieren"
+    login:
+      title: "Einloggen"
+      remember_me: "Eingeloggt bleiben"
+      submit: "Einloggen"
+    reset_password:
+      title: "Passwort vergessen?"
+      submit: "Passwort zurücksetzen"
+    change_password:
+      title: "Passwort ändern"
+      submit: "Passwort ändern"
+    unlock:
+      title: "Passwort zurücksetzen Anleitung"
+      submit: "OK"
+    resend_confirmation_instructions:
+      title: "Anleitung erneut zusenden"
+      submit: "Versenden"
+    links:
+      sign_up: "Registrieren"
+      sign_in: "Einloggen"
+      forgot_your_password: "Passwort vergessen?"
+      sign_in_with_omniauth_provider: "Anmelden mit %{provider}"
+      resend_unlock_instructions: "Passwort zurücksetzen Anleitung erneut zusenden"
+      resend_confirmation_instructions: "Anleitung erneut zusenden"
+  availabilities:
+    availability_types:
+      quantity: Anzahl
+      date_range: Zeitraum
+      quantity_in_date_range: Anzahl im Zeitraum
+  inventories:
+    index:
+      title: Inventar
+    show:
+      title: Inventar
+      description_missing: Keine Beschreibung hinterlegt.
+      resource_skus_title: Verknüpfte Ressourcenvarianten
+      availabilities_title: Verfügbarkeiten
+      availabilities_empty_message: An diesem Inventar wurde noch keine Verfügbarkeiten konfiguriert.
+      booking_resource_skus_empty_message: Es wurden noch keine Ressourcenvarianten assoziiert.
+    new:
+      title: Inventar anlegen
+    edit:
+      title: Inventar bearbeiten
+    form:
+      availabilities_title: Verfügbarkeiten
+      add_availability_title: Verfügbarkeit hinzufügen
+      add_availability_link: Weitere Verfügbarkeit hinzufügen
+      remove_availability_title: Verfügbarkeit entfernen
+    create:
+      error: Inventar konnte nicht angelegt werden.
+      success: Inventar wurde erfolgreich angelegt.
+    update:
+      error: Inventar konnte nicht aktualisiert werden.
+      success: Inventar wurde erfolgreich aktualisiert.
+    inventory_types: # QUESTION: are keys below translated correctly?
+      quantity: Anzahl
+      quantity_in_date_range: Anzahl im Zeitraum
+  resources:
+    form:
+      images_title: Bilder
+      add_resource_sku_title: Variante hinzufügen
+      add_resource_sku_link: Variante hinzufügen
+    new:
+      title: Ressource anlegen
+    edit:
+      skus_title: SKUs
+    show:
+      description: Beschreibung
+      summary: Kurzbeschreibung
+      description_missing: Es wurde noch keine Beschreibung hinzugefügt.
+      teaser_text_missing: Es wurde noch keine Kurzbeschreibung hinzugefügt.
+      no_linked_products: Die Ressource wurde noch keinem Produkt zugewiesen.
+    update:
+      success: Ressource erfolgreich aktualisiert
+    create:
+      success: Ressource erfolgreich angelegt
+    index:
+      title:
+        one: 1 Ressource
+        other: "%{count} Ressourcen"
+  filter:
+    month_and_year: Abrechnungszeitraum
+    season: Saison
+    item_type: Entität
+    event: Event
+    product_id: Produkt
+    assignee_id: NutzerIn
+    season_id: Saison
+    request: Buchungsoptionen
+    resource_type: Ressourcentyp # QUESTION: is this ever used? Remove if not
+    resource_type_id: Ressourcentyp
+    resource_ids: Ressourcen # QUESTION: is the translation correct in this context?
+    resource_id: Ressource
+    search_for: Suche
+    secondary_state: sekundärer Status
+    status: Status
+    submit: Filter
+    clear: Löschen
+    title: Filtern nach
+    product_sku_id: Produktvariante
+    invoice_date: Rechnungsdatum im
+  featured_image: Hauptbild
+  resource_sku:
+    image: Vorschaubild
+    financials: Finanzdaten
+    pricing: Preisbildung
+  "true": Ja
+  "false": Nein
+  start_price: "ab %{price}"
+  rooms:
+    one: Zimmer
+    other: Zimmer
+  of: von
+  image_loading: Bild wird geladen…
+  image_unavailable: Kein Bild verfügbar
+  export_csv: CSV Export
+  show_more: Mehr anzeigen
+  cancellation_reasons:
+    cancellation_message: "This position got canceled at %{time} by %{user} (reason: %{reason})"
+  partials:
+    booking_section:
+      rentalcar: Mietwagen
+      rentalbike: Mietrad
+      flight: Flug
+    bookings:
+      booking_resource_skus:
+        destroy: Auflösen # REVIEW: in other instances we use Löschen
+    autocomplete:
+      validation_message: Bitte eine Option auswählen
+    table:
+      actions: Aktionen
+  images: Bilder
+  back: Zurück
+  flight: Flug
+  rentalbike: Mietrad
+  attributes:
+    adults: Erwachsene
+    kids: Kinder
+    babies: Babies
+  activerecord:
+    errors:
+      ends_on_lt_than_starts_on: darf nicht vor der Anreise liegen
+      invalid_date_format: unbekannte Schreibweise
+      models:
+        tag:
+          attributes:
+            handle:
+              format: Ein Tag Handle darf nur die Buchstaben a bis z sowie die Sonderzeichen +, - und _ enthalten.
+        booking_resource_sku:
+          attributes:
+            starts_on:
+              missing: nicht gültig.
+            ends_on:
+              missing: night gültig.
+        booking_credit:
+          attributes:
+            base:
+              invoiced_once: Das Element wird in einem Dokument erwähnt und kann nicht bearbeitet werden.
+        booking_flight_request:
+          attributes:
+            destination_airport:
+              invalid_iata_code: ist ungültig
+            departure_airport:
+              invalid_iata_code: ist ungültig
+            starts_on:
+              must_be_in_future: muss in der Zukunft liegen
+            ends_on:
+              must_be_after_starts_on: darf nicht vor dem Hinflug liegen
+        frontoffice_step:
+          attributes:
+            required:
+              mundatory_field: is mandatory field
+        product:
+          attributes:
+            frontoffice_steps:
+              mandatory_steps: required steps missed
+    attributes:
+      "resource/resource_skus":
+        available: Verfügbar
+      tag:
+        name: Name
+        handle: Handle
+        tag_group_id: Gruppe
+        new_tag_group: Keine Gruppe gefunden? Neuen Gruppennamen hier eingeben
+      booking_flight_request:
+        starts_on: Hinflug
+        ends_on: Rückflug
+        outward_flight: Hinflug
+        return_flight: Rückflug
+        departure_airport: Abflughafen
+        destination_airport: Zielflughafen
+        '_destroy': Flug wird selbstständig gebucht
+      booking_rentalbike_request:
+        starts_on: Von
+        ends_on: Bis
+        height: Körpergröße oder RH
+      booking_rentalcar_request:
+        starts_on: Von
+        ends_on: Bis
+        rentalcar_class: Mietwagentyp
+      financial_account:
+        name: Bezeichnung
+        before_service_year: Konto im Jahr vor der Leistungserbringung
+        during_service_year: Konto im Jahr der Leistungserbringung
+      cost_center:
+        name: Bezeichnung
+        value: Kostenstelle
+      flight:
+        airline_code: Fluggesellschaft
+        flight_number: Flugnummer
+        departure_at: Ab
+        departure_airport: Flughafen Abflug
+        arrival_at: An
+        arrival_airport: Flughafen Ankunft
+        '_destroy': Entfernen
+      inventory:
+        name: Name
+        description: Beschreibung
+        inventory_type: Typ
+        '_destroy': Entfernen
+      availability:
+        quantity: Anzahl
+        starts_on: Startdatum
+        ends_on: Enddatum
+        '_destroy': Entfernen
+      booking_room_assignment:
+        adults: Erwachsene
+        kids: Kinder
+        babies: Babies
+      customer:
+        company_name: Verein/Firma/Unternehmen
+        address: Adresse
+        full_address: Adresse
+        address_line_1: Straße und Hausnummer
+        address_line_2: Weitere Adresszeile
+        phone: Telefonnummer(n)
+        email_link: E-Mail
+        birthdate: &birthdate Geburtsdatum
+        localized_birthdate: *birthdate
+        city: Stadt
+        country: Land
+        created_at: Angelegt am
+        email: E-Mail
+        first_name: Vorname
+        last_name: Nachname
+        gender: Geschlecht
+        id: ID
+        language: Sprache
+        locale: Sprache
+        name: Name
+        newsletter: Newsletter
+        primary_phone: Telefonnummer 1
+        secondary_phone: Telefonnummer 2
+        participant_type: Altersgruppe
+        state: Bundesland
+        title: Titel
+        updated_at: Aktualisiert am
+        zip: PLZ
+      booking:
+        total_invoiced_amount: Umsatz gesamt
+        season: Saison
+        duplicate_of: Referenzbuchung
+        wishyouwhat: Anfrageinformationen
+        address_line_1: Straße und Hausnummer
+        address_line_2: Weitere Adresszeile
+        adults: Erwachsene
+        kids: Kinder
+        babies: Babies
+        birthdate: Geburtsdatum
+        city: Stadt
+        country: Land
+        scrambled_id: Buchungscode
+        assignee: Bearbeiter
+        customer: Kunde
+        product_id: Produkt
+        product: Produkt
+        product_sku_id: Produktvariante
+        product_sku: Produktvariante
+        tag_ids: Tags
+        due_on: Fälligkeit
+        email: E-Mail
+        ends_on: Abreisedatum
+        first_name: Vorname
+        gender: Geschlecht
+        last_name: Nachname
+        phone: Telefonnummer
+        starts_on: Anreisedatum
+        state: Bundesland
+        title: Titel
+        zip: PLZ
+        rentalbikes_count: Anzahl Mieträder
+        created_at: Eingang
+        rooms_count: Anzahl Zimmer
+        flights_count: Anzahl Flüge
+        customer_id: Kundennummer
+        aasm_state: Status
+        secondary_state: sekundärer Status
+        terms_of_service_accepted: AGBs akzeptiert
+        privacy_policy_accepted: Datenschutzerklärung akzeptiert
+      resource_sku_pricing:
+        price: Preis
+        participant_type: Personengruppe
+        calculation_type: Berechnungsschema
+        starts_on: Startzeitpunkt
+        ends_on: Endzeitpunkt
+        date_range: Anwenden zwischen
+      product:
+        financial_account_id: FiBu Konten
+        cost_center_id: Kostenstelle
+        name: Name
+        description: Beschreibung
+        publish: Veröffentlicht
+        published_at: Veröffentlicht
+        product_sku_handle: Alias
+        handle: Alias
+        current_season: Aktuelle Saison
+      user:
+        email: E-Mail
+        password: Passwort
+        remember_me: Eingeloggt bleiben
+      resource:
+        name: Name
+        description: Beschreibung
+        resource_type_id: Ressourcentyp
+        images: Dateien auswählen
+        teaser_text: Kurzbeschreibung (maximal 500 Zeichen)
+        resource_skus_count: Anzahl Varianten
+      booking_resource_sku:
+        price: Preis
+        quantity: Anzahl
+        remarks: Anmerkungen
+        cost_center: Kostenstelle
+        financial_account: FiBu Konten
+        date_range: Zeitraum
+        allow_partial_payment: Teilzahlung möglich
+        starts_on: Startdatum
+        ends_on: Enddatum
+      booking_resource_sku_group:
+        cost_center: Kostenstelle
+        date_range: Zeitraum
+        financial_account: FiBu Konto
+        price: Paketpreis
+        quantity: Menge
+        deleted_at: Gelöscht um
+      product_sku:
+        cost_center: Kostenstelle
+        financial_account: FiBu Konten
+        handle: Alias
+      resource_sku:
+        available: Verfügbar
+        description: Beschreibung
+        handle: SKU
+        inventory: Inventar
+        name: Name
+        vat: Mehrwertsteuer
+        teaser_image: Vorschaubild
+        occupation_configuration: Belegungsmanagement
+        flights: Flüge
+        images: Vorschaubild auswählen
+        '_destroy': Löschen
+        allow_partial_payment: Teilzahlung möglich
+      booking_document:
+        number: Rechnungsnummer
+        created_at: Erstellt am
+        creator: MitarbeiterIn
+        type: Typ
+        processing: Dokument wird erstellt...
+        frontoffice_url: Frontoffice Url
+        frontoffice_link: Frontoffice Link
+        accepted: Angenommen
+        rejected: Abgelehnt
+        embedded_customer_link: Kundenlink
+        unpublish: Veröffentlichung ändern
+        publish: Veröffentlichung ändern
+      booking_invoice:
+        payment: Zahlungsziel
+        price: Betrag
+        advance_booking_invoice: Abschlagsrechnung erstellen
+        description: Beschreibung
+        title: Titel
+        number: Rechnungsnummer
+        creator: MitarbeiterIn
+        total_price: Summe
+        published: veröffentlicht unter ID
+        created_at: Rechnungsdatum
+      booking_offer:
+        title: Titel
+        number: Angebotsnummer
+        creator: MitarbeiterIn
+        total_price: Summe
+        published: veröffentlicht unter ID
+        created_at: Angebotsdatum
+      booking_credit:
+        cost_center: Kostenstelle
+        financial_account: FiBu Konto
+        name: Bezeichnung
+        price: Betrag
+      product_sku_booking_configuration:
+        starts_on: Anreisedatum
+        ends_on: Abreisedatum
+        default_destination_airport_code: Standardzielflughafen
+        wishyouwhat_on_first_step: Zusatzinformationen im ersten Schritt abfragen?
+      custom_attribute:
+        field_types:
+          text: Text
+          date: Datum
+          number: Zahl
+          email: E-Mail
+          checkbox: Auswahl
+      payment:
+        due_on: fällig am
+        price: Betrag
+      season:
+        name: Name
+        published_at: Veröffentlicht
+    models:
+      active_admin/comment:
+        one: "Kommentar"
+        other: "Kommentare"
+      booking:
+        one: "Buchung"
+        other: "Buchungen"
+      booking_customer:
+        one: "Als BuchungsteilnehmerIn"
+        other: "Als BuchungsteilnehmerInnen"
+      comment:
+        one: "Kommentar"
+        other: "Kommentare"
+      inventory:
+        one: "Inventar"
+        other: "Inventare"
+      product:
+        one: Produkt
+        other: Produkte
+      product_sku:
+        one: Produktvariante
+        other: Produktvarianten
+      booking_credit:
+        one: Gutschrift/Anzahlung
+        other: Gutschriften/Anzahlungen
+      booking_offer:
+        one: Angebot
+        other: Angebote
+      advance_booking_invoice:
+        one: Abschlagsrechnung
+        other: Abschlagsrechnungen
+      booking_invoice:
+        one: Rechnung
+        other: Rechnungen
+      customer:
+        one: Kunde
+        other: Kunden
+      booking_rentalcar_request:
+        one: Mietwagen
+        other: Mietwagen
+      booking_rentalbike_request:
+        one: Mietrad
+        other: Mieträder
+      flight:
+        one: Flug
+        other: Flüge
+      participant:
+        one: Teilnehmer
+        other: Teilnehmer
+      booking_resource_sku:
+        one: Eingebuchte Ressourcenvariante
+        other: Eingebuchte Ressourcenvarianten
+      booking_resource_sku_group:
+        one: Eingebuchte Ressourcenvariantengruppe
+        other: Eingebuchte Ressourcenvariantengruppen
+      tag:
+        one: Tag
+        other: Tags
+      resource_sku:
+        one: Ressourcenvariante
+        other: Ressourcenvarianten
+      resource_sku_pricing:
+        one: Preisregel
+        other: Preisregeln
+      payment:
+        one: Zahlung
+        other: Zahlungen
+      season:
+        one: Saison
+        other: Saisons
+  pagination:
+    prev: Zurück
+    next: Weiter
+  image_unavailable: Es wurden noch keine Bilder hinzugefügt.
+  own: Eigene
+  empty_assignee: NO assingee
+  helpers:
+    placeholder:
+      tag:
+        name: 1-er Belegung
+        handle: 1er-belegung
+  number:
+    nth:
+      ordinalized: '%{number}.'
+  components:
+    details:
+      summary: Weitere Informationen
+  interactor_errors:
+    empty: "Please provide %{attribute}"
+    incorrect: "Please provide correct %{attribute}!"

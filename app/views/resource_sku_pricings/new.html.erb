@@ -1,0 +1,11 @@
+<% breadcrumb :new_resource_sku_pricing, resource_sku_pricing.resource_sku %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('resource_sku_pricings.new.title') %>
+
+  <div class="Content-main">
+    <%= form_with model: [resource_sku_pricing.resource_sku, resource_sku_pricing], html: { class: "Form", autocomplete: :off, data: { turbo: false } } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="ProductNotFound">
+  <h1 class="ProductNotFound-Headline"><%= t('frontoffice.errors.not_found.headline') %></h1>
+  <p class="ProductNotFound-Content"><%= t('frontoffice.errors.not_found.content_line_1') %></p>
+  <p class="ProductNotFound-Content"><%= t('frontoffice.errors.not_found.content_line_2') %></p>
+  <p class="ProductNotFound-Content">
+    <a href="mailto:<%= GlobalConfiguration.contact_email %>">EMail: <%= GlobalConfiguration.contact_email %><a>
+  </p>
+  <p class="ProductNotFound-Content">
+    <a href="tel:<%= GlobalConfiguration.contact_phone %>">Fon: <%= GlobalConfiguration.contact_phone %><a>
+  </p>
+</div>

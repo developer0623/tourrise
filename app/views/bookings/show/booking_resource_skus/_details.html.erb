@@ -1,0 +1,25 @@
+<details class="u-small">
+  <summary><%= t('show_more') %></summary>
+  <dl class="BookingResourceSku-details">
+    <% if item.remarks.present? %>
+      <div class="BookingResourceSku-detail">
+        <dt class="BookingResourceSku-detailName"><%= item.class.human_attribute_name(:remarks) %></dt>
+        <dd class="BookingResourceSku-detailValue"><%= item.remarks %></dd>
+      </div>
+    <% end %>
+    <%- item.additional_details.each do |value| %>
+      <div class="BookingResourceSku-detail">
+        <dt class="BookingResourceSku-detailName"><%= value.name %></dt>
+        <dd class="BookingResourceSku-detailValue"><%= value.value %></dd>
+      </div>
+    <% end %>
+    <% if item.flights.any? %>
+      <%- item.flights.order_by_departure_at.each.with_index(1) do |flight, index| %>
+        <div class="BookingResourceSku-detail">
+          <dt class="BookingResourceSku-detailName"><%= "#{index}. Flug" %></dt>
+          <dd class="BookingResourceSku-detailValue"><%= flight.display_flight %></dd>
+        </div>
+      <% end %>
+    <% end %>
+  </dl>
+</details>

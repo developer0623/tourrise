@@ -1,0 +1,129 @@
+workbook = xlsx_package.workbook
+
+def booking_resource_sku_row_base(booking_resource_sku, participant = nil)
+  [
+    booking_resource_sku.booking_id,
+    booking_resource_sku.id,
+    (participant && "#{participant.last_name}, #{participant.first_name}"),
+    booking_resource_sku.booking.aasm_state,
+    booking_resource_sku.booking.product&.name,
+    booking_resource_sku.booking.product_sku&.name,
+    booking_resource_sku.resource_snapshot["name"],
+    booking_resource_sku.resource_sku_snapshot["name"],
+    booking_resource_sku.resource_sku_snapshot["handle"],
+    booking_resource_sku.price,
+    booking_resource_sku.quantity,
+    booking_resource_sku.total_price,
+    booking_resource_sku.remarks,
+    booking_resource_sku.booking_resource_sku_availability&.id,
+    booking_resource_sku.availability&.inventory&.name
+  ]
+end
+
+def to_rows(booking_resource_sku, additional_columns)
+  rows = []
+
+  if booking_resource_sku.participants.blank?
+    rows.push(booking_resource_sku_row_base(booking_resource_sku))
+  else
+    booking_resource_sku.participants.map do |participant|
+      rows.push(booking_resource_sku_row_base(booking_resource_sku, participant))
+    end
+  end
+
+  rows.map do |row|
+    additional_column_values(booking_resource_sku, additional_columns).each do |column_value|
+      row.push(column_value)
+    end
+  end
+
+  rows
+end
+
+def additional_columns(booking_resource_skus)
+  columns = booking_resource_skus.map(&:booking_attribute_values).flatten.compact.uniq(&:handle)
+  return [] if columns.blank?
+
+  columns.sort_by do |column|
+    BookingAttribute::DEFAULT_SORT_ORDER.find_index(column.handle) || -1
+  end
+end
+
+def additional_column_values(booking_resource_sku, columns)
+  return [] if columns.blank?
+
+  columns.map do |column|
+    booking_attribute_value = booking_resource_sku.object.booking_attribute_values.find { |value| value.handle.to_sym == column.handle.to_sym }
+
+    booking_attribute_value&.value || ""
+  end
+end
+
+def header_row(additional_columns)
+  base_headers = [
+    "Buchungsnummer",
+    "Position",
+    "TeilnehmerIn",
+    "Buchungsstatus",
+    "Produktname",
+    "Produktvariantenname",
+    "Ressource",
+    "Sku",
+    "Handle",
+    "Preis Stück",
+    "Anzahl",
+    "Gesamtpreis",
+    "Anmerkungen",
+    "reservation_id",
+    "Iventory name"
+  ]
+
+  return base_headers if additional_columns.blank?
+
+  additional_columns.each_with_object(base_headers.dup) do |column, array|
+    array.push(column.name)
+  end
+end
+
+ResourceType.find_each do |resource_type|
+  booking_resource_skus_by_type = @booking_resource_skus.select do |booking_resource_sku|
+    booking_resource_sku.resource_snapshot["resource_type_id"].to_i == resource_type.id
+  end
+  next unless booking_resource_skus_by_type.any?
+
+  workbook.add_worksheet(name: resource_type.handle) do |sheet|
+    additional_columns = additional_columns(booking_resource_skus_by_type)
+
+    sheet.add_row header_row(additional_columns)
+
+    booking_resource_skus_by_type.each do |booking_resource_sku|
+      to_rows(booking_resource_sku, additional_columns).each do |row|
+        sheet.add_row row
+      end
+    end
+  end
+end
+
+if @booking_resource_skus.any? { |booking_resource_sku| booking_resource_sku.flights.any? }
+  workbook.add_worksheet(name: 'Lookup Flights') do |sheet|
+    sheet.add_row %w[Vorgangsnummer Position airline_code flight_number aircraft_name arrival_on arrival_time arrival_airport departure_on departure_time departure_airport]
+
+    @booking_resource_skus.each do |booking_resource_sku|
+      booking_resource_sku.flights.each do |flight|
+        sheet.add_row [
+          booking_resource_sku.booking.id,
+          booking_resource_sku.id,
+          flight.airline_code,
+          flight.flight_number,
+          flight.aircraft_name,
+          flight.arrival_at.strftime("%F"),
+          flight.arrival_at.strftime("%H:%M"),
+          flight.arrival_airport,
+          flight.departure_airport,
+          flight.departure_at.strftime("%F"),
+          flight.departure_at.strftime("%H:%M"),
+        ]
+      end
+    end
+  end
+end

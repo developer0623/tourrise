@@ -1,0 +1,35 @@
+.BookingDocument-title {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.BookingDocument-totalSum {
+  font-weight: bold;
+  text-align: right;
+  margin-top: 2.5rem;
+}
+
+.BookingDocument-customerContainer {
+  align-self: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.BookingDocument-customerContainerItem {
+  align-items: center;
+  width: 100%;
+  color: black;
+}
+
+.BookingDocument-assigneeAddress {
+  size: small;
+  color: grey;
+  font-size: small;
+}
+
+.BookingDocument-infoContainer {
+  float: right;
+  width: 100%;
+}

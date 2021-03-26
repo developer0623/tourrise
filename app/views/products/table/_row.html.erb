@@ -1,0 +1,37 @@
+<tr>
+  <td>
+    <span class="Attr">
+      <%= item.name %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.seasons.count %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.current_active_season&.name %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.current_active_season&.localized_published_at %>
+    </span>
+  </td>
+
+  <td class="u-textRight">
+    <ul>
+      <li class="u-inlineBlock">
+        <%= link_to t("show"), product_path(item) %> ·
+      </li>
+
+      <li class="u-inlineBlock">
+        <%= link_to t("edit"), edit_product_path(item) %>
+      </li>
+    </ul>
+  </td>
+</tr>

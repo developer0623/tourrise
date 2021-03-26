@@ -1,0 +1,15 @@
+.ContentHeading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ContentHeading-title {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.ContentHeading-title:not(:last-child) {
+  padding-right: 1rem;
+}

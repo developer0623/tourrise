@@ -1,0 +1,15 @@
+<% turbo_exempts_page_from_cache %>
+
+<% breadcrumb :booking_edit, @booking %>
+
+<div class="Content">
+  <div class="ContenHeading">
+    <h1 class="ContentHeading-title">
+      <%= t("bookings.edit.title") %>
+    </h1>
+  </div>
+
+  <%= form_with model: @booking, html: { class: "Form js-BookingEditForm", autocomplete: :off } do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+  <% end %>
+</div>

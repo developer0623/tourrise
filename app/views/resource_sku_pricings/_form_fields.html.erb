@@ -1,0 +1,39 @@
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :price, class: "Input-label" %>
+    <%= f.text_field :price, class: "Input-element" %>
+  </div>
+  <div class="Input Input--select">
+    <%= f.label :participant_type, class: "Input-label Input-label--required" %>
+    <%= f.select :participant_type,
+      options_for_select(f.object.available_participant_types, f.object.participant_type),
+      { include_blank: false },
+      class: "Input-element" %>
+  </div>
+  <div class="Input Input--select">
+    <%= f.label :calculation_type, class: "Input-label Input-label--required" %>
+    <%= f.select :calculation_type,
+      options_for_select(f.object.available_calculation_types, f.object.calculation_type || :fixed),
+      {},
+      class: "Input-element" %>
+  </div>
+</div>
+
+<% if f.object.persisted? %>
+  <div class="Form-element">
+    <div class="Input Input--checkbox">
+      <%= f.label :_destroy, class: "Input-label" %>
+      <%= f.check_box :_destroy, class: "Input-element Input-element--checkbox" %>
+    </div>
+  </div>
+<% else %>
+  <div class="Form-element">
+    <div class="Input">
+      <button class="Button Button--negative js-ResourceSkuPricingForm-removeResourceSkuPricingButton" title="Flug entfernen">
+        <span class="Button-icon">
+          <%= render "partials/icon", name: "remove" %>
+        </span>
+      </button>
+    </div>
+  </div>
+<% end %>

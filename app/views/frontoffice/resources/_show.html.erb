@@ -1,0 +1,25 @@
+<div class="u-md-displayFlex u-marginBottomBase">
+  <% if resource.featured_image.present? %>
+    <div class="u-md-marginRightBase u-minWidthFitContent">
+      <%= thumbnail resource.featured_image, alt: resource.label, variant: :large %>
+    </div>
+  <% end %>
+
+  <div class="u-marginTopBase u-md-marginTopNone">
+    <h3>
+      <%= resource.label %>
+    </h3>
+
+    <%= simple_format(resource.teaser_text) if resource.teaser_text %>
+  </div>
+</div>
+
+<%= details do %>
+  <%= content_tag :div, class: ('Grid Grid--2Columns Grid--fromTablet' if resource.images.any?) do %>
+    <%= render("partials/gallery", images: resource.images) if resource.images.any? %>
+
+    <div>
+      <%= simple_format resource.description %>
+    </div>
+  <% end %>
+<% end %>

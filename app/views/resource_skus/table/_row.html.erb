@@ -1,0 +1,49 @@
+<tr>
+  <%= render "partials/table/td_thumbnail", image: item.featured_image, alt: item.name  %>
+
+  <td>
+    <span class="Attr">
+      <%= item.name %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.handle %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= t(item.available) %>
+    </span>
+  </td>
+
+  <td>
+    <span title="<%= item.display_tag_handles %>" class="Attr">
+      <%= item.display_tag_names %>
+    </span>
+  </td>
+
+  <td>
+    <ul>
+      <% item.resource_sku_pricings.map(&:display_information).each do |pricing_information| %>
+        <li>
+          <%= pricing_information %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+
+  <td class="u-textRight">
+    <ul>
+      <li class="u-inlineBlock">
+        <%= link_to t("show"), resource_sku_path(item) %> ·
+      </li>
+
+      <li class="u-inlineBlock">
+        <%= link_to t("edit"), edit_resource_sku_path(item) %>
+      </li>
+    </ul>
+  </td>
+</tr>

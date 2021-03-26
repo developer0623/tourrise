@@ -1,0 +1,44 @@
+.Tooltip {
+  position: relative;
+  display: inline;
+  cursor: help;
+  border-bottom: 1px dotted;
+}
+
+.Tooltip span {
+  position: absolute;
+  width: 25rem;
+  color: #fff;
+  font-size: 0.8em;
+  background: #000;
+  text-align: center;
+  visibility: hidden;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.Tooltip span::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -1rem;
+  width: 0;
+  height: 0;
+  border-top: 1rem solid #000;
+  border-right: 1rem solid transparent;
+  border-left: 1rem solid transparent;
+}
+
+.Tooltip input {
+  display: none;
+}
+
+.Tooltip input:checked ~ span {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 3rem;
+  width: 40rem;
+  left: -11rem;
+  margin-left: -82px;
+}

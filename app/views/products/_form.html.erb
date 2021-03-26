@@ -1,0 +1,159 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :name, class: "Input-label Input-label--required" %>
+      <%= f.text_field :name, required: true, class: "Input-element Input-element--text" %>
+    </div>
+    <div class="Input js-ProductForm-singleProductSkuInput">
+      <div class="Form-elementGroup">
+        <div class="Input">
+          <%= f.label :handle, class: "Input-label Input-label--required" %>
+          <% if @product.persisted? && @product.product_skus.count == 1 %>
+            <%= hidden_field_tag :'product[product_skus_attributes][0][id]', @product.product_skus.first.id %>
+          <% end %>
+          <%= text_field_tag :'product[product_skus_attributes][0][handle]', @product.product_skus.first&.handle || params&.dig('product', 'product_skus_attributes', '0', 'handle'), class: "Input-element Input-element--Text" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="Input Input--select">
+      <%= f.label :current_season, class: "Input-label" %>
+      <%= f.select :current_season_id,
+        options_from_collection_for_select(f.object.seasons, :id, :name, f.object.current_season_id),
+        { include_blank: true },
+        { class: "Input-element Input-element--text" }
+      %>
+    </div>
+  </div>
+
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label :tags, class: "Input-label" %>
+      <%= f.text_field :tags, value: @product.assigned_tags.to_json, class: 'js-ProductForm-TagInput', data: { tags: @product.available_tags.to_json } %>
+    </div>
+  </div>
+
+  <div class="Form-elementGroup">
+    <div class="Input Input--select">
+      <%= f.label :financial_account_id, class: "Input-label" %>
+      <%= f.select :financial_account_id,
+          FinancialAccount.all.map { |account| [account.display_name, account.id] },
+          { include_blank: true },
+          { class: "Input-element Input-element--text" }
+      %>
+    </div>
+    <div class="Input Input--select">
+      <%= f.label :cost_center_id, class: "Input-label" %>
+      <%= f.select :cost_center_id,
+          CostCenter.all.map { |cost_center| [cost_center.display_name, cost_center.id] },
+          { include_blank: true },
+          { class: "Input-element Input-element--text" }
+      %>
+    </div>
+  </div>
+
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label :description, class: "Input-label" %>
+      <%= f.text_area :description, class: "Input-element Input-element--textarea" %>
+    </div>
+  </div>
+
+  <% terms_of_service = "terms_of_service_#{I18n.locale}" %>
+
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label terms_of_service, class: "Input-label" %>
+      <%= f.file_field terms_of_service, class: "Input-element" %>
+      <%= f.error_tag terms_of_service, nil, class: "Input-help" %>
+      <% if f.object.terms_of_service.present? %>
+        <div>Aktuelles Dokument: <%= f.object.terms_of_service.filename %></div>
+        <%= image_tag f.object.terms_of_service.preview(resize_to_limit: [100, 100]) if f.object.terms_of_service.previewable? %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="Form-element">
+    <div class="Input Input--checkbox">
+      <%= label_tag :with_multiple_product_skus, t("products.form.with_multiple_product_skus"), class: "Input-label" %>
+      <% with_multiple_product_skus = (@product.product_skus.count > 1) ? true : params.fetch(:with_multiple_product_skus, false) %>
+      <%= check_box_tag :with_multiple_product_skus, true, with_multiple_product_skus, class: "Input-element Input-element--checkbox js-ProductFormMultipleSkusCheckBox" %>
+    </div>
+  </div>
+</div>
+
+<div class="Section js-ProductForm-addProductSkusContainer">
+  <%= render "partials/booking_section", title: t("products.form.product_skus_section") do %>
+    <%= render "partials/booking_section", headline_type: 3, title: t('products.form.add_product_sku') do %>
+      <%= f.fields_for :product_skus do |product_sku_fields| %>
+        <div class="Form-elementGroup js-ProductForm-addProductSku">
+          <div class="Input">
+            <%= product_sku_fields.label :name, class: "Input-label" %>
+            <%= product_sku_fields.text_field :name, value: product_sku_fields.object.name || params&.dig('product', 'product_skus_attributes', product_sku_fields.index.to_s, 'name'), class: "Input-element Input-element--text" %>
+          </div>
+          <div class="Input">
+            <%= product_sku_fields.label :handle, class: "Input-label" %>
+            <%= product_sku_fields.text_field :handle, value: product_sku_fields.object.handle || params&.dig('product', 'product_skus_attributes', product_sku_fields.index.to_s, 'handle'), class: "Input-element" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="Form-buttons">
+    <button class="Button Button--small Button--neutral js-ProductForm-addProductSkuButton">
+      <%= t('products.form.add_product_sku') %>
+    </button>
+  </div>
+</div>
+
+<div class="Section">
+  <%= render "partials/booking_section", title: t('products.form.resources_section'), headline_type: 3 do %>
+    <div class="Form-elementGroup--checkboxes">
+      <%= f.collection_check_boxes :resource_ids, Resource.all, :id, :name, {}, {
+        size: Resource.count,
+        class: "Input-element Input-element--checkbox Input-element--groupMember",
+        multiple: true
+      } %>
+    </div>
+  <% end %>
+</div>
+
+<div class="Section">
+  <%= render "partials/booking_section", title: Product.human_attribute_name(:frontoffice_steps), headline_type: 3 do %>
+    <div class="Form-elementGroup--checkboxes">
+      <%= f.collection_check_boxes :frontoffice_step_ids, FrontofficeStep.all, :id, :name do |frontoffice_step| %>
+        <%= frontoffice_step.check_box checked: frontoffice_step.object.required? || frontoffice_step.check_box['checked'],
+                                       onclick: ("return false" if frontoffice_step.object.required?),
+                                       readonly: frontoffice_step.object.required?,
+                                       class: "Input-element Input-element--checkbox Input-element--groupMember" %>
+        <%= frontoffice_step.label class: 'Input-label' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="Form-buttons">
+  <div class="Form-button">
+    <a class="Button Button--secondary" href="<%= products_path %>"><%= t('abort') %></a>
+  </div>
+  <div class="Form-button">
+    <button type="submit" class="Button"><%= t("save") %></button>
+  </div>
+</div>
+
+<template class="js-ProductForm-addProductSkuTemplate">
+  <%= render "partials/booking_section", headline_type: 3, title: t('products.form.add_product_sku'), class_name: 'js-ProductForm-addProductSku' do %>
+    <%= f.fields_for :product_skus, ProductSku.new, child_index: '%ID%' do |product_sku_fields| %>
+      <div class="Form-elementGroup">
+        <div class="Input">
+          <%= product_sku_fields.label :name, class: "Input-label" %>
+          <%= product_sku_fields.text_field :name, class: "Input-element Input-element--text" %>
+        </div>
+        <div class="Input">
+          <%= product_sku_fields.label :handle, class: "Input-label" %>
+          <%= product_sku_fields.text_field :handle, class: "Input-element" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</template>

@@ -1,0 +1,61 @@
+<tr>
+  <td>
+    <div>
+      <%= link_to item.booking.title, booking_path(item.booking) %>
+    </div>
+    <div>
+      <%= item.booking.season&.name %>
+    </div>
+  </td>
+  <td>
+    <%= link_to item.booking.customer.name, customer_path(item.booking.customer) %>
+  </td>
+  <td>
+    <% item.participants.each do |participant| %>
+      <div>
+        <%= participant.name %>
+      </div>
+    <% end %>
+  </td>
+  <td>
+    <div>
+      <div class="u-bold">
+        <%= item.name %>
+      </div>
+
+      <div class="u-small">
+        <% if item.with_date_range? %>
+          <%= item.date_range %>
+        <% end %>
+
+        <% if item.starts_on && item.start_time %>
+          <span class="u-noWrap"><%= l(item.starts_on, format: :long) %></span>
+          -
+          <span class="u-noWrap"><%= item.start_time %></span>
+        <% end %>
+
+        <% if item.with_date_and_time_range? %>
+          &middot;
+        <% end %>
+
+        <% if item.with_time_range? %>
+          <span class="u-noWrap">
+            <%= item.start_time %> - <%= item.end_time %>
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </td>
+  <td>
+    <% if item.booking_resource_sku_availability.present? %>
+      <div>
+        <%= link_to inventory_path(item.availability.inventory) do %>
+          <%= item.availability.inventory.name %>
+        <% end %>
+      </div>
+      <div>
+        <%= item.booking_resource_sku_availability.id %>
+      </div>
+    <% end %>
+  </td>
+</tr>

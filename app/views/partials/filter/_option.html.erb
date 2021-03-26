@@ -1,0 +1,24 @@
+<div class="Filter-item Filter-item--large Input Input--small Input--select">
+  <%= label_tag "filter-#{option[:name]}", t("filter.#{option[:name]}"), class: "Filter-label" %>
+
+  <% if option[:multiselect] %>
+    <%= content_tag(:div, class: "Input-element multiselect", data: {
+      items: option[:options],
+      placeholder: t("forms.select.empty")
+    }) do %>
+      <%= hidden_field_tag option[:name], params[option[:name]] %>
+    <% end %>
+  <% else %>
+    <% select_options = option[:options].collect do |value, label|
+        [label, value, { selected: (value.to_s == params[option[:name]].to_s) }]
+      end
+    %>
+
+    <%= select_tag option[:name],
+      options_for_select(select_options),
+      prompt: t("forms.select.empty"),
+      id: "filter-#{option[:name]}",
+      class: "Input-element"
+    %>
+  <% end %>
+</div>

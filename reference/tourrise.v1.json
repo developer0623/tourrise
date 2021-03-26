@@ -1,0 +1,648 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "name": "Patrick Nüser",
+      "email": "patrick@tourrise.de"
+    },
+    "title": "Tourrise",
+    "version": "1.0",
+    "description": "The v1 of the tourrise api documentation"
+  },
+  "tags": [
+    {
+      "name": "resource"
+    },
+    {
+      "name": "products"
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/{locale}/api/v1/products": {
+      "get": {
+        "summary": "Products",
+        "tags": [
+          "products"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                },
+                "examples": {
+                  "A list of products": {
+                    "value": [
+                      {
+                        "id": "string",
+                        "description": "string",
+                        "teaser_image_url": "string",
+                        "images": [
+                          "string"
+                        ],
+                        "name": "string",
+                        "product_variants": [
+                          {
+                            "id": "string",
+                            "name": "string",
+                            "description": "string",
+                            "teaser_image_url": "string",
+                            "images": [
+                              "string"
+                            ],
+                            "current_season": {
+                              "id": "string",
+                              "name": "string"
+                            },
+                            "product_id": "string",
+                            "seasons": [
+                              {
+                                "id": "string",
+                                "name": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-locale-api-v1-products",
+        "security": [
+          {
+            "Oauth2": [
+              "products:read"
+            ]
+          }
+        ],
+        "description": "Fetch a list of produts"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "de",
+            "default": "de"
+          },
+          "name": "locale",
+          "in": "path",
+          "description": "the content language",
+          "required": true
+        }
+      ]
+    },
+    "/{locale}/api/v1/products/{product_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "product_id",
+          "in": "path",
+          "required": true,
+          "description": "the friendly id of the product e.g. camps-fuerteventura"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "locale",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Product",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                },
+                "examples": {
+                  "Camps Fuerteventura": {
+                    "value": {
+                      "id": "string",
+                      "description": "string",
+                      "teaser_image_url": "string",
+                      "images": [
+                        "string"
+                      ],
+                      "name": "string",
+                      "product_variants": [
+                        {
+                          "id": "string",
+                          "name": "string",
+                          "description": "string",
+                          "teaser_image": "string",
+                          "images": [
+                            "string"
+                          ],
+                          "current_season": {
+                            "id": "string",
+                            "name": "string"
+                          },
+                          "product_id": "string",
+                          "seasons": [
+                            {
+                              "id": "string",
+                              "name": "string"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-products-product_id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "Fetch product details",
+        "security": [
+          {
+            "Oauth2": [
+              "products:read"
+            ]
+          }
+        ],
+        "tags": [
+          "products"
+        ]
+      }
+    },
+    "/{locale}/api/v1/products/{product_id}/product_variants": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "product_id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "locale",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Product Variants",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductVariant"
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "operationId": "get-products-product_id-product_variants",
+        "description": "Fetch a list of product variants",
+        "security": [
+          {
+            "Oauth2": [
+              "products:read"
+            ]
+          }
+        ],
+        "tags": [
+          "products"
+        ]
+      }
+    },
+    "/{locale}/api/v1/product_bundles": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "locale",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Product Bundles",
+        "tags": [
+          "products"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductBundle"
+                  }
+                },
+                "examples": {
+                  "Fuerteventura Bundles": {
+                    "value": [
+                      {
+                        "id": "fue-2021-swimcamp-1b",
+                        "product_id": "fue",
+                        "starts_on": "11/16/2020",
+                        "ends_on": "11/30/2020",
+                        "name": "Season Starter Swimcamp by Christoph Fuerleger",
+                        "description": "Super cool bootcamp",
+                        "resource_variants": [
+                          {
+                            "id": "playitas-aparthotel-single-occupation-gardenview-junior-suite",
+                            "name": "Playitas Aparthotel Single Occupation JunioSuite with Gardenview",
+                            "description": "Nice room enjoy. WiFi included.",
+                            "teaser_image_url": "https://cf.bstatic.com/images/hotel/max1024x768/221/221002105.jpg",
+                            "images": [
+                              "https://cf.bstatic.com/images/hotel/max1024x768/221/221002105.jpg",
+                              "https://lh3.googleusercontent.com/proxy/e2CXqF8wEuKV4t3USM87vqRQSAxXcv9Ou9D2ruQQgIxaURjSUHhKvrzFkJ2iM_K_OjPio4J2blB2L4lHr9Kw4XvIb3uMGJ1QnGpYTsRIwuaNPhn2KEVjCEAEfYoDcDHnPVHGCW3vBUnklgFFGIU-lwLR6EUA-aFo-GXb"
+                            ],
+                            "resource_id": "playitas-aparthotel",
+                            "booking_attributes": {
+                              "starts_on": "11/16/2020",
+                              "ends_on": "11/30/2020"
+                            }
+                          },
+                          {
+                            "id": "tuifly-950-11-16-2020-l-fra-fue",
+                            "name": "Tuifly from Frankfurt to Fuerteventura",
+                            "description": "Buchungsklasse: L, Sperrgepäck: auf Anfrage",
+                            "teaser_image_url": "test",
+                            "images": [],
+                            "resource_id": "tuifly",
+                            "booking_attributes": {
+                              "departure_date": "11/16/2020",
+                              "departure_time": "10:30",
+                              "departure_airport": "FRA",
+                              "arrival_date": "11/16/2020",
+                              "arrival_time": "14:30",
+                              "arrival_airport": "FUE",
+                              "airline_code": "X3",
+                              "airline_number": "950"
+                            }
+                          },
+                          {
+                            "id": "tuifly-991-11-30-2020-l-fue-fra",
+                            "name": "Tuifly from Fuerteventura to Frankfurt",
+                            "description": "Buchungsklasse: L, Sperrgepäck: auf Anfrage",
+                            "teaser_image_url": "stes",
+                            "images": [],
+                            "resource_id": "tuifly",
+                            "booking_attributes": {
+                              "departure_date": "11/30/2020",
+                              "departure_time": "15:30",
+                              "departure_airport": "FUE",
+                              "arrival_date": "11/30/2020",
+                              "arrival_time": "21:48",
+                              "arrival_airport": "FRA",
+                              "airline_code": "X3",
+                              "airline_number": "991"
+                            }
+                          },
+                          {
+                            "id": "rentalbike-scott-addict-m",
+                            "name": "Mietrad Scott Addict Gr. M",
+                            "description": "Very nice bike. Yes.",
+                            "teaser_image_url": "",
+                            "images": [],
+                            "resource_id": "rentalbike-scott",
+                            "booking_attributes": {
+                              "starts_on": "11/16/2020",
+                              "ends_on": "11/30/2020",
+                              "size": "M"
+                            }
+                          }
+                        ],
+                        "total_price_cents": {
+                          "adult": 189995,
+                          "kid": 129995
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-locale-api-v1-product_bundles",
+        "security": [
+          {
+            "Oauth2": [
+              "products:read"
+            ]
+          }
+        ],
+        "description": "Fetch a list of product bundles",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "starts_on": {
+                    "type": "string"
+                  },
+                  "ends_on": {
+                    "type": "string"
+                  },
+                  "adults": {
+                    "type": "number"
+                  },
+                  "kids": {
+                    "type": "number"
+                  },
+                  "babies": {
+                    "type": "number"
+                  },
+                  "destination_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Fetch bundles within a specified date range and for a specific number of people"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "title": "Product",
+        "type": "object",
+        "x-examples": {
+          "Camps Fuerteventura": {
+            "id": "camps-fuerteventura",
+            "description": "Top-Unterkünfte und Essen, 50m-Pool (mit Plexiglas-Fenster!), Kraftraum, gute Laufstrecken mit <b>einer 400m-Bahn</b> nur wenige Kilometer entfernt undBREAK<br>Radtouren mit sehr gutem Straßenbelag. Hannes Hawaii Tours bietet in Zusammenarbeit mit dem Las Playitas eine Triathlonstation von November bis April mit kompetentem Team für Training, Mechanik und Theorie! Neben den Schwimm-Camps im November/Dezember kannst Du in unseren Triathlon-Trainingscamps ab Januar an Deiner Form feilen. Wir freuen uns auf schöne Wochen mit Euch allen im und um das „Las Playitas“",
+            "product_variants": null,
+            "teaser_image_url": "https://picsum.photos/400",
+            "name": "Camps Fuerteventura"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The friendly id of the product"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the product. Can contain html."
+          },
+          "teaser_image_url": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "product_variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductVariant"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "description"
+        ]
+      },
+      "ProductVariant": {
+        "title": "ProductVariant",
+        "type": "object",
+        "x-examples": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "teaser_image_url": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "current_season": {
+            "$ref": "#/components/schemas/Season"
+          },
+          "product_id": {
+            "type": "string"
+          },
+          "seasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Season"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "product_id"
+        ]
+      },
+      "Season": {
+        "title": "Season",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ProductBundle": {
+        "title": "ProductBundle",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "product_id": {
+            "type": "string"
+          },
+          "starts_on": {
+            "type": "string"
+          },
+          "ends_on": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "resource_variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceVariant"
+            }
+          },
+          "total_price_cents": {
+            "type": "object",
+            "properties": {
+              "adult": {
+                "type": "number"
+              },
+              "kid": {
+                "type": "number"
+              },
+              "baby": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "product_id",
+          "starts_on",
+          "ends_on",
+          "name",
+          "description"
+        ]
+      },
+      "Resource": {
+        "title": "Resource",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "resource_type": {
+            "type": "string"
+          },
+          "teaser_image_url": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "ResourceVariant": {
+        "title": "ResourceVariant",
+        "type": "object",
+        "description": "",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "teaser_image_url": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resource_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "/oauth/authorize",
+            "tokenUrl": "/oauth/token",
+            "refreshUrl": "/oauth/token",
+            "scopes": {
+              "products:read": "read data related to products, product variants and seasons"
+            }
+          }
+        },
+        "description": ""
+      }
+    }
+  },
+  "security": [
+    {
+      "API Key - 1": []
+    }
+  ]
+}

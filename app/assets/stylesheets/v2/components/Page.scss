@@ -1,0 +1,10 @@
+:root {
+  --Page-maxWidth: #{$desktop};
+}
+
+.Page {
+  padding: var(--spacingBase);
+  max-width: var(--Page-maxWidth);
+  margin-left: auto;
+  margin-right: auto;
+}

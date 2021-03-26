@@ -1,0 +1,111 @@
+/* stylelint-disable */
+
+:root {
+  --Field-input-boxShadow: var(--boxShadowBase);
+  --Field-marginBottom: calc(var(--spacingBase) * 2);
+}
+
+.Field {
+  margin-bottom: var(--Field-marginBottom);
+  width: 100%;
+}
+
+.Field.Field--checkbox {
+  display: flex;
+  align-items: baseline;
+}
+
+.Field-label {
+  display: block;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+  width: 100%;
+}
+
+.Field.Field--checkbox {
+  .Field-label {
+    cursor: pointer;
+    font-weight: inherit;
+    padding-left: calc(var(--spacingBase) / 2);
+    width: auto;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+}
+
+.Field-input,
+.Field-select,
+.Field-textarea {
+  border-color: var(--gray400);
+  border-radius: var(--borderRadiusBase);
+  display: block;
+  line-height: 2rem;
+  width: 100%;
+
+  &:hover:not([disabled]):not(:focus) {
+    border-color: var(--gray500);
+  }
+
+  &:focus {
+    border-color: var(--blue400);
+    box-shadow: var(--Field-input-boxShadow) var(--blue400);
+    outline: none;
+  }
+
+  &[disabled] {
+    color: var(--gray600);
+  }
+}
+
+.Field-checkbox {
+  cursor: pointer;
+}
+
+.Field-textarea {
+  min-height: 2.5rem;
+}
+
+// Change select color when default 'Please select' option is selected
+// It will only work if field is required and default option has empty value,
+// making fiedl's value invalid
+.Field-select:invalid {
+  color: var(--gray500);
+}
+
+.Field-hint {
+  display: block;
+  font-size: var(--fontSizeSmall);
+  line-height: 2;
+  width: 100%;
+}
+
+.Field.Field--required {
+  .Field-label::after {
+    content: " *";
+    display: inline;
+  }
+}
+
+.Field.is-invalid {
+  .Field-input,
+  .Field-select {
+    border-color: var(--red500);
+  }
+
+  .Field-input,
+  .Field-select {
+    &:focus {
+      border-color: var(--red400);
+      box-shadow: var(--Field-input-boxShadow) var(--red400);
+    }
+  }
+
+  .Field-hint {
+    color: var(--red600);
+  }
+}
+
+/* stylelint-enable */

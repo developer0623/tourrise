@@ -1,0 +1,59 @@
+<%
+  participants = Customer.where(id: @participant_ids)
+
+  calculation = Pricings::ResourceSku::CalculateTotalPrice.call(
+    resource_sku: item.object,
+    starts_on: @starts_on || @booking.starts_on,
+    ends_on: @ends_on || @booking.ends_on,
+    adults: participants.adults.count,
+    kids: participants.kids.count,
+    babies: participants.babies.count
+  )
+
+  humanized_total_price = humanized_money_with_symbol(calculation.price)
+%>
+
+<tr>
+  <%= render "partials/table/td_thumbnail", image: item.featured_image, alt: item.name  %>
+
+  <td>
+    <%= item.full_name %>
+  </td>
+
+  <td>
+    <ol>
+      <% calculation.applied_pricings.each do |multipliers, pricing| %>
+        <li>
+          <%= Array[multipliers].join(" * ") %> *
+          <%= pricing.decorate.display_information %>
+        </li>
+      <% end %>
+    </ol>
+  </td>
+
+  <td>
+    <span class="u-bold">
+      <%= humanized_total_price %>
+    </span>
+  </td>
+
+  <td class="u-textRight">
+    <%= form_for [@booking, BookingResourceSku.new(resource_sku_id: item.id).decorate] do |f| %>
+      <%= hidden_field_tag :booking_id, @booking.id %>
+      <%= hidden_field_tag :resource_sku_id, item.id %>
+
+      <% @participant_ids.each do |participant_id| %>
+        <%= f.hidden_field :participant_ids, multiple: true, value: participant_id %>
+      <% end %>
+
+      <% if item.resource_type.with_date_range? %>
+        <%= f.hidden_field :starts_on, value: @starts_on %>
+        <%= f.hidden_field :ends_on, value: @ends_on %>
+      <% end %>
+
+      <%= f.hidden_field :price, value: calculation.price %>
+
+      <%= f.submit t("add"), class: "Button Button--neutral Button--small" %>
+    <% end %>
+  </td>
+</tr>

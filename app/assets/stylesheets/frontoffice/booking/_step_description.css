@@ -1,0 +1,11 @@
+.BookingFormStepDescription {
+  max-width: 56em;
+}
+
+.BookingFormStepDescription--intro {
+  font-style: italic;
+}
+
+.BookingFormStepDescription:not(:first-child) {
+  margin-top: 2rem;
+}

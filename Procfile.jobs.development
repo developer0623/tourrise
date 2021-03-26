@@ -1,0 +1,2 @@
+easybill: bundle exec rails easybill:listen && wait -n
+jobs: bundle exec rails jobs:work

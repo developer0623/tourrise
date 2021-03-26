@@ -1,0 +1,26 @@
+<% breadcrumb :booking_events, @booking %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('booking_events.index.title', count: @events.total_count)  %>
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [{
+        name: "item_type",
+        type: "select",
+        options: @events.item_type_filter
+      }, {
+        name: "event",
+        type: "select",
+        options: @events.event_filter
+      }] %>
+
+      <%= render "partials/table",
+        list: @events,
+        header: "booking_events/table/header",
+        row: "booking_events/table/row"
+      %>
+
+      <%= paginate @events %>
+    </div>
+  </div>
+</div>

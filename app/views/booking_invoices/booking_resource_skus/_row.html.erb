@@ -1,0 +1,33 @@
+<% prices = price_info[item.id] %>
+
+<tr>
+  <td>
+    <span class="Attr">
+      <%= item.id %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.name %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= t(item.allow_partial_payment) %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= t(item_action, scope: :document_references) %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr u-floatRight">
+      <%= humanized_money_with_symbol(prices[:total_price]) %>
+    </span>
+  </td>
+</tr>

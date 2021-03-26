@@ -1,0 +1,26 @@
+<div class="ListItem">
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually">
+      <%= CustomAttribute.human_attribute_name(:name) %>:
+    </span>
+
+    <%= item.name %>
+  </div>
+
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually">
+      <%= CustomAttribute.human_attribute_name(:field_type) %>:
+    </span>
+
+    <%= CustomAttribute.human_enum_name(:field_types, item.field_type) %>
+  </div>
+
+  <div class="ListItem-buttons">
+    <div class="ListItem-button">
+      <%= link_to t("edit"), edit_settings_custom_attribute_path(item) %>
+    </div>
+    <div class="ListItem-button">
+      <%= link_to t("delete"), settings_custom_attribute_path(item), method: :delete, data: { confirm: t('settings.custom_attributes.index.destroy_custom_attribute_confirmation') } %>
+    </div>
+  </div>
+</div>

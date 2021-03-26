@@ -1,0 +1,42 @@
+<nav class="MainNav">
+  <%= link_to GlobalConfiguration.company_name, main_app.root_path, class: "MainNav-name" %>
+
+  <div class="MainNav-buttons">
+    <a class="MainNav-button MainNav-subnavButton js-subNavButton" href="#subnav">
+      <div class="MainNav-icon MainNav-icon--open">
+        <%= render "partials/icon", name: "open_menu", title: t("navigation.open_menu") %>
+      </div>
+
+      <div class="MainNav-icon MainNav-icon--close">
+        <%= render "partials/icon", name: "close", title: t("navigation.close_menu") %>
+      </div>
+    </a>
+
+    <div class="MainNav-search">
+      <%= render "layouts/search_button" %>
+    </div>
+
+    <div class="MainNav-shortcut">
+      <%= link_to main_app.new_booking_path,
+        class: "Button Button--small Button--positive",
+        title: t("bookings.index.create_booking_link") do
+      %>
+        <span class="u-hiddenVisually">
+          <%= t("bookings.index.create_booking_link") %>
+        </span>
+
+        <%= render "partials/icon", name: "fa-plus" %>
+      <% end %>
+    </div>
+
+    <div class="MainNav-languages">
+      <% params.permit! %>
+
+      <% %i[de en fr].each do |lang| %>
+        <%= link_to url_for(params.to_h.merge(locale: lang)), class: "#{lang}Button", data: { turbo: false } do %>
+          <%= render "partials/icon", name: lang %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>

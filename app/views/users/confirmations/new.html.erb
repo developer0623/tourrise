@@ -1,0 +1,25 @@
+<div class="sm:mx-auto sm:w-full sm:max-w-md">
+  <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+    <%= t('devise.confirmations.new.resend_confirmation_instructions') %>
+  </h2>
+</div>
+
+<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+  <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <%= form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { class: "space-y-6" } do |f| %>
+      <%= render(Form::EmailFieldComponent.new(f, :email, options: { autofocus: true, autocomplete: "off", required: true })) %>
+
+      <div>
+        <%= render ButtonComponent.new do %>
+          <%= t("user.resend_confirmation_instructions.submit") %>
+        <% end %>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <div class="text-sm">
+          <%= link_to t("user.links.sign_in"), new_session_path(resource_name), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

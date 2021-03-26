@@ -1,0 +1,91 @@
+<div class="Section">
+  <div class="Section">
+    <div class="Form-element">
+      <div class="Input">
+        <%= f.label :title, class: "Input-label Input-label--required" %>
+        <%= f.text_field :title, required: true, class: "Input-element" %>
+        <%= f.error_tag :title, nil, class: "Input-help" %>
+      </div>
+    </div>
+    <div class="Form-elementGroup">
+      <div class="Input Input--select">
+        <%= f.label :product_sku_id, class: "Input-label Input-label--required" %>
+        <%= f.select :product_sku_id,
+                     options_from_collection_for_select(ProductSku.all, :id, :name, f.object.product_sku_id),
+                     {},
+                     { required: true, class: "Input-element" } %>
+      </div>
+      <% if f.object.available_seasons.any? %>
+        <div class="Input Input--select">
+          <%= f.label :season, class: "Input-label Input-label--required" %>
+          <%= f.select :season_id,
+                      options_from_collection_for_select(f.object.available_seasons, :id, :name, f.object.season_id),
+                      {},
+                      { required: true, class: "Input-element" } %>
+        </div>
+      <% end %>
+    </div>
+    <div class="Form-elementGroup">
+      <div class="Input">
+        <%= f.label :starts_on, class: "Input-label Input-label--required" %>
+        <%= f.date_field :starts_on, required: true, class: "Input-element" %>
+        <%= f.error_tag :starts_on, nil, class: "Input-help" %>
+      </div>
+      <div class="Input">
+        <%= f.label :ends_on, required: true, class: "Input-label Input-label--required" %>
+        <%= f.date_field :ends_on, class: "Input-element" %>
+        <%= f.error_tag :ends_on, nil, class: "Input-help" %>
+      </div>
+    </div>
+
+    <div class="Form-elementGroup">
+      <div class="Input">
+        <%= f.label :due_on, class: "Input-label" %>
+        <%= f.date_field :due_on, class: "Input-element" %>
+        <%= f.error_tag :due_on, nil, class: "Input-help" %>
+      </div>
+      <div class="Input Input--select">
+        <%= f.label :assignee_id, class: "Input-label" %>
+        <% selectable_users = User.all.decorate.map { |user| [user.display_name, user.id] } %>
+        <%= f.select :assignee_id, options_for_select([nil, *selectable_users], f.object.assignee_id), {}, class: "Input-element" %>
+        <%= f.error_tag :due_on, nil, class: "Input-help" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="Section js-BookingEditForm-newParticipantContainer" id="participants">
+    <%= render "partials/booking_section", title: t('bookings.form.participants.title') do %>
+      <% if f.object.participants.any? %>
+        <%= f.fields_for :participants do |participant_form| %>
+          <div class="u-mb-3 js-BookingEditForm-newParticipant">
+            <%= render partial: 'participants/participant_form', locals: { f: participant_form } %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="js-BookingEditForm-newParticipant">
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="Form-buttons">
+      <button class="Button Button--small Button--neutral js-BookingEditForm-newParticipantButton"><%= t('bookings.form.add_participant_link') %></button>
+    </div>
+  </div>
+</div>
+
+<div class="Form-buttons">
+  <div class="Form-button">
+    <a class="Button Button--secondary" href="<%= booking_path(@booking) %>"><%= t('abort') %></a>
+  </div>
+  <div class="Form-button">
+    <%= f.submit class: "Button Button--positive" %>
+  </div>
+</div>
+
+<template class="js-BookingEditForm-newParticipantTemplate">
+  <div class="u-mb-3 js-BookingEditForm-newParticipant">
+    <%= f.fields_for :participants, Customer.new, child_index: 'ID' do |participant_form| %>
+      <%= render partial: 'participants/participant_form', locals: { f: participant_form } %>
+    <% end %>
+  </div>
+</template>

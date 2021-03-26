@@ -1,0 +1,21 @@
+<%= render "partials/booking_section",
+  title: t("bookings.show.customer.title"),
+  headline_type: local_assigns.fetch(:headline_type, 2),
+  link: local_assigns.fetch(:link, nil) do %>
+  <%= render "bookings/show/data_list", multiple_cols: true, list: [{
+              attr: Customer.human_attribute_name(:company_name),
+              val: booking.customer.company_name,
+            }, {
+              attr: Customer.human_attribute_name(:name),
+              val: booking.customer.name,
+            }, {
+              attr: Customer.human_attribute_name(:email),
+              val: "#{booking.customer.email_link} (#{booking.customer.locale})".html_safe,
+            }, {
+              attr: Customer.human_attribute_name(:full_address),
+              val: booking.customer.address,
+            }, {
+              attr: Customer.human_attribute_name(:phone),
+              val: booking.customer.phone,
+            }] %>
+<% end %>

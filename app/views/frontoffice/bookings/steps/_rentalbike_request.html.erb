@@ -1,0 +1,49 @@
+<h2>
+  <%= t("booking_form.rentalbike_request_step.title") %>
+</h2>
+
+<p>
+  <%= t("booking_form.rentalbike_request_step.intro") %>
+</p>
+
+<div class="js-BookingFormRentalbikeRequest">
+  <%= render "components/field/select",
+    attribute: :rentalbikes_count,
+    extra_class: "js-BookingFormRentalbikeRequest-select",
+    f: f,
+    label_text: t("booking_form.rentalbike_request_step.rentalbikes_count"),
+    options: options_for_select(
+      [
+        [t("booking_form.rentalbike_request_step.no_bikes_needed"), 0],
+        *(1..booking_form.max_rentalbikes).to_a
+      ],
+      booking_form.rentalbikes_count
+    ),
+    required: true
+  %>
+
+  <div class="js-BookingFormRentalbikeRequest-rentalbikes">
+    <ol class="js-BookingFormRentalbikeRequest-container u-paddingNone u-marginNone u-listInside">
+      <%= f.fields_for :booking_rentalbike_requests do |rentalbike_request_fields| %>
+        <li class="js-BookingFormRentalbikeRequest-item">
+          <%= content_tag :h4, t("rentalbike"), class: "u-displayInlineBlock u-marginBottomSmall" %>
+          <%= render "frontoffice/bookings/rentalbike_request", f: rentalbike_request_fields %>
+        </li>
+      <% end %>
+    </ol>
+
+    <template class="js-BookingFormRentalbikeRequest-template">
+      <%= f.fields_for :booking_rentalbike_requests, BookingRentalbikeRequest.new, child_index: 0 do |rentalbike_request_fields| %>
+        <li class="js-BookingFormRentalbikeRequest-item">
+          <%= content_tag :h4, t("rentalbike"), class: "u-displayInlineBlock u-marginBottomSmall" %>
+          <%= render "frontoffice/bookings/rentalbike_request", f: rentalbike_request_fields %>
+        </li>
+      <% end %>
+    </template>
+  </div>
+</div>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

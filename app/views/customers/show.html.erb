@@ -1,0 +1,48 @@
+<% breadcrumb :customer, @customer %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: @customer.full_name do %>
+    <%= link_to t("edit"), edit_customer_path(@customer), class: "Button" %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "customers/show/details", customer: @customer %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: Booking.model_name.human, link: {
+        label: t('add'),
+        url: new_booking_with_customer_path(@customer)
+      } do %>
+
+        <% if @customer.bookings.any? %>
+          <%= render "partials/list",
+            list: @customer.bookings,
+            partial: "partials/booking_preview",
+            locals: { hide_customer: true }
+          %>
+        <% else %>
+          <p class="Empty">
+            <%= t("customers.show.empty_bookings") %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: BookingParticipant.model_name.human do %>
+        <% if @customer.participate_bookings.any? %>
+          <%= render "partials/list",
+            list: @customer.participate_bookings.decorate,
+            partial: "partials/booking_preview"
+          %>
+        <% else %>
+          <p class="Empty">
+            <%= t("customers.show.empty_bookings") %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

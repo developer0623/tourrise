@@ -1,0 +1,11 @@
+<% breadcrumb :resource_sku_edit, resource_sku %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: resource_sku.name %>
+
+  <div class="Content-main">
+    <%= form_with model: resource_sku, method: "PUT", html: { class: 'js-ResourceSkuForm', autocomplete: :off } do |f| %>
+      <% render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>

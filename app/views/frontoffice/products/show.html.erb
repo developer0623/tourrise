@@ -1,0 +1,15 @@
+<%= render "layouts/message" %>
+
+<h1>
+  <%= @product.name %>
+</h1>
+
+<%= simple_format @product.description %>
+
+<section>
+  <h2>
+    <%= t(".bookable_trips") %>
+  </h2>
+
+  <%= render partial: "product_sku", collection: @product.product_skus %>
+</section>

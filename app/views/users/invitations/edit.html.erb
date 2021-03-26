@@ -1,0 +1,22 @@
+<div class="sm:mx-auto sm:w-full sm:max-w-md">
+  <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+    <%= t('devise.invitations.edit.header') %>
+  </h2>
+</div>
+
+<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+  <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put, class: "space-y-6", autocomplete: :off } do |f| %>
+      <%= f.hidden_field :invitation_token, readonly: true %>
+
+      <%= render(Form::PasswordFieldComponent.new(f, :password, options: { autocomplete: 'new-password', required: true })) %>
+      <%= render(Form::PasswordFieldComponent.new(f, :password_confirmation, options: { autocomplete: 'off', required: true })) %>
+
+      <div>
+        <%= render ButtonComponent.new do %>
+          <%= t("devise.invitations.edit.submit_button") %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<h2>
+  <%= t("booking_form.rentalcar_request_step.title") %>
+</h2>
+
+<p>
+  <%= t("booking_form.rentalcar_request_step.intro") %>
+</p>
+
+<div class="js-BookingFormRentalcarRequest">
+  <%= render "components/field/select",
+    attribute: :rentalcars_count,
+    extra_class: "js-BookingFormRentalcarRequest-select",
+    f: f,
+    label_text: t("booking_form.rentalcar_request_step.rentalcars_count"),
+    options: options_for_select(
+      [
+        [t("booking_form.rentalcar_request_step.no_cars_needed"), 0],
+        *(1..booking_form.max_rentalcars).to_a
+      ],
+      booking_form.rentalcars_count
+    ),
+    required: true
+  %>
+
+  <div class="js-BookingFormRentalcarRequest-rentalcars">
+    <ol class="js-BookingFormRentalcarRequest-container u-paddingNone u-marginNone u-listInside">
+      <%= f.fields_for :booking_rentalcar_requests do |rentalcar_request_fields| %>
+        <li class="js-BookingFormRentalcarRequest-item">
+          <%= content_tag :h4, BookingRentalcarRequest.model_name.human, class: "u-displayInlineBlock u-marginBottomSmall" %>
+          <%= render "frontoffice/bookings/rentalcar_request", f: rentalcar_request_fields %>
+        </li>
+
+        <%= rentalcar_request_fields.hidden_field :_destroy %>
+      <% end %>
+    </ol>
+
+    <template class="js-BookingFormRentalcarRequest-template">
+      <%= f.fields_for :booking_rentalcar_requests, BookingRentalcarRequest.new, child_index: 0 do |rentalcar_request_fields| %>
+        <li class="js-BookingFormRentalcarRequest-item">
+          <%= content_tag :h4, BookingRentalcarRequest.model_name.human, class: "u-displayInlineBlock u-marginBottomSmall" %>
+          <%= render "frontoffice/bookings/rentalcar_request", f: rentalcar_request_fields %>
+        </li>
+
+        <%= rentalcar_request_fields.hidden_field :_destroy %>
+      <% end %>
+    </template>
+  </div>
+</div>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

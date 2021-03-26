@@ -1,0 +1,13 @@
+<% booking_invoice = local_assigns.fetch(:booking_invoice) %>
+
+<div class="u-marginBottomBase">
+  <h3>
+    <%= t("advance_booking_invoices.description", booking_title: booking_invoice.booking.title) %>
+  </h3>
+</div>
+
+<div class="u-marginBottomLarge">
+  <%= booking_invoice.description %>
+</div>
+
+<%= render "frontoffice/booking_documents/booking_resource_sku_section", booking_document: booking_invoice %>

@@ -1,0 +1,32 @@
+<%= document.description %>
+
+<% if booking.flights.any? %>
+Flugdatenänderungen vorbehalten.
+Die Flugleistung wird von <%= GlobalConfiguration.company_name %> als Reisemittler im Namen der Airlines angeboten. (siehe AGBs)
+
+<% end %>
+Zahlungsbedingungen:
+
+<% if document.payments.any? %>
+<% if document.payments.size == 1 %>
+<% payment = document.payments.first %>
+Rechnungsbetrag: &nbsp; &nbsp;<%= payment.price %> &euro; (f&auml;llig bis zum <%= l(payment.due_on) %>)
+<% else %>
+<% first_payment = document.payments.first %>
+<% final_payment = document.payments.last %>
+Anzahlung: &nbsp; &nbsp; &nbsp;<%= first_payment.price %> &euro; (f&auml;llig bis zum <%= l(first_payment.due_on) %>)
+Restzahlung: &nbsp; &nbsp;<%= final_payment.price %> &euro; (f&auml;llig bis zum <%= l(final_payment.due_on) %>)
+<% end %>
+<% end %>
+<br>
+Wir bitten, bei allen Zahlungen deine Rechnungsnummer anzugeben.
+<br>
+Sonderregelung f&uuml;r Reiseb&uuml;ros (&sect;14a Abs.6 USTG).
+<br>
+Als Anlage erh&auml;ltst du den Reisesicherungsschein. Sonstige Versicherungspolicen erh&auml;ltst du mit den Reiseunterlagen, die wir dir bei fristgerechter Zahlung ca. 10-14 Tage vor deinem Reiseantritt zusenden.
+<br>
+Du bist selbst f&uuml;r die Kenntnis und Einhaltung der l&auml;nderspezifischen Einreiseformalit&auml;ten (G&uuml;ltigkeit von Reisedokumenten, Erteilung entsprechender Visa etc.) verantwortlich. Weitergehende Infos erh&auml;ltst du hier: http://www.auswaertiges-amt.de
+<br>
+F&uuml;r eventuelle R&uuml;ckfragen stehen wir dir jederzeit gerne zur Verf&uuml;gung.
+<br>
+<%= render partial: 'easybill/templates/greeting', locals: { employee: booking.assignee } %>

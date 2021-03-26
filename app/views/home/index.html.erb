@@ -1,0 +1,15 @@
+<div class="Content">
+  <div class="Content-main">
+    <div class="Heading">
+      <h1><%= t("home.index.hello", name: display_name(first_name: current_user.first_name, last_name: current_user.last_name)) %></h1>
+      <% if @bookings.count.present? %>
+        <%= render "partials/message", msg: t("home.index.unassigned_customers", count: @bookings.count ) %>
+      <% end %>
+    </div>
+    <div class="Content-main">
+      <div class="Section">
+        <%= render "partials/list", list: @bookings, partial: "partials/booking_preview" %>
+      </div>
+    </div>
+  </div>
+</div>

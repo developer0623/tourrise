@@ -1,0 +1,9 @@
+.BookingResourceSkuFormButtons {
+  margin-top: 2rem;
+  align-items: center;
+  display: flex;
+}
+
+.BookingResourceSkuFormButtons-button:not(:first-child) {
+  margin-left: 2rem;
+}

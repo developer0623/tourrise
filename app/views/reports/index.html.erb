@@ -1,0 +1,43 @@
+<% breadcrumb :reports %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: t(".title") %>
+
+  <%= link_to t('reports.index.product_skus_link'), reports_product_skus_path %>
+
+  <div class="Grid Grid--wrap" style="margin-top: 3rem;">
+    <div class="Grid-el Grid-el--half u-mb-5">
+      <h2 class="u-mb-1">
+        Recent bookings
+      </h2>
+
+      <%= line_chart @recent_bookings.group('date(created_at)').count %>
+    </div>
+
+    <div class="Grid-el Grid-el--half u-mb-5">
+      <h2 class="u-mb-1">
+        All bookings
+      </h2>
+
+      <%= line_chart @bookings.group_by_day(:created_at).count %>
+    </div>
+  </div>
+
+  <div class="Grid Grid--wrap">
+    <div class="Grid-el Grid-el--half u-mb-5">
+      <h2 class="u-mb-1">
+        Popular 5 products
+      </h2>
+
+      <%= pie_chart @popular_product_skus %>
+    </div>
+
+    <div class="Grid-el Grid-el--half u-mb-5">
+      <h2 class="u-mb-1">
+        Returning vs new customers
+      </h2>
+
+      <%= pie_chart @customers_comparison %>
+    </div>
+  </div>
+</div>

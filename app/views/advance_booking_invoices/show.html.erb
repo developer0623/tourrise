@@ -1,0 +1,23 @@
+<% breadcrumb :advance_booking_invoice, advance_booking_invoice %>
+
+<div class="Content">
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "booking_documents/show", document: advance_booking_invoice %>
+    </div>
+
+    <div class="Section">
+      <h2>
+        <%= t("booking_invoices.show.payments", count: advance_booking_invoice.payments.count) %>
+      </h2>
+
+      <%= render "partials/table",
+        list: advance_booking_invoice.payments,
+        header: "booking_invoices/payments_table/header",
+        row: "booking_invoices/payments_table/row"
+      %>
+    </div>
+
+    <%= render "booking_documents/actions", document: advance_booking_invoice %>
+  </div>
+</div>

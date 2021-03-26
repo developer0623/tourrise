@@ -1,0 +1,30 @@
+:root {
+  --BookingForm-content-space: 2rem;
+  --BookingForm-subcontent-space: 2rem;
+}
+
+.BookingForm {
+  padding: 0 var(--BookingForm-space);
+}
+
+.BookingForm-title:not(:first-child) {
+  margin-top: var(--BookingForm-space);
+}
+
+.BookingForm-form {
+  margin-top: var(--BookingForm-subsection-space);
+}
+
+@media (max-width: 30em) {
+  :root {
+    --BookingForm-space: 1.5rem;
+    --BookingForm-subsection-space: 2rem;
+  }
+}
+
+@media (min-width: 30.03125em) {
+  :root {
+    --BookingForm-space: 3rem;
+    --BookingForm-subsection-space: 4rem;
+  }
+}

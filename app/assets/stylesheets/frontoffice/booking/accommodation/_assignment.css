@@ -1,0 +1,11 @@
+.BookingFormAccommodationAssignment {
+  counter-reset: accommodations;
+}
+
+.BookingFormAccommodationAssignment-item {
+  counter-increment: accommodations;
+}
+
+.BookingFormAccommodationAssignment-item .BookingSection-title::before {
+  content: counter(accommodations) ". ";
+}

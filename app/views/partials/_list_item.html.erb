@@ -1,0 +1,19 @@
+<div class="BookingResourceSku">
+  <div class="ListItem">
+    <div class="ListItem-item ListItem-name BookingResourceSku-name">
+      <%= item[:name] %>
+    </div>
+    <div class="ListItem-item ListItem-name BookingResourceSku-name">
+      <%= item[:description] %>
+    </div>
+    <% if item[:quantity] %>
+      <div class="ListItem-item BookingResourceSku-priceContainer">
+        <div class="BookingResourceSku-quantity BookingResourceSku-priceContainerItem">
+          <span class="u-hiddenVisually"><%= BookingResourceSku.human_attribute_name(:quantity) %>:</span>
+          <%= item[:quantity] %> &times;
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

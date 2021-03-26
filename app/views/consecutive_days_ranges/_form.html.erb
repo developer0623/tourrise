@@ -1,0 +1,24 @@
+<div class="Section js-consecutiveDaysSection">
+  <div class="Form-element js-consecutiveDaysContainer">
+    <div class="emptyRangesMessage u-colorNegative Empty">
+      <p>Ranges are not configured yet</p>
+    </div>
+    <%= f.fields_for :consecutive_days_ranges do |form| %>
+      <div class="u-mb-3 js-newConsecutiveDaysRange">
+        <%= render 'consecutive_days_ranges/form_fields', f: form %>
+      </div>
+    <% end %>
+  </div>
+
+  <template class="js-newConsecutiveDaysRangeTemplate">
+    <div class="u-mb-3 js-newConsecutiveDaysRange">
+      <%= f.fields_for :consecutive_days_ranges, f.object.build_consecutive_days_range, child_index: "ID" do |form| %>
+        <%= render 'consecutive_days_ranges/form_fields', f: form %>
+      <% end %>
+    </div>
+  </template>
+</div>
+
+<div class="Form-buttons">
+  <%= button_tag t(".add"), class: "Button Button--small Button--neutral js-newConsecutiveDaysRangeButton" %>
+</div>

@@ -1,0 +1,16 @@
+.Content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  max-width: 120rem;
+  overflow: hidden;
+}
+
+.Content-main:not(:first-child) {
+  margin-top: var(--Page-main-spacing);
+}
+
+.Content-actions {
+  margin-top: var(--Page-main-spacing);
+}

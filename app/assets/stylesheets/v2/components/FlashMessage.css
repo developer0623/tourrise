@@ -1,0 +1,35 @@
+.FlashMessage {
+  border: 1px solid;
+  border-radius: var(--borderRadiusBase);
+  padding: var(--spacingBase);
+  position: relative;
+  margin: var(--spacingBase) auto;
+}
+
+.FlashMessage--success {
+  background: var(--green200);
+  color: var(--green800);
+}
+
+.FlashMessage--error {
+  background: var(--red200);
+  color: var(--red800);
+}
+
+.FlashMessage-text {
+  margin-bottom: 0;
+  padding-right: 1rem;
+}
+
+.FlashMessage-close {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  line-height: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}

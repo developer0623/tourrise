@@ -1,0 +1,13 @@
+<% if booking.participants.any? %>
+  <%= magic_table booking.participants, %i[name localized_birthdate email] %>
+
+  <% if booking.participants.where(placeholder: true).count.positive? %>
+    <div class="Empty u-marginTopBase">
+      <%= t('booking_form.summary_step.participant_placeholder', count: booking.participants.where(placeholder: true).count) %>
+    </div>
+  <% end %>
+<% else %>
+  <p class="Empty">
+    <%= t("not_entered") %>
+  </p>
+<% end %>

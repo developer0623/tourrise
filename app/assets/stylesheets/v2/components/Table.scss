@@ -1,0 +1,48 @@
+.Table {
+  overflow-x: auto;
+}
+
+.Table table {
+  width: auto;
+  text-align: left;
+}
+
+.Table th,
+.Table td {
+  vertical-align: middle;
+
+  &:not(.Table-counter) {
+    // TODO: This is a very questionable decision. It was made to make sure td's
+    // with date information are not wrapped. There must be a better way to
+    // acheive that goal
+    min-width: 8rem;
+  }
+}
+
+.Table th:not(:first-child),
+.Table td:not(:first-child) {
+  padding-left: calc(var(--spacingBase) * 1.5);
+}
+
+.Table.Table--stretched {
+  width: 100%;
+  table {
+    width: 100%;
+  }
+  th {
+    text-align: right;
+  }
+  td:last-child {
+    text-align: right;
+  }
+}
+
+.Table.Table--pricings {
+  float: right;
+  table {
+    text-align: right;
+  }
+  th {
+    text-align: right;
+  }
+}

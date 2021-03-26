@@ -1,0 +1,49 @@
+:root {
+  --Card-borderColor: var(--gray400);
+}
+
+.Card {
+  padding: var(--spacingBase);
+  border: 1px solid var(--Card-borderColor);
+  border-radius: var(--borderRadiusBase);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacingBase);
+
+  &.is-muted {
+    border-color: var(--gray300);
+  }
+
+  &.is-target,
+  &:target {
+    border-color: var(--blue400);
+    box-shadow: var(--boxShadowBase) var(--blue400);
+  }
+}
+
+.Card-image {
+  margin: calc(var(--spacingBase) * -1) calc(var(--spacingBase) * -1)
+    var(--spacingBase);
+  position: relative;
+  z-index: -1;
+  height: 0;
+  padding-top: 100%;
+
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.Card-heading {
+  color: var(--headline-color);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: var(--spacingBase);
+}
+
+.Card-footer {
+  margin-top: auto;
+  align-self: flex-end;
+}

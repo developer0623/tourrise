@@ -1,0 +1,12 @@
+<dl class="List DataList<%= " DataList--multipleCols" if defined?(multiple_cols) %>">
+  <% if list.any? %>
+    <% list.each do |item| %>
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr<%= " DataList-attr--large" if item[:attr_large] %>"><%= item[:attr] %></dt>
+        <dd class="DataList-val"><%= item[:val] %></dd>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="Empty"><%= t('empty') %></div>
+  <% end %>
+</dl>

@@ -1,0 +1,27 @@
+<%
+  attribute = local_assigns.fetch(:attribute, false)
+  f = local_assigns.fetch(:f, false)
+  max = local_assigns.fetch(:max, nil)
+  min = local_assigns.fetch(:min, nil)
+  required = local_assigns.fetch(:required, false)
+  value = local_assigns.fetch(:value, f.object.public_send(attribute))
+
+  extra_classes = []
+  extra_classes.push("Field--required") if required
+  extra_classes.push("is-invalid") if f.object.errors[attribute].any?
+  extra_classes = extra_classes.join(" ")
+%>
+
+<%= content_tag(:div, class: "Field Field--date #{extra_classes}" ) do %>
+  <%= f.label attribute, class: "Field-label" %>
+
+  <%= f.date_field attribute,
+    class: "Field-input",
+    max: max,
+    min: min,
+    required: required,
+    value: value
+  %>
+
+  <%= f.error_tag attribute, nil, class: "Field-hint" %>
+<% end %>

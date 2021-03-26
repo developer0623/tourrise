@@ -1,0 +1,18 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: Season.human_attribute_name(:id),
+    sort_by: "id"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Season.human_attribute_name(:name),
+    sort_by: "name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Season.human_attribute_name(:published_at),
+    sort_by: "published_at"
+  %>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

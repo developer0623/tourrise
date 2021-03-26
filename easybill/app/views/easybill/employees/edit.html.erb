@@ -1,0 +1,20 @@
+<% breadcrumb :edit_employee, @employee %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render 'partials/content_heading', title: t("easybill.employees.edit.title", name: @employee.user.first_name) %>
+
+    <%= form_for @employee, html: { autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <a class="Button Button--secondary" href="<%= easybill.employees_path %>"><%= t('abort') %></a>
+        </div>
+        <div class="Form-button">
+          <%= f.submit t('update'), class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

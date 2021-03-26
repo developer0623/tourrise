@@ -1,0 +1,21 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :name, class: "Input-label Input-label--required" %>
+      <%= f.text_field :name, required: true, class: "Input-element Input-element--text", placeholder: "Unterkunft" %>
+    </div>
+    <div class="Input">
+      <%= f.label :value, class: "Input-label Input-label--required" %>
+      <%= f.text_field :value, required: true, class: "Input-element Input-element--text", placeholder: "11" %>
+    </div>
+  </div>
+</div>
+
+<div class="Form-buttons">
+  <div class="Form-button">
+    <a class="Button Button--secondary" href="<%= settings_cost_centers_path %>"><%= t('abort') %></a>
+  </div>
+  <div class="Form-button">
+    <button type="submit" class="Button"><%= t("save") %></button>
+  </div>
+</div>

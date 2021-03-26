@@ -1,0 +1,23 @@
+<%
+  action = local_assigns.fetch(:action, false)
+%>
+
+<article class="ResourceSkuPreview">
+  <div class="ResourceSkuPreview-image">
+    <%= resource_sku.display_featured_image %>
+  </div>
+
+  <% if action %>
+    <div class="ResourceSkuPreview-action">
+      <%= action %>
+    </div>
+  <% end %>
+
+  <div class="ResourceSkuPreview-details">
+    <h4>
+      <%= resource_sku.label %>
+    </h4>
+
+    <%= simple_format resource_sku.description %>
+  </div>
+</article>

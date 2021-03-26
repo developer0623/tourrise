@@ -1,0 +1,9 @@
+<% list = @availability.availability_reducing_booking_resource_skus.in_date_range(item, item).decorate %>
+
+<h2>
+  <%= l(item, format: :long) %>
+</h2>
+
+<div>
+  <%= render "partials/list", list: list, partial: "inventories/booking_resource_sku" %>
+</div>

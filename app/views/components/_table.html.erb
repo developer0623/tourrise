@@ -1,0 +1,50 @@
+<%
+  # TODO: instead of two arrays data and headers, we should probably work
+  # directly with hashes and get headers from hash keys. One problem: at which
+  # point do we translate the keys so that they are displayed in appropriate
+  # language as the th values?
+  data = local_assigns.fetch(:data)
+  headers = local_assigns.fetch(:headers, nil)
+  include_counter = local_assigns.fetch(:include_counter, true)
+  stretched = local_assigns.fetch(:stretched, false)
+%>
+
+<div class="Table <%= 'Table--stretched' if stretched %>">
+  <table>
+    <% unless headers.blank? %>
+      <thead>
+        <tr>
+          <% if include_counter %>
+            <td class="Table-counter"></td>
+          <% end %>
+
+          <% headers.each do |header| %>
+            <th>
+              <%= header %>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+    <% end %>
+
+    <% unless data.blank? %>
+      <tbody>
+        <% data.each_with_index do |item, index| %>
+          <tr>
+            <% if include_counter %>
+              <td class="Table-counter">
+                <%= index + 1 %>
+              </td>
+            <% end %>
+
+            <% item.each do |attribute| %>
+              <td>
+                <%= attribute %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+</div>

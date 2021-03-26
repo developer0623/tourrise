@@ -1,0 +1,33 @@
+<% if params[:resource_id].present? %>
+  <% filtered_resource = Resource.find_by(id: params[:resource_id]) %>
+<% end %>
+
+<tr>
+  <td>
+    <%= item.product_name %>
+  </td>
+
+  <td>
+    <%= item.product_sku_name %>
+  </td>
+
+  <td>
+    <%== item.season_names %>
+  </td>
+
+  <% Booking.aasm.states.map(&:name).each do |state| %>
+    <td>
+      <%= item.public_send("#{state}_bookings").count %>
+    </td>
+  <% end %>
+
+  <td>
+    <%= item.participants_count %>
+  </td>
+
+  <% if filtered_resource %>
+  <td>
+    <%= item.participants_count_for_resource(filtered_resource) %>
+  </td>
+  <% end %>
+</tr>

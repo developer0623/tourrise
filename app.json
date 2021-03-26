@@ -1,0 +1,30 @@
+{
+  "name": "Wavebooking Core",
+  "description": "",
+  "website": "",
+  "repository": "https://github.com/Wavebooking/tourrise-core",
+  "logo": "",
+  "env": {
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
+    "RAILS_SERVE_STATIC_FILES": "true"
+  },
+  "addons": ["cloudamqp", "scheduler", "jawsdb-maria", "sendgrid"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-activestorage-preview"
+    },{
+      "url": "heroku/nodejs"
+    },{
+      "url": "heroku/ruby"
+    }
+  ],
+  "environments": {
+    "review": {
+      "addons": ["cloudamqp", "scheduler", "jawsdb-maria", "sendgrid"],
+      "scripts": {
+        "postdeploy": "bundle exec rails review_apps:prepare_database"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :price, class: "Input-label" %>
+      <%= f.text_field :price, class: "Input-element" %>
+    </div>
+    <div class="Input">
+      <%= f.label :from, class: "Input-label" %>
+      <%= f.text_field :from, class: "Input-element" %>
+    </div>
+    <div class="Input">
+      <%= f.label :to, class: "Input-label" %>
+      <%= f.text_field :to, class: "Input-element" %>
+    </div>
+    <div class="Input">
+      <br>
+      <button class="Button Button--negative js-removeConsecutiveDaysRangeButton" title="Remove">
+        <span class="Button-icon">
+          <%= f.hidden_field :_destroy, class: "RemoveRange" %>
+          <%= render "partials/icon", name: "remove"  %>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+

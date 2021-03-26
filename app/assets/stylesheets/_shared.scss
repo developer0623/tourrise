@@ -1,0 +1,27 @@
+@import "_shared/vars";
+@import "_shared/theme";
+@import "_shared/reset";
+@import "_shared/base";
+@import "_shared/elements";
+@import "_shared/grid";
+@import "_shared/components/*";
+@import "_shared/forms/*";
+@import "_shared/utils";
+@import "_shared/multiselect";
+@import "_shared/rte";
+
+@media (max-width: 64em) {
+  :root {
+    --Page-main-spacing: 2rem;
+  }
+}
+
+@media (min-width: 64.03125em) {
+  :root {
+    --Page-main-spacing: 4rem;
+  }
+}
+
+.Section + .Section {
+  margin-top: var(--Page-main-spacing);
+}

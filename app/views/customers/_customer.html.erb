@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <strong>
+      <%= customer.first_name %> <%= customer.last_name %>
+    </strong>
+    <%= customer.city %>, <%= customer.locale %>
+  </td>
+  <td>
+    <%= customer.bookings.count %> Buchungen
+  </td>
+</tr>

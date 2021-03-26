@@ -1,0 +1,15 @@
+<tr>
+  <%= content_tag :td, item.id %>
+  <%= content_tag :td do %>
+    <%= link_to item.customer_name, customer_path(item.customer_id) %>
+  <% end %>
+
+  <%= content_tag :td do %>
+    <%= link_to item.participant_name, customer_path(item.participant_id) %>
+  <% end %>
+
+  <%= content_tag :td, birthdate_with_age(item.participant_birthdate, item.booking_starts_on) %>
+  <%= content_tag :td, item.participant_email %>
+  <%= content_tag :td, item.product_sku_name %>
+  <%= content_tag :td, item.booking_date_range %>
+</tr>

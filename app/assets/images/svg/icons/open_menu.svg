@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" class="Icon Icon--open">
+  <path d="M57 52H17a3 3 0 1 1 0-6h40a3 3 0 0 1 0 6zM57 33H17a3 3 0 1 1 0-6h40a3 3 0 0 1 0 6zM57 14H17a3 3 0 1 1 0-6h40a3 3 0 0 1 0 6z"/>
+  <circle cx="4" cy="11" r="4"/>
+  <circle cx="4" cy="30" r="4"/>
+  <circle cx="4" cy="49" r="4"/>
+</svg>

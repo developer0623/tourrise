@@ -1,0 +1,32 @@
+.Breadcrumb-list {
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.4rem;
+}
+
+.Breadcrumb-item {
+  display: flex;
+}
+
+.Breadcrumb-item:not(:last-child)::after {
+  content: "/";
+  display: block;
+  padding: 0 0.5em;
+}
+
+.Breadcrumb-link {
+  text-decoration: none;
+}
+
+.Breadcrumb-link:active {
+  color: var(--font-color);
+  text-decoration: underline;
+}
+
+@media (hover: hover) {
+  .Breadcrumb-link:hover,
+  .Breadcrumb-link:focus {
+    text-decoration: underline;
+  }
+}

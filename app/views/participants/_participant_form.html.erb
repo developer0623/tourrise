@@ -1,0 +1,59 @@
+<%= render(
+  "partials/autocomplete",
+  suggestions_url: api_customers_path,
+  suggestion_title_field: :full_name,
+  suggestion_description_template: %Q(
+    <span class="u-block">
+      %{localized_birthdate} · %{bookings_count}
+    </span>
+
+    <span class="u-block">
+      %{full_address}
+    </span>
+  )
+) do %>
+  <%= text_field_tag :customer_id, nil, placeholder: t('bookings.edit.search_participant_placeholder'), class: "Input-element" %>
+<% end %>
+
+<div class="Form-elementGroup js-ParticipantSearch">
+  <div class="Input">
+    <%= f.label :first_name, class: "Input-label" %>
+    <%= f.text_field :first_name, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :last_name, class: "Input-label" %>
+    <%= f.text_field :last_name, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :birthdate, class: "Input-label" %>
+    <%= f.date_field :birthdate, class: "Input-element", min: earliest_birthdate, max: Time.now + 1.day %>
+  </div>
+  <div class="Input">
+    <%= f.label :email, class: "Input-label" %>
+    <%= f.email_field :email, class: "Input-element" %>
+  </div>
+  <div class="Input Input--select">
+    <%= f.label :participant_type, class: "Input-label Input-label--required" %>
+    <%= f.select :participant_type, options_for_select(Customer.participant_types.keys.map { |type| [t("frontoffice.participants.participant_types.#{type}"), type] }, f.object.participant_type || "adult"), {include_blank: false}, class: "Input-element" %>
+  </div>
+  <% if f.object.persisted? %>
+    <div class="Input">
+      <% if f.object.booking_resource_skus.blank? %>
+        <%= f.label :_destroy, class: "Input-label" %>
+        <%= f.check_box :_destroy, class: "Input-element Input-element--checkbox ResourceSkuForm-destroy" %>
+      <% else %>
+        <small class="Empty">
+          <%= t('.has_assigned_booking_resource_skus') %>
+        </small>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="Input Input--withoutLabel">
+      <button class="Button Button--negative js-BookingEditForm-removeParticipantButton" title="Variante entfernen">
+        <span class="Button-icon">
+          <%= render "partials/icon", name: "remove" %>
+        </span>
+      </button>
+    </div>
+  <% end %>
+</div>

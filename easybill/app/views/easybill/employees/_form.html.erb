@@ -1,0 +1,13 @@
+<div class="Form-elementGroup">
+  <div class="Input Input--select">
+    <%= f.label :user, class: "Input-label Input-label--required" %>
+    <%= f.select :user_id, ::User.where.not(id: Easybill::Employee.where.not(id: @employee.id).pluck(:user_id)).pluck(:email, :id), { include_blank: true }, { class: "Input-element" } %>
+  </div>
+</div>
+
+<div class="Form-elementGroup">
+  <div class="Input Input--doubleWidth">
+    <%= f.label :api_key, class: "Input-label" %>
+    <%= f.text_field :api_key, class: "Input-element" %>
+  </div>
+</div>

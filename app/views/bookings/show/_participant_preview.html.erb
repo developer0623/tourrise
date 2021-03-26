@@ -1,0 +1,12 @@
+<div class="Participant Grid Grid--spaceBetween">
+  <div class="Participant-name">
+    <span class="u-hiddenVisually"><%= Customer.human_attribute_name(:name) %>:</span>
+    <%= item.name %>
+  </div>
+  <div class="Participant-birthdate Grid-item">
+    <span class="u-hiddenVisually"><%= Customer.human_attribute_name(:birthdate) %>:</span> <%= item.localized_birthdate %>
+  </div>
+</div>
+<div class="Participant-birthdate Grid-item">
+  <span class="u-hiddenVisually"><%= Customer.human_attribute_name(:email) %>:</span> <%= item.email %>
+</div>

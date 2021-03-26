@@ -1,0 +1,12 @@
+<% breadcrumb :product_edit, @product %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('products.edit.title') %>
+
+  <div class="Content-main">
+    <%= form_with model: @product, html: { class: "Form js-ProductForm", autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>
+

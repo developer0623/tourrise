@@ -1,0 +1,11 @@
+<% breadcrumb :edit_custom_attribute, @custom_attribute %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('.title', name: @custom_attribute.name) %>
+
+  <div class="Content-main">
+    <%= form_for [:settings, @custom_attribute], method: "PUT", html: { class: "Form", autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>

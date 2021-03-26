@@ -1,0 +1,12 @@
+<%- flex_class = group.canceled? ? "u-flex-btw" : "u-flex-end" %>
+
+<div class="BookingResourceSkuGroup <%= flex_class %>">
+  <% if group.canceled? %>
+    <span class="u-small">
+      <%= group.cancellation.message %>
+    </span>
+  <% end %>
+  <div>
+    <%= BookingResourceSkuGroup.human_attribute_name(:price) %> <%= humanized_money_with_symbol(group.price) %>
+  </div>
+</div>

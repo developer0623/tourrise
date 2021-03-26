@@ -1,0 +1,75 @@
+<div class="Section">
+  <dl class="List DataList DataList--multipleCols">
+    <% document.details_attributes.each do |attribute_name, attribute_value| %>
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= document.class.human_attribute_name(attribute_name) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= attribute_value.present? ? attribute_value : "&ndash;".html_safe %>
+        </dd>
+      </div>
+    <% end %>
+  </dl>
+
+  <% if document.pdf.attached? %>
+  <dl class="List DataList DataList--multipleCols">
+    <div class="List-item DataList-item">
+      <dt class="DataList-attr Attr DataList-attr--large">
+        <%= BookingDocument.human_attribute_name(:pdf) %>
+      </dt>
+
+      <dd class="DataList-val">
+        <%= link_to document.number, url_for(document.pdf), target: :_blank %>
+      </dd>
+    </div>
+  </dl>
+  <% end %>
+</div>
+
+<div>
+  <dl class="List DataList DataList--multipleCols">
+    <% if document.published? %>
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= BookingDocument.human_attribute_name(:unpublish) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= document.unpublish_link %>
+        </dd>
+      </div>
+
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= BookingDocument.human_attribute_name(:frontoffice_link) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= document.frontoffice_link %>
+        </dd>
+      </div>
+
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= BookingDocument.human_attribute_name(:embedded_customer_link) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= document.customer_link %>
+        </dd>
+      </div>
+    <% else %>
+      <div class="List-item DataList-item">
+        <dt class="DataList-attr Attr DataList-attr--large">
+          <%= BookingDocument.human_attribute_name(:publish) %>
+        </dt>
+
+        <dd class="DataList-val">
+          <%= document.publish_link %>
+        </dd>
+      </div>
+    <% end %>
+  </dl>
+</div>

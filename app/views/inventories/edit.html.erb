@@ -1,0 +1,73 @@
+<% breadcrumb :inventory_edit, @inventory %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: t("inventories.edit.title") %>
+
+  <div class="Content-main">
+    <%= form_for @inventory, method: :PUT, html: { class: "Form js-InventoryForm", data: { turbo: false }, autocomplete: :off } do |f| %>
+      <div class="Section">
+        <div class="Form-element">
+          <div class="Input">
+            <%= f.label :name, class: "Input-label Input-label--required" %>
+            <%= f.text_field :name, class: "Input-element" %>
+            <%= f.error_tag :name, nil, class: "Input-help" %>
+          </div>
+        </div>
+
+        <div class="Form-element">
+          <div class="Input Input--select">
+            <% selected = params.dig(:inventory, :inventory_type) || f.object.inventory_type %>
+            <%= f.label :inventory_type, class: "Input-label" %>
+            <%= f.select :inventory_type,
+              options_for_select(Inventory::VALID_TYPES.map { |type| [t("inventories.inventory_types.#{type}"), type] }, selected),
+              {},
+              class: "Input-element js-InventoryForm-inventoryTypeSelect"
+            %>
+          </div>
+        </div>
+
+        <div class="Form-element">
+          <div class="Input">
+            <%= f.label :description, class: "Input-label" %>
+            <%= f.text_area :description, class: "Input-element Input-element--textarea" %>
+            <%= f.error_tag :description, nil, class: "Input-help" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="Section js-InventoryForm-newAvailabilityContainer">
+        <%= render "partials/booking_section", title: t('inventories.form.availabilities_title') do %>
+          <%= f.fields_for :availabilities do |availability_form| %>
+            <div class="js-InventoryForm-newAvailability">
+              <%= render partial: 'inventories/availability_form', locals: { f: availability_form } %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="Form-buttons">
+          <button class="Button Button--small Button--neutral js-InventoryForm-newAvailabilityButton"><%= t('inventories.form.add_availability_link') %></button>
+        </div>
+      </div>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <%= link_to t("abort"), inventories_path, class: "Button Button--secondary" %>
+        </div>
+
+        <div class="Form-button">
+          <button type="submit" class="Button">
+            <%= t("update") %>
+          </button>
+        </div>
+      </div>
+
+      <template class="js-InventoryForm-newAvailabilityTemplate">
+        <div class="js-InventoryForm-newAvailability">
+          <%= f.fields_for :availabilities, @inventory.availabilities.new, child_index: 'ID' do |availability_form| %>
+            <%= render partial: "inventories/availability_form", locals: { f: availability_form } %>
+          <% end %>
+        </div>
+      </template>
+    <% end %>
+  </div>
+</div>

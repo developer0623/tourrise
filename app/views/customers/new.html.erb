@@ -1,0 +1,13 @@
+<% breadcrumb :customer_new %>
+
+<div class="Content">
+  <div class="ContenHeading">
+    <h1 class="ContentHeading-title">
+      <%= t("customers.new.title") %>
+    </h1>
+  </div>
+
+  <%= form_with model: @customer, html: { class: "Form js-CustomerEditForm", autocomplete: :off } do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+  <% end %>
+</div>

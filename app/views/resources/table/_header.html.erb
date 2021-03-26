@@ -1,0 +1,25 @@
+<tr>
+  <%= render "partials/table/th_featured_image" %>
+
+  <%= render "partials/table/th_sortable",
+    label: t("filter.resource_type"),
+    sort_by: "resource_type_name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Resource.human_attribute_name(:name),
+    sort_by: "name"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Resource.human_attribute_name(:tags),
+    sort_by: "tags"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: Resource.human_attribute_name(:resource_skus_count),
+    sort_by: "resource_skus_count"
+  %>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

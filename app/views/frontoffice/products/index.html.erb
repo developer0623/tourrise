@@ -1,0 +1,17 @@
+<div class="row pt-3">
+  <div class="col-md-3">
+    <div class="card-deck">
+      <%- @products.each do |product| %>
+        <div class="card w-50">
+          <div class="card-body">
+            <h2 class="h5 card-title"><%= product.name %></h2>
+            <h3 class="h6 card-subtitle mb-2 text-muted">
+            </h3>
+            <p class="card-text"><%= product.description %></p>
+            <%= link_to t("frontoffice.products.info_link_name"), frontoffice_product_path(product.product_skus.first.handle) %>
+          </div>
+        </div>
+      <%- end %>
+    </div>
+  </div>
+</div>

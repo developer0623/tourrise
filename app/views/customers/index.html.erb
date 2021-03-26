@@ -1,0 +1,28 @@
+<% breadcrumb :customers %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('customers.index.title', count: @customers.total_count) do %>
+    <%= link_to new_customer_path, class: 'Button' do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("customers.index.add_customer_link") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+
+      <%= render "partials/table",
+        list: @customers,
+        header: "customers/table/header",
+        row: "customers/table/row"
+      %>
+
+      <%= paginate @customers %>
+    </div>
+  </div>
+</div>

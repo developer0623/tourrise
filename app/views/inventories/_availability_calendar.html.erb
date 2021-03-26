@@ -1,0 +1,60 @@
+<%
+  availabilities = inventory.availabilities
+  color_codes = [
+    "#bdf7b7",
+    "#a9bcd0",
+    "#f8f4a6",
+    "#efbcd5"
+  ]
+%>
+
+<%= month_calendar do |date| %>
+  <%= content_tag :div, date.day, class: "u-textRight" %>
+
+  <% if inventory.with_bookings_on(date) %>
+    <% availabilities.each_with_index do |availability, index| %>
+      <%
+        booking_resource_skus = availability.availability_reducing_booking_resource_skus.in_date_range(date, date)
+      %>
+
+      <% booking_resource_skus.decorate.each do |booking_resource_sku| %>
+        <%= link_to(
+          booking_path(booking_resource_sku.booking_id),
+          class: "Badge",
+          style: "background-color: #{color_codes[index]};"
+        ) do %>
+          #<%= booking_resource_sku.booking_id %>
+
+          <%
+            icon =
+              if booking_resource_sku.availability_booked?
+                "fa-check"
+              elsif booking_resource_sku.availability_blocked?
+                "fa-lock"
+              end
+          %>
+
+          <% if icon %>
+            <%= render "partials/icon", name: icon %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <div>
+      <%= link_to t("show_more"), inventory_day_view_path(inventory, day: date.day, month: date.month, year: date.year) %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="u-mt-1">
+  <% availabilities.each_with_index do |availability, index| %>
+    <%= content_tag :span, class: "Badge", style: "background-color: #{color_codes[index]};" do %>
+      <% if availability.quantity_type? %>
+        <%= availability.label %>
+      <% else %>
+        <%= link_to availability.label, url_for(start_date: availability.starts_on), remote: true %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

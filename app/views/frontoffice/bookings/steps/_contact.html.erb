@@ -1,0 +1,18 @@
+<h2>
+  <%= t("booking_form.contact_step.title") %>
+</h2>
+
+<div>
+  <p>
+    <%= t("booking_form.contact_step.intro") %>
+  </p>
+</div>
+
+<%= f.fields_for :customer, f.object.customer || f.object.build_customer do |customer_fields| %>
+  <%= render "frontoffice/bookings/customer", f: customer_fields %>
+<% end %>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

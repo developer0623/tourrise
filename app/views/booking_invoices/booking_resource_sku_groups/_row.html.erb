@@ -1,0 +1,24 @@
+<% prices = price_info[item.id] %>
+
+<tr>
+  <td>
+    <span class="Attr">
+      <%= item.name %>
+    </span>
+  </td>
+  <td>
+    <span class="Attr">
+      <%= item.booking_resource_skus.map { |sku| sku.resource_sku_snapshot["name"] }.join(", ") %>
+    </span>
+  </td>
+  <td>
+    <span class="Attr">
+      <%= t(item_action, scope: :document_references) %>
+    </span>
+  </td>
+  <td>
+    <span class="Attr u-floatRight">
+      <%= humanized_money_with_symbol(prices[:total_price]) %>
+    </span>
+  </td>
+</tr>

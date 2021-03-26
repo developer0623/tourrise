@@ -1,0 +1,115 @@
+.Button:not(.Button--link) {
+  --background-direction: to bottom right;
+  --background-gradient: rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2);
+
+  align-items: center;
+  background-image: linear-gradient(
+    var(--background-direction),
+    var(--background-gradient)
+  );
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  color: #fff;
+  display: inline-flex;
+  font-weight: bold;
+  line-height: 1;
+  position: relative;
+  text-decoration: none;
+  transition: var(--transition-in);
+}
+
+.Button:active {
+  --background-direction: to top left;
+
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25) inset;
+}
+
+.Button:disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.Button:not(.Button--small) {
+  min-height: 5rem;
+}
+
+.Button:not(.Button--append) {
+  padding: 0.75em 1.5em;
+}
+
+.Button:not(.Button--secondary):not(.Button--positive):not(.Button--neutral):not(.Button--negative):not(.Button--link) {
+  background-color: var(--theme-color-primary);
+  color: var(--theme-color-primary-font);
+}
+
+.Button--noWrap {
+  white-space: nowrap;
+}
+
+.Button--secondary {
+  background-color: #aaa;
+}
+
+.Button--positive {
+  background-color: var(--color-positive);
+}
+
+.Button--neutral {
+  background-color: var(--color-neutral);
+}
+
+.Button--negative {
+  background-color: var(--color-negative);
+}
+
+.Button--small {
+  min-height: 3.4rem;
+  padding: 0.7rem 1rem;
+}
+
+@media (hover: hover) {
+  .Button:hover,
+  .Button:focus {
+    --background-gradient: rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1);
+
+    transition: var(--transition-out);
+  }
+}
+
+.Button-icon {
+  display: flex;
+  font-size: 1em;
+  height: 1em;
+  line-height: 1;
+  width: 1em;
+}
+
+.Button-icon:not(:only-child) {
+  margin-right: 1rem;
+}
+
+.Button--small .Button-icon {
+  font-size: 1.2em;
+}
+
+.Button--full {
+  text-align: left;
+  width: 100%;
+}
+
+.Button--link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Button--link:hover {
+  color: var(--font-color-light);
+}
+
+.Button--append {
+  width: 6rem;
+  height: 5rem;
+  top: -5rem;
+  float: right;
+  padding: 0.75em 0.75em;
+}

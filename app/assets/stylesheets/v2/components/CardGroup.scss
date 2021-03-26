@@ -1,0 +1,18 @@
+@include from($tablet) {
+  .CardGroup {
+    display: grid;
+    grid-column-gap: var(--spacingBase);
+  }
+
+  .CardGroup.CardGroup--2Columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .CardGroup.CardGroup--3Columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .CardGroup.CardGroup--4Columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

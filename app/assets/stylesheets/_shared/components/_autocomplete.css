@@ -1,0 +1,80 @@
+:root {
+  --AutocompleteSuggestionItem-padding: 0.5rem;
+}
+
+.Autocomplete {
+  position: relative;
+}
+
+.Autocomplete-inputAndIcon {
+  position: relative;
+}
+
+.Autocomplete-input {
+  padding-right: 2rem; /* TODO: This does not work because it is overriden by .Input-element's padding */
+}
+
+.Autocomplete-inputIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: none;
+}
+
+.Autocomplete-inputIcon.Autocomplete-inputIcon--success {
+  color: var(--color-positive);
+}
+
+.Autocomplete-input.Autocomplete-input--complete
+  ~ .Autocomplete-inputIcon.Autocomplete-inputIcon--success {
+  display: block;
+}
+
+.Autocomplete-suggestionsList {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  max-height: 60vh;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.Autocomplete-suggestionsList:empty {
+  visibility: hidden;
+}
+
+.Autocomplete-suggestionItem {
+  cursor: pointer;
+}
+
+.Autocomplete-suggestionItem:not(:last-of-type) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.Autocomplete.Autocomplete--withCreateNew
+  .Autocomplete-suggestionItem:last-of-type:not(:only-of-type) {
+  border-top: 2px solid var(--border-color);
+}
+
+.Autocomplete-suggestionItemContent {
+  display: block;
+  padding: var(--AutocompleteSuggestionItem-padding);
+  text-decoration: none;
+}
+
+.Autocomplete-suggestionItemContent:focus,
+.Autocomplete-suggestionItemContent:hover,
+.Autocomplete-suggestionItemContent:active {
+  background-color: #efefef;
+}
+
+.Autocomplete-suggestionItemTitle {
+  color: var(--font-color-dark);
+  display: block;
+}
+
+.Autocomplete-suggestionItemDescription {
+  color: var(--font-color-light);
+  display: block;
+}

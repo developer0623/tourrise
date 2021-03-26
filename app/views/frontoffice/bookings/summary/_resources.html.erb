@@ -1,0 +1,54 @@
+<h2>
+  <%= t("bookings.show.resources.title") %>
+</h2>
+
+<% if booking.grouped_booking_resource_skus.any? %>
+  <% booking.grouped_booking_resource_skus.each do |group| %>
+    <%
+      next if group[0].blank?
+
+      group_resource = group[0]
+      group_skus = group[1]
+
+      sku = group_skus.first
+      attributes = []
+
+      attributes << :name if sku.name
+      attributes << :date_range if sku.with_date_range?
+      attributes << [:display_quantity, as: :quantity] if sku.quantity
+
+      table_headers = attributes.map do |attribute, **options|
+        attribute_name = options.fetch(:as, attribute)
+        sku.object.class.human_attribute_name(attribute_name)
+      end
+
+      table_data = []
+
+      group_skus.each do |sku|
+        sku_public_info = []
+
+        attributes.each do |attribute, **options|
+          sku_public_info << sku.public_send(attribute)
+        end
+
+        table_data << sku_public_info
+      end
+    %>
+
+    <%= card_section do %>
+      <header class="u-displayFlex u-justifyContentSpaceBetween u-marginBottomBase">
+        <h3 class="u-marginNone">
+          <%= group_resource['name'] %>
+        </h3>
+
+        <%# link_to t("edit"), edit_frontoffice_booking_path(params[:scrambled_id], step: :rentalbike_request), class: "Button Button--secondary Button--small" %>
+      </header>
+
+      <%= table table_headers, table_data %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p class="Empty">
+    <%= t("not_entered") %>
+  </p>
+<% end %>

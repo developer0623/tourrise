@@ -1,0 +1,77 @@
+<div class="Section">
+  <%= render "partials/booking_section" do %>
+    <div class="Form-element">
+      <div class="Input Input--checkbox">
+        <%= f.label :available, class: "Input-label" %>
+        <%= f.check_box :available, class: "Input-element Input-element--checkbox" %>
+      </div>
+    </div>
+    <div class="Form-elementGroup">
+      <div class="Input">
+        <%= f.label :name, class: "Input-label" %>
+        <%= f.text_field :name, class: "Input-element" %>
+      </div>
+      <div class="Input">
+        <%= f.label :handle, class: "Input-label" %>
+        <%= f.text_field :handle, class: "Input-element" %>
+      </div>
+    </div>
+    <div class="Form-element">
+      <div class="Input">
+        <%= f.label :tags, class: "Input-label" %>
+        <%= f.text_field :tags, value: resource_sku.assigned_tags.to_json, class: 'js-ResourceSkuForm-TagInput', data: { tags: resource_sku.available_tags.to_json } %>
+      </div>
+    </div>
+    <div class="Form-element">
+      <div class="Input">
+        <%= f.label :description, class: "Input-label" %>
+        <%= f.text_area :description, class: "Input-element" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="Section">
+  <%= render "partials/booking_section", title: t('resource_sku.image') do %>
+    <%= render "partials/gallery", featured_image_id: resource_sku.featured_image_id, images: resource_sku.images, editable: true, multiple: false, f: f %>
+  <% end %>
+</div>
+
+<%= render partial: 'resource_skus/edit/resource_sku_pricings_section', locals: { f: f } %>
+
+<div class="Section">
+  <%= render "partials/booking_section", title: t("activerecord.attributes.resource_sku.inventory") do %>
+    <% if Inventory.any? %>
+      <%= f.collection_check_boxes :inventory_ids, Inventory.all, :id, :name do |inventory_builder| %>
+        <div class="Form-element">
+          <div class="Input Input--checkbox">
+            <%= inventory_builder.label(class: 'Input-label') %>
+            <%= inventory_builder.check_box(class: 'Input-element Input-element--checkbox') %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="Empty"><%= t("resource_skus.form.inventories.empty") %></p>
+    <% end %>
+  <% end %>
+</div>
+
+<% resource_type_handle = resource_sku.resource_type.handle.to_sym %>
+
+<% case resource_type_handle %>
+<% when :flight %>
+  <%= render partial: "resource_skus/edit/flight", locals: { f: f } %>
+<% when :accommodation %>
+  <%= render partial: "resource_skus/edit/accommodation", locals: { f: f } %>
+<% end %>
+
+<div class="Section">
+  <div class="Form-buttons">
+    <div class="Form-button">
+      <a class="Button Button--secondary" href="<%= request.referer %>"><%= t('abort') %></a>
+    </div>
+    <div class="Form-button">
+      <button type="submit" class="Button"><%= t("update") %></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<% breadcrumb :bulk_edit_resource_sku_pricings, @resource_sku %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("resource_sku_pricings.bulk_edit.title") do %>
+    <%= link_to new_resource_sku_resource_sku_pricing_path(params[:resource_sku_id]), class: 'Button Button--small' do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("resource_sku_pricings.bulk_edit.add_resource_sku_pricing_link") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/table",
+        list: resource_sku_pricings,
+        header: 'resource_sku_pricings/table/header',
+        row: 'resource_sku_pricings/table/row'
+      %>
+    </div>
+
+    <div class="Section u-allowScroll-horizontal js-ResourceSkuPricingsCalendar">
+      <%= render "resource_sku_pricings/calendar/month_calendar", pricings: @resource_sku_pricings %>
+    </div>
+  </div>
+</div>

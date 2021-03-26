@@ -1,0 +1,14 @@
+<% breadcrumb :users %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("users.index.title") do %>
+    <a class="Button" href="<%= new_invitation_path(User) %>"><%= t("create") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/list", list: @users, partial: "users/user_preview" %>
+    </div>
+  </div>
+</div>
+

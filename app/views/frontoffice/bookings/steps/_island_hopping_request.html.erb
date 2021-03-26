@@ -1,0 +1,24 @@
+<h2>
+  <%= t(".title") %>
+</h2>
+
+<p>
+  <%= t(".intro") %>
+</p>
+
+<% if booking_form.island_hoppings.any? %>
+  <% booking_form.island_hoppings.each do |island_hopping| %>
+    <%= render "frontoffice/bookings/training_package", training_package: island_hopping, f: f %>
+  <% end %>
+<% else %>
+  <p class="Empty">
+    <%= t(".empty") %>
+  </p>
+
+  <%= f.hidden_field :updated_at %>
+<% end %>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

@@ -1,0 +1,82 @@
+h1 {
+  color: var(--headline-color);
+  font-size: var(--font-size-h1);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+h2 {
+  color: var(--headline-color);
+  font-size: var(--font-size-h2);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h3 {
+  color: var(--headline-color);
+  font-size: var(--font-size-h3);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h4 {
+  color: var(--headline-color);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+button:not([class]) {
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 0.4rem solid rgba(0, 150, 255, 0.4);
+}
+
+a:not([class]),
+button:not([class]) {
+  text-decoration: underline;
+}
+
+a:not([class]):active,
+button:not([class]):active {
+  color: var(--font-color-light);
+}
+
+@media (hover: hover) {
+  a:not([class]):hover,
+  a:not([class]):focus,
+  button:not([class]):hover,
+  button:not([class]):focus {
+    color: var(--font-color-light);
+  }
+}
+
+@media (max-width: 30em) {
+  :root {
+    --font-size-h1: 2.8rem;
+    --font-size-h2: 2.4rem;
+    --font-size-h3: 2rem;
+  }
+}
+
+@media (min-width: 30.03125em) {
+  :root {
+    --font-size-h1: 3.6rem;
+    --font-size-h2: 2.8rem;
+    --font-size-h3: 2rem;
+  }
+}

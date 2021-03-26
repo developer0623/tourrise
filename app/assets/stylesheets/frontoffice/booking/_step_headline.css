@@ -1,0 +1,4 @@
+.BookingFormStepHeadline {
+  max-width: 56em;
+  margin-top: var(--BookingForm-subsection-space);
+}

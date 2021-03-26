@@ -1,0 +1,11 @@
+<div class="ListItem">
+  <div class="ListItem-name"><%= User.human_attribute_name(item[0]) %></div>
+  <div class="ListItem-name Attr">
+    <% case item[1].class.name %>
+    <% when 'Time' %>
+      <%= l(item[1], format: :long) %>
+    <% else %>
+      <%= item[1] %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.Label {
+  color: var(--font-color-dark);
+  background-color: white;
+  padding: 8px;
+  border-radius: var(--border-radius);
+
+  div,
+  span {
+    color: inherit;
+  }
+}
+
+.LabelGroup {
+  display: flex;
+}
+
+.LabelGroup .Label:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.Label--info {
+  color: white;
+  background: var(--color-neutral);
+}
+
+.Label--warning {
+  background: var(--color-negative-light);
+}
+
+.Label--error {
+  background: var(--color-negative);
+}
+
+.Label--success {
+  background: var(--color-positive);
+}
+
+.Label--small {
+  height: 2rem;
+  padding: 0.25rem 1rem;
+  font-size: small;
+}

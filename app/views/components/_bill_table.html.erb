@@ -1,0 +1,55 @@
+<%
+  data = local_assigns.fetch(:data, nil)
+  header = local_assigns.fetch(:header, false)
+%>
+
+<div class="Table Table--stretched">
+  <table>
+    <% if header %>
+      <thead>
+        <tr>
+          <th class="u-widthEighth u-textAlignLeft">
+            <%= t("booking_form.documents.sku") %>
+          </th>
+          <th class="u-widthHalf u-textAlignLeft">
+            <%= t("booking_form.documents.name") %>
+          </th>
+          <th class="u-widthEighth u-textAlignRight">
+            <%= t("booking_form.documents.quantity") %>
+          </th>
+          <th class="u-widthEighth u-textAlignRight">
+            <%= t("booking_form.documents.price") %>
+          </th>
+          <th class="u-widthEighth u-textAlignRight">
+            <%= t("booking_form.documents.total_price") %>
+          </th>
+        </tr>
+      </thead>
+    <% end %>
+
+    <% unless data.blank? %>
+      <tbody>
+        <% data.each do |document_position| %>
+          <tr>
+            <td class="u-widthEighth u-textAlignLeft">
+              <%= document_position.handle %>
+            </td>
+            <td class="u-widthHalf u-textAlignLeft">
+              <%= document_position.name %>
+              <%= document_position.description %>
+            </td>
+            <td class="u-widthEighth u-textAlignRight">
+              <%= document_position.quantity %>
+            </td>
+            <td class="u-widthEighth u-textAlignRight">
+              <%= document_position.price %>
+            </td>
+            <td class="u-widthEighth u-textAlignRight">
+              <%= document_position.total_price %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+</div>

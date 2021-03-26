@@ -1,0 +1,11 @@
+.Search {
+  background: var(--theme-color-secondary);
+  color: var(--theme-color-secondary-font);
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.Search-input {
+  width: 100%;
+  height: var(--Search-height);
+}

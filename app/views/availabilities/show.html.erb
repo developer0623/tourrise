@@ -1,0 +1,8 @@
+<div class="Content">
+  <%= render 'partials/content_heading', title: 'Availability' %>
+
+  <% if @availability.quantity_in_date_range_type? %>
+    <% date = Date.parse(params.fetch(:date, '')) rescue nil %>
+    <%= render "partials/list", list: Array.wrap(date).presence || (@availability.starts_on...@availability.ends_on), partial: "availabilities/day_preview" %>
+  <% end %>
+</div>

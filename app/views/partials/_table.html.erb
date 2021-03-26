@@ -1,0 +1,21 @@
+<%
+  list = local_assigns.fetch(:list)
+  header = local_assigns.fetch(:header, false)
+  anchor = local_assigns.fetch(:anchor, false)
+  table_class = ["Table", local_assigns.fetch(:table_class, nil)].compact.join(" ")
+  row = local_assigns.fetch(:row, "partials/table/row")
+%>
+
+<div class="Table-wrapper">
+  <table class="<%= table_class %>">
+    <% if header %>
+      <thead>
+        <%= render header, anchor: anchor %>
+      </thead>
+    <% end %>
+
+    <tbody>
+      <%= render partial: row, collection: list, as: :item %>
+    </tbody>
+  </table>
+</div>

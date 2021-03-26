@@ -1,0 +1,25 @@
+<h2>
+  <%= t(".title") %>
+</h2>
+
+<p>
+  <%= t(".intro") %>
+</p>
+
+<% if booking_form.insurances.any? %>
+  <% booking_form.insurances.each do |insurance| %>
+    <%= render "frontoffice/bookings/insurance", insurance: insurance, f: f %>
+  <% end %>
+<% else %>
+  <p class="Empty">
+    <%= t(".empty") %>
+  </p>
+
+  <%= f.hidden_field :updated_at %>
+<% end %>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  required_notice: false,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

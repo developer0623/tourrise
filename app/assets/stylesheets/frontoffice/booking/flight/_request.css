@@ -1,0 +1,11 @@
+.BookingFormFlightRequest {
+  counter-reset: rentalbikes;
+}
+
+.BookingFormFlightRequest-item {
+  counter-increment: rentalbikes;
+}
+
+.BookingFormFlightRequest-item .BookingSection-title::before {
+  content: counter(rentalbikes) ". ";
+}

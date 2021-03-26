@@ -1,0 +1,248 @@
+// TODO: This is copied from old gallery component and is supposed to be
+// restyled with new UI language. Some variables used in this file are not
+// available in theme config and will take no effect
+
+.gallery-open {
+  overflow: hidden;
+}
+
+.Gallery-items {
+  display: grid;
+  grid-gap: 0.1rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.Gallery-item:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+.Gallery-thumb {
+  display: block;
+  overflow: hidden;
+  padding: 0 0 100%;
+  position: relative;
+}
+
+.Gallery-link {
+  background: none;
+  border: none;
+  bottom: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.25s ease;
+  width: 50%;
+}
+
+.Gallery-link:hover,
+.Gallery-link:focus,
+.Gallery-link:active {
+  opacity: 1;
+  outline: none;
+}
+
+.Gallery-link--prev {
+  left: 0;
+}
+
+.Gallery-link--next {
+  right: 0;
+}
+
+.Gallery-linkButton {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  font-size: 4em;
+  height: 1em;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1em;
+}
+
+.Gallery-link--prev .Gallery-linkButton {
+  left: 0;
+}
+
+.Gallery-link--next .Gallery-linkButton {
+  right: 0;
+}
+
+.Gallery-linkButton > span {
+  display: block;
+  font-size: 0.6em;
+  height: 1em;
+  line-height: 1;
+  width: 1em;
+}
+
+.Gallery-close {
+  align-items: center;
+  background: #fff;
+  border: none;
+  color: #666;
+  display: flex;
+  font-size: 3em;
+  height: 1em;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.Gallery-close:hover,
+.Gallery-close:focus,
+.Gallery-close:active {
+  background: var(--gray500);
+}
+
+.Gallery-close span {
+  background: linear-gradient(
+      to bottom,
+      transparent 45%,
+      currentColor 45%,
+      currentColor 55%,
+      transparent 55%
+    ),
+    linear-gradient(
+      to right,
+      transparent 45%,
+      currentColor 45%,
+      currentColor 55%,
+      transparent 55%
+    );
+  display: block;
+  font-size: 0.45em;
+  height: 1em;
+  text-indent: -9999em;
+  transform: rotate(45deg);
+  transition: all 0.25s ease;
+  width: 1em;
+}
+
+.Gallery-close:hover span,
+.Gallery-close:focus span,
+.Gallery-close:active span {
+  color: #fff;
+  transform: rotate(135deg);
+}
+
+.Gallery-image {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.Gallery-image--featured {
+  padding: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    #f0e68c 0%,
+    #f0e68c 0%,
+    #f0e68c 50%,
+    #f0e68c 100%
+  );
+}
+
+a.Gallery-thumb:hover .Gallery-image,
+a.Gallery-thumb:focus .Gallery-image,
+a.Gallery-thumb:active .Gallery-image {
+  transform: scale(1.1);
+}
+
+.Gallery-view {
+  background: #fff;
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+.Gallery-view::after {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  bottom: 0;
+  content: attr(data-loading);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.Gallery-view.is-loading::after {
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.Gallery-view.is-open {
+  display: block;
+}
+
+.Gallery-view img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.Gallery-current {
+  background: #fff;
+  bottom: 0;
+  left: 50%;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+@supports not (display: grid) {
+  .Gallery-items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .Gallery-item {
+    flex: 0 0 25%;
+  }
+}
+
+.Gallery-actions {
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  border-width: 0 0 var(--border-radius) var(--border-radius);
+  bottom: 0.1rem;
+  color: #fff;
+  font-size: 1.4rem;
+  left: 0.1rem;
+  padding: 1.5rem 1rem 0.5rem 1rem;
+  position: absolute;
+  width: calc(100% - 0.2rem);
+}
+
+.Gallery-imageUpload {
+  align-items: center;
+  border: 0.3rem dashed #ccc;
+  border-radius: var(--border-radius);
+  display: flex;
+  height: 100%;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.Gallery-imageUpload:hover,
+.Gallery-imageUpload:focus {
+  border-color: var(--theme-color-secondary);
+}

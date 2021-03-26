@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Tourrise" name="application-name">
+    <meta content="Tourrise, patrick@tourrise.de" name="author">
+    <meta content="index, follow" name="robots">
+
+    <%= javascript_pack_tag "logged_out", defer: true %>
+    <%= stylesheet_pack_tag "logged_out", media: "all", "data-turbo-track": "reload" %>
+
+    <title><%= GlobalConfiguration.company_name %></title>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <% flash.each do |name, messages| %>
+        <%= render AlertComponent.new(level: name, messages: messages) %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
+

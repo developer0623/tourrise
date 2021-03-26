@@ -1,0 +1,115 @@
+<% breadcrumb :booking_resource_sku_edit, @booking_resource_sku %>
+
+<div class="Content js-BookingResourceEdit">
+  <div class="Content-main">
+    <%= render "partials/content_heading", title: t("booking_resource_skus.edit.title", name: booking_resource_sku.name) %>
+
+    <%= form_with model: [@booking, @booking_resource_sku], html: { autocomplete: :off } do |f| %>
+      <%= render "partials/booking_section" do %>
+        <div class="Form-elementGroup">
+          <div class="Input">
+            <%= f.label :price, class: "Input-label Input-label--required" %>
+            <%= f.text_field :price, required: true, class: "Input-element" %>
+          </div>
+          <div class="Input">
+            <%= f.label :quantity, class: "Input-label Input-label--required" %>
+            <%= f.number_field :quantity, required: true, class: "Input-element" %>
+          </div>
+        </div>
+
+        <div class="Form-element">
+          <div class="Input">
+            <%= label_tag :allow_partial_payment, t('resource_skus.edit.enable_partial_payment'), class: "Input-label" %>
+            <%= f.radio_button :allow_partial_payment, true %>
+
+            <%= label_tag :allow_partial_payment, t('resource_skus.edit.disable_partial_payment'), class: "Input-label" %>
+            <%= f.radio_button :allow_partial_payment, false %>
+          </div>
+        </div>
+
+        <div class="Form-element">
+          <div class="Input">
+            <%= f.label :remarks, class: "Input-label" %>
+            <%= f.text_area :remarks, class: "Input-element Input-element--smallTextarea" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "partials/booking_section" do %>
+        <div class="Form-elementGroup">
+          <div class="Input Input--select">
+            <%= f.label :financial_account, class: "Input-label" %>
+            <%= f.select :financial_account_id, options_for_select(financial_account_options, f.object.financial_account&.id), {}, class: "Input-element" %>
+          </div>
+          <div class="Input Input--select">
+            <%= f.label :cost_center, class: "Input-label" %>
+            <%= f.select :cost_center_id, options_for_select(cost_center_options, f.object.cost_center&.id), {}, class: "Input-element" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "partials/booking_section", title: t("booking_resource_skus.edit.participants"), headline_type: "label" do %>
+        <div class="Form-elementGroup--checkboxes">
+          <%= f.collection_check_boxes :participant_ids, booking.participants, :id, :name, {}, {
+            size: booking.participants.count,
+            class: "Input-element Input-element--checkbox Input-element--groupMember",
+            multiple: true
+          } %>
+        </div>
+      <% end %>
+
+      <%= render "partials/booking_section" do %>
+        <%= f.fields_for :booking_resource_sku_availability do |b| %>
+          <div class="Input Input--select">
+            <%= b.label :availability, class: "Input-label" %>
+            <%= b.select :availability_id, options_for_select([['Keine', nil], *booking_resource_sku.potential_availability_slots.map(&:as_select_option)], f.object.availability&.id), {}, class: "Input-element" %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% case booking_resource_sku.resource_type_handle.to_sym %>
+      <% when :transfer %>
+        <%= render partial: "booking_resource_skus/edit/transfer", locals: { f: f } %>
+      <% end %>
+
+      <div class="Form-elementGroup">
+        <% booking_resource_sku.booking_attributes.each do |booking_attribute| %>
+          <div class="Input">
+            <%= f.fields_for :booking_attribute_values, booking_attribute.booking_attribute_values.find_or_initialize_by(booking_resource_sku: @booking_resource_sku) do |b| %>
+              <%= b.hidden_field :booking_attribute_id, value: booking_attribute.id %>
+              <%= b.hidden_field :handle, value: booking_attribute.handle %>
+              <%= b.hidden_field :attribute_type, value: booking_attribute.attribute_type %>
+              <%= b.hidden_field :name, value: booking_attribute.name %>
+              <% field_type = case booking_attribute.attribute_type %>
+              <% when 'text'; :text_field %>
+              <% when 'string'; :text_field %>
+              <% when 'date'; :date_field %>
+              <% when 'datetime'; :datetime_local_field %>
+              <% when 'time'; :text_field %>
+              <% when 'number'; :text_field %>
+              <% end %>
+
+              <%= b.label booking_attribute.name, class: "Input-label#{" Input-label--required" if booking_attribute.required}" %>
+              <%= b.public_send(field_type, :value, class: "Input-element js-InputElement--#{booking_attribute.handle}") %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <% case booking_resource_sku.resource_type_handle.to_sym %>
+      <% when :flight %>
+        <%= render partial: "booking_resource_skus/edit/flight", locals: { f: f } %>
+      <% end %>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <%= link_to t("abort"), booking_path(@booking), class: "Button Button--secondary" %>
+        </div>
+
+        <div class="Form-button">
+          <%= f.submit t("booking_resource_skus.edit.submit"), class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+Falls du Rückfragen hast, melde dich einfach bei uns! Unser Team steht dir jederzeit gerne zur Verfügung.
+<br>
+Alle Angebote sind vorbehaltlich der tagesaktuellen Verfügbarkeit.
+<% if booking.flights.any? %>
+Bitte beachte auch, dass es seitens der Airline zu Flugzeiten- und Routingänderungen kommen kann!
+<br>
+<% end %>
+Eine Touristensteuer/Kurtaxe ist vor Ort zu entrichten.
+<br>
+Zusätzlich empfehlen wir dir den Abschluss entsprechender Reiseversicherungen.
+<br>
+Wir freuen uns über deine Rückmeldung und hoffen, dich schon bald bei uns begrüßen zu dürfen.
+<br>
+<%= render partial: 'easybill/templates/greeting', locals: { employee: booking.assignee } %>

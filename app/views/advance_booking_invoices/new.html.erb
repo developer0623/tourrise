@@ -1,0 +1,39 @@
+<% breadcrumb :advance_booking_invoice_new, advance_booking_invoice.booking %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render "partials/content_heading", title: t("booking_invoices.new.headline_advance", name: advance_booking_invoice.booking.title) %>
+
+    <div class="u-mt-1 u-mb-1">
+      <%= link_to(
+        new_booking_booking_invoice_path(advance_booking_invoice.booking),
+        class: "Button Button--small Button--secondary"
+      ) do %>
+        <%= t("navigation.new_booking_invoice") %>
+      <% end %>
+    </div>
+
+    <div class="Form-elementGroup u-mb-3">
+      <div class="Input-label">
+        <%= t("booking_invoices.new.booking_calculated_price") %>
+        <div class="Input-element">
+          <%= advance_booking_invoice.booking.object.total_price %>
+        </div>
+      </div>
+      <div class="Input-label">
+        <%= t("booking_invoices.new.booking_starts_on") %>
+        <div class="Input-element">
+          <%= l(advance_booking_invoice.booking.starts_on) %>
+        </div>
+      </div>
+      <div class="Input-label">
+        <%= t("booking_invoices.new.todays_date") %>
+        <div class="Input-element">
+          <%= l(Time.zone.today) %>
+        </div>
+      </div>
+    </div>
+
+    <%= render partial: 'form' %>
+  </div>
+</div>

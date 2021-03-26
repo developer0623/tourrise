@@ -1,0 +1,33 @@
+<tr>
+  <%= render "partials/table/td_thumbnail", image: item.featured_image, alt: item.name  %>
+
+  <td>
+    <%= ResourceType.where(id: item.resource_type_id).first.label %>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.name %>
+    </span>
+  </td>
+
+  <td>
+    <%= item.tags.pluck(:name).join(", ") %>
+  </td>
+
+  <td>
+    <%= ResourceSku.where(resource_id: item.id).count %>
+  </td>
+
+  <td class="u-textRight">
+    <ul>
+      <li class="u-inlineBlock">
+        <%= link_to t("show"), resource_path(item) %> ·
+      </li>
+
+      <li class="u-inlineBlock">
+        <%= link_to t("edit"), edit_resource_path(item) %>
+      </li>
+    </ul>
+  </td>
+</tr>

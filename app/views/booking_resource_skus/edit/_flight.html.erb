@@ -1,0 +1,46 @@
+<div class="Form-element">
+  <div class="Input">
+    <%= label_tag :pnr_parser, class: "Input-label" do %>
+      <%= t("booking_resource_skus.edit.flight.pnr_parser_label") %>
+
+      <i class="Tooltip">
+        <input type="checkbox" id="pnr-help">
+        <label for="pnr-help">?</label>
+
+        <span>
+          <%= t("booking_resource_skus.edit.flight.pnr_parser_hint") %>
+        </span>
+      </i>
+    <% end %>
+
+    <%= text_area_tag :pnr_parser, params.fetch("pnr_parser", ""),
+      class: "Input-element Input-element--text js-pnrParserField"
+    %>
+  </div>
+</div>
+
+<div class="Flights js-Flights">
+  <ol class="js-Flights-container">
+    <%= f.fields_for :flights, f.object.flights.order_by_departure_at do |flight_form| %>
+      <li class="Flight-item js-Flight-item">
+        <h3 class="Flight-headline">
+          <%= t("resource_types.flight") %>
+        </h3>
+
+        <%= render partial: "flights/form", locals: { f: flight_form } %>
+      </li>
+    <% end %>
+  </ol>
+</div>
+
+<template class="js-Flight-template">
+  <%= f.fields_for :flights, Flight.new, child_index: "FLIGHT_ID" do |flight_form| %>
+    <li class="Flight-item js-Flight-item">
+      <h3 class="Flight-headline">
+        <%= t("resource_types.flight") %>
+      </h3>
+
+      <%= render partial: "flights/form", locals: { f: flight_form } %>
+    </li>
+  <% end %>
+</template>

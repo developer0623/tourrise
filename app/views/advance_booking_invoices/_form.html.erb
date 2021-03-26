@@ -1,0 +1,49 @@
+<%= form_with model: [advance_booking_invoice.booking, advance_booking_invoice], html: { autocomplete: :off } do |f| %>
+  <div class="Form-element">
+    <div class="Input u-mb-3">
+      <%= f.label :description, class: "Input-label" %>
+      <%= f.text_area :description, class: "Input-element" %>
+    </div>
+  </div>
+  <div class="Section">
+    <h3><%= Payment.model_name.human(count: 1) %></h3>
+
+    <%= f.fields_for :payments, advance_booking_invoice.initialize_advance_payment do |payment_form| %>
+      <div class="Form-elementGroup u-mb-3">
+        <div class="Input">
+          <%= payment_form.label :due_on, class: "Input-label Input-label--required" %>
+          <%= payment_form.date_field :due_on, required: true, class: "Input-element" %>
+        </div>
+        <div class="Input">
+          <%= payment_form.label :price, class: "Input-label Input-label--required" %>
+          <%= payment_form.text_field :price, required: true, class: "Input-element" %>
+        </div>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.fields_for :booking_credit, advance_booking_invoice.booking.booking_credits.new do |credit| %>
+        <div class="Form-elementGroup">
+          <div class="Input Input--select">
+            <%= credit.label :cost_center, class: "Input-label" %>
+            <%= credit.select :cost_center_id, options_for_select(cost_center_options, credit.object.cost_center&.id), {}, class: "Input-element" %>
+          </div>
+          <div class="Input Input--select">
+            <%= credit.label :financial_account, class: "Input-label" %>
+            <%= credit.select :financial_account_id, options_for_select(financial_account_options, credit.object.financial_account&.id), {}, class: "Input-element" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="Form-buttons">
+      <div class="Form-button">
+        <%= link_to t("abort"), booking_path(advance_booking_invoice.booking), class: "Button Button--secondary" %>
+      </div>
+
+      <div class="Form-button">
+        <%= f.submit t("bookings.show.buttons.create_invoice"), class: "Button" %>
+      </div>
+    </div>
+  </div>
+<% end %>

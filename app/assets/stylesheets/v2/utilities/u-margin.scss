@@ -1,0 +1,63 @@
+.u-marginNone {
+  margin: 0;
+}
+
+.u-marginVerticalBase {
+  margin-bottom: var(--spacingBase);
+  margin-top: var(--spacingBase);
+}
+
+.u-marginHorizontalBase {
+  margin-left: var(--spacingBase);
+  margin-right: var(--spacingBase);
+}
+
+.u-marginLeftBase {
+  margin-left: var(--spacingBase);
+}
+
+.u-md-marginLeftBase {
+  @include from($tablet) {
+    margin-left: var(--spacingBase);
+  }
+}
+
+.u-marginRightSmall {
+  margin-right: var(--spacingSmall);
+}
+
+.u-marginRightBase {
+  margin-right: var(--spacingBase);
+}
+
+.u-md-marginRightBase {
+  @include from($tablet) {
+    margin-right: var(--spacingBase);
+  }
+}
+
+.u-marginBottomSmall {
+  margin-bottom: var(--spacingSmall);
+}
+
+.u-marginBottomLarge {
+  margin-bottom: var(--spacingLarge);
+}
+
+.u-marginBottomBase {
+  margin-bottom: var(--spacingBase);
+}
+
+.u-marginTopBase {
+  margin-top: var(--spacingBase);
+}
+
+.u-marginTopLarge {
+  margin-top: var(--spacingLarge);
+}
+
+.u-md-marginTopNone {
+  @include from($tablet) {
+    margin-top: 0;
+  }
+}

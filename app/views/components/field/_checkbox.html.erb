@@ -1,0 +1,26 @@
+<%
+  attribute = local_assigns.fetch(:attribute, false)
+  checked = local_assigns.fetch(:checked, nil)
+  disabled = local_assigns.fetch(:disabled, nil)
+  f = local_assigns.fetch(:f, false)
+  label_text = local_assigns.fetch(:label_text, false)
+  required = local_assigns.fetch(:required, false)
+
+  extra_classes = []
+  extra_classes.push("Field--required") if required
+  extra_classes.push("is-invalid") if f.object.errors[attribute].any?
+  extra_classes = extra_classes.join(" ")
+%>
+
+<%= content_tag(:div, class: "Field Field--checkbox #{extra_classes}" ) do %>
+  <%= f.check_box attribute,
+    checked: checked,
+    class: "Field-checkbox",
+    disabled: disabled,
+    required: required
+  %>
+
+  <%= f.label attribute, (label_text if label_text), class: "Field-label" %>
+
+  <%= f.error_tag attribute, nil, class: "Field-hint" %>
+<% end %>

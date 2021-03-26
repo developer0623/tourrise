@@ -1,0 +1,84 @@
+.BookingFormAccommodation-main::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.BookingFormAccommodation-image {
+  border-radius: var(--border-radius);
+  display: block;
+  float: left;
+  font-size: 12.8rem;
+  height: 1em;
+  margin: 0 2rem 0 0;
+  object-fit: cover;
+  width: 1em;
+}
+
+.BookingFormAccommodation-teaserText {
+  margin-top: 2rem;
+}
+
+.BookingFormAccommodation-item--group:not(:last-child) {
+  border-bottom: 0.1rem solid grey;
+  padding-bottom: var(--BookingForm-content-space);
+}
+
+.BookingFormAccommodation-item--group + .BookingFormAccommodation-item--group {
+  margin-top: var(--BookingForm-subsection-space);
+}
+
+.BookingFormAccommodation-item--accommodation
+  + .BookingFormAccommodation-item--accommodation {
+  margin-top: 2rem;
+}
+
+.BookingFormAccommodation-details {
+  background: rgba(0, 0, 0, 0.05);
+  border-top: 0.2rem solid #fff;
+  clear: both;
+  margin: var(--BookingForm-space) calc(-1 * var(--BookingForm-space));
+}
+
+.BookingFormAccommodation-detailsToggle {
+  color: var(--theme-color-primary);
+  cursor: default;
+  padding: 2rem var(--BookingForm-space);
+}
+
+.BookingFormAccommodation-detailsToggle:hover,
+.BookingFormAccommodation-detailsToggle:focus {
+  color: var(--theme-color-secondary);
+}
+
+.BookingFormAccommodation-detailsToggle span:first-child {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.BookingFormAccommodation-detailsToggle span:last-child:not(:only-child) {
+  color: var(--font-color);
+  float: right;
+  text-align: right;
+}
+
+.BookingFormAccommodation-detailsContent {
+  display: grid;
+  grid-gap: var(--BookingForm-space);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(calc(32rem - calc(2 * var(--BookingForm-space))), 1fr)
+  );
+  padding: 0 var(--BookingForm-space) var(--BookingForm-space);
+}
+
+.BookingFormAccommodation-rooms {
+  padding: 0 var(--BookingForm-space) var(--BookingForm-space);
+}
+
+@media (max-width: 42em) {
+  .BookingFormAccommodation-image {
+    font-size: 9.62rem;
+  }
+}

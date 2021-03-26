@@ -1,0 +1,30 @@
+:root {
+  --ProductDetails-content-space: 2rem;
+  --ProductDetails-subcontent-space: 2rem;
+}
+
+.ProductDetails {
+  padding: 0 var(--ProductDetails-space);
+}
+
+.ProductDetails-title:not(:first-child) {
+  margin-top: var(--ProductDetails-space);
+}
+
+.ProductDetails-description {
+  margin-top: var(--ProductDetails-subsection-space);
+}
+
+@media (max-width: 30em) {
+  :root {
+    --ProductDetails-space: 1.5rem;
+    --ProductDetails-subsection-space: 2rem;
+  }
+}
+
+@media (min-width: 30.03125em) {
+  :root {
+    --ProductDetails-space: 3rem;
+    --ProductDetails-subsection-space: 4rem;
+  }
+}

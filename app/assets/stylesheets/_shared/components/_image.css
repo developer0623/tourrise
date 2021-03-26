@@ -1,0 +1,19 @@
+.Image {
+  background-color: #eee;
+  background-image: linear-gradient(
+      to bottom right,
+      transparent calc(50% - 0.05rem),
+      #ddd calc(50% - 0.05rem),
+      #ddd calc(50% + 0.05rem),
+      transparent calc(50% + 0.05rem)
+    ),
+    linear-gradient(
+      to bottom left,
+      transparent calc(50% - 0.05rem),
+      #ddd calc(50% - 0.05rem),
+      #ddd calc(50% + 0.05rem),
+      transparent calc(50% + 0.05rem)
+    );
+  border-radius: var(--border-radius);
+  display: block;
+}

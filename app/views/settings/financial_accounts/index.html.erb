@@ -1,0 +1,21 @@
+<% breadcrumb :financial_accounts %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('financial_accounts.index.title') do %>
+    <%= link_to new_settings_financial_account_path, class: 'Button' do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("financial_accounts.index.add_financial_account_link") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+      <%= render "partials/list", list: @financial_accounts, partial: "settings/financial_accounts/financial_account_preview" %>
+    </div>
+  </div>
+</div>

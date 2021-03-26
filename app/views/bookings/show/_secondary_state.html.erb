@@ -1,0 +1,24 @@
+<% booking = local_assigns.fetch(:booking) %>
+<% redirect_path = local_assigns.fetch(:redirect_path, request.fullpath) %>
+
+<turbo-frame id="bookingSecondaryState">
+<% if booking.in_progress? %>
+  <div class="js-secondaryStateControl">
+    <div class="js-secondaryStateShowSection">
+      <% if booking.secondary_state.present? %>
+        <%= text_field_tag booking.secondary_state, booking.secondary_state, class: "js-editSecondaryState u-clickable", title: t("bookings.show.click_to_edit_secondary_state") %>
+      <% end %>
+    </div>
+
+    <div class="js-secondaryStateEditSection u-hidden">
+      <%= form_with model: booking.object, html: { autocomplete: :off } do |f| %>
+        <div class="Input Input--select">
+          <%= f.select :secondary_state, options_for_select(Booking::SECONDARY_STATES.map { |state| [t("bookings.secondary_state.#{state}"), state.to_s] }, f.object.secondary_state.to_s), { include_blank: false }, class: "Input-element js-secondaryStateField" %>
+        </div>
+        <%= f.submit t("save"), class: "Button Button--small" %>
+        <%= f.hidden_field :redirect_path, value: redirect_path %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</turbo-frame>

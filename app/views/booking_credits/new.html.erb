@@ -1,0 +1,9 @@
+<% breadcrumb :booking_credit_new, @booking_credit.booking %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render "partials/content_heading", title: t("booking_credits.new.headline", name: @booking_credit.booking.title) %>
+  </div>
+
+  <%= render "form" %>
+</div>

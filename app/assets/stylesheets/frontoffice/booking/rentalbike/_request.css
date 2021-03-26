@@ -1,0 +1,12 @@
+.BookingFormRentalbikeRequest {
+  counter-reset: rentalbikes;
+}
+
+.BookingFormRentalbikeRequest-item {
+  counter-increment: rentalbikes;
+  margin-top: 1rem;
+}
+
+.BookingFormRentalbikeRequest-item .BookingSection-title::before {
+  content: counter(rentalbikes) ". ";
+}

@@ -1,0 +1,69 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :company_name, t("settings.frontoffice_settings.company_name"), class: "Input-label Input-label--required" %>
+      <%= f.text_field :company_name, required: true, class: "Input-element Input-element--text", placeholder: "Firmenname" %>
+    </div>
+  </div>
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :address_line_1, t("settings.frontoffice_settings.address_line_1"), class: "Input-label" %>
+      <%= f.text_field :address_line_1, optional: true, class: "Input-element Input-element--text", placeholder: "Musterweg 5" %>
+    </div>
+    <div class="Input">
+      <%= f.label :address_line_2, t("settings.frontoffice_settings.address_line_2"), class: "Input-label" %>
+      <%= f.text_field :address_line_2, optional: true, class: "Input-element Input-element--text", placeholder: "Weitere Addresszeile" %>
+    </div>
+  </div>
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :zip_code, t("settings.frontoffice_settings.zip_code"), class: "Input-label" %>
+      <%= f.text_field :zip_code, optional: true, class: "Input-element Input-element--text", placeholder: "PLZ" %>
+    </div>
+    <div class="Input">
+      <%= f.label :city, t("settings.frontoffice_settings.city"), class: "Input-label" %>
+      <%= f.text_field :city, optional: true, class: "Input-element Input-element--text", placeholder: "Musterstadt" %>
+    </div>
+  </div>
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :state, t("settings.frontoffice_settings.state"), class: "Input-label" %>
+      <%= f.text_field :state, optional: true, class: "Input-element Input-element--text", placeholder: "Bundesland" %>
+    </div>
+    <div class="Input">
+      <%= f.label :country, t("settings.frontoffice_settings.country"), class: "Input-label" %>
+      <%= f.text_field :country, optional: true, class: "Input-element Input-element--text", placeholder: "Land" %>
+    </div>
+  </div>
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :phone, t("settings.frontoffice_settings.phone"), class: "Input-label" %>
+      <%= f.text_field :phone, optional: true, class: "Input-element Input-element--text", placeholder: "Telefon" %>
+    </div>
+    <div class="Input">
+      <%= f.label :email, t("settings.frontoffice_settings.email"), class: "Input-label" %>
+      <%= f.text_field :email, optional: true, class: "Input-element Input-element--text", placeholder: "e@mail.de" %>
+    </div>
+  </div>
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :vat_id, t("settings.frontoffice_settings.vat_id"), class: "Input-label" %>
+      <%= f.text_field :vat_id, optional: true, class: "Input-element Input-element--text", placeholder: "MusterID" %>
+    </div>
+    <div class="Input">
+      <%= f.label :external_terms_of_service_url, t("settings.frontoffice_settings.external_terms_of_service_url"), class: "Input-label" %>
+      <%= f.text_field :external_terms_of_service_url, optional: true, class: "Input-element Input-element--text", placeholder: "beispielAGBs.de" %>
+    </div>
+    <div class="Input">
+      <%= f.label :external_privacy_policy_url, t("settings.frontoffice_settings.external_privacy_policy_url"), class: "Input-label" %>
+      <%= f.text_field :external_privacy_policy_url, optional: true, class: "Input-element Input-element--text", placeholder: "beispielDatenschutz.de" %>
+    </div>
+  </div>
+
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :external_document_preview_url, FrontofficeSetting.human_attribute_name(:external_document_preview_url), class: "Input-label" %>
+      <%= f.text_field :external_document_preview_url, optional: true, class: "Input-element Input-element--text", placeholder: "https://www.example.com/documents?document_type={{document_type}}&document_id={{document_scrambled_id}}&booking_id={{booking_scrambled_id}}" %>
+    </div>
+  </div>
+</div>

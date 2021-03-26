@@ -1,0 +1,33 @@
+:root {
+  --List-spacing-y: 1rem;
+  --List-element-spacing-y: 0.5rem;
+}
+
+.List--multipleCols {
+  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(calc(32rem - calc(2 * var(--Page-main-spacing))), 1fr)
+  );
+}
+
+.List-item {
+  --border-width: 0.1rem;
+
+  border: 0 solid var(--divider-color);
+  border-bottom-width: var(--border-width);
+  border-top-width: var(--border-width);
+  margin-top: -0.1rem;
+  padding-bottom: calc(var(--List-spacing-y) + var(--List-element-spacing-y));
+  padding-top: calc(var(--List-spacing-y) + var(--List-element-spacing-y));
+}
+
+.Filter + .List {
+  margin-top: var(--Page-main-spacing);
+}
+
+.List-item--condensed {
+  padding-bottom: calc(var(--List-spacing-y) * 0.25);
+  padding-top: calc(var(--List-spacing-y) * 0.25);
+}

@@ -1,0 +1,14 @@
+.Attr {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 500;
+  color: var(--font-color-dark);
+}
+
+.Attr-main {
+  padding-right: 0.5em;
+}
+
+.Attr-sub {
+  opacity: 0.7;
+}

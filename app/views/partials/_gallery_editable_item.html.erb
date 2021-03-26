@@ -1,0 +1,22 @@
+<div class="Gallery-thumb">
+  <% if defined?(image) %>
+    <%= image_tag image, class: "Gallery-image" %>
+  <% else %>
+    <img class="Gallery-image">
+    <input type="hidden" name=<%= "#{f.object_name}[images][]" %> value="<%= image_id %>" class="Gallery-imageId">
+  <% end %>
+  <div class="Gallery-actions">
+    <div>
+      <input class="Gallery-featuredImage" type="radio" name=<%= "#{f.object_name}[featured_image_id]" %> value="<%= image_id %>" id="Image-featured-<%= image_id %>"<%= " checked" if featured %>>
+      <label class="Gallery-label Gallery-featuredImageLabel" for="Image-featured-<%= image_id %>">
+        <span class="Gallery-thumbnailLabel"><%= t("featured_image") %></span>
+      </label>
+    </div>
+    <div>
+      <input class="Gallery-removeItem" type="checkbox" name=<%= "#{f.object_name}[remove_images][]" %> value="<%= image_id %>" id="Image-remove-<%= image_id %>">
+      <label class="Gallery-label Gallery-removeItemLabel" for="Image-remove-<%= image_id %>">
+        <span class="Gallery-thumbnailLabel"><%= t("remove") %></span>
+      </label>
+    </div>
+  </div>
+</div>

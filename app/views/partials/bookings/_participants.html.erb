@@ -1,0 +1,12 @@
+<% format = local_assigns.fetch(:format, :preview) %>
+
+<%= render "partials/booking_section",
+  title: t("bookings.show.participants.title"),
+  headline_type: defined?(headline_type) ? headline_type : 2,
+  link: defined?(link) ? link : nil do %>
+  <% if booking.participants.any? %>
+    <%= render "partials/list", multiple_cols: true, list: booking.participants, partial: "bookings/show/participant_#{format}" %>
+  <% else %>
+    <p class="Empty"><%= t("not_entered") %></p>
+  <% end %>
+<% end %>

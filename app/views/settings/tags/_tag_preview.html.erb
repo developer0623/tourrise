@@ -1,0 +1,19 @@
+<div class="ListItem">
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= Tag.human_attribute_name("name") %>:</span>
+    <%= item.name %>
+  </div>
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= Tag.human_attribute_name("handle") %>:</span>
+    <%= item.handle %>
+  </div>
+  <div class="ListItem-item">
+    <span class="u-hiddenVisually"><%= Tag.human_attribute_name("tag_group") %>:</span>
+    <%= item.tag_group&.name %>
+  </div>
+  <div class="ListItem-buttons">
+    <div class="ListItem-button">
+      <a href="<%= edit_settings_tag_path(item) %>"><%= t("edit") %></a>
+    </div>
+  </div>
+</div>

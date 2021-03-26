@@ -1,0 +1,56 @@
+:root {
+  --Form-element-space: 2rem;
+}
+
+.Form-elementGroup {
+  --minSize: 30rem;
+
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(calc(var(--minSize) - calc(2 * var(--Form-elementGroup-space))), 1fr)
+  );
+}
+
+.Form-elementGroup--small {
+  --minSize: 22rem;
+}
+
+.Form-elementGroup--checkboxes {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 1rem;
+  align-items: start;
+}
+
+.Form-elementGroup:not(:first-child),
+.Form-element + .Form-element,
+.Form-elementGroup + .Form-element {
+  margin-top: var(--Form-element-space);
+}
+
+.Form-elementGroup .Form-element {
+  margin-top: 0;
+}
+
+.Form-buttons {
+  display: flex;
+  margin-top: calc(var(--Form-element-space) * 2);
+}
+
+.Form-button:not(:first-child) {
+  margin-left: 1rem;
+}
+
+@media (max-width: 30em) {
+  :root {
+    --Form-elementGroup-space: 1.5rem;
+  }
+}
+
+@media (min-width: 30.03125em) {
+  :root {
+    --Form-elementGroup-space: 3rem;
+  }
+}

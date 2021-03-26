@@ -1,0 +1,47 @@
+<%= render(FieldGroup.new) do %>
+  <%
+    min_adults = 1
+    max_adults = booking_form.booking.adults
+  %>
+
+  <%= render "components/field/select",
+    attribute: :adults,
+    form: booking_form,
+    f: f,
+    options: options_for_select(
+      (min_adults..max_adults).to_a, f.object.adults
+    )
+  %>
+
+  <% if booking_form.with_kids? %>
+    <%
+      min_kids = 0
+      max_kids = booking_form.booking.kids
+    %>
+
+    <%= render "components/field/select",
+      attribute: :kids,
+      form: booking_form,
+      f: f,
+      options: options_for_select(
+        (min_kids..max_kids).to_a, f.object.kids
+      )
+    %>
+  <% end %>
+
+  <% if booking_form.with_babies? %>
+    <%
+      min_babies = 0
+      max_babies = booking_form.booking.babies
+    %>
+
+    <%= render "components/field/select",
+      attribute: :babies,
+      form: booking_form,
+      f: f,
+      options: options_for_select(
+        (min_babies..max_babies).to_a, f.object.babies
+      )
+    %>
+  <% end %>
+<% end %>

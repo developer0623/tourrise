@@ -1,0 +1,20 @@
+<div class="ListItem">
+  <div class="ListItem-item ListItem-name"><%= locals[:index].ordinalize %> <%= BookingRentalbikeRequest.model_name.human %> </div>
+
+  <div class="ListItem-item ListItem-name">
+    <%= item.display_details %>
+  </div>
+
+  <% unless current_user.id == FrontofficeUser.id %>
+    <div class="ListItem-item ListItem-actions">
+      <% options = item.attributes.slice('starts_at', 'ends_at', 'height') %>
+      <% options = options.merge(resource_type_id: ResourceType.rentalbike&.id) %>
+
+      <a class="IconButton IconButton--neutral" href="<%= new_booking_booking_resource_sku_path(@booking.id, options) %>">
+        <%= render "partials/icon", name: "add", title: t("add") %>
+      </a>
+    </div>
+  <% else %>
+    1 &times;
+  <% end %>
+</div>

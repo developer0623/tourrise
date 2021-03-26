@@ -1,0 +1,14 @@
+.MainLink {
+  font-weight: bold;
+}
+
+.MainLink:active {
+  color: var(--font-color-light);
+}
+
+@media (hover: hover) {
+  .MainLink:hover,
+  .MainLink:focus {
+    color: var(--font-color-light);
+  }
+}

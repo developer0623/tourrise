@@ -1,0 +1,13 @@
+.edit_booking_resource_sku .Flights {
+  counter-reset: flights;
+  margin-top: var(--BookingResourceSkuForm-subsection-space);
+}
+
+.edit_booking_resource_sku .Flight-item {
+  counter-increment: flights;
+  margin-top: var(--BookingResourceSkuForm-subsection-space);
+}
+
+.edit_booking_resource_sku .Flight-item .Flight-headline::before {
+  content: counter(flights) ". ";
+}

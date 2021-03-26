@@ -1,0 +1,13 @@
+<% breadcrumb :resource_types %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("resource_types.index.title", count: @resource_types.total_count) %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/list", list: @resource_types, partial: "resource_types/resource_type_preview" %>
+      <%= paginate @resource_types %>
+    </div>
+  </div>
+</div>
+

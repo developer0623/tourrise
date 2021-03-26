@@ -1,0 +1,5 @@
+<div>
+  <%= product_sku.name %>
+  <%= link_to t(".book"), new_frontoffice_product_booking_path(product_sku.handle) %>
+  <%= link_to t(".get_offer"), new_frontoffice_product_inquiry_path(product_sku.handle) %>
+</div>

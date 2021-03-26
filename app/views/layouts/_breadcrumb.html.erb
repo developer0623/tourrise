@@ -1,0 +1,16 @@
+<% if !Rails.env.production? && breadcrumbs.empty? && !current_page?(main_app.root_path) %>
+  <%= raise 'Create breadcrumbs for the page!' %>
+<% end %>
+<nav class="Breadcrumb" aria-label="breadcrumb">
+  <ol class="Breadcrumb-list">
+    <% breadcrumbs.tap do |links| %>
+      <% if links.any? %>
+        <% links.each do |link| %>
+          <li class="Breadcrumb-item">
+            <%= link_to link.text, link.url, class: "Breadcrumb-link" %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+</nav>

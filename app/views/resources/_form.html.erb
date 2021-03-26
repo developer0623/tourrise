@@ -1,0 +1,64 @@
+<div class="Section">
+  <div class="Form-element">
+    <div class="Input Input--select">
+      <%= f.label :resource_type_id, class: "Input-label Input-label--required" %>
+      <%= f.select :resource_type_id, ResourceType.all.pluck(:label, :id), { include_blank: true }, { class: "Input-element" } %>
+      <%= f.error_tag :resource_type_id, nil, class: "Input-help" %>
+    </div>
+  </div>
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label :tags, class: "Input-label" %>
+      <%= f.text_field :tags, value: @resource.assigned_tags.to_json, class: 'js-ResourceForm-TagInput', data: { tags: @resource.available_tags.to_json } %>
+    </div>
+  </div>
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label :name, class: "Input-label Input-label--required" %>
+      <%= f.text_field :name, required: true, value: @resource.name, class: "Input-element" %>
+      <%= f.error_tag :name, nil, class: "Input-help" %>
+    </div>
+  </div>
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label :teaser_text, class: "Input-label" %>
+      <%= f.text_area :teaser_text, value: @resource.teaser_text, class: "Input-element Input-element--smallTextarea", placeholder: "Maximal 500 Zeichen", maxlength: 500 %>
+      <%= f.error_tag :teaser_text, nil, class: "Input-help" %>
+    </div>
+  </div>
+  <div class="Form-element">
+    <div class="Input">
+      <%= f.label :description, class: "Input-label" %>
+      <%= f.text_area :description, value: @resource.description, class: "Input-element Input-element--textarea" %>
+      <%= f.error_tag :description, nil, class: "Input-help" %>
+    </div>
+  </div>
+</div>
+
+<div class="Section">
+  <%= render "partials/booking_section", title: t('resources.form.images_title') do %>
+    <%= render "partials/gallery", featured_image_id: @resource.featured_image_id, images: @resource.images, editable: true, f: f %>
+  <% end %>
+</div>
+
+<div class="Section js-ResourceForm-newResourceSkuContainer">
+  <%= render "partials/booking_section", title: plural_model_name(ResourceSku) do %>
+    <%= f.fields_for :resource_skus do |resource_sku_form| %>
+      <div class="js-ResourceForm-newResourceSku">
+        <%= render partial: 'resources/resource_sku_form', locals: { f: resource_sku_form } %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="Form-buttons">
+    <button class="Button Button--small Button--neutral js-ResourceForm-newResourceSkuButton"><%= t('resources.form.add_resource_sku_link') %></button>
+  </div>
+</div>
+
+<template class="js-ResourceForm-newResourceSkuTemplate">
+  <div class="js-ResourceForm-newResourceSku">
+    <%= f.fields_for :resource_skus, ResourceSku.new, child_index: 'ID' do |resource_sku_form| %>
+      <%= render partial: 'resources/resource_sku_form', locals: { f: resource_sku_form } %>
+    <% end %>
+  </div>
+</template>

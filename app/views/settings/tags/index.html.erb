@@ -1,0 +1,21 @@
+<% breadcrumb :tags %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: t(".title") do %>
+    <%= link_to new_settings_tag_path, class: "Button" do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("settings.tags.index.add_tag_link_name") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+      <%= render "partials/list", list: @tags, partial: "settings/tags/tag_preview" %>
+    </div>
+  </div>
+</div>

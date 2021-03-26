@@ -1,0 +1,52 @@
+.Participants + .Participants {
+  margin-top: var(--BookingForm-subsection-space);
+}
+
+.Participants-list {
+  counter-reset: adults;
+  counter-reset: kids;
+  counter-reset: babies;
+  margin-top: var(--BookingForm-subcontent-space);
+}
+
+.Participants-item--adults {
+  counter-increment: adults;
+}
+
+.Participants-item--kids {
+  counter-increment: kids;
+}
+
+.Participants-item--babies {
+  counter-increment: babies;
+}
+
+.Participants-item {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.Participants-item::before {
+  display: block;
+  color: var(--theme-color-secondary);
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: -0.5rem;
+}
+
+.Participants-item--adults::before {
+  content: counter(adults) ".";
+}
+
+.Participants-item--kids::before {
+  content: counter(kids) ".";
+}
+
+.Participants-item--babies::before {
+  content: counter(babies) ".";
+}
+
+.Participants-item:not(:first-child) {
+  margin-top: var(--Form-element-space);
+}

@@ -1,0 +1,13 @@
+.Card {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.Card-heading {
+  color: var(--headline-color);
+  font-size: var(--font-size-h3);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}

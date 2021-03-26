@@ -1,0 +1,56 @@
+<tr>
+  <td>
+    <time class="Attr" datetime="<%= item.created_at.strftime("%Y-%m-%d %H:%M") %>">
+      <span class="Attr-main">
+        <%= l(item.created_at.to_date, format: :default) %>
+      </span>
+
+      <span class="Attr-sub">
+        <%= l(item.created_at.to_time, format: :time_only) %>
+      </span>
+    </time>
+  </td>
+
+  <td>
+    <%= item.customer&.name %>
+  </td>
+
+  <td>
+    <%= item.participants_count %>
+  </td>
+
+  <td>
+    <%= item.product.name %>
+    <% if item.season %>
+      <div><%= Season.model_name.human %>: <%= item.season.name %></div>
+    <% end %>
+  </td>
+
+  <td>
+    <span class="u-noWrap">
+      <%= t("bookings.states.#{item.aasm_state}") %>
+    </span>
+
+    <% if item.assignee %>
+      <div>
+        (<%= item.assignee %>)
+      </div>
+    <% end %>
+  </td>
+
+  <td>
+    <span class="u-wrap">
+      <%= item.secondary_state %>
+    </span>
+  </td>
+
+  <td>
+    <%= render 'bookings/show/due_on', booking: item %>
+  </td>
+
+  <td class="u-textRight u-noWrap">
+    <%= link_to booking_path(id: item.id) do %>
+      <%= t("bookings.index.link_to_booking") %>
+    <% end %>
+  </td>
+</tr>

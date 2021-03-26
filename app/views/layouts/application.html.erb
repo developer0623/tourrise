@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Backoffice" name="application-name">
+    <meta content="Backoffice, mail@patrick-schnetger.de" name="author">
+    <meta content="index, follow" name="robots">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Backoffice">
+    <meta name="apple-mobile-web-app-title" content="Backoffice">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= yield :scripts %>
+    <%= yield :head %>
+
+    <%= javascript_pack_tag "backoffice", data: { 'turbo-track': "reload" } %>
+    <link rel="stylesheet" href="<%= stylesheet_path("#{params[:client].present? ? "themes/#{params[:client]}/" : ""}backoffice") %>" data-turbo-track="reload">
+
+    <title><%= GlobalConfiguration.company_name %></title>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="Page Page--loggedIn">
+    <% if Rails.env.development? %>
+      <div class='Page-envBadge'>development</div>
+    <% elsif ENV['HEROKU_PIPELINE'] == 'staging' %>
+      <div class='Page-envBadge'>staging</div>
+    <% end %>
+
+    <a href="#main" class="u-hiddenVisually"><%= t("skip_to_content") %></a>
+
+    <div class="Page-mainNav js-mainNav">
+      <%= render "layouts/main_nav" %>
+    </div>
+
+    <div class="Page-search js-pageSearch" id="search" role="search">
+      <%= render "layouts/search" %>
+    </div>
+
+    <div class="Page-subNav" id="subnav">
+      <%= render "layouts/sub_nav" %>
+    </div>
+
+    <div class="Page-main">
+      <%= render "layouts/breadcrumb" %>
+      <%= render "layouts/message" %>
+      <main id="main" class="Page-wrapper">
+        <%= yield %>
+        <% if content_for(:actions) %>
+          <div class="Page-actions">
+            <%= yield :actions %>
+          </div>
+        <% end %>
+      </main>
+    </div>
+  </body>
+</html>

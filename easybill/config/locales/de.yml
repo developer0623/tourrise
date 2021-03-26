@@ -1,0 +1,34 @@
+de:
+  easybill:
+    settings:
+      index: 
+        title: Easybill App Einstellungen
+        employees_link: Mitarbeiterverknüpfungen
+        product_configurations_link: Produkteinstellungen
+    employees:
+      index:
+        title: Mitarbeiterverknüpfungen
+      edit:
+        title: Mitarbeiterverknüpfung %{name} bearbeiten
+      new:
+        title: Mitarbeiterverknüpfung anlegen
+    booking_resource_sku_mapper:
+      flight:
+        departure: Abflug
+        destination: Ankunft
+        flight_code: Flugnr.
+    product_configurations:
+      index:
+        title: Produkteinstellungen
+      new:
+        title: Neue Produkteinstellung
+      edit:
+        title: Produkteinstellung bearbeiten
+    mappers:
+      booking_resource_sku_mapper:
+        nights:
+          one: "eine Nacht"
+          other: "%{count} Nächte"
+        people:
+          one: "eine Person"
+          other: "%{count} Personen à"

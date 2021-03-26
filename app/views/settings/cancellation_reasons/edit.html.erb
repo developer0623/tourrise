@@ -1,0 +1,11 @@
+<% breadcrumb :edit_cancellation_reason, @cancellation_reason %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('.title', name: @cancellation_reason.name) %>
+
+  <div class="Content-main">
+    <%= form_with model: [:settings, @cancellation_reason], method: "PUT", html: { class: "Form", autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>

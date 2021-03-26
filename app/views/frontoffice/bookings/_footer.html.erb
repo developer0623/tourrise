@@ -1,0 +1,34 @@
+<%
+  f = local_assigns.fetch(:f, false)
+  next_label = local_assigns.fetch(:next_label, false)
+  next_step_handle = local_assigns.fetch(:next_step_handle, false)
+  next_button_variant = local_assigns.fetch(:next_button_variant, :primary)
+  previous_step_handle = local_assigns.fetch(:previous_step_handle, false)
+  required_notice = local_assigns.fetch(:required_notice, true)
+%>
+
+<% if required_notice %>
+  <p>
+    <small>
+      <%= t("required_fields") %>
+    </small>
+  </p>
+<% end %>
+
+<div class="">
+  <% if defined?(desc) %>
+    <p>
+      <%= desc %>
+    </p>
+  <% end %>
+
+  <div class="">
+    <%= render "frontoffice/bookings/buttons",
+      f: f,
+      previous_step_handle: previous_step_handle,
+      next_step_handle: next_step_handle,
+      next_label: next_label,
+      next_button_variant: next_button_variant
+    %>
+  </div>
+</div>

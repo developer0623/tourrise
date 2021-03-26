@@ -1,0 +1,9 @@
+<div class="Section">
+  <%= render "partials/booking_section", title: t("activerecord.attributes.resource_sku.occupation_configuration") do %>
+    <% if @resource_sku.occupation_configuration.present? %>
+      <%= @resource_sku.occupation_configuration.name %>
+    <% else %>
+      <p class="Empty">Noch keine Belegungskonfiguration definiert.</p>
+    <% end %>
+  <% end %>
+</div>

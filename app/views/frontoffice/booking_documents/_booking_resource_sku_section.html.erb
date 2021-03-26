@@ -1,0 +1,36 @@
+<% booking_document = local_assigns.fetch(:booking_document) %>
+
+<% table_headers = [t("booking_form.documents.sku"), t("booking_form.documents.name")] %>
+<%= bill_table nil, header: true %>
+
+<% if booking_document.booking_resource_skus_snapshots.any? %>
+  <% booking_document.document_positions.each do |group_name, document_positions| %>
+    <header class="u-marginBottomBase u-marginTopLarge">
+      <h3>
+        <%= group_name %>
+      </h3>
+    </header>
+
+    <%= bill_table document_positions %>
+  <% end %>
+
+  <% if booking_document.booking_resource_sku_groups_snapshots.any? %>
+    <header class="u-marginBottomBase u-marginTopLarge">
+      <h3><%= t("booking_form.documents.your_resource_sku_groups") %></h3>
+    </header>
+
+    <% booking_document.grouped_document_positions.each do |group, document_positions| %>
+      <%= table nil, [[group['name'], booking_document.humanized_sum(group["price_cents"], group["price_currency"])]], counter: false, stretched: true %>
+
+      <%= bill_table document_positions %>
+    <% end %>
+  <% end %>
+  <div class="BookingDocument-totalSum">
+    <%= t("booking_form.#{booking_document.underscore_class_name}.sum") %>
+    <%= booking_document.unreduced_price %>
+  </div>
+<% else %>
+  <p class="Empty">
+    <%= t("not_entered") %>
+  </p>
+<% end %>

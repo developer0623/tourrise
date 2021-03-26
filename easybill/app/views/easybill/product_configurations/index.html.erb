@@ -1,0 +1,13 @@
+<% breadcrumb :product_configurations %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("easybill.product_configurations.index.title") do %>
+    <a class="Button" href="<%= easybill.new_product_configuration_path %>"><%= t("create") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/table", list: @product_configurations, row: "easybill/product_configurations/table/row"    %>
+    </div>
+  </div>
+</div>

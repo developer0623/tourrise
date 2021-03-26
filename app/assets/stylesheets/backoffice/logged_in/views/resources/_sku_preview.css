@@ -1,0 +1,23 @@
+.SkuPreview-details {
+  flex: 1 0 calc(100% - var(--ListItem-image-size) - var(--ListItem-image-gap));
+}
+
+.SkuPreview-name {
+  flex: 1;
+  hyphens: auto;
+  min-width: calc(
+    32rem - calc(3 * var(--Page-main-spacing)) - var(--ListItem-image-size) -
+      var(--ListItem-image-gap)
+  );
+  padding-right: 1rem;
+}
+
+.SkuPreview-handle {
+  flex: 1;
+  hyphens: auto;
+  min-width: calc(
+    32rem - calc(3 * var(--Page-main-spacing)) - var(--ListItem-image-size) -
+      var(--ListItem-image-gap)
+  );
+  padding-right: 1rem;
+}

@@ -1,0 +1,12 @@
+.Embed {
+  border-left: 0.1rem solid #ccc;
+  padding: 1rem 0 1rem 2rem;
+}
+
+.Embed ul {
+  list-style: circle;
+}
+
+.Embed ol {
+  list-style: decimal;
+}

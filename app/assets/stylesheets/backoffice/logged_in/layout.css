@@ -1,0 +1,155 @@
+.Page--loggedIn {
+  display: grid;
+  flex-grow: 1;
+}
+
+.Page-envBadge {
+  position: fixed;
+  transform: rotate(-45deg);
+  background-color: red;
+  color: white;
+  z-index: 999;
+  right: -81px;
+  width: 30rem;
+  height: 3rem;
+  text-align: center;
+  bottom: 45px;
+  line-height: 33px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.Page-mainNav {
+  grid-area: main-nav;
+  flex: 0 0 var(--MainNav-size);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.Page-search {
+  grid-area: search;
+  position: relative;
+  height: 0;
+  transition: var(--transition-in);
+}
+
+.Page-search:target,
+.Page-search[aria-hidden="false"] {
+  height: var(--Search-height);
+  transition: var(--transition-out);
+  z-index: 1;
+}
+
+.Page-subNav {
+  grid-area: sub-nav;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.Page-main {
+  grid-area: main;
+  flex-grow: 1;
+  background: #fff;
+  position: relative;
+  padding: var(--Page-main-spacing);
+  overflow-x: auto;
+}
+
+.Page-wrapper:not(:first-child) {
+  margin: var(--Content-spacing-top) 0 0;
+}
+
+@media (max-width: 42em) {
+  .Page-actions {
+    margin: 4rem calc(-1 * var(--Page-main-spacing))
+      calc(-1 * var(--Page-main-spacing));
+  }
+}
+
+@media (min-width: 42.03125em) {
+  .Page-wrapper {
+    display: flex;
+  }
+
+  .Page-actions {
+    position: sticky;
+    margin-left: 4%;
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: 42.03125em) and (max-width: 56em) {
+  .Page-actions {
+    top: 8rem;
+  }
+}
+
+@media (max-width: 56em) {
+  .Page--loggedIn {
+    --MainNav-size: 5rem;
+    --Search-height: var(--MainNav-size);
+    --Content-spacing-top: 0.5rem;
+
+    grid-template:
+      "main-nav"
+      "search"
+      "sub-nav"
+      "main";
+    grid-template-rows: var(--MainNav-size) auto auto 1fr;
+  }
+
+  .Page-subNav {
+    position: fixed;
+    top: var(--MainNav-size);
+    height: calc(100vh - var(--MainNav-size));
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: var(--transition-in);
+  }
+
+  .Page-subNav:target,
+  .Page-subNav[aria-hidden="false"] {
+    transform: translateX(0);
+    transition: var(--transition-out);
+  }
+}
+
+@media (min-width: 56.03125em) {
+  .Page--loggedIn {
+    --MainNav-size: 6rem;
+    --Search-height: 8rem;
+    --Content-spacing-top: 2.5rem;
+
+    grid-template:
+      "main-nav search search"
+      "main-nav sub-nav main";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: var(--MainNav-size) min-content 1fr;
+  }
+
+  .Page-mainNav {
+    height: 100vh;
+  }
+
+  .Page-subNav {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  .Page-search {
+    position: relative;
+  }
+
+  .Page-main {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.4rem;
+  }
+
+  .Page-actions {
+    top: 4rem;
+  }
+}

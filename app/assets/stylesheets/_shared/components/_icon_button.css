@@ -1,0 +1,62 @@
+:root {
+  --IconButton-icon-size: 3rem;
+}
+
+.IconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  height: var(--IconButton-icon-size);
+  width: var(--IconButton-icon-size);
+  padding: 0.6rem;
+}
+
+.IconButton:active {
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25) inset;
+}
+
+@media (hover: hover) {
+  .IconButton {
+    transition: var(--transition-in);
+  }
+
+  .IconButton:hover,
+  .IconButton:focus {
+    transition: var(--transition-out);
+  }
+
+  .IconButton--neutral:hover,
+  .IconButton--neutral:focus {
+    background-color: var(--color-neutral);
+    color: #fff;
+  }
+
+  .IconButton--negative:hover,
+  .IconButton--negative:focus {
+    background-color: var(--color-negative);
+    color: #fff;
+    transition: var(--transition-out);
+  }
+}
+
+.IconButton--neutral {
+  color: var(--color-neutral);
+}
+
+.IconButton--neutral:active {
+  background-color: var(--color-neutral);
+  color: #fff;
+}
+
+.IconButton--negative {
+  background: #f5f5f5;
+  color: var(--color-negative);
+}
+
+.IconButton:disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}

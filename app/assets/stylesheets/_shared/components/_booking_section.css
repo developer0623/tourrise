@@ -1,0 +1,27 @@
+.BookingSection + .BookingSection {
+  margin-top: 2rem;
+}
+
+.BookingSection-heading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.BookingSection-title {
+  padding: 0.5rem 1rem 0.5rem 0;
+}
+
+.BookingSection-content:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.BookingSection--multipleCols-content {
+  display: grid;
+  grid-column-gap: 2rem;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--DataList-multipleCols-width), 1fr)
+  );
+}

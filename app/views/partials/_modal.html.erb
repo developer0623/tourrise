@@ -1,0 +1,13 @@
+<div class="Modal js-Modal">
+  <% if yield.present? %>
+    <%= yield %>
+  <% end %>
+</div>
+
+<% if editable %>
+  <template id="Gallery-imageTemplate">
+    <div class="Gallery-item is-new">
+      <%= render "partials/gallery_editable_item", featured: false, image_id: "{{ID}}" %>
+    </div>
+  </template>
+<% end %>

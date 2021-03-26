@@ -1,0 +1,15 @@
+<div class="ListItem">
+  <div class="ListItem-name Attr">
+    <%= item.name %>
+  </div>
+
+  <ul class="ListItem-buttons">
+    <li class="ListItem-button">
+      <%= link_to t("show"), product_path(item) %>
+    </li>
+
+    <li class="ListItem-button">
+      <%= link_to t("edit"), edit_product_path(item) %>
+    </li>
+  </ul>
+</div>

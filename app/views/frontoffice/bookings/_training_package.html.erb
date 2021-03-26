@@ -1,0 +1,33 @@
+<%= card do %>
+  <%= card_section separator: :after do %>
+    <%= render "frontoffice/resources/show", resource: training_package %>
+  <% end %>
+
+  <% if training_package.list.any? %>
+    <ol class="u-listStripped">
+      <% training_package.list.each do |bookable_training_package| %>
+        <%= card_section tag: :li, separator: (bookable_training_package == training_package.list.last ? :none : :after) do %>
+          <%= f.fields_for(:booking_resource_skus, (
+            booking_form.booking_resource_skus.find_by(resource_sku_id: bookable_training_package.id) || booking_form.booking_resource_skus.new
+          )) do |o| %>
+            <%= o.hidden_field :resource_sku_id, value: bookable_training_package.id %>
+
+            <%= render "frontoffice/resource_skus/preview",
+              resource_sku: bookable_training_package,
+              action: render(
+                "components/field/select",
+                attribute: :quantity,
+                f: o,
+                options: options_for_select((0..booking_form.people_count).to_a, o.object.persisted? ? o.object.quantity : 0)
+              )
+            %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ol>
+  <% else %>
+    <div class="Empty">
+      <%= t(".empty") %>
+    </div>
+  <% end %>
+<% end %>

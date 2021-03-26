@@ -1,0 +1,2602 @@
+---
+"fr":
+  "activemodel":
+    "attributes":
+      "booking_resource_sku_validator":
+        "assigned_adults_count": >-
+          Nombre d'adultes
+        "assigned_babies_count": >-
+          Nombre de bébés
+        "assigned_kids_count": >-
+          Nombre d'enfants
+        "assigned_participants_count": >-
+          Nombre de compagnons de voyage
+      "frontoffice/booking_inquiry_form":
+        "adults": >-
+          Adulte
+        "babies": >-
+          Bébés
+        "email": >-
+          E-mail
+        "ends_on": >-
+          Départ
+        "first_name": >-
+          Prénom
+        "kids": >-
+          Enfants
+        "last_name": >-
+          Nom de famille
+        "starts_on": >-
+          Arrivée
+        "wishyouwhat": >-
+          Informations demande de devis
+      "frontoffice/booking_request_form":
+        "adults": >-
+          Adulte
+        "babies": >-
+          Bébés
+        "ends_on": >-
+          Départ
+        "kids": >-
+          Enfants
+        "starts_on": >-
+          Arrivée
+        "wishyouwhat": >-
+          Informations demande de devis
+  "activerecord":
+    "attributes":
+      "availability":
+        "_destroy": >-
+          Effacer
+        "ends_on": >-
+          Fin de disponibilité
+        "quantity": >-
+          Quantité
+        "starts_on": >-
+          Début de disponibilité
+      "booking_credit":
+        "cost_center": >-
+          Centre de coûts
+        "financial_account": >-
+          Compte compta fin.
+        "name": >-
+          Nom
+        "price": >-
+          Montant
+      "booking_document":
+        "accepted": >-
+          Accepté(e)
+        "created_at": >-
+          Créé le
+        "creator": >-
+          Collaborateur
+        "embedded_customer_link": >-
+          Perspective du client
+        "frontoffice_link": >-
+          Aperçu
+        "frontoffice_url": >-
+          Frontoffice url
+        "number": >-
+          Numéro de facture
+        "processing": >-
+          Le document est créé
+        "publish": >-
+          Publication
+        "rejected": >-
+          Rejeté(e)
+        "type": >-
+          Type
+        "unpublish": >-
+          Publication
+      "booking_flight_request":
+        "_destroy": >-
+          Vol réservé par client
+        "departure_airport": >-
+          Aéroport de départ
+        "destination_airport": >-
+          Aéroport de destination
+        "ends_on": >-
+          Vol retour
+        "outward_flight": >-
+          Le vol aller
+        "return_flight": >-
+          Le vol de retour
+        "starts_on": >-
+          Vol aller
+      "booking_invoice":
+        "advance_booking_invoice": >-
+          Créer facture d'acompte
+        "created_at": >-
+          Date de la facture
+        "creator": >-
+          Collaborateur∙trice
+        "description": >-
+          Description
+        "number": >-
+          Numéro de facture
+        "payment": >-
+          Paiement
+        "price": >-
+          Montant
+        "published": >-
+          publié avec numéro
+        "title": >-
+          Titre
+        "total_price": >-
+          Prix total
+      "booking_offer":
+        "created_at": >-
+          Date du devis
+        "creator": >-
+          Collaborateur∙trice
+        "number": >-
+          Numéro de devis
+        "published": >-
+          publié avec numéro
+        "title": >-
+          Titre
+        "total_price": >-
+          Prix total
+      "booking_rentalbike_request":
+        "ends_on": >-
+          Au
+        "height": >-
+          Taille personne ou hauteur cadre
+        "starts_on": >-
+          Du
+      "booking_rentalcar_request":
+        "ends_on": >-
+          Au
+        "rentalcar_class": >-
+          Type de voiture de location
+        "starts_on": >-
+          Du
+      "booking_resource_sku_group":
+        "cost_center": >-
+          Centre de coûts
+        "date_range": >-
+          Période
+        "deleted_at": >-
+          supprimé à
+        "financial_account": >-
+          Compte compta fin.
+        "price": >-
+          Prix
+        "quantity": >-
+          Quantité
+      "booking_resource_sku":
+        "allow_partial_payment": >-
+          paiement partiel possible
+        "cost_center": >-
+          Centre de coûts
+        "date_range": >-
+          Période
+        "ends_on": >-
+          Au
+        "financial_account": >-
+          Comptes compta fin.
+        "price": >-
+          Prix
+        "quantity": >-
+          Quantité
+        "remarks": >-
+          Remarques
+        "starts_on": >-
+          Du
+      "booking_room_assignment":
+        "adults": >-
+          Adultes
+        "babies": >-
+          Bébés
+        "kids": >-
+          Enfants
+      "booking":
+        "aasm_state": >-
+          État
+        "address_line_1": >-
+          Nom & numéro de rue
+        "address_line_2": >-
+          Champ d'adresse supplémentaire
+        "adults": >-
+          Adultes
+        "assignee": >-
+          Gestionnaire
+        "babies": >-
+          Bébés
+        "birthdate": >-
+          Date de naissance
+        "city": >-
+          Ville
+        "country": >-
+          Pays
+        "created_at": >-
+          Réception
+        "customer": >-
+          Client
+        "customer_id": >-
+          Numéro client
+        "due_on": >-
+          Date d'échéance
+        "duplicate_of": >-
+          Réservation de référence
+        "email": >-
+          E-mail
+        "ends_on": >-
+          Date de départ
+        "first_name": >-
+          Prénom
+        "flights_count": >-
+          Nombre de vols
+        "gender": >-
+          Sexe
+        "kids": >-
+          Enfants
+        "last_name": >-
+          Nom de famille
+        "phone": >-
+          Numéro de téléphone
+        "privacy_policy_accepted": >-
+          Politique de confidentialité acceptée
+        "product": >-
+          Produit
+        "product_id": >-
+          Produit
+        "product_sku": >-
+          Variante produit
+        "product_sku_id": >-
+          Variante produit
+        "rentalbikes_count": >-
+          Nombre de vélos de location
+        "rooms_count": >-
+          Nombre de chambres
+        "scrambled_id": >-
+          Clé demande
+        "season": >-
+          Saison
+        "secondary_state": >-
+          état secondaire
+        "starts_on": >-
+          Date d'arrivée
+        "state": >-
+          Etat
+        "tag_ids": >-
+          Tags
+        "terms_of_service_accepted": >-
+          Conditions générales de vente acceptées
+        "title": >-
+          Intitulé
+        "total_invoiced_amount": >-
+          Prix total
+        "wishyouwhat": >-
+          Informations demande de devis
+        "zip": >-
+          Code postal
+      "cost_center":
+        "name": >-
+          Désignation
+        "value": >-
+          Centre de coûts
+      "custom_attribute":
+        "field_types":
+          "checkbox": >-
+            Sélection
+          "date": >-
+            Date
+          "email": >-
+            E-mail
+          "number": >-
+            Numéro
+          "text": >-
+            Texte
+      "customer":
+        "address": >-
+          Adresse
+        "address_line_1": >-
+          Nom et numéro de rue
+        "address_line_2": >-
+          Champ d'adresse supplémentaire
+        "birthdate": >-
+          Date de naissance
+        "city": >-
+          Ville
+        "company_name": >-
+          Nom association ou entreprise
+        "country": >-
+          Pays
+        "created_at": >-
+          Créé le
+        "email": >-
+          E-mail
+        "email_link": >-
+          E-mail
+        "first_name": >-
+          Prénom
+        "full_address": >-
+          Adresse complète
+        "gender": >-
+          Sexe
+        "id": >-
+          Identifiant
+        "language": >-
+          Langue
+        "last_name": >-
+          Nom de famille
+        "locale": >-
+          Langue
+        "localized_birthdate": >-
+          Date de naissance
+        "name": >-
+          Nom
+        "newsletter": >-
+          Newsletter
+        "participant_type": >-
+          Type de participant
+        "phone": >-
+          Numéro(s) de téléphone
+        "primary_phone": >-
+          Numéro de téléphone 1
+        "secondary_phone": >-
+          Numéro de téléphone 2
+        "state": >-
+          Etat
+        "title": >-
+          Titre
+        "updated_at": >-
+          Mise à jour le
+        "zip": >-
+          Code postal
+      "financial_account":
+        "before_service_year": >-
+          Compte l'année avant la prestation des services
+        "during_service_year": >-
+          Compte l'année de la prestation des services
+        "name": >-
+          Intitulé
+      "flight":
+        "_destroy": >-
+          Effacer
+        "airline_code": >-
+          Compagnie aérienne
+        "arrival_airport": >-
+          Arrivée aéroport
+        "arrival_at": >-
+          À
+        "departure_airport": >-
+          Départ aéroport
+        "departure_at": >-
+          De
+        "flight_number": >-
+          Vol n°
+      "inventory":
+        "_destroy": >-
+          Effacer
+        "description": >-
+          Description
+        "inventory_type": >-
+          Type
+        "name": >-
+          Nom
+      "payment":
+        "due_on": >-
+          Date d'échéance
+        "price": >-
+          Montant
+      "product_sku_booking_configuration":
+        "default_destination_airport_code": >-
+          Aéroport de destination par défaut
+        "ends_on": >-
+          Date de retour
+        "starts_on": >-
+          Date d'arrivée
+        "wishyouwhat_on_first_step": >-
+          Questionner les informations demande de devis à la première étape?
+      "product_sku":
+        "cost_center": >-
+          Centre de coûts
+        "financial_account": >-
+          Compte compta fin.
+        "handle": >-
+          Alias
+      "product":
+        "cost_center_id": >-
+          Centre de coûts
+        "current_season": >-
+          Saison actuelle
+        "description": >-
+          Description
+        "financial_account_id": >-
+          Compte compta fin.
+        "handle": >-
+          Alias
+        "name": >-
+          Nom
+        "product_sku_handle": >-
+          Alias
+        "publish": >-
+          Publié
+        "published_at": >-
+          Publié
+      "resource_sku_pricing":
+        "calculation_type": >-
+          Base de calcul
+        "date_range": >-
+          Période entre
+        "ends_on": >-
+          Fin de disponibilité
+        "participant_type": >-
+          Type de participant
+        "price": >-
+          Prix
+        "starts_on": >-
+          Début de disponibilité
+      "resource_sku":
+        "_destroy": >-
+          Supprimer
+        "allow_partial_payment": >-
+          paiement partiel possible
+        "available": >-
+          Disponible
+        "description": >-
+          Description
+        "flights": >-
+          Vols
+        "handle": >-
+          SKU (Stock Keeping Unit)
+        "images": >-
+          Sélectionner vignette
+        "inventory": >-
+          Inventaire
+        "name": >-
+          Nom
+        "occupation_configuration": >-
+          Configuration occupation
+        "teaser_image": >-
+          Photo
+        "vat": >-
+          TVA
+      "resource":
+        "description": >-
+          Description
+        "images": >-
+          Sélectionner fichiers
+        "name": >-
+          Nom
+        "resource_skus_count": >-
+          Nombre de variantes
+        "resource_type_id": >-
+          Type ressource
+        "teaser_text": >-
+          Description brève (max. 500 caractères)
+      "resource/resource_skus":
+        "available": >-
+          Disponible
+      "season":
+        "name": >-
+          Nom
+        "published_at": >-
+          public
+      "tag":
+        "handle": >-
+          Handle
+        "name": >-
+          Nom
+        "new_tag_group": >-
+          Groupe non trouvé? Saisir le nom du groupe ici
+        "tag_group_id": >-
+          Groupe
+    "errors":
+      "ends_on_lt_than_starts_on": >-
+        ne peut pas avoir lieu avant l'arrivée
+      "invalid_date_format": >-
+        Le format de la date est incorrect.
+      "models":
+        "booking_credit":
+          "attributes":
+            "base":
+              "invoiced_once": >-
+                L'élément est mentionné en document. Ce n'est pas possible de le modifier.
+        "booking_flight_request":
+          "attributes":
+            "departure_airport":
+              "invalid_iata_code": >-
+                Code IATA invalide
+            "destination_airport":
+              "invalid_iata_code": >-
+                Code IATA invalide
+            "ends_on":
+              "must_be_after_starts_on": >-
+                ne peut pas avoir lieu avant l'arrivée
+            "starts_on":
+              "must_be_in_future": >-
+                doit avoir lieu dans le futur
+        "booking_resource_sku":
+          "attributes":
+            "ends_on":
+              "missing": >-
+                La variante de ressource n'a pas de date de fin valide.
+            "starts_on":
+              "missing": >-
+                La variante de ressource n'a pas de date de début valide.
+        "frontoffice_step":
+          "attributes":
+            "required":
+              "mundatory_field": >-
+                est un champ obligatoire
+        "product":
+          "attributes":
+            "frontoffice_steps":
+              "mandatory_steps": >-
+                étapes requises manquantes
+        "tag":
+          "attributes":
+            "handle":
+              "format": >-
+                Le Tag Handle ne peut contenir que les lettres de a à z et les caractères
+                spéciaux +, - et _ .
+    "models":
+      "active_admin/comment":
+        "one": >-
+          Commentaire
+        "other": >-
+          Commentaires
+      "advance_booking_invoice":
+        "one": >-
+          Facture d'acompte
+        "other": >-
+          Factures d'acompte
+      "booking":
+        "one": >-
+          Demande
+        "other": >-
+          Demandes
+      "booking_credit":
+        "one": >-
+          Note de crédit/Acompte
+        "other": >-
+          Notes de crédit/Acomptes
+      "booking_customer":
+        "one": >-
+          Participant·e de la réservation
+        "other": >-
+          Participant·e·s de la réservation
+      "booking_invoice":
+        "one": >-
+          Facture
+        "other": >-
+          Factures
+      "booking_offer":
+        "one": >-
+          Devis
+        "other": >-
+          Devis
+      "booking_rentalbike_request":
+        "one": >-
+          Vélo de location
+        "other": >-
+          Vélos de location
+      "booking_rentalcar_request":
+        "one": >-
+          Voiture de location
+        "other": >-
+          Voitures de location
+      "booking_resource_sku":
+        "one": >-
+          Ressource réservée
+        "other": >-
+          Ressources réservées
+      "booking_resource_sku_group":
+        "one": >-
+          Groupe de SKU
+        "other": >-
+          Groupes de SKU
+      "comment":
+        "one": >-
+          Commentaire
+        "other": >-
+          Commentaires
+      "customer":
+        "one": >-
+          Client
+        "other": >-
+          Clients
+      "flight":
+        "one": >-
+          Vol
+        "other": >-
+          Vols
+      "inventory":
+        "one": >-
+          Inventaire
+        "other": >-
+          Inventaires
+      "participant":
+        "one": >-
+          Participant
+        "other": >-
+          Participants
+      "payment":
+        "one": >-
+          Paiement
+        "other": >-
+          Paiements
+      "product":
+        "one": >-
+          Produit
+        "other": >-
+          Produits
+      "product_sku":
+        "one": >-
+          Variante de produit
+        "other": >-
+          Variantes de produits
+      "resource_sku":
+        "one": >-
+          Variante de ressource
+        "other": >-
+          Variantes de ressource
+      "resource_sku_pricing":
+        "one": >-
+          règle de calcul du prix
+        "other": >-
+          règles de calcul du prix
+      "season":
+        "one": >-
+          Saison
+        "other": >-
+          Saisons
+      "tag":
+        "one": >-
+          Tag
+        "other": >-
+          Tags
+  "add": >-
+    Ajouter
+  "advance_booking_invoices":
+    "description": >-
+      Facture d'acompte de demande %{booking_title}
+  "attributes":
+    "adults": >-
+      Adultes
+    "babies": >-
+      Bébés
+    "kids": >-
+      Enfants
+  "availabilities":
+    "availability_types":
+      "date_range": >-
+        Période
+      "quantity": >-
+        Quantité
+      "quantity_in_date_range": >-
+        Nombre pour la période
+  "back": >-
+    Retour
+  "booking_attributes":
+    "departure": >-
+      Lieu de la prise en charge
+    "destination": >-
+      Destination
+    "dropoff_location": >-
+      Destination
+    "end_time": >-
+      Heure de fin
+    "ends_at": >-
+      À
+    "ends_on": >-
+      Date de fin
+    "height": >-
+      Taille personne
+    "pickup_location": >-
+      Lieu de prise en charge
+    "reference": >-
+      Référence
+    "rentalcar_type": >-
+      Type de véhicule
+    "reservation_number": >-
+      Numéro de réservation
+    "start_time": >-
+      Heure de début
+    "starts_at": >-
+      De
+    "starts_on": >-
+      Date de début
+  "booking_credits":
+    "advance_booking_invoice":
+      "title": >-
+        Acompte
+    "create":
+      "success": >-
+        Note de crédit/Acompte a été créé(e) avec succès.
+    "destroy":
+      "success": >-
+        Note de crédit/Acompte a été supprimé(e) avec succès.
+    "edit":
+      "headline": >-
+        Modifier note de crédit/acompte de %{name}
+    "empty": >-
+      Il n'y a ni acompte ni note de crédits.
+    "invoiced": >-
+      inclus(e):
+    "name_with_date": >-
+      %{name} de %{date}
+    "new":
+      "headline": >-
+        Créer note de crédit/acompte de %{name}
+    "update":
+      "success": >-
+        Note de crédit/Acompte a été modifié(e) avec succès.
+  "booking_documents":
+    "customer_link_label": >-
+      Perspective du client
+    "frontoffice_link_label": >-
+      Aperçu
+    "frontoffice_publish_link_label": >-
+      Publier
+    "frontoffice_unpublish_link_label": >-
+      Rétracter la publication
+    "removed_prefix": >-
+      Supprimé:
+  "booking_events":
+    "description":
+      "record_created": >-
+        Enregistrement créé
+      "record_deleted": >-
+        Enregistrement supprimé
+      "record_updated": >-
+        %{attribute} changé de "%{from}" en "%{to}"
+    "event_type":
+      "create": >-
+        créer
+      "destroy": >-
+        supprimer
+      "update": >-
+        Mettre à jour
+    "index":
+      "title":
+        "one": >-
+          événement de réservation
+        "other": >-
+          %{count} événements de réservation
+    "table":
+      "thead":
+        "created_at": >-
+          Crée à
+        "event_type": >-
+          Événement
+        "item_type": >-
+          Entité
+        "whodunnit": >-
+          Utilisateur
+  "booking_form":
+    "advance_booking_invoice":
+      "headline": >-
+        Facture d'acompte %{name}
+      "sum": >-
+        Montant de la facture
+    "booking_invoice":
+      "due_on": >-
+        exigible au
+      "headline": >-
+        Facture %{name}
+      "id": >-
+        Facture numéro: %{id}
+      "payment": >-
+        Paiement
+      "remaining_sum": >-
+        Montant restant de facture
+      "sum": >-
+        Montant de la facture
+    "booking_offer":
+      "accept": >-
+        accepter
+      "accepted_badge": >-
+        Devis accepté
+      "headline": >-
+        Devis %{name}
+      "id": >-
+        Devis numéro: %{id}
+      "offer_accepted_error": >-
+        Ce n'était pas possible d'accepter le devis.
+      "offer_rejected_error": >-
+        Ce n'était pas possible de rejeter le devis.
+      "reject": >-
+        rejeter
+      "rejected_badge": >-
+        Devis rejeté
+      "remaining_sum": >-
+        Montant restant du devis
+      "sum": >-
+        Montant du devis
+    "contact_step":
+      "intro": >-
+        Veuillez saisir vos coordonnées. Ces données seront utliisées pour l'élaboration
+        de votre devis et de la facture (le cas échéant).
+      "title": >-
+        Vos coordonnées
+    "documents":
+      "customer_id": >-
+        Numéro client: %{customer_id}
+      "name": >-
+        Description
+      "price": >-
+        Prix unitaire
+      "quantity": >-
+        Quantité
+      "sku": >-
+        Numéro d'article
+      "submit": >-
+        Accepter
+      "total_price": >-
+        Montant
+      "your_resource_sku_groups": >-
+        Vos groupes
+    "errors":
+      "final_state": >-
+        réservation à l'étape finale
+      "invalid_country_code": >-
+        Code pays inconnu
+    "flight_request_step":
+      "flights_count": >-
+        Nombre de vols
+      "intro": >-
+        Veuillez saisir les informations concernant vos vols. Vous pouvez bien entendu
+        réserver vos vols vous-même. Sélectionnez l'option appropriée.
+      "no_flights_needed": >-
+        Vols tous réservés par le client
+      "title": >-
+        Détails de vos vols
+    "headline": >-
+      %{name} Demande de devis
+    "participants_step":
+      "empty": >-
+        Vous n'avez pas sélectionné de participants. Veuillez nous indiquer à l'étape
+        “<b>Demande de devis</b>” combien d'adultes et d'enfants participeront au
+        voyage.
+      "fill_later": >-
+        Saisir les participants ultérieurement
+      "intro": >-
+        Veuillez nous indiquer les noms et dates de naissance de tous les participants
+        au voyage.
+      "title": >-
+        Participants au voyage
+    "rentalbike_request_step":
+      "intro": >-
+        Veuillez choisir l'option souhaitée pour votre vélo de location
+      "no_bikes_needed": >-
+        Aucun vélo de location n'est requis.
+      "rentalbikes_count": >-
+        Nombre de vélos de location
+      "title": >-
+        Vélo de location souhaité
+    "rentalcar_request_step":
+      "intro": >-
+        Veuillez choisir l'option souhaitée
+      "no_cars_needed": >-
+        Aucune voiture de location n'est nécessaire.
+      "rentalcars_count": >-
+        Nombre de voitures de location
+      "title": >-
+        Votre voiture de location
+    "request_step":
+      "intro": >-
+        Veuillez pour commencer nous indiquer globalement vos dates de voyage. Sur
+        la base de ces données, nous vous afficherons dans l'étape suivante les options
+        de réservation pertinentes pour vous.
+      "title": >-
+        Votre demande de devis
+    "steps_progress": >-
+      Étape %{step} sur %{total}
+    "steps":
+      "accommodation_request": >-
+        Hébergement
+      "contact": >-
+        Coordonnées
+      "flight_request": >-
+        Vols
+      "insurance_request": >-
+        Assurance
+      "invoice": >-
+        Facture
+      "island_hopping_request": >-
+        Saut d'île en île
+      "offer": >-
+        Devis
+      "participants": >-
+        Participants
+      "rentalbike_request": >-
+        Vélo de location
+      "rentalcar_request": >-
+        Voiture de location
+      "request": >-
+        Requête concernant
+      "summary": >-
+        Récapitulatif
+      "training_package_request": >-
+        Packages services
+    "summary_step":
+      "intro": >-
+        Veuillez vérifier vos informations. Vous pouvez également revenir aux différentes
+        étapes et les modifier.
+      "outro": >-
+        <strong>Attention:</strong> L'envoi de votre demande, n'entraîne pas une réservation
+        définitive. Nous examinerons d'abord la demande et vous enverrons ensuite
+        une offre individuelle.
+      "participant_placeholder":
+        "one": >-
+          Des informations sur un voyageur seront fournies ultérieurement.
+        "other": >-
+          Des informations sur %{count} voyageurs seront fournies ultérieurement.
+      "please_accept_tos_and_pp": >-
+        Veuillez accepter nos conditions générales de vente et notre politique de
+        confidentialité.
+      "submit": >-
+        Envoyer
+      "title": >-
+        Récapitulatif
+      "wishyouwhat_section_title": >-
+        Informations demande de devis
+    "training_package_step":
+      "details": >-
+        Informations complémentaires
+      "intro": >-
+        Veuillez sélectionner un de nos Packages
+      "title": >-
+        Votre Package
+  "booking_invoices":
+    "created": >-
+      La facture a été créée avec succès et peut être consultée sous peu
+    "created_error": >-
+      La facture n'a pas pu être créée.
+    "new":
+      "booking_calculated_price": >-
+        Total actuel de demande
+      "booking_resource_sku_groups": >-
+        SKU groupées
+      "booking_resource_skus": >-
+        SKU réservées
+      "booking_starts_on": >-
+        Date d'arrivée de demande
+      "full_payment_booking_resource_skus": >-
+        SKU exigibles en totalité
+      "headline": >-
+        Création facture %{name}
+      "headline_advance": >-
+        Facture d'acompte %{name}
+      "invalid_price_error": >-
+        Montant facturé non valide. La facture n'a pas pu être créée.
+      "partial_payment_booking_resource_skus": >-
+        SKU exigibles en partie
+      "canceled_booking_resource_skus": >-
+        SKU supprimés
+      "todays_date": >-
+        Date du jour
+      "with_first_and_final_payment": >-
+        payable en deux paiements partiels
+      "with_single_payment": >-
+        payable en une fois
+    "show":
+      "payments":
+        "one": >-
+          Date d'échéance
+        "other": >-
+          Dates d'échéance
+  "booking_mailer":
+    "created":
+      "subject": >-
+        [%{handle}] Nouvelle demande de %{name}
+  "booking_offers":
+    "created": >-
+      L'offre a été créée avec succès et peut être consultée sous peu
+  "booking_resource_sku_groups":
+    "calculate":
+      "error": >-
+        Ce n'était pas possible de calculer le prix du group.
+      "success": >-
+        Le prix de groupe a été calculés.
+    "create":
+      "cannot_hide_booking_resource_skus": >-
+        Les variantes de produit réservées ne peuvent pas être masquées automatiquement.
+      "fail_booking_booked": >-
+        La demande a déjà été enregistrée. Les SKU ne peuvent plus être groupées.
+      "must_add_booking_resource_skus": >-
+        S'il vous plait, ajoutez les éléments au group.
+      "success": >-
+        Groupage SKU effectué avec succès
+    "destroy":
+      "cannot_show_booking_resource_skus": >-
+        Les variantes de produit réservées ne peuvent pas être affichées automatiquement.
+      "success": >-
+        Le groupe a été supprimé avec succès
+    "edit":
+      "disable_partial_payment": >-
+        payable en une fois
+      "enable_partial_payment": >-
+        payable en deux paiements partiels
+    "new":
+      "booking_resource_skus": >-
+        SKU réservation
+      "disable_partial_payment": >-
+        payable en une fois
+      "enable_partial_payment": >-
+        payable en deux paiements partiels
+      "title": >-
+        Grouper SKU
+    "update":
+      "success": >-
+        Le groupe a été mis à jour avec succès
+  "booking_resource_skus":
+    "assign_booking_resource_sku_attributes":
+      "booking_resource_sku_missing": >-
+        La ressource réservée n'a pas pu être trouvée
+    "block":
+      "success": >-
+        La ressource a été bloquée avec succès
+    "create":
+      "success": >-
+        La ressource a été réservée avec succès
+    "destroy":
+      "success": >-
+        La ressource réservée a été supprimée avec succès
+    "duplicate":
+      "success": >-
+        La ressource réservée a été dupliquée avec succès
+    "edit":
+      "flight":
+        "pnr_parser_hint": >-
+          Formats supportés: Bistro, Amadeus, manuel; exemple de format manuel: UA930
+          HAM FUE 01061998 1130 1200+1
+        "pnr_parser_label": >-
+          Insérez les données PNR ici
+      "participants": >-
+        Associer les compagnons de voyage
+      "submit": >-
+        Mettre à jour
+      "title": >-
+        Modifier %{name}
+      "transfer":
+        "search_label": >-
+          Saisir le numéro de vol ici
+        "select": >-
+          Sélectionner
+        "select_reference_type_id": >-
+          Recherche de vol ici
+    "errors":
+      "not_available": >-
+        Cette ressource n'est malheureusement pas (ou plus) disponible.
+    "new":
+      "select_booking_resource_sku_step_title": >-
+        Sélectionnez le type de ressource
+      "select_resource_type": >-
+        Sélectionnez
+      "select_resource_type_step_title": >-
+        Sélection du type de ressource
+      "title": >-
+        Ajouter ressource
+    "show":
+      "title": >-
+        %{name}
+    "states":
+      "blocked_by": >-
+        Bloqué par %{name}
+      "booked_by": >-
+        Réservé par %{name}
+    "table":
+      "row":
+        "date_range": >-
+          du %{starts_on} au %{ends_on}
+    "unblock":
+      "success": >-
+        La ressource a été libérée avec succès
+    "update":
+      "success": >-
+        La ressource réservée a été mise à jour avec succès
+  "bookings":
+    "assign_to_me": >-
+      M'assigner
+    "check_booking_resource_skus_availability":
+      "not_available": >-
+        La ressource %{name} n'est pas (ou plus) disponible.
+      "resource_sku_missing": >-
+        La ressource %{name} n'existe pas (ou plus).
+    "create":
+      "success": >-
+        Réservation créée avec succès
+    "duplicate":
+      "success": >-
+        Réservation dupliquée avec succès.
+    "edit":
+      "search_participant_placeholder": >-
+        Recherche de participant·e
+      "title": >-
+        Modifier la demande de devis
+    "form":
+      "add_participant_link": >-
+        Ajouter un participant
+      "participants":
+        "title": >-
+          Participant
+      "submit": >-
+        Envoyer
+    "index":
+      "create_booking_link": >-
+        Ajouter une demande
+      "link_to_booking": >-
+        Voir la demande
+      "title":
+        "one": >-
+          1 réservation
+        "other": >-
+          %{count} réservations
+    "new":
+      "existing_customer": >-
+        Client existant
+      "new_customer": >-
+        Nouveau client
+      "next_step": >-
+        Étape suivante
+      "prev_step": >-
+        Étape précédente
+      "select_customer": >-
+        Sélectionner client
+      "select_product_variant": >-
+        Sélectionner produit
+      "submit": >-
+        Envoyer la demande de réservation
+      "title": >-
+        Création réservation
+    "nights": >-
+      Nuitées
+    "not_assigned": >-
+      Non assigné
+    "secondary_state":
+      "error": >-
+        Ce n'était pas possible d'ajuster l'état secondaire.
+      "invoice_missing": >-
+        facture absente
+      "invoice_sent": >-
+        facture envoyée
+      "offer_missing": >-
+        devis absent
+      "offer_rejected": >-
+        devis rejeté
+      "offer_sent": >-
+        devis envoyé
+    "show":
+      "accommodation_request":
+        "title": >-
+          Hébergement
+      "add_resource": >-
+        Ajouter ressource
+      "booking_documents": >-
+        Devis/ factures
+      "booking_events": >-
+        Chronologie
+      "booking_resource_skus":
+        "actions":
+          "block": >-
+            Bloquer
+      "buttons":
+        "cancel_booking": >-
+          Annuler réservation
+        "close_booking": >-
+          Fermer demande
+        "commit_booking": >-
+          Enregistrer demande
+        "create_invoice": >-
+          Créer facture
+        "create_offer": >-
+          Créer devis
+        "duplicate": >-
+          Dupliquer demande
+        "invoice_created": >-
+          Facture créée
+        "offer_created": >-
+          Devis créé
+        "reopen": >-
+          Réouvrir la demande
+        "reopen_confirmation": >-
+          La modification d'une réservation fixe peut entraîner des problèmes de comptabilité.
+          Si vous êtes conscient des risques, vous pouvez continuer.
+      "click_to_edit_due_on": >-
+        Fixer date d'échéance
+      "click_to_edit_secondary_state": >-
+        Modifier l'état secondaire manuellement
+      "create_booking_resource_sku_group": >-
+        Grouper SKU
+      "customer":
+        "address":
+          "empty": >-
+            Non spécifié.
+        "email":
+          "empty": >-
+            Non spécifié.
+        "phone":
+          "empty": >-
+            Non spécifié.
+        "title": >-
+          Coordonnées
+      "edit_due_on": >-
+        Modifier date d'échéance
+      "edit_secondary_state": >-
+        Modifier l'état secondaire
+      "flight_request":
+        "title": >-
+          Détails des vols
+      "missing_details": >-
+        Données manquantes
+      "newsletter": >-
+        Newsletter
+      "participants":
+        "empty": >-
+          Non spécifié.
+        "title": >-
+          Participants
+      "privacy_policy_accepted": >-
+        Politique de confidentialité lue et acceptée
+      "privacy_policy_not_accepted": >-
+        Politique de confidentialité non acceptée
+      "remaining_amount": >-
+        Montant restant
+      "rentalbike_request":
+        "title": >-
+          Demande vélo de location
+      "rentalcar_request":
+        "title": >-
+          Demande voiture de location
+      "request":
+        "ends_on":
+          "empty": >-
+            Non spécifié.
+        "starts_on":
+          "empty": >-
+            Non spécifié.
+        "title": >-
+          Demande de devis
+      "resources":
+        "empty": >-
+          Non spécifié.
+        "title": >-
+          Options disponibles
+      "show_details": >-
+        Plus d'informations
+      "terms_of_service_accepted": >-
+        Conditions générales de vente acceptées
+      "terms_of_service_not_accepted": >-
+        Conditions générales de vente non acceptées
+      "terms_of_service":
+        "link": >-
+          Télécharger les conditions générales de vente & politique de confidentialité
+        "title": >-
+          Conditions générales de vente & politique de confidentialité
+      "timeline":
+        "messages":
+          "booking_created": >-
+            La réservation a été créée par %{name}
+          "booking_updated": >-
+            La réservation a été modifiée par %{name}
+          "invoice_created": >-
+            Facture émise le
+          "offer_created": >-
+            Devis émis le
+        "title": >-
+          Chronologie
+      "total_price": >-
+        Prix total
+      "unprocessed_resources":
+        "empty": >-
+          Il n'y a (plus) rien à faire ici.
+        "title": >-
+          Options demandées
+    "states":
+      "blocked": >-
+        Bloqué
+      "booked": >-
+        Réservé
+      "canceled": >-
+        Annulé
+      "closed": >-
+        Fermé
+      "draft": >-
+        Ébauche
+      "in_progress": >-
+        En cours
+      "requested": >-
+        Nouveau
+    "status_changes":
+      "assigned": >-
+        La demande vous a été attribuée.
+      "canceled": >-
+        La demande a été annulée.
+      "closed": >-
+        La demande a été fermée.
+      "committed": >-
+        La demande a été enregistrée.
+      "reopened": >-
+        La demande a été réouverte.
+      "unassigned": >-
+        L'attribution de la demande à votre égard a été supprimée.
+      "updated": >-
+        La demande a été mise à jour
+    "unassign": >-
+      Libérer
+  "breadcrumbs":
+    "reports":
+      "product_skus": >-
+        Analyse de variantes du produit
+  "calculate": >-
+    Recalculer
+  "calculator": >-
+    Calculatrice
+  "calendar":
+    "select_date": >-
+      Sélectionnez la date
+  "cancel": >-
+    Annuler
+  "close": >-
+    Fermer
+  "components":
+    "details":
+      "summary": >-
+        Informations complémentaires
+  "consecutive_days_ranges":
+    "form":
+      "add": >-
+        Ajouter
+    "new":
+      "title": >-
+        nombre de jours consécutifs
+  "cost_centers":
+    "edit":
+      "title": >-
+        Modifier centre de coûts %{name}
+    "index":
+      "add_cost_center_link": >-
+        Ajouter un nouveau centre de coûts
+      "title": >-
+        Centres de coûts
+    "new":
+      "title": >-
+        Création nouveau centre de coûts
+  "create": >-
+    Ajouter nouveau
+  "customers":
+    "create":
+      "general_id_error": >-
+        Ce n'était pas possible d'associer le numéro general de client.
+      "success": >-
+        Client créé avec succès
+    "edit":
+      "submit": >-
+        Mettre à jour
+      "title": >-
+        Mettre à jour données clients
+    "index":
+      "add_customer_link": >-
+        Ajouter un client
+      "bookings_count": >-
+        Réservations (%{count})
+      "bookings_income": >-
+        Chiffre d'affaire
+      "title":
+        "one": >-
+          1 client
+        "other": >-
+          %{count} clients
+    "new":
+      "submit": >-
+        Enregistrer
+      "title": >-
+        Nouveau client
+    "show":
+      "booking": >-
+        Demande
+      "empty_bookings": >-
+        Jusqu'ici, il n'y a pas de réservations pour ce client.
+  "date_range": >-
+    Période
+  "de": >-
+    Allemand
+  "delete": >-
+    Supprimer
+  "duplicate": >-
+    Dupliquer
+  "edit": >-
+    Modifier
+  "empty": >-
+    non spécifié
+  "en": >-
+    Anglais
+  "export_csv": >-
+    Export CSV
+  "false": >-
+    Non
+  "featured_image": >-
+    Photo principale
+  "filter":
+    "assignee_id": >-
+      Utilisateur
+    "clear": >-
+      Supprimer
+    "event": >-
+      Type événement
+    "invoice_date": >-
+      Date de facture en
+    "item_type": >-
+      Entité
+    "product_id": >-
+      Produit
+    "product_sku_id": >-
+      Variante du produit
+    "request": >-
+      Options demande
+    "resource_id": >-
+      Ressource
+    "resource_ids": >-
+      Ressource
+    "resource_type": >-
+      Type ressource
+    "resource_type_id": >-
+      Type de ressource
+    "search_for": >-
+      Recherche
+    "season": >-
+      Saison
+    "season_id": >-
+      Saison
+    "secondary_state": >-
+      état secondaire
+    "status": >-
+      État
+    "submit": >-
+      Filtre
+    "title": >-
+      Filtrer par
+  "financial_accounts":
+    "edit":
+      "title": >-
+        Modifier compte compta fin. %{name}
+    "index":
+      "add_financial_account_link": >-
+        Créer compte compta fin.
+      "title": >-
+        Compte compta fin.
+    "new":
+      "title": >-
+        Nouveau compte compta fin.
+  "flight": >-
+    Vol
+  "forms":
+    "select":
+      "all": >-
+        Tout sélectionner
+      "empty": >-
+        Veuillez sélectionner une option
+  "fr": >-
+    Français
+  "frontoffice":
+    "accommodations":
+      "index":
+        "available_accommodations": >-
+          Logements disponibles
+        "empty": >-
+          Nous ne sommes actuellement pas en mesure de vous proposer une chambre pour
+          cet hébergement.
+        "jump_to_rooms": >-
+          Voir les chambres
+        "proceed_without_rooms": >-
+          Sauter
+        "room_assignments":
+          "add_rooms": >-
+            Ajouter des chambres
+          "adults": >-
+            Adultes: %{count}
+          "babies": >-
+            Bébés: %{count}
+          "change_rooms": >-
+            Changer de chambre
+          "kids": >-
+            Enfants: %{count}
+          "preview": >-
+            Chambre %{room_number}
+          "proceed_step_by_step": >-
+            Veuillez selectionner votre chambre étape par étape.
+        "select": >-
+          Sélectionner
+        "title": >-
+          Votre hébergement
+      "show":
+        "preview":
+          "empty": >-
+            Ces chambres sont sur demande. Nous vous vérifierons volontiers leur disponibilité.
+    "bookings":
+      "steps":
+        "accommodation_request":
+          "incomplete_assignment_warning": >-
+            Attention: l'occupation actuelle ne correspond pas aux données de l'étape
+            1.
+          "intro": >-
+            Veuillez tout d'abord sélectionner le nombre de chambres requises et leur
+            attribuer les occupants ensuite
+          "no_rooms_needed": >-
+            Pas d'hébergement requis
+          "room_assignment": >-
+            Occupation
+          "rooms_count": >-
+            Nombre de chambres / appartements
+          "title": >-
+            Votre hébergement
+          "unassigned_adults": >-
+            Adultes non assignés:
+          "unassigned_babies": >-
+            Bébés non assignés:
+          "unassigned_kids": >-
+            Enfants non assignés:
+        "flight_request":
+          "flights_count": >-
+            Nombre de vols
+        "insurance_request":
+          "details": >-
+            Informations complémentaires
+          "empty": >-
+            Nous ne pouvons actuellement pas vous proposer de forfait d'assurance.
+          "intro": >-
+            Veuillez choisir parmi les différentes options d'assurance
+          "title": >-
+            Assurance
+        "island_hopping_request":
+          "empty": >-
+            Pour le moment, nous ne pouvons pas vous proposer de saut d'île en île.
+          "intro": >-
+            Les îles hawaiiennes ne sont qu‘à quelques minutes d‘avion les unes des
+            autres. Lorsqu‘on a déjà voyagé jusqu‘à l‘autre bout de la planète, pourquoi
+            ne pas visiter aussi Maui, Oahu ou Kauai? Chaque île a tout comme Big
+            Island son charme particulier. Cela en vaut la peine, même pour 2 jours
+            par île!
+          "title": >-
+            Votre saut d'île en d'île
+      "success":
+        "description": >-
+          Nous vous répondrons dans les prochains jours.
+        "title": >-
+          Merci pour votre demande de devis
+      "summary":
+        "accept_privacy_policy": >-
+          J'ai lu la politique de confidentialité et je l'accepte.
+        "accept_terms_of_service": >-
+          J'ai lu les conditions générales de vente ainsi que les termes d'utilisation
+          et je les accepte.
+        "subscribe_to_newsletter": >-
+          Je désire m'abonner à la Newsletter
+        "transportation":
+          "flights":
+            "one": >-
+              1x Vol
+            "other": >-
+              %{count}x Vols
+          "rentalbikes":
+            "one": >-
+              1x vélo de location
+            "other": >-
+              %{count}x vélos de location
+          "rentalcars":
+            "one": >-
+              1x voiture de location
+            "other": >-
+              %{count}x voitures de location
+    "errors":
+      "bad_request": >-
+        Il y a malheureusement eu une erreur.
+      "not_found":
+        "content_line_1": >-
+          Nous ne trouvons pas ce voyage dans notre offre.
+        "content_line_2": >-
+          Veuillez contacter l'un de nos collaborateurs.
+        "headline": >-
+          Oups!
+      "too_many_rooms": >-
+        Plus de chambres ont été réservées que nécessaire
+    "inquiries":
+      "new":
+        "description": >-
+          Veuillez remplir le formulaire suivant afin d'obtenir un devis s'il vous
+          plaît.
+        "submit": >-
+          Demander un devis maintenant
+      "success":
+        "confirmation": >-
+          Nous vous répondrons dans les prochains jours.
+        "title": >-
+          Merci pour votre demande de devis
+    "participants":
+      "participant_types":
+        "adult": >-
+          Adulte
+        "adults": >-
+          Adulte
+        "all": >-
+          Tous les participants
+        "babies": >-
+          Bébé
+        "baby": >-
+          Bébé
+        "kid": >-
+          Enfant
+        "kids": >-
+          Enfant
+    "products":
+      "info_link_name": >-
+        Info
+      "product_sku":
+        "book": >-
+          Réserver
+        "get_offer": >-
+          Demande de devis
+      "show":
+        "bookable_trips": >-
+          Voyages réservables
+  "genders":
+    "diverse": >-
+      Divers
+    "female": >-
+      Féminin
+    "male": >-
+      Masculin
+  "helpers":
+    "placeholder":
+      "tag":
+        "handle": >-
+          Occupation à une personne
+        "name": >-
+          Occupation à une personne
+  "hidden": >-
+    Poste interne
+  "home":
+    "index":
+      "hello": >-
+        Bonjour %{name}!
+      "unassigned_customers":
+        "one": >-
+          Une demande n'est actuellement pas en cours de traitement.
+        "other": >-
+          %{count} demandes ne sont actuellement pas en cours de traitement.
+  "image_loading": >-
+    Chargement de la photo...
+  "image_unavailable": >-
+    Aucune photo n'a encore été ajoutée.
+  "images": >-
+    Photos
+  "inventories":
+    "create":
+      "error": >-
+        L'inventaire n'a pas pu être créé.
+      "success": >-
+        L'inventaire a été créé avec succès.
+    "edit":
+      "title": >-
+        Modifier inventaire
+    "form":
+      "add_availability_link": >-
+        Ajouter plus de disponibilité
+      "add_availability_title": >-
+        Ajouter disponibilité
+      "availabilities_title": >-
+        Disponibilités
+      "remove_availability_title": >-
+        Supprimer la disponibilité
+    "index":
+      "title": >-
+        Inventaire
+    "inventory_types":
+      "quantity": >-
+        Quantité
+      "quantity_in_date_range": >-
+        Nombre pour la période
+    "new":
+      "title": >-
+        Création inventaire
+    "show":
+      "availabilities_empty_message": >-
+        Aucune disponibilité n'a encore été configurée pour cet inventaire.
+      "availabilities_title": >-
+        Disponibilités
+      "booking_resource_skus_empty_message": >-
+        Aucune disponibilité n'a encore été associée.
+      "description_missing": >-
+        Pas de description enregistrée
+      "resource_skus_title": >-
+        SKU associées
+      "title": >-
+        Inventaire
+    "update":
+      "error": >-
+        L'inventaire n'a pa pu être mis à jour
+      "success": >-
+        L'inventaire a été mis à jour avec succès
+  "mailers":
+    "booking_offer":
+      "accepted": >-
+        Le devis %{id} a été accepté.
+      "rejected": >-
+        Le devis %{id} a été rejeté.
+  "navigation":
+    "advance_booking_invoices": >-
+      Factures d'acompte
+    "booking": >-
+      %{id}
+    "booking_events": >-
+      Historique des changements
+    "booking_invoices": >-
+      Factures
+    "booking_offers": >-
+      Devis
+    "booking_resource_sku_groups": >-
+      Groupe des SKU
+    "booking_resource_skus": >-
+      Ressources réservées
+    "bookings": >-
+      Demandes
+    "close_menu": >-
+      Quitter menu
+    "cost_centers": >-
+      Centres de coûts
+    "custom_attributes": >-
+      Champs supplémentaires
+    "customers": >-
+      Clients
+    "easybill": >-
+      Easybill
+    "edit": >-
+      Formulaire
+    "edit_booking_credit": >-
+      Modifier note de crédit/acompte %{id}
+    "edit_booking_participant": >-
+      Modifier participant(e)
+    "edit_booking_resource_sku": >-
+      Modifier ressource %{handle}
+    "employees": >-
+      Collaborateurs
+    "financial_accounts": >-
+      Comptes compta fin.
+    "home": >-
+      Page d'accueil
+    "inventories": >-
+      Inventaire
+    "logout": >-
+      Déconnexion
+    "new_advance_booking_invoice": >-
+      Créer facture d'acompte
+    "new_booking_credit": >-
+      Créer note de crédit/acompte
+    "new_booking_invoice": >-
+      Créer facture
+    "new_booking_resource_sku": >-
+      Ajouter ressource
+    "new_booking_resource_sku_group": >-
+      Grouper SKU
+    "occupation_configurations": >-
+      Configurations d'occupation
+    "open_menu": >-
+      Ouvrir le menu
+    "participants": >-
+      Participants
+    "pricings": >-
+      Calculs du prix
+    "product_booking_resource_skus": >-
+      Variantes de ressource
+    "product_configurations": >-
+      Configuration du produit
+    "products": >-
+      Produits
+    "reports": >-
+      Analyse
+    "resource_types": >-
+      Types de ressources
+    "resources": >-
+      Ressources
+    "settings": >-
+      Paramètres
+    "tags": >-
+      Tags
+  "not_entered": >-
+    Non spécifié.
+  "of": >-
+    de
+  "own": >-
+    moi
+  "pagination":
+    "next": >-
+      Page suivante
+    "prev": >-
+      Retour
+  "partials":
+    "autocomplete":
+      "validation_message": >-
+        Veuillez sélectionner une option
+    "booking_section":
+      "flight": >-
+        Vol
+      "rentalbike": >-
+        Vélo de location
+      "rentalcar": >-
+        Voiture de location
+    "bookings":
+      "booking_resource_skus":
+        "destroy": >-
+          Dissoudre
+    "table":
+      "actions": >-
+        Actions
+  "participant_types":
+    "adult": >-
+      Adulte
+    "all_groups": >-
+      Toutes les catégories de personnes
+    "baby": >-
+      Bébé
+    "kid": >-
+      Enfant
+  "participants":
+    "edit":
+      "submit": >-
+        Mettre à jour
+      "title": >-
+        Modifier participant(e) au voyage
+    "participant_form":
+      "has_assigned_booking_resource_skus": >-
+        Le participant ne peut pas être supprimé. Veuillez d'abord supprimer toutes
+        les références dans la demande.
+    "placeholder_name": >-
+      Informations incomplètes
+  "product_booking_resource_skus":
+    "create":
+      "success": >-
+        Ressource %{name} réservée avec succès
+    "index":
+      "title": >-
+        SKU réservation
+  "product_participants":
+    "index":
+      "title": >-
+        Participants au voyage
+  "product_skus":
+    "destroy_product_sku":
+      "errors":
+        "has_active_bookings": >-
+          %{name} a des demandes actives. Ce n'est pas possible de le supprimer.
+    "destroy":
+      "confirm_dialogue": >-
+        Voulez-vous vraiment supprimer cette variante produit?
+      "success": >-
+        La variante produit a été supprimé avec succès.
+    "edit":
+      "booking_configuration": >-
+        Paramètres standard demande
+    "update":
+      "error": >-
+        La variante du produit n'a pa pu être mise à jour. Veuillez vérifier le message
+        d'erreur.
+      "success": >-
+        La variante du produit a été mise à jour avec succès
+  "products":
+    "edit":
+      "title": >-
+        Modifier produit
+    "form":
+      "add_product_sku": >-
+        Ajouter
+      "frontoffice_steps_section": >-
+        Étape Frontoffice
+      "product_skus_section": >-
+        Variantes du produit
+      "resources_section": >-
+        Ressources
+      "with_multiple_product_skus": >-
+        Le produit doit être proposé en plusieurs variantes.
+    "index":
+      "add_product_link": >-
+        Ajouter un produit
+      "title":
+        "one": >-
+          1 produit
+        "other": >-
+          %{count} produits
+    "new":
+      "title": >-
+        Création produit
+    "show":
+      "add_season_link": >-
+        Ajouter une saison
+      "current_season":
+        "published": >-
+          Date de publication: %{date}
+      "description": >-
+        Description
+      "no_current_season": >-
+        Il n'y a pas de saison publiée.
+      "no_seasons_added": >-
+        Il n'y a pas de saisons.
+      "not_yet_published": >-
+        Le produit n'a pas encore été publié pour le front office.
+      "product_sku_preview":
+        "bookings_link": >-
+          Demandes  (%{count})
+        "product_sku_edit_link": >-
+          Modifier
+        "test": >-
+          Aperçu
+      "published_at": >-
+        Le produit a été publié pour le front office: %{datetime}
+      "season_preview":
+        "publish": >-
+          publier
+      "tags": >-
+        Tags
+      "visibility": >-
+        Visibilité
+  "refresh": >-
+    Mettre à jour
+  "remove": >-
+    Supprimer
+  "rentalbike": >-
+    Vélo de location
+  "rentalcar_categories":
+    "category_codes":
+      "C": >-
+        Compact
+      "D": >-
+        Compact Elite
+      "E": >-
+        Economy
+      "F": >-
+        Fullsize
+      "G": >-
+        Fullsize Elite
+      "H": >-
+        Economy Elite
+      "I": >-
+        Intermediate
+      "J": >-
+        Intermediate Elite
+      "L": >-
+        Luxury
+      "M": >-
+        Mini
+      "N": >-
+        Mini Elite
+      "O": >-
+        Oversize
+      "P": >-
+        Premium
+      "R": >-
+        Standard Elite
+      "S": >-
+        Standard
+      "U": >-
+        Premium Elite
+      "W": >-
+        Luxury Elite
+      "X": >-
+        Special
+    "fuel_codes":
+      "A": >-
+        Hydrogen with AC
+      "B": >-
+        Hydrogen without AC
+      "C": >-
+        Electric without AC
+      "D": >-
+        Diesel with AC
+      "E": >-
+        Electric with AC
+      "F": >-
+        Multi Fuel/Power without AC
+      "H": >-
+        Hybrid with AC
+      "I": >-
+        Hybrid without AC
+      "L": >-
+        LPG/Compressed Gas with AC
+      "M": >-
+        Multi Fuel/Power with AC
+      "N": >-
+        Unspecified Fuel/Power without AC
+      "Q": >-
+        Diesel without AC
+      "R": >-
+        Unspecified Fuel/Power with AC
+      "S": >-
+        LPG/Compressed Gas without AC
+      "U": >-
+        Ethanol with AC
+      "V": >-
+        Petrol with AC
+      "X": >-
+        Ethanol without AC
+      "Z": >-
+        Petrol without AC
+    "trans_codes":
+      "A": >-
+        Auto Unspecified Drive
+      "B": >-
+        Auto 4WD
+      "C": >-
+        Manual AWD
+      "D": >-
+        Auto AWD
+      "M": >-
+        Manual unspecified
+      "N": >-
+        Manual 4WD
+    "type_codes":
+      "B": >-
+        2/3 Door
+      "C": >-
+        2/4 Door
+      "D": >-
+        4-5 Door
+      "E": >-
+        Coupe
+      "F": >-
+        SUV
+      "G": >-
+        Crossover
+      "H": >-
+        Motor Home
+      "J": >-
+        Open Air all terrain
+      "K": >-
+        Transporter
+      "L": >-
+        Limousine
+      "M": >-
+        Monospace
+      "N": >-
+        Roadster
+      "P": >-
+        Pick up Regular Cab
+      "Q": >-
+        Pick up Extended Cab
+      "R": >-
+        Recreational Vehicle
+      "S": >-
+        Sport
+      "T": >-
+        Convertible
+      "V": >-
+        Passenger Van
+      "W": >-
+        Wagon/Estate
+      "X": >-
+        Special
+      "Y": >-
+        2 Wheel Vehicle
+      "Z": >-
+        Special Offer Car
+  "rentalcar_types":
+  - >-
+    Economy
+  - >-
+    Mid-size
+  - >-
+    Minivan
+  - >-
+    Cabrio
+  - >-
+    SUV
+  - >-
+    Jeep
+  "reports":
+    "index":
+      "product_skus_link": >-
+        Analyse de variantes du produit
+      "title": >-
+        Analyse
+    "product_skus":
+      "index":
+        "no_product_skus_available": >-
+          Pas de variantes du produit
+        "title": >-
+          Analyse de %{count} sous-variante(s) produit
+      "table":
+        "header":
+          "participants_count": >-
+            Participants
+          "product_name": >-
+            Produit
+          "product_sku_name": >-
+            Variante du produit
+          "season_names": >-
+            Saisons
+  "required_fields": >-
+    Les champs marqués d'un * sont obligatoires.
+  "resource_sku_pricings":
+    "bulk_edit":
+      "add_resource_sku_pricing_link": >-
+        Ajout règle de calcul du prix
+      "title": >-
+        Calculs du prix
+    "calculation_types":
+      "consecutive_days": >-
+        nombre de jours consécutifs
+      "fixed": >-
+        Prix fixes
+      "per_person": >-
+        par personne
+      "per_person_and_night": >-
+        par personne et par nuit
+      "quantity": >-
+        par nuit
+    "destroy":
+      "success": >-
+        Règle de calcul du prix supprimée avec succès.
+    "edit":
+      "title": >-
+        Modifier le calcul du prix
+    "index":
+      "add_pricing_link": >-
+        Ajouter une règle de calcul du prix
+      "title": >-
+        Calculs du prix
+    "new":
+      "title": >-
+        Créer un calcul de prix
+    "show":
+      "affected_resource_skus": >-
+        Variantes de ressources affectées
+      "calculation_type": >-
+        Base de calcul
+      "match_all": >-
+        Tous les Tags doivent concorder
+      "participant_type": >-
+        Type de participant
+      "price": >-
+        Prix
+      "tags": >-
+        Tags
+      "title": >-
+        Détails du calcul du prix
+    "table":
+      "row":
+        "confirm_delete_message": >-
+          Voulez-vous vraiment supprimer la règle de calcul du prix?
+  "resource_sku":
+    "financials": >-
+      Données financières
+    "image": >-
+      Vignette
+    "pricing": >-
+      Tarification
+  "resource_skus":
+    "edit":
+      "disable_partial_payment": >-
+        payable en une fois
+      "enable_partial_payment": >-
+        payable en deux paiements partiels
+      "flight":
+        "add": >-
+          Ajouter un vol
+      "resource_sku_pricings_section":
+        "add": >-
+          Ajout règle de calcul du prix
+    "form":
+      "bulk_edit_resource_sku_pricings": >-
+        Modifier les règles de calcul du prix
+      "inventories":
+        "empty": >-
+          Aucune liste d'inventaire n'a encore été créée.
+      "occupation_configurations":
+        "empty": >-
+          Aucune configuration d'occupation n'a encore été effectuée.
+    "show":
+      "remove": >-
+        Supprimer cette variante
+      "remove_confirmation": >-
+        Voulez-vous vraiment supprimer cette variante?
+  "resource_types":
+    "accommodation": >-
+      Hébergement
+    "basic": >-
+      Divers
+    "date_range_with_daily_time_range": >-
+      Date à période journalière
+    "discount": >-
+      Rabais
+    "flight": >-
+      Vol
+    "index":
+      "title": >-
+        %{count} Types de ressource
+    "insurance": >-
+      Assurance
+    "island_hopping": >-
+      Saut d'île en île
+    "rentalbike": >-
+      Vélo de location
+    "rentalcar": >-
+      Voiture de location
+    "training_package": >-
+      Package Entraînement
+    "transfer": >-
+      Transfert
+  "resources":
+    "create":
+      "success": >-
+        Ressource créée avec succès
+    "edit":
+      "skus_title": >-
+        SKU (Stock Keeping Unit)
+    "form":
+      "add_resource_sku_link": >-
+        Ajouter une variante
+      "add_resource_sku_title": >-
+        Ajouter une variante
+      "images_title": >-
+        Photos
+    "index":
+      "title":
+        "one": >-
+          1 ressource
+        "other": >-
+          %{count} ressources
+    "new":
+      "title": >-
+        Création ressource
+    "show":
+      "description": >-
+        Description
+      "description_missing": >-
+        Aucune description n'a encore été ajoutée.
+      "no_linked_products": >-
+        La ressource n'a pas encore été affectée à un produit.
+      "summary": >-
+        Description brève
+      "teaser_text_missing": >-
+        Aucune description brève n'a encore été ajoutée.
+    "update":
+      "success": >-
+        Ressource mise à jour avec succès
+  "return": >-
+    retour
+  "rooms":
+    "one": >-
+      Chambre
+    "other": >-
+      Chambres
+  "save": >-
+    Sauvegarder
+  "search":
+    "close": >-
+      Ouvrir la recherche
+    "label": >-
+      Recherche de...
+    "open": >-
+      Fermer la recherche
+    "submit": >-
+      Rechercher
+  "seasons":
+    "breadcrumbs":
+      "add": >-
+        Ajouter une saison
+      "edit": >-
+        Modifier saison
+    "destroy":
+      "confirm_dialogue": >-
+        Voulez-vous vraiment supprimer cette saison?
+    "edit":
+      "title": >-
+        Modifier saison %{name}
+    "new":
+      "title": >-
+        Ajouter une nouvelle saison
+    "unpublished": >-
+      pas publié
+  "settings":
+    "accounting_records":
+      "table_headers":
+        "amount": >-
+          Montant
+        "booking_starts_on": >-
+          Date d'arrivée
+        "cost_center": >-
+          Centre de coûts
+        "credit": >-
+          Note de crédit
+        "customer": >-
+          Client
+        "customer_id": >-
+          Numéro client
+        "financial_account": >-
+          Compte compta fin.
+        "invoice": >-
+          Facture
+        "invoice_date": >-
+          Date de facture
+        "invoice_number": >-
+          Facture
+        "payment_due_on": >-
+          Date d'échéance
+        "product": >-
+          Produit
+        "product_sku": >-
+          Variante produit
+      "title": >-
+        Exporter documentation comptable
+      "title_short": >-
+        Comptabilité
+    "custom_attributes":
+      "create":
+        "success": >-
+          Champ supplémentaire créé avec succès
+      "destroy":
+        "success": >-
+          Champ supplémentaire supprimé avec succès
+      "edit":
+        "title": >-
+          Modifier champs supplémentaire %{name}
+      "index":
+        "add_custom_attribute_link": >-
+          Ajouter
+        "destroy_custom_attribute_confirmation": >-
+          Voulez-vous vraiment supprimer ce champ supplémentaire ? Ce champ sera supprimé
+          de toutes les données clients!
+        "title": >-
+          Champs supplémentaires
+      "new":
+        "title": >-
+          Nouveau champ supplémentaire
+      "update":
+        "success": >-
+          Champ supplémentaire mis à jour avec succès
+    "frontoffice_settings":
+      "address_line_1": >-
+        Nom & numéro de rue
+      "address_line_2": >-
+        Champ d'adresse supplémentaire
+      "city": >-
+        Ville
+      "company_name": >-
+        Nom association ou entreprise
+      "country": >-
+        Pays
+      "create":
+        "error": >-
+          Il n'a pas été possible de créer les paramètres.
+        "new": >-
+          Il n'existe pas de paramètres Frontoffice. Il y a besoin de les créer.
+        "success": >-
+          Les paramètres Frontoffice ont été créés avec succès.
+      "edit":
+        "title": >-
+          Modifier les paramètres Frontoffice
+      "email": >-
+        E-Mail
+      "external_privacy_policy_url": >-
+        URL politique de confidentialité
+      "external_terms_of_service_url": >-
+        URL conditions générales de vente
+      "new":
+        "title": >-
+          Nouveaux paramètres Frontoffice
+      "phone": >-
+        Numéro de téléphone
+      "state": >-
+        Etat
+      "title": >-
+        Paramètres Frontoffice
+      "update":
+        "error": >-
+          Il n'a pas été possible de modifier les paramètres.
+        "success": >-
+          Paramètres ont été modifiés avec succès.
+      "vat_id": >-
+        Numéro de TVA
+      "zip_code": >-
+        Code postal
+    "global_configurations":
+      "company_name": >-
+        Nom association ou entreprise
+      "contact_email": >-
+        E-mail
+      "contact_phone": >-
+        Numéro de téléphone
+      "create":
+        "error": >-
+          Les paramètres d'entreprise n'ont pas pu être créés.
+        "success": >-
+          Les paramètres d'entreprise ont été créés avec succès.
+      "edit":
+        "title": >-
+          Modifier les paramètres d'entreprise
+      "new":
+        "title": >-
+          Création paramètres d'entreprise
+      "partial_payment_percentage": >-
+        Pourcentage de paiement partiel
+      "term_of_final_payment": >-
+        Délais du paiement final (en jours)
+      "term_of_first_payment": >-
+        Délais du premier paiement (en jours)
+      "title": >-
+        Paramètres d'entreprise
+      "update":
+        "error": >-
+          Paramètres d'entreprise n'ont pas pu être modifiés.
+        "success": >-
+          Paramètres d'entreprise modifiés avec succès.
+    "index":
+      "cost_centers_link_name": >-
+        Gérer les centres de coûts
+      "custom_attributes_link_name": >-
+        Gérer les champs supplémentaires
+      "easybill_link_name": >-
+        Gérer les paramètres Easybill
+      "financial_accounts_link_name": >-
+        Gérer les comptes compta fin.
+      "me_link_name": >-
+        Modification profil
+      "occupation_configurations_link_name": >-
+        Gérer les types d'occupation
+      "tags_link_name": >-
+        Gérer les Tags
+      "title": >-
+        Paramètres
+      "users_link_name": >-
+        Gérer les utilisateurs
+    "me":
+      "edit":
+        "title": >-
+          Modifier mon profil
+      "show":
+        "title": >-
+          Mon profil
+    "occupation_configurations":
+      "attributes":
+        "adults": >-
+          Adultes
+        "babies": >-
+          Bébés
+        "kids": >-
+          Enfants
+        "name": >-
+          Nom
+      "index":
+        "add_occupation_configuration_link": >-
+          Ajouter
+        "title": >-
+          Configuration occupation
+    "tags":
+      "create":
+        "success": >-
+          Tag ajouté avec succès.
+      "edit":
+        "title": >-
+          Modifier Tag %{name}
+      "form":
+        "title": >-
+          Créer Tag
+      "index":
+        "add_tag_link_name": >-
+          Ajouter Tag
+        "title": >-
+          Tags
+      "new":
+        "title": >-
+          Nouveau Tag
+      "update":
+        "success": >-
+          Tag mis à jour avec succès
+    "users":
+      "edit":
+        "title": >-
+          Modifier utilisateur
+      "index":
+        "title": >-
+          Gestion utilisateurs
+      "invite":
+        "title": >-
+          Inviter utilisateur
+      "show":
+        "title": >-
+          Utilisateurs
+  "show": >-
+    Afficher
+  "show_more": >-
+    Afficher plus
+  "skip_to_content": >-
+    Aller directement au contenu
+  "start_price": >-
+    à partir de %{price}
+  "tags":
+    "associations":
+      "empty": >-
+        Aucun tag n'a encore été attribué
+  "true": >-
+    Oui
+  "update": >-
+    Mettre à jour
+  "user":
+    "change_password":
+      "submit": >-
+        Changer mot de passe
+      "title": >-
+        Changer mot de passe
+    "email":
+      "title": >-
+        E-Mail
+    "first_name":
+      "title": >-
+        Prénom
+    "last_name":
+      "title": >-
+        Nom de famille
+    "links":
+      "forgot_your_password": >-
+        Avez-vous oublié votre mot de passe?
+      "resend_confirmation_instructions": >-
+        Envoyer à nouveau les instructions
+      "resend_unlock_instructions": >-
+        Renvoyer les instructions pour réinitialiser le mot de passe
+      "sign_in": >-
+        Connexion
+      "sign_in_with_omniauth_provider": >-
+        Connection avec %{provider}
+      "sign_up": >-
+        S'inscrire
+    "login":
+      "remember_me": >-
+        Rester enregistré
+      "submit": >-
+        Se connecter
+      "title": >-
+        Connexion
+    "password_confirmation":
+      "title": >-
+        Confirmer le mot de passe
+    "password":
+      "title": >-
+        Mot de passe
+    "resend_confirmation_instructions":
+      "submit": >-
+        Envoyer
+      "title": >-
+        Envoyer à nouveau les instructions
+    "reset_password":
+      "submit": >-
+        Réinitialisation du mot de passe
+      "title": >-
+        Mot de passe oublié
+    "sign_up":
+      "submit": >-
+        S'enregistrer
+      "title": >-
+        Enregistrement
+    "subdomain":
+      "title": >-
+        sous-domaine
+    "unlock":
+      "submit": >-
+        OK
+      "title": >-
+        Instructions pour réinitialiser le mot de passe
+    "username":
+      "title": >-
+        Nom d'utilisateur
+  "users":
+    "create":
+      "success": >-
+        Utilisateur créé avec succès
+    "edit":
+      "title": >-
+        Mise à jour profil
+    "index":
+      "title": >-
+        Administration des utilisateurs
+    "invitations":
+      "new":
+        "accept_invitation": >-
+          Accepter l'invitation
+    "new":
+      "title": >-
+        Création utilisateur
+  "visible": >-
+    Visible par les externes

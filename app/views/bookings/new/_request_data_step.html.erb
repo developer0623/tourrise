@@ -1,0 +1,116 @@
+<section class="Section">
+  <%= render "customers/card", customer: @customer %>
+</section>
+
+<section class="Section">
+  <%= form_with model: @booking, html: { autocomplete: :off, data: { turbo: false } } do |f| %>
+    <%= f.hidden_field :customer_id, value: params[:customer_id] %>
+    <%= f.hidden_field :product_sku_id, value: params[:product_sku_id] %>
+
+    <div class="Form-element">
+      <div class="Input Input--select">
+        <%= label_tag "product", Booking.human_attribute_name(:product), class: "Input-label" %>
+
+        <%= text_field_tag "product", @product_sku.name,
+          name: nil,
+          disabled: true,
+          class: "Input-element"
+        %>
+      </div>
+    </div>
+
+    <div class="Form-elementGroup">
+      <div class="Input Input--select">
+        <%= f.label :season, class: "Input-label Input-label--required" %>
+
+        <%= f.select :season_id,
+          options_from_collection_for_select(@product_sku.seasons, "id", "name", @season&.id),
+          {},
+          required: true,
+          class: "Input-element Input--select js-SeasonSelection"
+        %>
+      </div>
+
+      <div class="Input">
+        <%= f.label :starts_on, class: "Input-label Input-label--required" %>
+
+        <%= f.date_field :starts_on,
+          required: true,
+          class: "Input-element",
+          value: f.object.starts_on || @product_sku.seasonal_product_skus.find_by(season: @season)&.starts_on,
+          min: Date.tomorrow
+        %>
+      </div>
+
+      <div class="Input">
+        <%= f.label :ends_on, class: "Input-label Input-label--required" %>
+
+        <%= f.date_field :ends_on,
+          required: true,
+          class: "Input-element",
+          value: f.object.ends_on || @product_sku.seasonal_product_skus.find_by(season: @season)&.ends_on,
+          min: Date.tomorrow + 1.day
+        %>
+      </div>
+    </div>
+
+    <div class="Form-elementGroup">
+      <div class="Form-element">
+        <div class="Input">
+          <%= f.label :adults, class: "Input-label" %>
+
+          <%= f.number_field :adults,
+            value: 1,
+            min: 1,
+            class: "Input-element"
+          %>
+        </div>
+      </div>
+
+      <div class="Form-element">
+        <div class="Input">
+          <%= f.label :kids, class: "Input-label" %>
+
+          <%= f.number_field :kids,
+            value: 0,
+            min: 0,
+            class: "Input-element"
+          %>
+        </div>
+      </div>
+
+      <div class="Form-element">
+        <div class="Input">
+          <%= f.label :babies, class: "Input-label" %>
+
+          <%= f.number_field :babies,
+            value: 0,
+            min: 0,
+            class: "Input-element"
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class="Form-element">
+      <div class="Input">
+        <%= f.label :wishyouwhat, class: "Input-label" %>
+
+        <%= f.rich_text_area :wishyouwhat,
+          value: @booking.wishyouwhat,
+          class: "Input-element"
+        %>
+      </div>
+    </div>
+
+    <div class="Form-buttons">
+      <div class="Form-button">
+        <%= link_to t("bookings.new.prev_step"), :back, class: "Button Button--secondary" %>
+      </div>
+
+      <div class="Form-button">
+        <%= f.submit t("bookings.new.next_step"), class: "Button" %>
+      </div>
+    </div>
+  <% end %>
+</section>

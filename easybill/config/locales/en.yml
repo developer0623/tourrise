@@ -1,0 +1,50 @@
+en:
+  "easybill":
+    "booking_resource_sku_mapper":
+      "flight":
+        "departure": >-
+          Departure
+        "destination": >-
+          Destination
+        "flight_code": >-
+          Flightcode
+    "employees":
+      "edit":
+        "title": >-
+          Edit employee link %{name}
+      "index":
+        "title": >-
+          Linked employees
+      "new":
+        "title": >-
+          Add new link to employee
+    "product_configurations":
+      "index":
+        "title": >-
+          Product configurations
+      "new":
+        "title": >-
+          Add new product configuration
+      "edit":
+        "title": >-
+          Edit product configuration %{name}
+    "mappers":
+      "booking_resource_sku_mapper":
+        "nights":
+          "one": >-
+            one night
+          "other": >-
+            %{count} nights
+        "people":
+          "one": >-
+            one person
+          "other": >-
+            %{count} people each
+    "settings":
+      "index":
+        "title": >-
+          Easybill settings
+        "employees_link": 
+          Linked employees
+        "product_configurations_link": 
+          Product configurations

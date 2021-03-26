@@ -1,0 +1,20 @@
+<% offer_state =  if @booking_offer.accepted_at.present?
+                    "accepted"
+                  elsif @booking_offer.rejected_at.present?
+                    "rejected"
+                  end
+%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Hello <%= @booking_offer.booking.assignee.name %>!</h3>
+    <p>
+      Offer no. <%= @booking_offer.id %> of booking <%= @booking_offer.booking.id %> was <%= "#{offer_state}" %> by
+      <%= "#{@booking_offer.booking.customer.first_name} #{@booking_offer.booking.customer.last_name}" %>. Please check the <%= link_to 'booking', booking_url(id: @booking_offer.booking.id, locale: locale) %> state.<br>
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>

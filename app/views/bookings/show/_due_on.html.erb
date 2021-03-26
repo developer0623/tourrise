@@ -1,0 +1,33 @@
+<% booking = local_assigns.fetch(:booking) %>
+<% redirect_path = local_assigns.fetch(:redirect_path, request.fullpath) %>
+
+<turbo-frame id="bookingDueOn<%=booking.id%>">
+<% if booking.user_can_edit_due_on? %>
+  <div class="js-dueOnControl">
+    <div class="js-dueOnShowSection u-clickable">
+      <% if booking.due_on.present? %>
+        <%= time_tag booking.due_on, booking.display_due_on,
+          title: t("bookings.show.click_to_edit_due_on"),
+          class: "js-editDueOn u-block#{' Empty' if booking.overdue?}"
+        %>
+      <% else %>
+        <span class="js-editDueOn u-block">
+          <%= t("bookings.show.click_to_edit_due_on") %>
+        </span>
+      <% end %>
+    </div>
+
+    <div class="js-dueOnEditSection u-hidden">
+      <%= form_with model: booking, class: "u-flex" do |f| %>
+        <%= f.date_field :due_on, class: "js-dueOnField", min: Date.today %>
+        <%= f.submit t("save"), class: "Button Button--small" %>
+        <%= f.hidden_field :redirect_path, value: redirect_path %>
+      <% end %>
+    </div>
+  </div>
+<% elsif booking.due_on.present? %>
+  <%= time_tag booking.due_on, booking.display_due_on,
+    class: "#{'Empty' if booking.overdue?}"
+  %>
+<% end %>
+</turbo-frame>

@@ -1,0 +1,31 @@
+.SubNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  min-height: 100%;
+  background: #eee;
+}
+
+.SubNav-link {
+  display: block;
+  padding: 0.75em 2rem;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+}
+
+.SubNav-link[aria-current] {
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+}
+
+.SubNav-link:active {
+  text-decoration: underline;
+}
+
+@media (hover: hover) {
+  .SubNav-link:hover,
+  .SubNav-link:focus {
+    text-decoration: underline;
+  }
+}

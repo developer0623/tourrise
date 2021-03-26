@@ -1,0 +1,20 @@
+<% turbo_exempts_page_from_cache %>
+
+<% breadcrumb :booking_resource_sku_new, @booking, @current_step %>
+
+<div class="Content">
+  <div class="ContenHeading">
+    <h1 class="ContentHeading-title">
+      <%= t("booking_resource_skus.new.title") %>
+    </h1>
+  </div>
+
+  <div class="Content-main">
+    <% case @current_step %>
+    <% when :select_resource_type_step %>
+      <%= render partial: 'booking_resource_skus/new/select_resource_type_step' %>
+    <% when :select_booking_resource_sku_step %>
+      <%= render partial: 'booking_resource_skus/new/select_booking_resource_sku_step' %>
+    <% end %>
+  </div>
+</div>

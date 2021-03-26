@@ -1,0 +1,90 @@
+:root {
+  --ListItem-image-size: 6.4rem;
+  --ListItem-image-gap: 2rem;
+}
+
+.ListItem {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ListItem-image {
+  align-self: flex-start;
+  flex-shrink: 0;
+  height: var(--ListItem-image-size);
+  margin: 0 var(--ListItem-image-gap) 0 0;
+  width: var(--ListItem-image-size);
+  object-fit: cover;
+}
+
+.ListItem-image--noImage {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.ListItem-item {
+  align-items: center;
+  display: flex;
+  padding-bottom: var(--List-element-spacing-y);
+  padding-top: var(--List-element-spacing-y);
+}
+
+.ListItem-item--right {
+  margin-left: auto;
+}
+
+.ListItem-item:not(:last-child) {
+  padding-right: 2rem;
+}
+
+.ListItem-nameContainer {
+  align-items: center;
+  display: flex;
+  flex: 1 1 20em;
+  flex-wrap: wrap;
+}
+
+.ListItem-mainName {
+  flex-basis: var(--Resource-attr-basis);
+  flex-grow: 1;
+  min-width: var(--Resource-attr-min-width);
+  padding-right: 2rem;
+}
+
+.ListItem-subName {
+  flex: 1 0 calc(100% - var(--Resource-attr-basis));
+}
+
+.ListItem-name {
+  flex: 1;
+  min-width: calc(32rem - calc(2 * var(--Page-main-spacing)));
+}
+
+.ListItem-handle {
+  flex: 1;
+  max-width: calc(25rem - calc(2 * var(--Page-main-spacing)));
+}
+
+.ListItem-image + .ListItem-name,
+.ListItem-image + * .ListItem-name {
+  min-width: calc(
+    32rem - calc(2 * var(--Page-main-spacing)) - var(--ListItem-image-size) -
+      var(--ListItem-image-gap)
+  );
+}
+
+.ListItem-buttons {
+  display: flex;
+  white-space: nowrap;
+}
+
+.ListItem-button:not(:first-child) {
+  display: inline-flex;
+  margin-left: 0.5rem;
+}
+
+.ListItem-button:not(:first-child)::before {
+  margin-right: 0.5rem;
+  content: "·";
+}

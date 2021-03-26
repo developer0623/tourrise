@@ -1,0 +1,15 @@
+<% flash.each do |name, msg| %>
+  <% msg = msg.is_a?(Array) ? msg.compact.join(', ') : msg %>
+
+  <% if msg.is_a?(String) %>
+    <div class="js-FlashMessage FlashMessage FlashMessage--<%= name.to_s %>" role="alert">
+      <p class="FlashMessage-text">
+        <%= msg %>
+      </p>
+
+      <button type="button" class="js-FlashMessage-close FlashMessage-close" aria-hidden="true">
+        &times;
+      </button>
+    </div>
+  <% end %>
+<% end %>

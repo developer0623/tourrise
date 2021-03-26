@@ -1,0 +1,10 @@
+<% partial = local_assigns.fetch(:partial, 'partials/list_item') %>
+<% small = local_assigns.fetch(:small, false) %>
+
+<ol class="List<%= " List--multipleCols" if defined?(multiple_cols) %>">
+  <% list.each.with_index(1) do |item, index| %>
+    <li class="List-item<%= small ? ' List-item--condensed' : '' %>">
+      <%= render partial, item: item, locals: local_assigns.fetch(:locals, {}).merge(index: index) %>
+    </li>
+  <% end %>
+</ol>

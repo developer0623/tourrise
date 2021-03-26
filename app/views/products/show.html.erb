@@ -1,0 +1,134 @@
+<% breadcrumb :product, @product %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: @product.name do %>
+    <%= link_to t("edit"), edit_product_path(@product), class: "Button" %>
+  <% end %>
+
+  <div>
+    <%= link_to "ReiseteilnehmerInnen",
+      product_product_participants_path(@product),
+      class: "Button Button--secondary"
+    %>
+
+    <%= link_to "Gebuchte Ressourcen",
+      product_product_booking_resource_skus_path(@product),
+      class: "Button Button--secondary"
+    %>
+  </div>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/booking_section",
+        title: Season.model_name.human(count: @product.seasons.count),
+        link: {
+          label: t("products.show.add_season_link"),
+          url: new_product_season_path(@product)
+        } do %>
+
+        <% if @product.seasons.any? %>
+          <%= render "partials/table",
+            list: @product.seasons,
+            header: "seasons/table/header",
+            row: "seasons/table/row"
+          %>
+        <% else %>
+          <div class="Empty">
+            <%= t("products.show.no_seasons_added") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: t(".tags") do %>
+        <% if @product.tags.any? %>
+          <%= @product.tags.map(&:name).join(', ') %>
+        <% else %>
+          <div class="Empty">
+            <%= t('tags.associations.empty') %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: t(".description") do %>
+        <%= render "partials/embed" do %>
+          <%= simple_format @product.description %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: "Frontoffice" do %>
+        <%= render "partials/booking_section", title: Product.human_attribute_name(:current_season), headline_type: 3 do %>
+          <% if @product.current_season %>
+            <div>
+              <%= @product.current_season.name %>
+               - 
+              <%= t('products.show.current_season.published', date: @product.current_season.display_published_at) %>
+            </div>
+          <% else %>
+            <div class="Empty">
+              <%= t("products.show.no_current_season") %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <%= render "partials/booking_section", title: "Steps", headline_type: 3 do %>
+          <%= @product.frontoffice_steps.map { |step| t("booking_form.steps.#{step.handle}") }.join(' > ') %>
+        <% end %>
+
+        <%= render "partials/booking_section", title: "AGBs und Datenschutzbestimmungen", headline_type: 3 do %>
+          <% if @product.terms_of_service.present? %>
+            <div>
+              <%= @product.terms_of_service.filename %>
+            </div>
+
+            <%= image_tag @product.terms_of_service.preview(resize_to_limit: [100, 100]) if @product.terms_of_service.previewable? %>
+          <% else %>
+            <div class="Empty">
+              Es wurden noch keine AGBS und Datenschutzbestimmungen hochgeladen
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: "Buchhaltung" do %>
+        <% if @product.financial_account.present? %>
+          <div>
+            FiBu Konto:
+            <%= @product.financial_account.display_name %>
+          </div>
+        <% end %>
+
+        <% if @product.cost_center.present? %>
+          <div>
+            Kostenstelle:
+            <%= @product.cost_center.display_name %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: "Produktvarianten" do %>
+        <%= render "partials/list", list: @product.product_skus, partial: "products/show/product_sku_preview" %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: "Buchbare Ressourcen" do %>
+        <%= render "partials/list", list: @product.resources.map { |resource|
+          {
+            name: resource.name,
+            description: resource.description&.truncate(255)
+          }
+        } %>
+      <% end %>
+    </div>
+  </div>
+</div>

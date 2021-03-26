@@ -1,0 +1,30 @@
+.Badge {
+  border-radius: 5px;
+  padding: 3px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.Badge--green {
+  background-color: #bdf7b7;
+}
+
+.Badge--blue {
+  background-color: #a9bcd0;
+}
+
+.Badge--red {
+  background-color: #efbcd5;
+}
+
+.Badge--yellow {
+  background-color: #f6f4a6;
+}
+
+a.Badge {
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

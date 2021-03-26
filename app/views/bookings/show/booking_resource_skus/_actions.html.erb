@@ -1,0 +1,59 @@
+  <div class="BookingResourceSku-actions">
+    <% if item.editable_by_user? %>
+      <div class="BookingResourceSku-action BookingResourceSku-edit">
+        <a class="IconButton IconButton--neutral" href="<%= edit_booking_booking_resource_sku_path(item.booking, item) %>">
+          <%= render "partials/icon", name: "edit", title: t("edit") %>
+        </a>
+      </div>
+      <div class="BookingResourceSku-action BookingResourceSku-edit">
+        <%= button_to duplicate_booking_booking_resource_sku_path(item.booking, item), method: :post, class: "IconButton IconButton--neutral" do %>
+          <%= render "partials/icon", name: "duplicate", title: t("duplicate") %>
+        <% end %>
+      </div>
+      <% if item.availability_blocked? %>
+        <div class="BookingResourceSku-action BookingResourceSku-edit">
+          <%= button_to unblock_booking_booking_resource_sku_path(item.booking, item), method: :patch, class: "IconButton IconButton--neutral" do %>
+            <%= render "partials/icon", name: "lock" %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="BookingResourceSku-action BookingResourceSku-edit">
+          <%= button_to block_booking_booking_resource_sku_path(item.booking, item), disabled: !item.blockable?, method: :patch, class: "IconButton IconButton--neutral" do %>
+            <%= render "partials/icon", name: "unlock" %>
+          <% end %>
+        </div>
+      <% end %>
+      <%= form_for [item.booking, item], method: :put, class: 'BookingResourceSku-action BookingResourceSku-edit' do |f| %>
+        <% if item.internal? %>
+          <%= f.hidden_field :internal, value: false %>
+          <button type="submit" class="IconButton IconButton--neutral" aria-label="<%= t('hidden') %>">
+            <%= render "partials/icon", name: 'hidden' %>
+          </button>
+        <% else %>
+          <%= f.hidden_field :internal, value: true %>
+          <button type="submit" class="IconButton IconButton--neutral" aria-label="<%= t('visible') %>">
+            <%= render "partials/icon", name: 'visible' %>
+          </button>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if item.removeable_by_user? %>
+      <% if item.invoiced? %>
+        <%= render(Modals::CancellationComponent.new(item: item.object)) do %>
+          <%- cancellation_classes = "BookingResourceSku-action BookingResourceSku-remove" + (item.canceled? ? "" : " CancellationButton") %>
+
+          <%= form_tag(cancellations_path, class: cancellation_classes) do %>
+            <button type="submit" <%= "disabled=true" unless item.removeable?%> class="IconButton IconButton--negative" aria-label="<%= t("remove") %>">
+              <%= render "partials/icon", name: "cancel" %>
+            </button>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= form_tag(booking_booking_resource_sku_path(item.booking, item), method: :delete, class: "BookingResourceSku-action BookingResourceSku-remove") do %>
+          <button type="submit" <%= "disabled=true" unless item.removeable?%> class="IconButton IconButton--negative" aria-label="<%= t("remove") %>">
+            <%= render "partials/icon", name: "remove" %>
+          </button>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>

@@ -1,0 +1,23 @@
+<%= turbo_exempts_page_from_cache %>
+
+<div class="BookingWizard">
+  <%= render "layouts/message" %>
+
+  <h1 class="BookingWizard-title">
+    <%= t("booking_form.headline", name: booking_form.product_name) %>
+  </h1>
+
+  <div class="BookingWizard-nav">
+    <%= render "frontoffice/bookings/steps", steps: booking_form.steps %>
+  </div>
+
+  <%= form_with(
+    model: booking_form,
+    scope: :booking,
+    url: frontoffice_booking_path(params[:scrambled_id], step: booking_form.current_step_handle),
+    html: { autocomplete: :off },
+    method: :put
+  ) do |f| %>
+    <%= render "frontoffice/bookings/steps/#{booking_form.current_step_handle}", f: f %>
+  <% end %>
+</div>

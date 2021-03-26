@@ -1,0 +1,33 @@
+<div class="Form-elementGroup ResourceSkuForm">
+  <div class="ResourceSkuForm-Image">
+    <span class="Image ListItem-image ListItem-image--noImage" title="<%= t("image_unavailable") %>"></span>
+  </div>
+  <div class="Input">
+    <%= f.label :name, class: "Input-label Input-label--required" %>
+    <%= f.text_field :name, class: "Input-element", required: true %>
+  </div>
+  <div class="Input">
+    <%= f.label :handle, class: "Input-label Input-label--required" %>
+    <%= f.text_field :handle, class: "Input-element", required: true %>
+  </div>
+  <% if f.object.persisted? %>
+    <div class="Input">
+      <%= f.label :_destroy, class: "Input-label" %>
+      <% if f.object.booking_resource_skus.blank? %>
+        <%= f.check_box :_destroy, class: "Input-element Input-element--checkbox ResourceSkuForm-destroy" %>
+      <% else %>
+        <small class="Empty">
+          Hat Buchungen. Kann nicht entfernt werden.
+        </small>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="Input Input--withoutLabel">
+      <button class="Button Button--negative js-ResourceForm-removeResourceSkuButton" title="Variante entfernen">
+        <span class="Button-icon">
+          <%= render "partials/icon", name: "remove" %>
+        </span>
+      </button>
+    </div>
+  <% end %>
+</div>

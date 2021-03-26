@@ -1,0 +1,81 @@
+.BookingFormRoom-overview {
+  align-items: center;
+  background: #fff;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: calc(var(--BookingForm-space) / 2) var(--BookingForm-space);
+  width: 100%;
+}
+
+.BookingFormRoom-main {
+  min-width: calc(
+    32rem - calc(2 * var(--BookingForm-space)) -
+      calc(2 * var(--BookingForm-space))
+  );
+  padding: calc(var(--BookingForm-space) / 2) 0;
+}
+
+.BookingFormRoom-actions {
+  margin-left: auto;
+  padding: calc(var(--BookingForm-space) / 2) 0;
+}
+
+.BookingFormRoom-teaserText {
+  flex: 1;
+}
+
+.BookingFormRoom-image {
+  border-radius: var(--border-radius);
+  display: block;
+  font-size: 12.8rem;
+  height: 1em;
+  margin: 0 var(--BookingForm-space) 0 0;
+  object-fit: cover;
+  width: 1em;
+}
+
+.BookingFormRoom-button {
+  margin: 0 0 0 calc(2 * var(--BookingForm-space));
+}
+
+.BookingFormRoom-details {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  margin: 0.2rem 0 0;
+}
+
+.BookingFormRoom-detailsToggle {
+  color: var(--theme-color-primary);
+  cursor: default;
+  font-weight: bold;
+  padding: 1.5rem 2rem;
+  text-decoration: underline;
+}
+
+.BookingFormRoom-detailsToggle:hover,
+.BookingFormRoom-detailsToggle:focus {
+  color: var(--theme-color-secondary);
+}
+
+.BookingFormRoom-detailsContent {
+  display: grid;
+  grid-gap: var(--BookingForm-space);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      calc(
+        32rem - calc(2 * var(--BookingForm-space)) -
+          calc(2 * var(--BookingForm-space))
+      ),
+      1fr
+    )
+  );
+  padding: 0 var(--BookingForm-space) var(--BookingForm-space);
+}
+
+@media (max-width: 42em) {
+  .BookingFormRoom-image {
+    font-size: 9.62rem;
+  }
+}

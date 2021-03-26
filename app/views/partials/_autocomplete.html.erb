@@ -1,0 +1,43 @@
+<%
+  # [Required] The api endpoint to fetch the suggestions from.
+  suggestions_url = local_assigns.fetch(:suggestions_url)
+
+  create_field = local_assigns.fetch(:create_field, false)
+  navigate_on_click = local_assigns.fetch(:navigate_on_click, false)
+
+  value = local_assigns.fetch(:value, nil)
+  initial_display_value = local_assigns.fetch(:display_value, value)
+
+  # Fields to populate suggestion item content with. JS will check the values
+  # of following keys in each item
+  suggestion_item_title_field = local_assigns.fetch(:suggestion_title_field, :id)
+  suggestion_item_description_field = local_assigns.fetch(:suggestion_description_field, nil)
+  suggestion_item_description_template = local_assigns.fetch(:suggestion_description_template, nil)
+%>
+
+<%= content_tag(
+  :div,
+  class: "js-autocomplete Autocomplete #{'Autocomplete--withCreateNew' if create_field.present?}",
+  data: {
+    creation_permitted: create_field.present? ? true : nil,
+    navigate_on_click: navigate_on_click,
+    suggestions_url: suggestions_url,
+    suggestion_item_title_field: suggestion_item_title_field,
+    suggestion_item_description_field: suggestion_item_description_field,
+    suggestion_item_description_template: suggestion_item_description_template,
+    validation_message: t("partials.autocomplete.validation_message"),
+    initial_display_value: initial_display_value
+  }
+) do %>
+  <div class="js-autocomplete-originalInputWrapper Autocomplete-inputAndIcon">
+    <%= yield %>
+
+    <span class="Autocomplete-inputIcon Autocomplete-inputIcon--success">
+      <%= render "partials/icon", name: "fa-check" %>
+    </span>
+  </div>
+
+  <% if create_field %>
+    <%= hidden_field_tag create_field, nil, class: "js-autocomplete-inputForNew" %>
+  <% end %>
+<% end %>

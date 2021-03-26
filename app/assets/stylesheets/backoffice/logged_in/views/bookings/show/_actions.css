@@ -1,0 +1,23 @@
+.Actions {
+  display: grid;
+  padding: 2rem;
+  background: #f8f8f8;
+}
+
+@media (max-width: 42em) {
+  .Actions {
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  }
+}
+
+@media (max-width: 56em) {
+  .Actions {
+    grid-gap: 1rem;
+  }
+}
+
+@media (min-width: 56.03125em) {
+  .Actions {
+    grid-gap: 2rem;
+  }
+}

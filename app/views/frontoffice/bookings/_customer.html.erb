@@ -1,0 +1,111 @@
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/text",
+    attribute: :company_name,
+    f: f
+  %>
+<% end %>
+
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/select",
+    attribute: :title,
+    f: f,
+    include_blank: true,
+    options: ["Prof.", "Dr.", "Prof. Dr."]
+  %>
+
+  <%= render "components/field/text",
+    attribute: :first_name,
+    f: f,
+    required: true
+  %>
+
+  <%= render "components/field/text",
+    attribute: :last_name,
+    f: f,
+    required: true
+  %>
+<% end %>
+
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/date",
+    attribute: :birthdate,
+    f: f,
+    max: Time.now + 1.day,
+    min: earliest_birthdate,
+    required: true
+  %>
+
+  <%= render "components/field/select",
+    attribute: :gender,
+    f: f,
+    options: [
+      [t("genders.male"), :male],
+      [t("genders.female"), :female],
+      [t("genders.diverse"), :diverse]
+    ],
+    required: true
+  %>
+
+  <%= render "components/field/select",
+    attribute: :locale,
+    f: f,
+    options: options_for_select(
+      PUBLIC_LOCALES.map { |locale| [t(locale), locale] },
+      f.object.persisted? ? f.object.locale : params[:locale]
+    ),
+    required: true
+  %>
+<% end %>
+
+<%= render(FieldGroup.new) do %>
+
+  <%= render "components/field/email",
+    attribute: :email,
+    f: f,
+    required: true
+  %>
+
+  <%= render "components/field/text",
+    attribute: :primary_phone,
+    f: f,
+    inputmode: "tel",
+    required: true
+  %>
+
+  <%= render "components/field/text",
+    attribute: :secondary_phone,
+    f: f,
+    inputmode: "tel"
+  %>
+<% end %>
+
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/text",
+    attribute: :address_line_1,
+    f: f,
+    required: true
+  %>
+
+  <%= render "components/field/text", attribute: :address_line_2, f: f %>
+  <%= render "components/field/text", attribute: :zip, f: f, required: true %>
+<% end %>
+
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/text",
+    attribute: :city,
+    f: f,
+    required: true
+  %>
+
+  <%= render "components/field/text", attribute: :state, f: f %>
+
+  <%# TODO: create styled component for country select as well %>
+  <div class="Field Field--required">
+    <%= f.label :country, class: "Field-label" %>
+
+    <%= f.country_select :country,
+      { priority_countries: ["DE", "CH", "AT", "FR", "GB"] },
+      { class: "Field-select" }
+    %>
+  </div>
+<% end %>

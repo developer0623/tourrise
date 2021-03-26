@@ -1,0 +1,34 @@
+<!-- Trigger/Open The Modal -->
+<!-- <button id="myBtn">Open Modal</button> -->
+<%= content %>
+
+<div class="modal CancellationModal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Please provide a cancellation reason</h2>
+    </div>
+    <div class="modal-body">
+      <%= form_for(Cancellation.new, url: cancellations_path, html: { class: "CancellationForm", id: "new_cancellation-#{@item.id}" }) do |f| %>
+        <%= f.hidden_field :cancellable_type, value: @item.class, id: "cancellation_cancellable_type-#{@item.id}" %>
+        <%= f.hidden_field :cancellable_id, value:  @item.id, id: "cancellation_cancellable_id-#{@item.id}" %>
+
+        <div class="Form-elementGroup CancellationReason">
+          <% CancellationReason.find_each do |cancellation_reason| %>
+            <div class="Input">
+              <%= f.radio_button :cancellation_reason_id, cancellation_reason.id %>
+              <%= f.label :cancellation_reason_id, cancellation_reason.name, :value => cancellation_reason.id %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="Form-buttons">
+          <div class="Form-button">
+            <%= f.submit t("ok"), disabled: true, class: "Button Button--neutral Button--small" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

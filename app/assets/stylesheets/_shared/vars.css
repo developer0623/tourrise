@@ -1,0 +1,22 @@
+:root {
+  --font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
+    helvetica, arial, sans-serif;
+  --font-size: 1.6rem;
+
+  /* font colors */
+  --headline-color: #000;
+  --font-color-dark: #333;
+  --font-color: #666;
+  --font-color-light: #999;
+
+  /* colors */
+  --color-positive: #1b9a4b;
+  --color-positive-light: #e7fff0;
+  --color-neutral: #137194;
+  --color-negative: #c90040;
+  --color-negative-light: #ecd8de;
+
+  /* misc */
+  --border-radius: 0.3rem;
+  --border-color: #e2e2e2;
+}

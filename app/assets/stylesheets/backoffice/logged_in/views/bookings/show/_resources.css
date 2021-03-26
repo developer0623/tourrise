@@ -1,0 +1,9 @@
+.Resources-price {
+  padding: 2rem
+    calc(
+      2 * var(--Resource-action-size) + var(--Resource-action-space) +
+        var(--Resource-action-gap)
+    )
+    0 0;
+  text-align: right;
+}

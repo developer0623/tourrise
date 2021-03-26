@@ -1,0 +1,31 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rspec
+  - rubocop-performance
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+AllCops:
+  Exclude:
+    - "app/views/**/*"
+    - "Gemfile"
+    - "db/**/*"
+    - "bin/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "node_modules/**/*"
+    - "bin/{rails,rake}"
+    - "spec/**/*"
+    - "vendor/**/*"
+    - "easybill/spec/**/*"
+    - !ruby/regexp /old_and_unused\.rb$/
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+Style/EmptyCaseCondition:
+  Enabled: false

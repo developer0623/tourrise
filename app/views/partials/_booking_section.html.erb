@@ -1,0 +1,39 @@
+<%
+  headline_type = local_assigns.fetch(:headline_type, 2)
+  id = local_assigns.fetch(:id, false)
+  class_name = local_assigns.fetch(:class_name, "")
+  class_list = "BookingSection#{class_name.present? ? " #{class_name}" : ""}"
+  wrapper_div_options = {}
+  wrapper_div_options[:id] = id if id.present?
+  wrapper_div_options[:class] = class_list
+%>
+
+<%= content_tag :div, wrapper_div_options do %>
+  <% if defined?(title) %>
+    <div class="BookingSection-heading">
+      <% if defined?(title) %>
+        <h<%= headline_type %> class="BookingSection-title">
+          <%= title %>
+         </h<%= headline_type %>>
+      <% end %>
+
+      <% if local_assigns.fetch(:link, false) && link[:url].present? %>
+        <% method = local_assigns.dig(:link, :method) || :get %>
+
+        <% if method == :get %>
+          <%= link_to link[:label], link[:url], class: "Button Button--small Button--secondary" %>
+        <% else %>
+          <%= button_to link[:url], method: method do %>
+            <button class="Button Button--small Button--negative">
+              <%= link[:label] %>
+            </button>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="BookingSection-content">
+    <%= yield %>
+  </div>
+<% end %>

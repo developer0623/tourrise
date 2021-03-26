@@ -1,0 +1,31 @@
+<tr>
+  <td>
+    <%= item.user.name %>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.user.email %>
+    </span>
+  </td>
+
+  <td>
+    <span class="Attr">
+      <%= item.api_key %>
+    </span>
+  </td>
+
+  <td class="u-textRight">
+    <ul>
+      <li class="u-inlineBlock">
+        <%= link_to t("edit"), edit_employee_path(item) %>
+      </li>
+
+      <li class="u-inlineBlock">
+        <%= button_to employee_path(item), method: :delete do %>
+          Entfernen
+        <% end %>
+      </li>
+    </ul>
+  </td>
+</tr>

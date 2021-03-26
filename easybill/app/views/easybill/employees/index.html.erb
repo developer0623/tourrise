@@ -1,0 +1,16 @@
+<% breadcrumb :employees %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("easybill.employees.index.title", count: @employees.count) do %>
+    <a class="Button" href="<%= easybill.new_employee_path %>"><%= t("create") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/table",
+        list: @employees,
+        row: "easybill/employees/table/row"
+      %>
+    </div>
+  </div>
+</div>

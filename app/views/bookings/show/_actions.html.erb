@@ -1,0 +1,112 @@
+<div class="Actions">
+  <% if @booking.user_can_edit_booking? %>
+    <%= button_to(
+            edit_booking_path(@booking),
+            class: "Button Button--small Button--full Button--neutral",
+            disabled: !@booking.editable?,
+            form_class: "Actions-item",
+            method: :get
+        ) do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("edit") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <%= render "partials/bookings/document_actions", booking: @booking %>
+
+  <% if @booking.user_can_commit_booking? %>
+    <%= button_to(
+      commit_booking_path(@booking),
+      method: :patch,
+      class: "Button Button--small Button--full Button--neutral",
+      disabled: !@booking.committable?,
+      form_class: "Actions-item"
+    ) do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "lock" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.commit_booking") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <% if @booking.user_can_cancel_booking? %>
+    <%= button_to(
+      cancel_booking_path(@booking),
+      method: :patch,
+      class: "Button Button--small Button--full Button--negative",
+      disabled: !@booking.cancelable?,
+      form_class: "Actions-item"
+    ) do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "close" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.cancel_booking") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <% if @booking.may_reopen? %>
+    <%= button_to(
+      reopen_booking_path(@booking),
+      method: :patch,
+      class: "Button Button--small Button--full Button--positive",
+      data: { confirm: t('bookings.show.buttons.reopen_confirmation') },
+      form_class: "Actions-item"
+    ) do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.reopen") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <% if @booking.user_can_clone_booking? %>
+    <%= button_to(
+      duplicate_booking_path(@booking),
+      params: { booking_id: @booking.id },
+      method: :post,
+      class: "Button Button--small Button--full Button--neutral",
+      disabled: !@booking.cloneable?,
+      form_class: "Actions-item"
+    ) do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "duplicate" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.duplicate") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <% if @booking.user_can_close_booking? %>
+    <%= button_to(
+      close_booking_path(@booking),
+      method: :patch,
+      class: "Button Button--small Button--full Button--secondary",
+      disabled: !@booking.closeable?,
+      form_class: "Actions-item"
+    ) do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "close" %>
+      </span>
+
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.close_booking") %>
+      </span>
+    <% end %>
+  <% end %>
+</div>

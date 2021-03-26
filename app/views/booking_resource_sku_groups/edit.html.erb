@@ -1,0 +1,73 @@
+<% breadcrumb :booking_resource_sku_group_edit, @booking_resource_sku_group %>
+
+<div class="Content js-BookingResourceEdit">
+  <div class="Content-main">
+    <%= render "partials/content_heading", title: t("booking_resource_skus.edit.title", name: booking_resource_sku_group.name) %>
+
+    <%= form_with model: @booking_resource_sku_group, html: { autocomplete: :off, data: { turbo: false } } do |f| %>
+      <%= render "partials/booking_section" do %>
+        <div class="Form-elementGroup">
+          <div class="Input">
+            <%= f.label :name, class: "Input-label Input-label--required" %>
+            <%= f.text_field :name, required: true, class: "Input-element" %>
+          </div>
+          <div class="Input">
+            <%= f.label :price, class: "Input-label Input-label--required" %>
+            <%= f.text_field :price, required: true, class: "Input-element" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "partials/booking_section" do %>
+        <div class="Form-elementGroup">
+          <div class="Input Input--select">
+            <%= f.label :cost_center, class: "Input-label" %>
+            <%= f.select :cost_center_id, options_for_select(cost_center_options, f.object.cost_center&.id), {}, class: "Input-element" %>
+          </div>
+          <div class="Input Input--select">
+            <%= f.label :financial_account, class: "Input-label" %>
+            <%= f.select :financial_account_id, options_for_select(financial_account_options, f.object.financial_account&.id), {}, class: "Input-element" %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="Form-element u-mt-1">
+        <div class="Input">
+          <%= label_tag :allow_partial_payment, t('booking_resource_sku_groups.edit.enable_partial_payment'), class: "Input-label" %>
+          <%= f.radio_button :allow_partial_payment, true %>
+
+          <%= label_tag :allow_partial_payment, t('booking_resource_sku_groups.edit.disable_partial_payment'), class: "Input-label" %>
+          <%= f.radio_button :allow_partial_payment, false %>
+        </div>
+      </div>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <%= link_to t("back"), booking_path(f.object.booking)+"#BookingResourceSkuGroup-#{@booking_resource_sku_group.id}", class: "Button Button--secondary" %>
+        </div>
+
+        <div class="Form-button">
+          <%= f.submit t("booking_resource_skus.edit.submit"), class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @booking_resource_sku_group.invoiced? %>
+    <% unless @booking_resource_sku_group.canceled? %>
+      <%= render(Modals::CancellationComponent.new(item: @booking_resource_sku_group)) do %>
+        <div class="u-mt-3 CancellationButton">
+          <%= button_to cancellations_path do %>
+            <%= t('cancel') %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="u-mt-3">
+      <%= button_to booking_resource_sku_group_path(@booking_resource_sku_group), { method: :delete, data: { confirm: "Are you sure?" }} do %>
+        <%= t('remove') %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

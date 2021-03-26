@@ -1,0 +1,26 @@
+.SearchButton {
+  display: flex;
+  justify-content: center;
+}
+
+.SearchButton-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  text-decoration: none;
+}
+
+@media (max-width: 56em) {
+  .SearchButton-button {
+    font-size: var(--MainNav-size);
+  }
+}
+
+@media (min-width: 56.03125em) {
+  .SearchButton-button {
+    font-size: calc(var(--MainNav-size) - 2rem);
+    border-radius: var(--border-radius);
+  }
+}

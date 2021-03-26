@@ -1,0 +1,36 @@
+<div class="js-Transfer-FlightReferenceSelect Form-element">
+  <div class="Input">
+    <%= label_tag :reference_type_id, t(".select_reference_type_id"), class: "Input-label" %>
+
+    <%= render(
+      "partials/autocomplete",
+      suggestions_url: api_flights_path(min_departure_at: Time.zone.now, booking_id: @booking.id),
+      suggestion_title_field: :display_flight,
+      suggestion_description_template: %Q(
+        <span class="u-block">
+          %{departure_airport} %{display_departure_at}
+        </span>
+
+        <span class="u-block">
+          %{arrival_airport} %{display_arrival_at}
+        </span>
+      )
+    ) do %>
+      <%= text_field_tag :flight_id, nil, class: "js-SelectedFlightId Input-element" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="js-Transfer-Flights">
+</div>
+
+<template class="js-Transfer-template">
+  <div>
+    <a href="#" class="js-Transfer-OptionSelectButton Button Button--neutral"><%= t('.select') %></a>
+    <span class="js-Transfer-startsOn"><%= t('booking_attributes.starts_on') %>: </span>
+    <span class="js-Transfer-startTime"><%= t('booking_attributes.start_time') %>: </span>
+    <span class="js-Transfer-pickupLocation"><%= t('booking_attributes.pickup_location') %>: </span>
+    <span class="js-Transfer-dropoffLocation"><%= t('booking_attributes.dropoff_location') %>: </span>
+    <span class="js-Transfer-reference"><%= t('booking_attributes.reference') %>: </span>
+  </div>
+</template>

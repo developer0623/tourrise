@@ -1,0 +1,47 @@
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :airline_code, class: "Input-label Input-label--required" %>
+    <%= f.text_field :airline_code, required: true, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :flight_number, class: "Input-label Input-label--required" %>
+    <%= f.text_field :flight_number, required: true, class: "Input-element" %>
+  </div>
+</div>
+<div class="Form-elementGroup">
+  <div class="Input">
+    <%= f.label :departure_at, class: "Input-label Input-label--required" %>
+    <%= f.datetime_field :departure_at, required: true, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :departure_airport, class: "Input-label Input-label--required" %>
+    <%= f.text_field :departure_airport, required: true, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :arrival_at, class: "Input-label Input-label--required" %>
+    <%= f.datetime_field :arrival_at, required: true, class: "Input-element" %>
+  </div>
+  <div class="Input">
+    <%= f.label :arrival_airport, class: "Input-label Input-label--required" %>
+    <%= f.text_field :arrival_airport, required: true, class: "Input-element" %>
+  </div>
+</div>
+
+<% if f.object.persisted? %>
+  <div class="Form-element">
+    <div class="Input Input--checkbox">
+      <%= f.label :_destroy, class: "Input-label" %>
+      <%= f.check_box :_destroy, class: "Input-element Input-element--checkbox" %>
+    </div>
+  </div>
+<% else %>
+  <div class="Form-element">
+    <div class="Input">
+      <button class="Button Button--negative js-FlightForm-removeFlightButton" title="Flug entfernen">
+        <span class="Button-icon">
+          <%= render "partials/icon", name: "remove" %>
+        </span>
+      </button>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,58 @@
+<div class="Form-elementGroup">
+  <div class="u-mb-1 Input">
+    <%= t('calendar.select_date') %>
+    <%= form_with url: url_for(start_date: start_date), method: :get, remote: true do |f| %>
+      <%= date_field_tag :start_date, start_date, class: "Input-element js-JumpToDate", onblur: "if(this.value !== '') { this.form.submit() }" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="simple-calendar">
+  <div class="calendar-heading">
+    <%
+      previous_month_name = t('date.month_names')[start_date.month - 1]
+      next_month_name = t('date.month_names')[start_date.month + 1]
+    %>
+
+    <%= link_to calendar.url_for_previous_view, remote: true do %>
+      <%= render "partials/icon", name: "fa-angle-left" %>
+      <%= previous_month_name %>
+    <% end %>
+
+    <span class="calendar-title">
+      <%= t('date.month_names')[start_date.month] %>
+      <%= start_date.year %>
+    </span>
+
+    <%= link_to calendar.url_for_next_view, remote: true do %>
+      <%= next_month_name %>
+      <%= render "partials/icon", name: "fa-angle-right" %>
+    <% end %>
+  </div>
+
+  <table class="u-mt-1 table table-striped">
+    <thead>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <% else %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

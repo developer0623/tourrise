@@ -1,0 +1,21 @@
+<% breadcrumb :cancellation_reasons %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: t(".title") do %>
+    <%= link_to new_settings_cancellation_reason_path, class: "Button" do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("settings.cancellation_reasons.index.add_cancellation_reason_link_name") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+      <%= render "partials/list", list: @cancellation_reasons, partial: "settings/cancellation_reasons/cancellation_reason_preview" %>
+    </div>
+  </div>
+</div>

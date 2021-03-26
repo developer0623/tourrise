@@ -1,0 +1,41 @@
+<div class="AvailabilityForm js-AvailabilityForm">
+  <div class="Form-element js-AvailabilityForm-quantityInput">
+    <div class="Input">
+      <%= f.label :quantity, class: "Input-label" %>
+      <%= f.number_field :quantity, class: "Input-element" %>
+    </div>
+  </div>
+
+  <div class="Form-elementGroup js-AvailabilityForm-dateRangeInput">
+    <div class="Input">
+      <%= f.label :starts_on, class: "Input-label" %>
+      <%= f.date_field :starts_on, class: "Input-element" %>
+    </div>
+
+    <div class="Input">
+      <%= f.label :ends_on, class: "Input-label" %>
+      <%= f.date_field :ends_on, class: "Input-element" %>
+    </div>
+  </div>
+
+  <% if f.object.persisted? %>
+    <div class="Form-element">
+      <div class="Input Input--checkbox">
+        <%= f.label :_destroy, class: "Input-label" %>
+        <%= f.check_box :_destroy, class: "Input-element Input-element--checkbox" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="Input Input--withoutLabel">
+      <%= link_to(
+        "#removeAvailability",
+        class: "Button Button--negative js-InventoryForm-removeAvailabilityButton",
+        title: t('inventories.form.remove_availability_title')
+      ) do %>
+        <span class="Button-icon">
+          <%= render "partials/icon", name: "remove" %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+<%
+  color_map = {
+    "all_groups" => "green",
+    "adult" => "blue",
+    "kid" => "yellow",
+    "baby" => "red"
+  }
+%>
+
+<%= month_calendar do |date| %>
+  <%= content_tag :div, date.day, class: "u-textRight" %>
+
+  <% ResourceSkuPricing.participant_types.each do |name, id| %>
+    <% price =  pricings.public_send(name).for_date(date).first&.price || pricings.public_send(name).first&.price %>
+    <% next unless price %>
+
+    <%= content_tag :div, class: "Badge Badge--#{color_map[name]}" do %>
+      <%= humanized_money_with_symbol(price) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="u-mt-1">
+  <% ResourceSkuPricing.participant_types.each do |name, id| %>
+    <%= content_tag :span, class: "Badge Badge--#{color_map[name]}" do %>
+      <%= name %>
+    <% end %>
+  <% end %>
+</div>

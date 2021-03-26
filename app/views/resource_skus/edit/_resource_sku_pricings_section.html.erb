@@ -1,0 +1,20 @@
+<div class="Section js-ResourceSkuForm-resourceSkuPricingsSection">
+  <%= render "partials/booking_section", title: ResourceSku.human_attribute_name(:resource_sku_pricings) do %>
+    <div class="Form-element">
+      <div class="Input">
+        <%= label_tag :allow_partial_payment, t('resource_skus.edit.enable_partial_payment'), class: "Input-label" %>
+        <%= f.radio_button :allow_partial_payment, true %>
+
+        <%= label_tag :allow_partial_payment, t('resource_skus.edit.disable_partial_payment'), class: "Input-label" %>
+        <%= f.radio_button :allow_partial_payment, false %>
+      </div>
+    </div>
+
+    <div class="Form-element">
+      <div class="Input">
+        <%= f.label :vat, class: "Input-label" %>
+        <%= f.text_field :vat, class: "Input-element" %>
+      </div>
+    </div>
+  <% end %>
+</div>

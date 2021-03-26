@@ -1,0 +1,7 @@
+<% @availabilities.sort_by(&:starts_on).each do |availability| %>
+  <% list = availability.availability_reducing_booking_resource_skus.in_date_range(@date, @date).decorate %>
+
+  <div>
+    <%= render "partials/list", list: list, partial: "inventories/booking_resource_sku" %>
+  </div>
+<% end %>

@@ -1,0 +1,46 @@
+<% breadcrumb :me_edit %>
+
+<div class="Content">
+  <div class="Content-main">
+    <%= render 'partials/content_heading', title: t("users.edit.title", name: @me.first_name) %>
+
+    <%= form_for @me, data: { autocomplete: :off } do |f| %>
+      <div class="Form-elementGroup">
+        <div class="Input">
+          <%= f.label :first_name, class: "Input-label Input-label--required" %>
+          <%= f.text_field :first_name, required: true, class: "Input-element" %>
+        </div>
+        <div class="Input">
+          <%= f.label :last_name, class: "Input-label Input-label--required" %>
+          <%= f.text_field :last_name, required: true, class: "Input-element" %>
+        </div>
+      </div>
+
+      <div class="Form-elementGroup">
+        <div class="Input">
+          <%= f.label :current_password, class: "Input-label" %>
+          <%= f.password_field :current_password, class: "Input-element" %>
+        </div>
+      </div>
+      <div>
+        <div class="Input">
+          <%= f.label :password, class: "Input-label" %>
+          <%= f.password_field :password, class: "Input-element" %>
+        </div>
+        <div class="Input">
+          <%= f.label :password_confirmation, class: "Input-label" %>
+          <%= f.password_field :password_confirmation, class: "Input-element" %>
+        </div>
+      </div>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <a class="Button Button--secondary" href="<%= settings_path %>"><%= t('abort') %></a>
+        </div>
+        <div class="Form-button">
+          <%= f.submit t('update'), class: "Button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

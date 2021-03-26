@@ -1,0 +1,18 @@
+@include from($tablet) {
+  .FieldGroup {
+    display: grid;
+    grid-column-gap: var(--spacingBase);
+  }
+
+  .FieldGroup.FieldGroup--2Columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .FieldGroup.FieldGroup--3Columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .FieldGroup.FieldGroup--4Columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,61 @@
+<div class="u-marginVerticalBase">
+  <% if booking_form.rooms_count > 1 %>
+    <p>
+      <%= t(".proceed_step_by_step") %>
+    </p>
+  <% end %>
+
+  <%= card_group columns: 4 do %>
+    <% booking_form.booking_room_assignments.each.with_index(1) do |booking_room_assignment, index| %>
+      <%
+        if (index < params[:room].to_i)
+          room_state = "complete"
+          state_class = "is-muted"
+        elsif (index == params[:room].to_i)
+          room_state = "active"
+          state_class = "is-target"
+        end
+      %>
+
+      <%= card(
+        title: { h3: t(".preview", room_number: index) },
+        html: { class: state_class }
+      ) do %>
+        <% if room_state != "complete" %>
+          <div>
+            <ul class="u-listStripped">
+              <li>
+                <%= t(".adults", count: booking_room_assignment.adults.to_i) %>
+              </li>
+
+              <li>
+                <%= t(".kids", count: booking_room_assignment.kids.to_i) %>
+              </li>
+
+              <li>
+                <%= t(".babies", count: booking_room_assignment.babies.to_i) %>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <%= render "frontoffice/accommodations/index/selected_room",
+            room: booking_room_assignment.selected_accommodation(index).resource_sku.decorate,
+            edit_link: (frontoffice_booking_accommodations_path(params[:booking_scrambled_id], room: index) if room_state != "active")
+          %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% accommodation_request_path = edit_frontoffice_booking_path(params[:booking_scrambled_id], step: "accommodation_request") %>
+
+  <%= link_to accommodation_request_path, class: "Button" do %>
+    <% if booking_form.rooms_count == 1 %>
+      <%= render "partials/icon", name: "fa-plus" %>
+      <%= t(".add_rooms") %>
+    <% else %>
+      <%= render "partials/icon", name: "fa-pencil" %>
+      <%= t(".change_rooms") %>
+    <% end %>
+  <% end %>
+</div>

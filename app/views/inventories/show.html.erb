@@ -1,0 +1,64 @@
+<% breadcrumb :inventory, @inventory %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: @inventory.name do %>
+    <%= link_to t("edit"), edit_inventory_path(@inventory), class: "Button" %>
+  <% end %>
+
+  <div>
+    <%= link_to t("export_csv"), inventory_path(@inventory, format: :csv), class: "Button Button--secondary" %>
+  </div>
+
+  <div>
+    <%= @inventory.inventory_type %>
+  </div>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/booking_section", title: Inventory.human_attribute_name(:description) do %>
+        <% if @inventory.description.present? %>
+          <%= render "partials/embed" do %>
+            <%= simple_format @inventory.description %>
+          <% end %>
+        <% else %>
+          <p class="Empty">
+            <%= t('inventories.show.description_missing') %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: t(".resource_skus_title"), id: "skusSection" do %>
+        <% if @resource_skus.any? %>
+          <%= render "partials/table",
+            list: @resource_skus,
+            header: "resource_skus/table/header",
+            anchor: "skusSection",
+            row: "resource_skus/table/row"
+          %>
+        <% else %>
+          <div class="Empty">
+            <%= t("inventories.show.booking_resource_skus_empty_message") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <h2 class="u-mb-1">
+        <%= t(".availabilities_title") %>
+      </h2>
+
+      <% if @inventory.availabilities.any? %>
+        <div class="js-AvailabilityCalendar">
+          <%= render "inventories/availability_calendar", inventory: @inventory %>
+        </div>
+      <% else %>
+        <div class="Empty">
+          <%= t(".availabilities_empty_message") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

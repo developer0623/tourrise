@@ -1,0 +1,16 @@
+<% breadcrumb :user, @user %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: @user.display_name do %>
+    <a class="Button" href="<%= edit_user_path(@user) %>"><%= t("edit") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/booking_section" do %>
+        <%= render "partials/list", list: @user.attributes, partial: "users/user_preview" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

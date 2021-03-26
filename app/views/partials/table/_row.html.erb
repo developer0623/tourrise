@@ -1,0 +1,13 @@
+<tr>
+  <% item.attributes.each do |attribute|%>
+    <td>
+      <span class="u-bold">
+        <%= attribute[0] %>:
+      </span>
+
+      <span class="">
+        <%= attribute[1] %>
+      </span>
+    </td>
+  <% end %>
+</tr>

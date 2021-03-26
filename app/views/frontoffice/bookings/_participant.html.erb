@@ -1,0 +1,44 @@
+<fieldset>
+  <%= content_tag(
+    :legend,
+    class: "ParticipantCounter ParticipantCounter--#{f.object.participant_type} u-fontWeightBold u-marginBottomSmall"
+  ) do %>
+    <%= t("frontoffice.participants.participant_types.#{f.object.participant_type}") %>
+  <% end %>
+
+  <%= render(FieldGroup.new(columns: 4)) do %>
+    <%= f.hidden_field :participant_type, value: f.object.participant_type %>
+    <%= f.hidden_field :placeholder, value: false %>
+
+    <%= render "components/field/text",
+      attribute: :first_name,
+      f: f,
+      required: true,
+      value: f.object.first_name
+    %>
+
+    <%= render "components/field/text",
+      attribute: :last_name,
+      f: f,
+      required: true,
+      value: f.object.last_name
+    %>
+
+    <%= render "components/field/date",
+      attribute: :birthdate,
+      f: f,
+      max: Time.now + 1.day,
+      min: earliest_birthdate,
+      required: true,
+      value: f.object.birthdate
+    %>
+
+    <%= render "components/field/email",
+      attribute: :email,
+      autocomplete: "off",
+      f: f,
+      required: f.object.adult?,
+      value: f.object.email
+    %>
+  <% end %>
+</fieldset>

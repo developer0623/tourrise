@@ -1,0 +1,15 @@
+<tr>
+  <td><%= document.details_link %></td>
+  <td>
+    <% if document.pdf.attached? %>
+      <%= link_to document.number, url_for(document.pdf), target: :_blank %>
+    <% else %>
+      <%= BookingDocument.human_attribute_name(:processing) %>
+    <% end %>
+  </td>
+  <td> <%= document.human_model_name %> </td>
+  <td> <time> <%= I18n.l(document.created_at, format: :long)%> </time> </td>
+  <td>
+    <%= document.human_total_price %>
+  </td>
+</tr>

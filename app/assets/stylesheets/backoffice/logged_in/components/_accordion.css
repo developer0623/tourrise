@@ -1,0 +1,29 @@
+.Accordion-item {
+  border: 0 solid #ccc;
+  padding: 2rem 0;
+}
+
+.Accordion-item:last-child {
+  border-bottom-width: 0.1rem;
+}
+
+.Accordion-item:first-child,
+.Accordion-item:not([open]) + .Accordion-item {
+  border-top-width: 0.1rem;
+}
+
+.Accordion-titleContainer {
+  color: var(--theme-color-secondary);
+  font-size: 2rem;
+}
+
+.Accordion-title {
+  color: var(--headline-color);
+  font-size: var(--font-size-h2);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.Accordion-content {
+  padding: 3rem 0 2rem;
+}

@@ -1,0 +1,28 @@
+<tr>
+  <%= render "partials/table/th_sortable",
+    label: ResourceSkuPricing.human_attribute_name(:id),
+    sort_by: "id"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: ResourceSkuPricing.human_attribute_name(:price),
+    sort_by: "price_cents"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: ResourceSkuPricing.human_attribute_name(:calculation_type),
+    sort_by: "calculation_type"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: ResourceSkuPricing.human_attribute_name(:participant_type),
+    sort_by: "participant_type"
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: ResourceSkuPricing.human_attribute_name(:date_range),
+    sort_by: "starts_on"
+  %>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

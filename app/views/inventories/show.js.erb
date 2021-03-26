@@ -1,0 +1,3 @@
+var currentHtmlContent = document.querySelector(".js-AvailabilityCalendar");
+
+currentHtmlContent.innerHTML = "<%= escape_javascript render(partial: "inventories/availability_calendar", locals: { inventory: @inventory }) %>";

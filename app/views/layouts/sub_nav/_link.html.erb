@@ -1,0 +1,14 @@
+<%
+  path = local_assigns.fetch(:path, false)
+  label = local_assigns.fetch(:label, false)
+
+  active_controller = local_assigns.fetch(:active_controller, controller_name)
+
+  link_controller = local_assigns.fetch(:link_controller,
+    Rails.application.routes.recognize_path(path)[:controller]
+  )
+
+  current = active_controller == link_controller ? 'page' : nil
+%>
+
+<%= link_to label, path, class: "SubNav-link", aria: { current: current } %>

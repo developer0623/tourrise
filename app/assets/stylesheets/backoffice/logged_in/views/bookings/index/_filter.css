@@ -1,0 +1,53 @@
+.Filter {
+  --gap: 2rem;
+
+  border: 0.1rem solid var(--divider-color);
+  border-radius: var(--border-radius);
+  padding: calc(var(--gap) / 2);
+}
+
+.Filter-wrapper {
+  --modifier: calc(64rem - 100%);
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Filter-item {
+  min-width: 150px;
+  flex-basis: calc(var(--modifier) * 999);
+  flex-grow: 1;
+  padding: calc(var(--gap) / 2);
+}
+
+.Filter-item--large {
+  flex-grow: 999;
+}
+
+.Filter-item--title {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.Filter-label {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 22.5em) {
+  .Filter-item {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 22.53125em) {
+  .Filter-item {
+    align-items: center;
+  }
+}
+
+.Filter-actions {
+  display: inline-flex;
+  padding: calc(var(--gap) / 4) calc(var(--gap) / 2);
+  align-self: flex-end;
+}

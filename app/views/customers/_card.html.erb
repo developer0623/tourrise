@@ -1,0 +1,10 @@
+<%= render "partials/card", title: customer.full_name do %>
+  <div>
+    <%= customer.bookings_count %> · <%= customer.birthdate %>
+  </div>
+
+  <div>
+    <%= customer.address_line_1 %>
+    <%= customer.address_line_2 %>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+:root {
+  --Grid-gap: 1rem;
+}
+
+.Grid {
+  display: flex;
+}
+
+.Grid--wrap {
+  flex-wrap: wrap;
+}
+
+.Grid--gapped {
+  margin-right: calc(-1 * var(--Grid-gap));
+  margin-left: calc(-1 * var(--Grid-gap));
+}
+
+.Grid--gapped .Grid-el {
+  margin-right: var(--Grid-gap);
+  margin-left: var(--Grid-gap);
+}
+
+.Grid--spaceBetween {
+  justify-content: space-between;
+}
+
+.Grid--centered {
+  align-items: center;
+}
+
+.Grid-el--full {
+  width: 100%;
+}
+
+.Grid-el--half {
+  width: 50%;
+}
+
+.Grid-el--grow {
+  flex: 1;
+}
+
+.Grid-el--alignStart {
+  align-self: flex-start;
+}
+
+.Grid-el--alignEnd {
+  align-self: flex-end;
+}

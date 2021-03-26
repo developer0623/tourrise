@@ -1,0 +1,15 @@
+<%
+  title = local_assigns.fetch(:title, false)
+%>
+
+<div class="Card">
+  <% if title %>
+    <div class="Card-heading">
+      <%= title %>
+    </div>
+  <% end%>
+
+  <div class="Card-content">
+    <%= yield %>
+  </div>
+</div>

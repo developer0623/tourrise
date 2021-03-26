@@ -1,0 +1,7 @@
+<div class="ListItem">
+  <div class="ListItem-item"><%= link_to item.booking.id, booking_path(item.booking) %></div>
+  <div class="ListItem-item"><%= item.booking.customer.name %></div>
+  <div class="ListItem-item"><%= item.name %></div>
+  <div class="ListItem-item"><%= item.participants.map { |participant| "#{participant.name} (#{participant.age})" }.join('; ') %></div>
+  <div class="ListItem-item"><%= item.handle %></div>
+</div>

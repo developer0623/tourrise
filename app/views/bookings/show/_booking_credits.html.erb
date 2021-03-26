@@ -1,0 +1,67 @@
+<% booking = local_assigns.fetch(:booking) %>
+
+<div>
+  <% if current_user.id != FrontofficeUser.id %>
+    <% link = {
+      label: (content_tag :p, style: "height: 15px;width: 15px"  do
+                      (render "partials/icon", name: "add"); end),
+      url: new_booking_booking_credit_path(booking)
+    } %>
+  <% end %>
+  <%= render "partials/booking_section", title: BookingCredit.model_name.human(count: booking.booking_credits.count), headline_type: 3, link: link do %>
+    <ol class="List">
+      <% booking.booking_credits.decorate.each do |item| %>
+        <li class="List-item">
+          <div class="ListItem">
+            <div class="ListItem-item ListItem-name">
+              <div class="u-bold u-mr-5px">
+                <%= item.name %>
+              </div>
+
+              <div class="u-small">
+                <% if item.created_at %>
+                  <%= l(item.created_at.to_date) %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="u-small">
+              <% if item.invoiced? %>
+                <%= t("booking_positions.invoiced") %>
+                <%= item.invoice_link %>
+              <% end %>
+            </div>
+
+            <div class="BookingResourceSku-totalPrice BookingResourceSku-priceContainerItem">
+              <span class="u-hiddenVisually"><%= t("bookings.show.total_price") %>:</span>
+              <%= humanized_money_with_symbol(item.price) %>
+            </div>
+            <div class="BookingResourceSku-actions">
+              <%= form_tag(edit_booking_booking_credit_path(item.booking, item), method: :get) do %>
+                <div class="BookingResourceSku-action">
+                  <button type="submit" <%= "disabled=true" if item.invoiced?%> class="IconButton IconButton--neutral" aria-label="<%= t("edit") %>">
+                    <%= render "partials/icon", name: "edit" %>
+                  </button>
+                </div>
+              <% end %>
+            </div>
+            <%= form_tag(booking_booking_credit_path(item.booking, item), method: :delete) do %>
+              <div class="BookingResourceSku-action">
+                <button type="submit" <%= "disabled=true" if item.invoiced?%> class="IconButton IconButton--negative" aria-label="<%= t("remove") %>">
+                  <%= render "partials/icon", name: "remove" %>
+                </button>
+              </div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+  <div class="u-textRight">
+    <%= t("bookings.show.remaining_amount") %>
+
+    <strong>
+      <%= booking.credits_subtracted_total_price %>
+    </strong>
+  </div>
+</div>

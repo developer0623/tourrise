@@ -1,0 +1,12 @@
+<mj-column width="600px">
+  <mj-text  align="center"
+            color="#000"
+            font-size="40px"
+            font-family="Helvetica Neue">
+      Buchungseingang für <%= @booking.product.name %> [<%= @booking.product_sku.handle %>]
+  </mj-text>
+  <mj-button background-color="#0a374e"
+              href="<%= booking_url(@booking, locale: I18n.locale) %>">
+    Zur Buchung
+  </mj-button>
+</mj-column>

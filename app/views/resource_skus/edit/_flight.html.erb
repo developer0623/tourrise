@@ -1,0 +1,23 @@
+<div class="Section js-ResourceSkuForm-flightsSection">
+  <%= render "partials/booking_section", title: ResourceSku.human_attribute_name(:flights) do %>
+    <div class="js-ResourceSkuForm-flightsContainer">
+      <%= f.fields_for :flights do |flight_form| %>
+        <div class="ResourceSkuEditForm-Flight js-ResourceSkuForm-newFlight">
+          <%= render "flights/form", f: flight_form %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="Form-buttons">
+    <%= button_tag t(".add"), class: "Button Button--small Button--neutral js-ResourceSkuForm-newFlightButton" %>
+  </div>
+</div>
+
+<template class="js-ResourceSkuForm-newFlightTemplate">
+  <div class="u-mb-3 js-ResourceSkuForm-newFlight">
+    <%= f.fields_for :flights, Flight.new, child_index: "ID" do |flight_form| %>
+      <%= render "flights/form", f: flight_form %>
+    <% end %>
+  </div>
+</template>

@@ -1,0 +1,83 @@
+<div class="BookingWizard">
+  <%= render "layouts/message" %>
+
+  <h1 class="BookingWizard-title">
+    <%= t("booking_form.headline", name: booking_form.product_name) %>
+  </h1>
+
+  <div class="BookingWizard-nav">
+    <%= render "frontoffice/bookings/steps", booking_form: booking_form %>
+  </div>
+
+  <h2>
+    <%= t(".title") %>
+  </h2>
+
+  <%= render "frontoffice/accommodations/index/room_assignments" %>
+
+  <% if @accommodations.empty? %>
+    <div>
+      <p class="Empty">
+        <%= t(".empty") %>
+      </p>
+    </div>
+  <% else %>
+    <section>
+      <h3>
+        <%= t(".available_accommodations") %>
+      </h3>
+
+      <% if @accommodations.size > 1 %>
+        <%= card_group columns: 4 do %>
+          <% @accommodations.each do |accommodation, rooms| %>
+            <% next unless rooms.any? %>
+
+            <%= card(
+              title: { h3: accommodation.label },
+              image: accommodation.display_featured_image,
+              action: link_to(
+                t(".jump_to_rooms"), "##{accommodation.uniq_key}", class: "Button"
+              )
+            ) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </section>
+
+    <% @accommodations.each do |accommodation, rooms| %>
+      <%= card html: { id: accommodation.uniq_key } do %>
+        <%= card_section separator: :after do %>
+          <%= render "frontoffice/resources/show", resource: accommodation %>
+        <% end %>
+
+        <% if rooms.any? %>
+          <ol class="u-listStripped">
+            <% rooms.each do |room| %>
+              <%= card_section tag: :li, separator: (room == rooms.last ? :none : :after) do %>
+                <% select_room_url = select_frontoffice_booking_accommodation_path(params[:booking_scrambled_id], room.id, room: params[:room]) %>
+
+                <%= render "frontoffice/resource_skus/preview",
+                  resource_sku: room,
+                  action: button_to(t(".select"), select_room_url, class: "Button Button--primary", html: { autocomplete: :off })
+                %>
+              <% end %>
+            <% end %>
+          </ol>
+        <% else %>
+          <div class="Empty">
+            <%= t(".empty") %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= render "frontoffice/bookings/footer",
+    f: nil,
+    previous_step_handle: booking_form.current_step.previous_step.handle,
+    next_step_handle: booking_form.current_step.next_step.handle,
+    next_label: t(".proceed_without_rooms"),
+    next_button_variant: "secondary",
+    required_notice: false
+  %>
+</div>

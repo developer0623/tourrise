@@ -1,0 +1,19 @@
+<%= render(FieldGroup.new) do %>
+  <%= render "components/field/date",
+    attribute: :starts_on,
+    f: f,
+    value: booking_form.booking.starts_on
+  %>
+
+  <%= render "components/field/date",
+    attribute: :ends_on,
+    f: f,
+    value: booking_form.booking.ends_on
+  %>
+
+  <%= render "components/field/number",
+    attribute: :height,
+    f: f,
+    required: true
+  %>
+<% end %>

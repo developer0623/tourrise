@@ -1,0 +1,58 @@
+<div class="Section">
+  <div class="Form-elementGroup">
+    <div class="Input">
+      <%= f.label :name, class: "Input-label Input-label--required" %>
+      <%= f.text_field :name, required: true, class: "Input-element Input-element--text" %>
+      <%= f.error_tag :name, nil, class: "Input-help" %>
+    </div>
+  </div>
+
+  <div class="Form-element">
+    <div class="Input Input--checkbox">
+      <%= f.label :published_at, class: "Input-label" %>
+
+      <%= f.check_box :published_at,
+        { checked: @season.published?, class: "Input-element Input-element--checkbox" },
+        (@season.published_at.presence || Time.zone.now)
+      %>
+    </div>
+  </div>
+</div>
+
+<div class="Section">
+  <%= render "partials/booking_section", title: ProductSku.model_name.human(count: @season.product.product_skus.count), headline_type: 3 do %>
+    <% f.object.product.product_skus.each do |product_sku| %>
+      <%= f.fields_for :seasonal_product_skus, f.object.seasonal_product_skus.find_or_initialize_by(product_sku: product_sku) do |o| %>
+        <div class="Form-elementGroup">
+          <%= o.hidden_field :product_sku_id, value: product_sku.id %>
+
+          <%= product_sku.name %>
+
+          <div class="Input">
+            <%= o.label :enabled, class: "Input-label" %>
+            <%= o.check_box :enabled, checked: o.object.persisted?, class: "Input-element Input-element--checkbox" %>
+          </div>
+
+          <div class="Input">
+            <%= o.label :starts_on, class: "Input-label" %>
+            <%= o.date_field :starts_on, value: o.object.starts_on, class: "Input-element" %>
+          </div>
+
+          <div class="Input">
+            <%= o.label :ends_on, class: "Input-label" %>
+            <%= o.date_field :ends_on, class: "Input-element" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="Form-buttons">
+  <div class="Form-button">
+    <a class="Button Button--secondary" href="<%= product_path(@season.product_id) %>"><%= t('abort') %></a>
+  </div>
+  <div class="Form-button">
+    <button type="submit" class="Button"><%= t("save") %></button>
+  </div>
+</div>

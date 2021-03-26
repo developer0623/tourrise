@@ -1,0 +1,46 @@
+<% booking = local_assigns.fetch(:booking) %>
+
+<% if booking.user_can_create_offer? %>
+  <%= button_to(
+    booking_booking_offers_path(booking),
+    class: "Button Button--small Button--full Button--positive",
+    disabled: !booking.offer_is_creatable? || booking.offer_available?,
+    form_class: "Actions-item"
+  ) do %>
+    <% if booking.offer_available? %>
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.offer_created") %>
+      </span>
+    <% else %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.create_offer") %>
+      </span>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if booking.user_can_create_invoice? %>
+  <%= button_to(
+    new_booking_booking_invoice_path(booking),
+    class: "Button Button--small Button--full Button--positive",
+    disabled: !booking.invoice_is_creatable?,
+    form_class: "Actions-item",
+    method: :get
+  ) do %>
+    <% if false %>
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.invoice_created") %>
+      </span>
+    <% else %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("bookings.show.buttons.create_invoice") %>
+      </span>
+    <% end %>
+  <% end %>
+<% end %>

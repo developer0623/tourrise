@@ -1,0 +1,134 @@
+:root {
+  --Input-spacing-sm-x: 0.25em;
+  --Input-spacing-sm-y: 0.75em;
+  --Input-border-width: 0.1rem;
+  --Input-background: #f6f6f6;
+}
+
+.Input--doubleWidth {
+  width: 64rem;
+}
+
+.Input--checkbox {
+  display: flex;
+}
+
+.Input--select {
+  --icon-size: 1em;
+}
+
+.Input--withoutLabel {
+  margin-top: auto;
+}
+
+.Input--small.Input--select {
+  --icon-size: 0.75em;
+}
+
+.Input-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.Input-label--required::after {
+  content: " *";
+  display: inline;
+}
+
+.Input-element {
+  --border-color: #ccc;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+
+  background: var(--Input-background);
+  border: var(--Input-border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0.1rem 0.1rem 0.5rem var(--box-shadow-color) inset;
+  display: block;
+  padding: 0.75em;
+  transition: var(--transition-in);
+}
+
+.Input-element:not(.Input-element--checkbox) {
+  width: 100%;
+}
+
+.Input-element--checkbox {
+  margin: 0 1rem 0 0;
+  order: -1;
+}
+
+.Input-element--checkbox.Input-element--groupMember {
+  order: 0;
+}
+
+.Input-element--smallTextarea {
+  height: 10em;
+}
+
+.Input-element--textarea {
+  height: 20em;
+}
+
+.Input-element[disabled] {
+  color: var(--font-color-light);
+}
+
+.Input--small .Input-element {
+  padding: var(--Input-spacing-sm-x) var(--Input-spacing-sm-y);
+}
+
+.Input--select .Input-element {
+  background-image: /* stylelint-disable-line */ url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA2MCI+PHBhdGggZD0iTTQ4IDM2TDEyIDAgMCAxMmw0OCA0OC0xMi0xMnpNOTYgMTJMODQgMCA0OCAzNmwxMiAxMi0xMiAxMnoiLz48cGF0aCB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgNDggNDgpIiBkPSJNMzkuNSAzOS41aDE2Ljl2MTYuOUgzOS41eiIvPjwvc3ZnPg==");
+  background-position: right 1rem top 50%;
+  background-repeat: no-repeat;
+  background-size: var(--icon-size) auto;
+  padding-right: 3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Input--select .Input-element[disabled] {
+  background-image: none;
+}
+
+.Input-element:focus {
+  --border-color: #999;
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+
+  transition: var(--transition-out);
+}
+
+.Input--invalid.Input-element {
+  --border-color: var(--color-negative);
+  --box-shadow-color: rgba(var(--color-negative), 0.1);
+}
+
+.Input--invalid.Input-label {
+  --font-color: var(--color-negative);
+
+  color: var(--font-color);
+}
+
+.Input--invalid.Input-help {
+  --font-color: var(--color-negative);
+  --font-size: 1.2rem;
+
+  color: var(--font-color);
+  font-size: var(--font-size);
+}
+
+.Input--append .Input-element {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.Input--prepend .Input-element {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.Input-element--append .Button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

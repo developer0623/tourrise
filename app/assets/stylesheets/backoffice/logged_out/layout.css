@@ -1,0 +1,5 @@
+.Page--loggedOut {
+  display: flex;
+  flex-direction: column;
+  background: var(--theme-color-secondary);
+}

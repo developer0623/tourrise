@@ -1,0 +1,15 @@
+.BookingFormFooterCheckboxes {
+  margin-top: var(--BookingForm-subsection-space);
+}
+
+.BookingFormFooter {
+  margin-top: var(--BookingForm-subsection-space);
+}
+
+.BookingFormFooter-buttons {
+  justify-content: space-between;
+}
+
+.BookingFormFooter-buttons:not(:first-child) {
+  margin-top: var(--BookingForm-subsection-space);
+}

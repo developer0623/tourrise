@@ -1,0 +1,13 @@
+:root {
+  --ButtonGroup-gap: calc(var(--spacingBase) / 4);
+}
+
+.ButtonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--ButtonGroup-gap) * -1);
+
+  > * {
+    margin: var(--ButtonGroup-gap);
+  }
+}

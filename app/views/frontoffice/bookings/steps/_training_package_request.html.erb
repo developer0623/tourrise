@@ -1,0 +1,24 @@
+<h2>
+  <%= t("booking_form.training_package_step.title") %>
+</h2>
+
+<p>
+  <%= t("booking_form.training_package_step.intro") %>
+</p>
+
+<% if booking_form.training_packages.any? %>
+  <% booking_form.training_packages.each do |training_package| %>
+    <%= render "frontoffice/bookings/training_package", training_package: training_package, f: f %>
+  <% end %>
+<% else %>
+  <p class="Empty">
+    <%= t("booking_resource_skus.errors.not_available") %>
+  </p>
+
+  <%= f.hidden_field :updated_at %>
+<% end %>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

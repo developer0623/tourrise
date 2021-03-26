@@ -1,0 +1,75 @@
+<% breadcrumb :settings %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t("settings.index.title") %>
+
+  <div class="Settings">
+    <div class="SettingsLink">
+      <%= link_to main_app.edit_settings_me_path, class: 'Button' do %>
+        <%= t(".me_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to main_app.users_path, class: 'Button' do %>
+        <%= t(".users_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to main_app.settings_cancellation_reasons_path, class: 'Button' do %>
+        <%= t(".cancellation_reasons_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to main_app.settings_cost_centers_path, class: 'Button' do %>
+        <%= t(".cost_centers_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to main_app.settings_financial_accounts_path, class: 'Button' do %>
+        <%= t(".financial_accounts_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to main_app.settings_occupation_configurations_path, class: 'Button' do %>
+        <%= t(".occupation_configurations_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to main_app.settings_tags_path, class: 'Button' do %>
+        <%= t(".tags_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to main_app.settings_custom_attributes_path, class: 'Button' do %>
+        <%= t(".custom_attributes_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to easybill.settings_path, class: 'Button' do %>
+        <%= t(".easybill_link_name") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <% frontoffice_settings_path = FrontofficeSetting.any? ? main_app.edit_settings_frontoffice_setting_path(FrontofficeSetting.last) : main_app.new_settings_frontoffice_setting_path %>
+
+      <%= link_to frontoffice_settings_path, class: 'Button' do %>
+        <%= t("settings.frontoffice_settings.title") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to new_settings_global_configuration_path, class: 'Button' do %>
+        <%= t("settings.global_configurations.title") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to payments_path, class: "Button" do %>
+        <%= I18n.t("settings.accounting_records.title_short") %>
+      <% end %>
+    </div>
+    <div class="SettingsLink">
+      <%= link_to settings_statements_path, class: "Button Button--secondary" do %>
+        <%= "Statements" %>
+      <% end %>
+    </div>
+  </div>
+</div>

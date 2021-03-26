@@ -1,0 +1,41 @@
+<div class="js-BookingFormFlightRequest-inputs">
+  <%
+    destination_available = booking_form.destination_airport.present?
+  %>
+
+  <%= render(FieldGroup.new(columns: destination_available ? 4 : 3)) do %>
+    <%= render "components/field/date",
+      attribute: :starts_on,
+      min: Date.tomorrow,
+      f: f,
+      required: true,
+      value: f.object.starts_on || booking_form.booking.starts_on
+    %>
+
+    <%= render "components/field/date",
+      attribute: :ends_on,
+      f: f,
+      required: true,
+      value: f.object.ends_on || booking_form.booking.ends_on
+    %>
+
+    <%= render "components/field/text",
+      attribute: :departure_airport,
+      list: "airports",
+      f: f,
+      required: true,
+      value: f.object.departure_airport || params.dig("booking", "booking_flight_requests_attributes", f.index.to_s, "departure_airport") 
+    %>
+
+    <% if destination_available %>
+      <%= f.hidden_field :destination_airport, value: booking_form.destination_airport %>
+
+      <%= render "components/field/text",
+        attribute: :destination_airport,
+        f: f,
+        disabled: true,
+        value: booking_form.destination_airport
+      %>
+    <% end %>
+  <% end %>
+</div>

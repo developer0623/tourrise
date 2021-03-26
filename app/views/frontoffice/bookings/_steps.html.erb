@@ -1,0 +1,70 @@
+<div class="BookingWizardNav">
+  <%= a11y_content do %>
+    <%= t "booking_form.steps_progress",
+      step: booking_form.current_step_number,
+      total: booking_form.steps.count
+    %>
+  <% end %>
+
+  <ol class="BookingWizardNav-list">
+    <% booking_form.steps.each.with_index(1) do |step, index| %>
+      <%
+        # TODO Patrick: refactor this
+        is_previous_step = booking_form.current_step.position > step.position
+        is_current_step = booking_form.current_step.position == step.position
+        is_next_step = booking_form.current_step.position < step.position
+        is_last_step = booking_form.steps.size == index
+
+        visited = session[:latest_frontoffice_step]&.fetch('position', 0).to_i >= step.position
+
+        item_aria_current = is_current_step ? "page" : nil
+
+        item_state_classes = []
+        item_state_classes.push("is-current") if is_current_step
+        item_state_classes.push("is-complete") if is_previous_step
+        item_state_classes = item_state_classes.join(" ")
+
+        if booking_form.booking.persisted?
+          booking_step_path = edit_frontoffice_booking_path(booking_form.booking.scrambled_id, step: step.handle)
+          booking_step_path = frontoffice_booking_accommodations_path(booking_form.booking.scrambled_id, room: booking_form.booking.rooms_count) if step.handle == "accommodation_request"
+        end
+      %>
+
+      <%= content_tag(
+        :li,
+        aria_current: item_aria_current,
+        class: "BookingWizardNav-item #{item_state_classes}"
+      ) do %>
+        <% if is_current_step %>
+          <span class="BookingWizardNav-label">
+            <%= t("booking_form.steps.#{booking_form.current_step.handle}") %>
+          </span>
+        <% elsif is_previous_step %>
+          <%= link_to booking_step_path, class: "BookingWizardNav-link" do %>
+            <span class="BookingWizardNav-label">
+              <%= t("booking_form.steps.#{step.handle}") %>
+            </span>
+          <% end %>
+        <% elsif is_next_step %>
+          <% if visited %>
+            <%= link_to booking_step_path, class: "BookingWizardNav-link" do %>
+              <span class="BookingWizardNav-label">
+                <%= t("booking_form.steps.#{step.handle}") %>
+              </span>
+            <% end %>
+          <% else %>
+            <span class="BookingWizardNav-label">
+              <%= t("booking_form.steps.#{step.handle}") %>
+            </span>
+          <% end %>
+        <% end %>
+
+        <% unless is_last_step %>
+          <span style="font-size: inherit;">
+            <%= render "partials/icon", name: "fa-angle-right" %>
+          </span>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+</div>

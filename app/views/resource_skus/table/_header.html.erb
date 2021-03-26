@@ -1,0 +1,33 @@
+<% anchor = local_assigns.fetch(:anchor, false) %>
+
+<tr>
+  <%= render "partials/table/th_featured_image" %>
+
+  <%= render "partials/table/th_sortable",
+    label: ResourceSku.human_attribute_name(:name),
+    sort_by: "name",
+    anchor: anchor
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: ResourceSku.human_attribute_name(:handle),
+    sort_by: "handle",
+    anchor: anchor
+  %>
+
+  <%= render "partials/table/th_sortable",
+    label: ResourceSku.human_attribute_name(:available),
+    sort_by: "avialable",
+    anchor: anchor
+  %>
+
+  <th>
+    <%= plural_model_name(Tag) %>
+  </th>
+
+  <th>
+    <%= plural_model_name(ResourceSkuPricing) %>
+  </th>
+
+  <%= render "partials/table/th_actions" %>
+</tr>

@@ -1,0 +1,21 @@
+<% breadcrumb :custom_attributes %>
+
+<div class="Content">
+  <%= render "partials/content_heading", title: t(".title") do %>
+    <%= link_to new_settings_custom_attribute_path, class: "Button" do %>
+      <span class="Button-icon">
+        <%= render "partials/icon", name: "add" %>
+      </span>
+      <span class="Button-label">
+        <%= t("settings.custom_attributes.index.add_custom_attribute_link") %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter", options: [], search: true %>
+      <%= render "partials/list", list: @custom_attributes, partial: "settings/custom_attributes/custom_attribute_preview" %>
+    </div>
+  </div>
+</div>

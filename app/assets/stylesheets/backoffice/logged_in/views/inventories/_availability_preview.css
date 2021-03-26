@@ -1,0 +1,24 @@
+.AvailabilityPreview-details {
+  width: 100%;
+}
+
+.AvailabilityPreview-type {
+  flex: 1;
+  hyphens: auto;
+  min-width: calc(32rem - calc(3 * var(--Page-main-spacing)));
+  padding-right: 1rem;
+}
+
+.AvailabilityPreview-quantity {
+  flex: 1;
+  hyphens: auto;
+  min-width: calc(32rem - calc(3 * var(--Page-main-spacing)));
+  padding-right: 1rem;
+}
+
+.AvailabilityPreview-dateRange {
+  flex: 1;
+  hyphens: auto;
+  min-width: calc(32rem - calc(3 * var(--Page-main-spacing)));
+  padding-right: 1rem;
+}

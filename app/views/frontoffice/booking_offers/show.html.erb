@@ -1,0 +1,145 @@
+<h1 class="BookingDocument-title">
+ <%= t("booking_form.booking_offer.headline", name: booking_offer.product_name) %>
+</h1>
+
+<div class="Card">
+  <div class="BookingDocument-customerContainer">
+    <div class="BookingDocument-customerContainerItem BookingDocument-assigneeAddress">
+      <%= FrontofficeSettingDecorator.full_address %>
+    </div>
+    <div class="BookingDocument-customerContainerItem">
+      <%= booking_offer.customer_name %>
+      <div class="u-floatRight">
+        <%= booking_offer.assignee_email %>
+      </div>
+    </div>
+    <div class="BookingDocument-customerContainerItem">
+      <%= booking_offer.customer_address_line1 %>
+    </div>
+    <div class="BookingDocument-customerContainerItem">
+      <%= booking_offer.customer_city %>
+    </div>
+  </div>
+
+  <div class="BookingDocument-infoContainer">
+    <div class="u-textAlignRight">
+      <%= l(booking_offer.created_at.to_date, format: :long) %>
+    </div>
+    <div class="u-textAlignRight">
+      <%= t("booking_form.booking_offer.id", id: booking_offer.number) %>
+    </div>
+    <div class="u-textAlignRight">
+      <%= t("booking_form.documents.customer_id", customer_id: booking_offer.booking.customer.general_customer_id) %>
+    </div>
+  </div>
+</div>
+
+<%= card do %>
+  <%= render "frontoffice/booking_documents/booking_resource_sku_section", booking_document: booking_offer %>
+<% end %>
+
+<% if booking_offer.booking_credits_snapshot.any? %>
+  <%= card do %>
+    <header class="u-marginBottomBase">
+      <h3>
+        <%= BookingCredit.model_name.human(count: booking_offer.booking_credits_snapshot.count) %>
+      </h3>
+    </header>
+    <% booking_offer.booking_credits_snapshot.each do |credit| %>
+      <header class="u-marginBottomBase">
+        <%= t("booking_credits.name_with_date", name: credit["name"], date: l(credit["created_at"].to_date)) %>
+        <div class="u-floatRight">
+          <%= "- #{humanized_money_with_symbol(credit["price_cents"] / 100)}" %>
+        </div>
+      </header>
+    <% end %>
+      <div class="BookingDocument-totalSum">
+      <%= t("booking_form.#{booking_offer.underscore_class_name}.remaining_sum") %>
+      <%= humanized_money_with_symbol(booking_offer.total_price) %>
+    </div>
+  <% end %>
+<% end %>
+
+<div>
+  <% if booking_offer.accepted_at.present? %>
+    <div class='BookingDocument-badge accepted'><%= t("booking_form.booking_offer.accepted_badge") %></div>
+  <% elsif booking_offer.rejected_at.present? %>
+    <div class='BookingDocument-badge rejected'><%= t("booking_form.booking_offer.rejected_badge") %></div>
+  <% else %>
+    <%= form_with(
+        model: booking_offer.booking,
+        url: accept_frontoffice_booking_offer_path(scrambled_id: booking_offer.scrambled_id)
+    ) do |f| %>
+      <% if booking_offer.booking.product.terms_of_service.present? %>
+        <p>
+          <%= t("booking_form.summary_step.please_accept_tos_and_pp") %>
+        </p>
+
+        <%= link_to(
+          t("bookings.show.terms_of_service.link"),
+          rails_blob_path(booking_offer.booking.product.terms_of_service, disposition: "attachment"),
+          class: "u-marginBottomBase u-displayBlock"
+        ) %>
+      <% end %>
+
+      <%= render "components/field/checkbox",
+        attribute: :terms_of_service_accepted,
+        f: f,
+        label_text: t("frontoffice.bookings.summary.accept_terms_of_service"),
+        checked: f.object.terms_of_service_accepted,
+        required: true
+      %>
+
+      <%= render "components/field/checkbox",
+        attribute: :privacy_policy_accepted,
+        f: f,
+        label_text: t("frontoffice.bookings.summary.accept_privacy_policy"),
+        checked: f.object.privacy_policy_accepted,
+        required: true
+      %>
+
+      <%= booking_offer.accept_link %>
+    <% end %>
+
+    <%= booking_offer.reject_link %>
+  <% end %>
+</div>
+
+<% if ENV['GTM_CONTAINER_ID'] && Rails.env.production? && booking_offer.accepted_at.present? %>
+<script>
+  function purchaseEvent() {
+    try {
+      if(gtag) {
+        gtag('event', 'purchase', {
+          "transaction_id": "<%= booking_offer.booking_snapshot["id"] %>",
+          "affiliation": "",
+          "value": "<%= booking_offer.total_price.to_s.gsub(",", ".") %>",
+          "currency": "<%= booking_offer.total_price.currency.iso_code %>",
+          "tax": 0,
+          "shipping": 0,
+          "items": [
+            {
+              "id": "<%= booking_offer.booking_snapshot["id"] %>",
+              "name": "<%= booking_offer.booking_snapshot["title"] %>",
+              "list_name": "",
+              "coupon": null,
+              "discount": 0,
+              "brand": "<%= GlobalConfiguration.company_name %>",
+              "category": "<%= booking_offer.product_sku_snapshot["season"] %>",
+              "variant": "<%= booking_offer.product_sku_snapshot["name"] %>",
+              "value": "<%= booking_offer.total_price.to_s.gsub(",", ".") %>",
+              "list_position": 1
+            }
+          ]
+        });
+      } else {
+        setTimeout(function() { purchaseEvent(); }, 200);
+      }
+    } catch(_e) {
+      setTimeout(function() { purchaseEvent(); }, 200);
+    }
+  }
+
+  purchaseEvent();
+</script>
+<% end %>

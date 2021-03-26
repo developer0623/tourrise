@@ -1,0 +1,42 @@
+<%
+  wrap_needed = label.length > 12
+  default_sort_order = local_assigns.fetch(:sort_order, "DESC")
+  anchor = local_assigns.fetch(:anchor, false)
+  rqp = request.query_parameters
+%>
+
+<th>
+  <% if rqp[:sort_by] == sort_by %>
+    <% if rqp[:sort_order] == 'ASC' %>
+      <%= link_to({
+        params: rqp.merge(sort_by: sort_by, sort_order: 'DESC'),
+        anchor: anchor
+      },{
+        class: "u-noUnderline #{'u-noWrap' unless wrap_needed}"
+      }) do %>
+        <%= label %>
+        <%= render "partials/icon", name: "fa-sort-asc" %>
+      <% end %>
+    <% elsif rqp[:sort_order] == 'DESC' %>
+      <%= link_to({
+        params: rqp.merge(sort_by: sort_by, sort_order: 'ASC'),
+        anchor: anchor
+      },{
+        class: "u-noUnderline #{'u-noWrap' unless wrap_needed}"
+      }) do %>
+        <%= label %>
+        <%= render "partials/icon", name: "fa-sort-desc" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to({
+      params: rqp.merge(sort_by: sort_by, sort_order: default_sort_order),
+      anchor: anchor
+    },{
+      class: "u-noUnderline #{'u-noWrap' unless wrap_needed}"
+    }) do %>
+      <%= label %>
+      <%= render "partials/icon", name: "fa-sort" %>
+    <% end %>
+  <% end %>
+</th>

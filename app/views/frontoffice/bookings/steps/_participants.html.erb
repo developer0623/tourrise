@@ -1,0 +1,24 @@
+<h2>
+  <%= t("booking_form.participants_step.title") %>
+</h2>
+
+<p>
+  <%= t("booking_form.participants_step.intro") %>
+</p>
+
+<div class="js-ParticipantsStep">
+  <%= link_to t('booking_form.participants_step.fill_later'), booking_form.next_step_path, class: "Button" %>
+
+  <ul class="u-listStripped u-marginTopBase">
+    <%= f.fields_for :participants do |participant_fields| %>
+      <%= content_tag :li, class: "Participants-item--#{participant_fields.object.participant_type}" do %>
+        <%= render "frontoffice/bookings/participant", f: participant_fields %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "frontoffice/bookings/footer",
+  f: f,
+  previous_step_handle: booking_form.current_step.previous_step.handle
+%>

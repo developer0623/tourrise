@@ -1,0 +1,20 @@
+<% breadcrumb :resource_new %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('resources.new.title') %>
+
+  <div class="Content-main">
+    <%= form_with model: @resource, html: { class: "Form js-ResourceForm", autocomplete: :off } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+
+      <div class="Form-buttons">
+        <div class="Form-button">
+          <a class="Button Button--secondary" href="<%= resources_path %>"><%= t('abort') %></a>
+        </div>
+        <div class="Form-button">
+          <button type="submit" class="Button"><%= t('create') %></button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

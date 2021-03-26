@@ -1,0 +1,34 @@
+<%= insurance.display_featured_image if insurance.featured_image %>
+
+<%= content_tag :h3, insurance.label %>
+
+<%= simple_format(insurance.teaser_text) if insurance.teaser_text %>
+
+<details>
+  <summary>
+    <%= t("frontoffice.bookings.steps.insurance_request.details") %>
+  </summary>
+
+  <%= render "partials/gallery", images: insurance.images %>
+
+  <%= simple_format insurance.description %>
+</details>
+
+<%= checkbox_group do %>
+  <% insurance.list.each do |bookable_insurance| %>
+    <% booked_insurance = bookable_insurance.booking_resource_skus.where(booking: booking_form.booking).first %>
+
+    <%= f.fields_for :booking_resource_skus, booked_insurance || f.object.booking_resource_skus.new(
+      resource_sku: bookable_insurance.object, booking: booking_form.booking
+    ) do |o| %>
+      <%= o.hidden_field :resource_sku_id, value: bookable_insurance.id %>
+
+      <%= render "components/field/checkbox",
+        attribute: :quantity,
+        checked: booked_insurance.present?,
+        label_text: bookable_insurance.name,
+        f: o
+      %>
+    <% end %>
+  <% end %>
+<% end %>

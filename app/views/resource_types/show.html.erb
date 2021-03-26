@@ -1,0 +1,48 @@
+<% breadcrumb :resource_type, @resource_type %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: @resource_type.label do %>
+    <a class="Button" href="<%# edit_resource_path(@resource) %>"><%= t("edit") %></a>
+  <% end %>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/booking_section", title: "Details" do %>
+        <dl>
+          <dt>Name</dt>
+          <dd><%= @resource_type.label %></dd>
+          <dt>Alias</dt>
+          <dd><%= @resource_type.handle %></dd>
+        </dl>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: "Details" do %>
+        <dl class="ResourceTypePreview-data">
+          <% @resource_type.booking_attributes.each do |booking_attribute| %>
+            <dt><%= booking_attribute.name %></dt>
+            <dd>
+              <%= booking_attribute.handle %>
+              <%= booking_attribute.attribute_type %>
+
+              <% if booking_attribute.required %>
+                Pflichtangabe
+              <% end %>
+            </dd>
+          <% end %>
+        </dl>
+      <% end %>
+    </div>
+
+    <div class="Section">
+      <%= render "partials/booking_section", title: "Resources" do %>
+        <ul class="ResourceTypePreview-data">
+          <% @resource_type.resources.each do |resource| %>
+            <li><%= resource.name %><%= link_to t('show'), resource_path(resource) %> </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

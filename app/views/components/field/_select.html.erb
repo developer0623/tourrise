@@ -1,0 +1,47 @@
+<%
+  attribute = local_assigns.fetch(:attribute, false)
+  extra_class = local_assigns.fetch(:extra_class, false)
+  f = local_assigns.fetch(:f, false)
+  include_blank = local_assigns.fetch(:include_blank, nil)
+  label_text = local_assigns.fetch(:label_text, false)
+  prompt = local_assigns.fetch(:prompt, true)
+  required = local_assigns.fetch(:required, false)
+
+  extra_classes = []
+  extra_classes.push("Field--required") if required
+  extra_classes.push("is-invalid") if f.object.errors[attribute].any?
+  extra_classes = extra_classes.join(" ")
+
+  blank_or_prompt =
+    if include_blank
+      # If include_blank was passed, ignore everything else and just show it
+      { include_blank: include_blank }
+    elsif required
+      if f.object.public_send(attribute).nil?
+        # If field is required and has no value yet, show "please select"
+        # option. This field is selected by default but is disabled, so if a
+        # selected option is provided via options_for_select, user will not be
+        # able to switch to this value
+        { prompt: prompt, disabled: "", selected: "" }
+      else
+        # If field is required and already has a value, hide prompt so that user
+        # can't make the field invalid any more. { prompt: true } syntax
+        # suggests the opposite but this is just for avoiding syntax error.
+        # Rails won't show the prompt anyway
+        { prompt: prompt }
+      end
+    else
+      {}
+    end
+%>
+
+<%= content_tag(:div, class: "Field Field--select #{extra_classes}" ) do %>
+  <%= f.label attribute, (label_text if label_text), class: "Field-label" %>
+
+  <%= f.select attribute, options, blank_or_prompt,
+    class: "Field-select #{extra_class}",
+    required: required
+  %>
+
+  <%= f.error_tag attribute, nil, class: "Field-hint" %>
+<% end %>

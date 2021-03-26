@@ -1,0 +1,24 @@
+<% breadcrumb :product_booking_resource_skus, @product %>
+
+<div class="Content">
+  <%= render 'partials/content_heading', title: t('product_booking_resource_skus.index.title') %>
+  <h3><%= @product.name %></h3>
+
+  <div class="Content-main">
+    <div class="Section">
+      <%= render "partials/filter",
+        options: @product_booking_resource_skus.filter_options(product: @product),
+        search: false,
+        xlsx: true
+      %>
+
+      <%= render "partials/table",
+        list: @product_booking_resource_skus,
+        header: "product_booking_resource_skus/table/header",
+        row: "product_booking_resource_skus/table/row"
+      %>
+
+      <%= paginate @product_booking_resource_skus %>
+    </div>
+  </div>
+</div>
